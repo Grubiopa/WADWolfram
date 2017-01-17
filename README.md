@@ -3,7 +3,7 @@
 ## Integrantes
 
 <ol>
-  <li>Parés Ponze, Juan Antonio - ja.pares@alumnos.urjc.es - JuanAntonioPares </li>
+  <li>Parés Ponce, Juan Antonio - ja.pares@alumnos.urjc.es - JuanAntonioPares </li>
   <li>Principe Aguirre, Karen  - k.principe@alumnos.urjc.es - karenPAPP</li>
   <li>Rubio Palacios, Gabriel - g.rubiopa@alumnos.urjc.es - GRubiopa</li>
   <li>Timon Mayo , Sandra - s.timonm@alumnos.urjc.es - stimonm</li>

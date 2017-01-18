@@ -1,0 +1,40 @@
+#navContainer{
+    background: #a1b1a6;
+    font-size: 1.4em;
+    height: 2%;
+}
+#navContainer ul li{
+    display: inline;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 10%;
+    margin-top: 10%;
+    background: #e6fdee
+}
+#profilePhoto{
+    float:left;
+    width: 42%;
+    text-align: center;
+}
+#data{
+    float:left;
+    width: 50%;
+}
+#profileIcon{
+    width: 100%;
+}
+button{
+    margin-top: 5%;
+    width: 70%;
+    font-size: 1.2em;
+}
+.dataItem{
+    padding-top: 1%;
+}
+#DataUserPage{
+    font-size: 1.4em;
+}
+#dataButton{
+    text-align: center;
+}
+

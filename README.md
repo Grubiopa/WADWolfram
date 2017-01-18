@@ -17,3 +17,4 @@ Recaudación de fondos para proyectos medicinales de esta enfermedad rara para l
 
 La idea del proyecto surge de la necesidad de la creación de un sistema de crowfunding para la financiación del tratamiento para los pacientes de dicha asociación.
 La página estará compuesta por 3 partes diferenciadas. La primera de ellas es la parte pública, visible para todos los usuarios, en la que se visualizarán todos los proyectos a los cuales se puede realizar una donación, el blog con las noticias, el apartado de contacto y el quienes somos. La segunda parte es la correspondiente al
+Prueba para GIT

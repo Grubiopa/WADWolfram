@@ -2584,6 +2584,9 @@ a.btn.btn-wide {
 	outline:0;
 }
 
-
-
+#chat{
+  position:relative;
+  left:40%;
+  right:40%;
+}
 /* Theme Styler :: End */

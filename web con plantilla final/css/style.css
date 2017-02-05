@@ -27,7 +27,8 @@ body {
 	font-size:14px;
 	font-weight:300;
 	line-height:1.6em;
-	color:#656565;
+	color: #756a70;
+	/* color: white; */
 }
 
 a:active {
@@ -42,7 +43,7 @@ h1,h2, h3, h4, h5, h6 {
 	font-family:'Roboto', sans-serif;
 	font-weight:700;
 	line-height:1.1em;
-	color:#666;
+	color: #fff;
 	margin-bottom: 20px;
 }
 
@@ -1134,18 +1135,42 @@ footer .widget .social-network {
 }
 
 /* --- Map --- */
-.map{
+/*.map{
 	position:relative;
 	margin-top:-50px;
 	margin-bottom:40px;
 }
 
-/* google map */
+/* google map 
 #google-map{
     position:relative;
     margin-top:10px;
-    height: 400px;
-}
+    height: 450px;
+    
+} --- */
+
+
+                .google-maps {
+                    position: relative;
+                    margin-top: 5%;
+                    padding-bottom: 30%; // This is the aspect ratio
+                    
+                    height: 0;
+                    overflow: hidden;
+                }
+                
+                .google-maps iframe {
+                    position: absolute;
+                    margin-left:10%;
+                    margin-top: 0%;
+                    margin-bottom:0%;
+                    
+                    top: 0;
+                    left: 0;
+                    width: 80% !important;
+                    height: 100% !important;
+                }
+           
 
 /* --- our team --- */
 
@@ -1827,7 +1852,7 @@ ul.time-post li.time{
 ================================ */
 
 footer{
-	background:#f2f2f2;
+	background: #d2e2f5;
 }
 #sub-footer{
 	border-top: 1px solid #ddd;

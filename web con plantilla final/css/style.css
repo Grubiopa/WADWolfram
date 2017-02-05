@@ -743,7 +743,7 @@ section.callaction {
 ==================================== */
 
 #inner-headline{
-	background:#f2f2f2;
+    background: url("img/bodybg/bg1.png");
 	position:relative;
 	margin:0;
 	padding:0;
@@ -1852,7 +1852,7 @@ ul.time-post li.time{
 ================================ */
 
 footer{
-	background: #d2e2f5;
+	background: #CEEEE9;
 }
 #sub-footer{
 	border-top: 1px solid #ddd;

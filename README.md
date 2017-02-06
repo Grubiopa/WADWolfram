@@ -57,7 +57,7 @@ Contiene un carrusel de fotos de los proyectos, las cuales incluyen el título y
 
 ![Imagen 1][1]  ![Imagen 2][2]
 
- [1]: Indice1.png "Inicio 1"
+ [1]: https://github.com/Grubiopa/WADWolfram/blob/master/Indice1.png "Inicio 1"
  [2]: Indice2.png "Inicio 2"
 
 

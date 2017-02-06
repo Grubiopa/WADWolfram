@@ -35,7 +35,7 @@ Por lo tanto, las entidades del proyecto son las siguientes:
     <ul>
     Donación -> Contendrá el nickname del usuario, la cantidad aportada por el mismo, el proyecto al que se dona y la fecha en la que se hace.
     </ul>
-    <ul>
+A    <ul>
     Usuario -> Contendrá el tipo de usuario (admin o visitante), nombre y apellidos del usuario, nickname, correo electrónico, contraseña e imagen (avatar).
     </ul>
     <ul>
@@ -60,7 +60,7 @@ Proyectos (projects.html)
 
 Posee una lista fija de los proyectos (con la posibilidad de cargar más), con el título, fecha de lanzamiento y una imagen que al pasar el ratón por encima ofrece la opción de "Leer más", la cual reenvía a la página del proyecto correspondiente con la información detallada de éste. La página de cada proyecto contiene una fotografía, una tabla con datos concretos del presupuesto total y condecido, financiación pendiente,... (solo el proyecto bio-psicosocial no proporciona esta tabla) e información ampliada del mismo.
 
-
+pA
 Noticias (blog.html)
 
 Incluye una lista con las nooticias (título, imagen, información del cuerpo de la noticia, fecha de publicación y número de comentarios realizados por los usuarios, enlace que redirige al foro con los comentarios pertinentes). Por otra parte, proporciona un formulario que se debe rellenar para poder dejar un comentario relacionado con una noticia (la cual selecciona el usuario en dicho formulario). Por último, dispone de una lista de enlaces referentes a las categorías en las que se organizan las noticias, cuya selección lleva a la sección correspondiente dentro de la lista de noticias. 
@@ -76,7 +76,19 @@ Sobre sus desarrolladores (about.html)
 Ofrece un texto centrado explicando el origen de la aplicación, por qué y cómo srgió, y los integrantes del grupo de desarrolladores de la aplicación web con sus respectivas titulaciones. Además, incluirá próximamente una fotografía con los miembros del grupo.
 
 
-Cuenta (register.html)
+Registro (register.html)
 
-Proporciona un formulario para registrarse como usuario con campos de texto para introducir nombre, apellidos, nombre de usuario, correo electrónico, contraseña y confirmación de contraseña y un botón "Regístrate". Además, ofrece un enlace a la página de inicio de sesión para aquellos que ya están registrados. Así pues, en la pagina "Inicia sesión" (login.html) se ofrece un formulario con un campo de texto para el nombre de usuario y otro para la contraseña y 2 botones: "Se me ha olvidad la contraseña" y "Entrar". Asimismo, esta página también dispone de un enlace para aquellos que aún no están registrados, invitándoles a hacerlo.
+Proporciona un formulario para registrarse como usuario con campos de texto para introducir nombre, apellidos, nombre de usuario, correo electrónico, contraseña y confirmación de contraseña y un botón "Regístrate". Además, ofrece un enlace a la página de inicio de sesión para aquellos que ya están registrados.
+
+Login (login.html)
+
+Proporciona un formulario para loguearte como usuario y contraseña. También tiene 2 botones: "Se me ha olvidado la contraseña" y "Entrar". Asimismo, esta página también dispone de un enlace para aquellos que aún no están registrados, invitándoles a hacerlo.
+
+Cuenta (users.html)
+
+Hay una barra de navegación con Mis proyectos, Mis movimientos y Mis datos y el boton de cerrar sesión.
+En mis proyectos se podra ver una tabla resumen con los proyectos en los que ha colaborado el usuario y otra con el resto de proyectos que hay a su disposición.
+En mis movimientos se observa una tabla con el proyecto al que has colaborado y la cantidad aportada al mismo.
+Finalmente esta la página de mis datos donde el usuario podra modificar su avatar, sus datos personales, correo y contraseña.
+
 

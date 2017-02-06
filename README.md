@@ -111,9 +111,9 @@ En mis proyectos se podra ver una tabla resumen con los proyectos en los que ha 
 En mis movimientos se observa una tabla con el proyecto al que has colaborado y la cantidad aportada al mismo.
 Finalmente esta la página de mis datos donde el usuario podra modificar su avatar, sus datos personales, correo y contraseña.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User1.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User2.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User3.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User1.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User2.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User3.PNG)
 
 ## Diagramas de actividad
 

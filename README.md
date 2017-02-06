@@ -4,7 +4,7 @@
 
 <ol>
   <li>Parés Ponce, Juan Antonio - ja.pares@alumnos.urjc.es - JuanAntonioPares </li>
-S  <li>Príncipe Aguirre, Karen  - k.principe@alumnos.urjc.es - karenPAPP</li>
+  <li>Príncipe Aguirre, Karen  - k.principe@alumnos.urjc.es - karenPAPP</li>
   <li>Rubio Palacios, Gabriel - g.rubiopa@alumnos.urjc.es - GRubiopa</li>
   <li>Timón Mayo, Sandra - s.timonm@alumnos.urjc.es - stimonm</li>
 </ol>
@@ -14,7 +14,7 @@ S  <li>Príncipe Aguirre, Karen  - k.principe@alumnos.urjc.es - karenPAPP</li>
 Recaudación de fondos para proyectos medicinales de esta enfermedad rara para la Asociación Española para la Investigación y Ayuda al Síndrome de Wolfram.
 
 ## Idea del proyecto
-S
+
 La idea del proyecto surge de la necesidad de la creación de un sistema de crowfunding para la financiación del tratamiento para los pacientes de dicha asociación.
 La página estará compuesta por 3 partes diferenciadas. 
 
@@ -24,7 +24,7 @@ Seguidamente, la parte privada de cada usuario que se hubiera logueado previamen
 En la parte de los proyectos se verá la información de los mismos, cómo realizar una colaboración, y el número de personas que han participado hasta el momento.
 
 En último lugar, el administrador, tendrá su parte privada en la que podrá realizar modificaciones en toda la página, proyectos, blog, usuarios, gestionar los mensajes y/o comentarios privados de los usuarios, étc.
-S
+
 ## Entidades
 
 Por lo tanto, las entidades del proyecto son las siguientes:
@@ -34,12 +34,12 @@ Por lo tanto, las entidades del proyecto son las siguientes:
     </ul>
     <ul>
     Donación -> Contendrá el nickname del usuario, la cantidad aportada por el mismo, el proyecto al que se dona y la fecha en la que se hace.
-S    </ul>
+    </ul>
     <ul>
     Usuario -> Contendrá el tipo de usuario (admin o visitante), nombre y apellidos del usuario, nickname, correo electrónico, contraseña e imagen (avatar).
     </ul>
     <ul>
-l    Proyecto -> Contendrá el título del proyecto, fecha de inicio, una imagen, una pequeña descripción, una más amplia, cantidad ya aportada, lo que falta por aportar, número de usuarios que han participado y el estado del proyecto (terminado o en curso). 
+    Proyecto -> Contendrá el título del proyecto, fecha de inicio, una imagen, una pequeña descripción, una más amplia, cantidad ya aportada, lo que falta por aportar, número de usuarios que han participado y el estado del proyecto (terminado o en curso). 
     </ul>
 </ol>
 
@@ -55,7 +55,8 @@ Inicio (index.html)
 
 Contiene un carrusel de fotos de los proyectos, las cuales incluyen el título y una breve descripción del mismo. Al pinchar una foto, nos redirige a una página con la información detallada del proyecto. También incluye una breve descripción de la finalidad de la app (encabezado Sobre nuestra asociación) y barras de progreso que muestran el estado de cada proyecto (encabezado Colabora con nuestros proyectos). Por último, posee una sección de noticias, de las que se muestra el título y una imagen de las mismas. Al seleccionar una noticia, el enlace lleva el fco oa la noticia en concreto en la página Noticias.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Indice1.png)  ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Indice2.png) 
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Indice1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Indice2.png) 
 
 
 Proyectos (projects.html)
@@ -94,13 +95,13 @@ Ofrece un texto centrado explicando el origen de la aplicación, por qué y cóm
 Registro (register.html)
 
 Proporciona un formulario para registrarse como usuario con campos de texto para introducir nombre, apellidos, nombre de usuario, correo electrónico, contraseña y confirmación de contraseña y un botón "Regístrate". Además, ofrece un enlace a la página de inicio de sesión para aquellos que ya están registrados.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas//Registrarse.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Registrarse.png)
 
 
 Login (login.html)
 
 Proporciona un formulario para loguearte como usuario y contraseña. También tiene 2 botones: "Se me ha olvidado la contraseña" y "Entrar". Asimismo, esta página también dispone de un enlace para aquellos que aún no están registrados, invitándoles a hacerlo.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/IniciarSesion.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/IniciarSesion.png)
  
  
 Cuenta (users.html)
@@ -110,8 +111,53 @@ En mis proyectos se podra ver una tabla resumen con los proyectos en los que ha 
 En mis movimientos se observa una tabla con el proyecto al que has colaborado y la cantidad aportada al mismo.
 Finalmente esta la página de mis datos donde el usuario podra modificar su avatar, sus datos personales, correo y contraseña.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/IniciarSesion.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/IniciarSesion.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User2.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User3.png)
+
+## Diagramas de actividad
+
+A continuación se mostraran los diferentes diagrama de actividad de las diferentes paginas html.
+
+Inicio (index.html)
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Index.png)
+
+Proyectos (projects.html)
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Proyectos1.png)
+
+Pagina proyecto(oneProject.html)
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/oneProject.png)
+
+Noticias (blog.html)
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Noticias2.png)
+
+
+Contacto (contact.html)
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Contacto.png)
+
+
+Sobre sus desarrolladores (about.html)
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/About.png)
+
+Registro (register.html)
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Register.png)
+
+
+Login (login.html)
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Login.png)
+ 
+ 
+Cuenta (users.html)
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Users.png)
 
 ## CAMBIOS SOBRE LA PLANTILLA
 

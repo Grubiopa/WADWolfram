@@ -169,7 +169,7 @@ Administrador (Bootstrap-Admin-Theme)
 
 
 
-## CAMBIOS SOBRE LAS PLANTILLAS
+## Cambios sobre las plantillas
 
 La plantilla que cogimos para la mayoría de la aplicación era una muy genérica ya que cada link nos llevaba, básicamente, a otra página sino igual, muy similar: https://bootstrapmade.com/demo/themes/Sailor/ . 
 La otra plantilla utilizada ha sido dedicada, exclusivamente, a la parte del admin: https://github.com/VinceG/Bootstrap-Admin-Theme .
@@ -195,20 +195,37 @@ Cambios genéricos que se han realizado a la plantilla del admin:
 <li>Se ha cambiado los títulos <title>, la información del footer, el nombre de los elementos de navegación y de la página en el header, y el botón superior de la misma para todas las páginas del administrador.</li>
 </ol>
 
-CAMBIOS EN LAS PANTALLAS DEL ADMIN:
+## Cambios en la plantilla del admin
 
-Header:
+<b>Header</b>
 Se ha eliminado la barra de búsqueda, se ha cambiado el nombre del título h1 a Admin Wolfram, se ha colocado un botón desplegable llamado "mi cuenta" con las opciones de cerrar sesión y perfil.
-Página de inicio:
+
+<b>Página de inicio</b>
 Se ha eliminado todo el contenido y se han colocado dos gráficas para ver las visitas de las noticias en el tiempo y la evolución de donaciones de los proyectos.
-Añadir proyectos:
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Index-admin1.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Index-admin2.PNG)
+
+<b>Añadir proyectos</b>
 Se ha colocado un formulario para añadir un proyecto con todos los datos necesarios, y una tabla con todos los proyectos activos, para poder eliminarlos o editarlos en cualquier momento.
-Añadir noticias:
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewProject-Admin1.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewProject-Admin2.PNG)
+
+<b>Añadir noticias</b>
 Se ha colocado de nuevo un formulario para añadir una noticia, al igual que para los proyectos.
-Donaciones:
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewBlog-admin.PNG)
+
+<b>Donaciones</b>
 Se incluye una tabla con las personas que han donado, a que proyecto, y cuánto dinero, así como la fecha en la que se donó.
-Perfil:
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Donaciones-admin.PNG)
+
+<b>Mensajes</b>
+Contiene una lista a la izquierda de los usuarios a quienes se puede enviar un mensaje, así como un cuadro de texto a la derecha para redactarlo y enviarlo al pulsar el correspondiente botón.
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Mensajes-admin.PNG)
+
+<b>Perfil</b>
 Permite cambiar los datos de la cuenta del administrador, así como crear otro administrador.
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.PNG)
+
 
 
 

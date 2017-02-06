@@ -162,6 +162,13 @@ Cuenta (users.html)
 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Users.png)
 
+
+Administrador (Bootstrap-Admin-Theme)
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Admin.png)
+
+
+
 ## CAMBIOS SOBRE LAS PLANTILLAS
 
 La plantilla que cogimos para la mayoría de la aplicación era una muy genérica ya que cada link nos llevaba, básicamente, a otra página sino igual, muy similar: (https://bootstrapmade.com/demo/themes/Sailor/). 
@@ -169,12 +176,14 @@ La otra plantilla utilizada ha sido dedicada, exclusivamente, a la parte del adm
 Los cambios que hemos aplicado han sido abundantes y, en función de lo que íbamos a necesitar, íbamos adaptando la aplicación, ya que como se ha podido observar, la página de índice no tiene nada que ver con la página privada del usuario, por ejemplo.
 
 Cambios genéricos que se han realizado a la plantilla de la página (NO ADMIN):
-1 - Background
-2 - Logo
-3 - Footer
-4 - Barra de menús
-6 - Toda la parte de contenido, ya que de cada página html que se tenía se ha ido cogiendo los elementos que se necesitaban,
+<ol>
+<li> Background</li>
+<li> Logo</li>
+<li> Footer</li>
+<li> Barra de menús</li>
+<li> Toda la parte de contenido, ya que de cada página html que se tenía se ha ido cogiendo los elementos que se necesitaban,
 intercambiandolos de una a otra en función de nuestras necesidades y, añadiendo algunos nuevos.
+</ol>
 
 Cambios genéricos que se han realizado a la plantilla del admin:
 

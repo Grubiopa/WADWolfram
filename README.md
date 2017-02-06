@@ -113,7 +113,7 @@ Finalmente esta la página de mis datos donde el usuario podra modificar su avat
 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User1.PNG)
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User2.PNG)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User3.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User3.png)
 
 ## Diagramas de actividad
 

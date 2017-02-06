@@ -70,8 +70,8 @@ Posee una lista fija de los proyectos (con la posibilidad de cargar más) y la p
 Pagina proyecto(oneProject.html)
 
 Esta página sera la encargada de mostrar la descripción extensa del proyecto, una foto, las caracticas del proyecto (fecha, aportaciones...) y el botón más importante Participa para animar a la gente a colaborar en el proyecto.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/proyectoEjemplo1.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/proyectoEjemplo2.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/proyectoEjemplo1.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/proyectoEjemplo2.PNG)
 
 Noticias (blog.html)
 
@@ -113,7 +113,7 @@ Finalmente esta la página de mis datos donde el usuario podra modificar su avat
 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User1.PNG)
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User2.PNG)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User3.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/user3.png)
 
 ## Diagramas de actividad
 

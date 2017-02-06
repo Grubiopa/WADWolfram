@@ -39,7 +39,7 @@ Por lo tanto, las entidades del proyecto son las siguientes:
     Usuario -> Contendrá el tipo de usuario (admin o visitante), nombre y apellidos del usuario, nickname, correo electrónico, contraseña e imagen (avatar).
     </ul>
     <ul>
-    Proyecto -> Contendrá el título del proyecto, fecha de inicio, una imagen, una pequeña descripción, una más amplia, cantidad ya aportada, lo que falta por aportar, número de usuarios que han participado y el estado del proyecto (terminado o en curso). 
+l    Proyecto -> Contendrá el título del proyecto, fecha de inicio, una imagen, una pequeña descripción, una más amplia, cantidad ya aportada, lo que falta por aportar, número de usuarios que han participado y el estado del proyecto (terminado o en curso). 
     </ul>
 </ol>
 
@@ -60,7 +60,7 @@ Contiene un carrusel de fotos de los proyectos, las cuales incluyen el título y
 
 Proyectos (projects.html)
 
-Posee una lista fija de los proyectos (con la posibilidad de cargar más), con el título, fecha de lanzamiento y una imagen que al pasar el ratón por encima ofrece la opción de "Leer más", la cual reenvía a la página del proyecto correspondiente con la información detallada de éste. La página de cada proyecto contiene una fotografía, una tabla con datos concretos del presupuesto total y condecido, financiación pendiente,... (solo el proyecto bio-psicosocial no proporciona esta tabla) e información ampliada del mismo.
+Posee una lista fija de los proyectos (con la posibilidad de cargar más) y la posibilidad de poder filtrarlos (recientes, años o ver los que ya han concluido), el título, fecha de lanzamiento y una imagen que al pasar el ratón por encima ofrece la opción de "Leer más", la cual reenvía a la página del proyecto correspondiente con la información detallada de éste. La página de cada proyecto contiene una fotografía, una tabla con datos concretos del presupuesto total y condecido, financiación pendiente,... (solo el proyecto bio-psicosocial no proporciona esta tabla) e información ampliada del mismo.
 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Proyectos1.png)
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Proyectos2.png)

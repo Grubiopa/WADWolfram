@@ -2,16 +2,18 @@
 <html>
 
 <head>
-    <title>Admin WAD Wolfram - Inicio</title>
+    <title>Admin WAD Wolfram - Donaciones</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- jQuery UI -->
     <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
+
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/fullcalendar/fullcalendar.css" rel="stylesheet" media="screen">
     <!-- styles -->
     <link href="css/styles.css" rel="stylesheet">
-    <link href="css/stats.css" rel="stylesheet">
 
+    <link href="css/calendar.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -66,9 +68,9 @@
                 <div class="sidebar content-box " style="display: block; ">
                     <ul class="nav ">
                         <!-- Main menu -->
-                        <li class="current"><a href="index.html "><i class="glyphicon glyphicon-home "></i> Inicio</a></li>
+                        <li><a href="index.html "><i class="glyphicon glyphicon-home "></i> Inicio</a></li>
                         <li><a href="addproject.html "><i class="glyphicon glyphicon-pencil "></i> Añadir Proyecto</a></li>
-                        <li><a href="donations.html "><i class="glyphicon glyphicon-euro"></i> Donaciones</a></li>
+                        <li class="current"><a href="donations.html"><i class="glyphicon glyphicon-euro"></i> Donaciones</a></li>
                         <li><a href="addblog.html "><i class="glyphicon glyphicon-tasks "></i> Añadir Noticia</a></li>
                         <li><a href="mycomments.html "><i class="glyphicon glyphicon-list "></i> Mis mensajes</a></li>
                         <li class="submenu ">
@@ -86,50 +88,80 @@
                 </div>
             </div>
 
-            <div class="col-md-9 ">
-                <!--Page Content-->
-                <div class="row ">
-                    <div class="col-md-12 ">
-                        <h1>Bienvenido Admin</h1>
-                    </div>
-                </div>
-                <div class="content-box-large ">
-                    <div class="panel-heading ">
-                        <div class="panel-title ">Donado por proyecto</div>
-
-                        <div class="panel-options ">
-                            <a href="# " data-rel="collapse "><i class="glyphicon glyphicon-refresh "></i></a>
-                            <a href="# " data-rel="reload "><i class="glyphicon glyphicon-cog "></i></a>
-                        </div>
-                    </div>
-                    <div class="panel-body ">
-                        <div id="hero-graph " style="height: 230px; ">
-                            <img src="images/basurainfinita.png" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-md-12 ">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="content-box-large">
                             <div class="panel-heading">
-                                <div class="panel-title">Número de visitas a cada noticia</div>
-
+                                <div class="panel-title">Donaciones</div>
                                 <div class="panel-options">
                                     <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
                                     <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <div id="hero-area" style="height: 230px;">
-                                    <img src="images/basurainfinita2.png" />
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre del proyecto</th>
+                                                <th>Nombre del usuario</th>
+                                                <th>Cantidad donada</th>
+                                                <th>Fecha de donación</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Proyecto 1</td>
+                                                <td>Usuario 1</td>
+                                                <td>115€</td>
+                                                <td>
+                                                    04-2-2017
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Proyecto 1</td>
+                                                <td>Usuario 2</td>
+                                                <td>45€</td>
+                                                <td>
+                                                    27-11-2016
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Proyecto 2</td>
+                                                <td>Usuario 1</td>
+                                                <td>83€</td>
+                                                <td>
+                                                    11-12-2016
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Proyecto 2</td>
+                                                <td>Usuario 3</td>
+                                                <td>95€</td>
+                                                <td>
+                                                    20-1-2017
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Proyecto 3</td>
+                                                <td>Usuario 1</td>
+                                                <td>30€</td>
+                                                <td>
+                                                    23-10-2016
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
-    </div>
     </div>
 
     <footer>
@@ -142,12 +174,17 @@
         </div>
     </footer>
 
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="vendors/fullcalendar/fullcalendar.js"></script>
+    <script src="vendors/fullcalendar/gcal.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/calendar.js"></script>
 </body>
 
 </html>

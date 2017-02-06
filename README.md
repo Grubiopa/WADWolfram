@@ -1,5 +1,8 @@
 # WADWolfram
 
+
+## Fase 1
+
 ## Integrantes
 
 <ol>
@@ -51,15 +54,15 @@ Común a todas las páginas web de la parte pública:
 
 Hay una barra de navegación (Inicio, Proyectos, Noticias, Contacto, Sobre sus desarrolladores y Cuenta) que se mantiene a lo largo de toda la parte pública en la parte superior de las páginas. Otra parte común a todas estas páginas es el cierre de página, que indica los datos de la asociación (nombre, dirección, teléfono...), información sobre términos y condiciones, política de privacidad, etc y una lista de páginas relacionadas. Así mismo, da la posibilidad de elegir el idioma de la aplicación.
  
-Inicio (index.html)
+<b>Inicio (index.html)</b>
 
-Contiene un carrusel de fotos de los proyectos, las cuales incluyen el título y una breve descripción del mismo. Al pinchar una foto, nos redirige a una página con la información detallada del proyecto. También incluye una breve descripción de la finalidad de la app (encabezado Sobre nuestra asociación) y barras de progreso que muestran el estado de cada proyecto (encabezado Colabora con nuestros proyectos). Por último, posee una sección de noticias, de las que se muestra el título y una imagen de las mismas. Al seleccionar una noticia, el enlace lleva el fco oa la noticia en concreto en la página Noticias.
+Contiene un carrusel de fotos de los proyectos, las cuales incluyen el título y una breve descripción del mismo. Al pinchar una foto, nos redirige a una página con la información detallada del proyecto. También incluye una breve descripción de la finalidad de la app (encabezado Sobre nuestra asociación) y barras de progreso que muestran el estado de cada proyecto (encabezado Colabora con nuestros proyectos). Por último, posee una sección de noticias, de las que se muestra el título y una imagen de las mismas. Al seleccionar una noticia, el enlace lleva el foco a la noticia en concreto en la página Noticias.
 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Indice1.png)
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Indice2.png) 
 
 
-Proyectos (projects.html)
+<b>Proyectos (projects.html)</b>
 
 Posee una lista fija de los proyectos (con la posibilidad de cargar más) y la posibilidad de poder filtrarlos (recientes, años o ver los que ya han concluido), el título, fecha de lanzamiento y una imagen que al pasar el ratón por encima ofrece la opción de "Leer más", la cual reenvía a la página del proyecto correspondiente con la información detallada de éste. La página de cada proyecto contiene una fotografía, una tabla con datos concretos del presupuesto total y condecido, financiación pendiente,... (solo el proyecto bio-psicosocial no proporciona esta tabla) e información ampliada del mismo.
 
@@ -67,48 +70,48 @@ Posee una lista fija de los proyectos (con la posibilidad de cargar más) y la p
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Proyectos2.png)
 
 
-Pagina proyecto(oneProject.html)
+<b>Pagina proyecto(oneProject.html)</b>
 
-Esta página sera la encargada de mostrar la descripción extensa del proyecto, una foto, las caracticas del proyecto (fecha, aportaciones...) y el botón más importante Participa para animar a la gente a colaborar en el proyecto.
+Esta página sera la encargada de mostrar la descripción extensa del proyecto, una foto, las caracticas del proyecto (fecha, aportaciones...) y el botón más importante, "Participa", para animar a la gente a colaborar en el proyecto.
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/proyectoEjemplo1.PNG)
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/proyectoEjemplo2.PNG)
 
-Noticias (blog.html)
+<b>Noticias (blog.html)</b>
 
-Incluye una lista con las nooticias (título, imagen, información del cuerpo de la noticia, fecha de publicación y número de comentarios realizados por los usuarios, enlace que redirige al foro con los comentarios pertinentes). Por otra parte, proporciona un formulario que se debe rellenar para poder dejar un comentario relacionado con una noticia (la cual selecciona el usuario en dicho formulario). Por último, dispone de una lista de enlaces referentes a las categorías en las que se organizan las noticias, cuya selección lleva a la sección correspondiente dentro de la lista de noticias. 
+Incluye una lista con las noticias (título, imagen, información del cuerpo de la noticia, fecha de publicación y número de comentarios realizados por los usuarios, enlace que redirige al foro con los comentarios pertinentes). Por otra parte, proporciona un formulario que se debe rellenar para poder dejar un comentario relacionado con una noticia (la cual selecciona el usuario en dicho formulario). Por último, dispone de una lista de enlaces referentes a las categorías en las que se organizan las noticias, cuya selección lleva a la sección correspondiente dentro de la lista de noticias. 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Noticias1.png)
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Noticias2.png)
 
 
-Contacto (contact.html)
+<b>Contacto (contact.html)</b>
 
-Muestra, centrados, un texto que invita a los usuarios a resolver sus dudas y, por debajo, un área de texto (con etiqueta “Chat”), para poder consultar sus dudas al administrador de la aplicación manteniendo una comunicación directa, y un botón enviar (con un icono de mensaje). 
+Muestra, tres columnas. En la primera, un texto que invita a los usuarios a resolver sus dudas y, por debajo, un área de texto (con etiqueta “Chat”), para poder consultar sus dudas al administrador de la aplicación manteniendo una comunicación directa, y un botón enviar (con un icono de mensaje). En la segunda, se hace más visible toda la información referente al perfil de la asociación, mostrando la dirección, el teléfono, fax... Finalmente, se muestra un mapa de su ubicación.
 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Contacto.png)
 
 
-Sobre sus desarrolladores (about.html)
+<b>Sobre sus desarrolladores (about.html)</b>
 
-Ofrece un texto centrado explicando el origen de la aplicación, por qué y cómo srgió, y los integrantes del grupo de desarrolladores de la aplicación web con sus respectivas titulaciones. Además, incluirá próximamente una fotografía con los miembros del grupo.
+Ofrece un texto centrado explicando el origen de la aplicación, por qué y cómo surgió, y los integrantes del grupo de desarrolladores de la aplicación web con sus respectivas titulaciones. Además, incluirá próximamente una fotografía con los miembros del grupo.
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/About.png)
 
-Registro (register.html)
+<b>Registro (register.html)</b>
 
 Proporciona un formulario para registrarse como usuario con campos de texto para introducir nombre, apellidos, nombre de usuario, correo electrónico, contraseña y confirmación de contraseña y un botón "Regístrate". Además, ofrece un enlace a la página de inicio de sesión para aquellos que ya están registrados.
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Registrarse.png)
 
 
-Login (login.html)
+<b>Login (login.html)</b>
 
 Proporciona un formulario para loguearte como usuario y contraseña. También tiene 2 botones: "Se me ha olvidado la contraseña" y "Entrar". Asimismo, esta página también dispone de un enlace para aquellos que aún no están registrados, invitándoles a hacerlo.
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/IniciarSesion.png)
  
  
-Cuenta (users.html)
+<b>Cuenta (users.html)</b>
 
-Hay una barra de navegación con Mis proyectos, Mis movimientos y Mis datos y el boton de cerrar sesión.
-En mis proyectos se podra ver una tabla resumen con los proyectos en los que ha colaborado el usuario y otra con el resto de proyectos que hay a su disposición.
-En mis movimientos se observa una tabla con el proyecto al que has colaborado y la cantidad aportada al mismo.
+Hay una barra de navegación con "Mis proyectos", "Mis movimientos" y "Mis datos" y el botón de cerrar sesión.
+En "Mis proyectos" se podrá ver una tabla resumen con los proyectos en los que ha colaborado el usuario y otra con el resto de proyectos que hay a su disposición.
+En "Mis movimientos" se observa una tabla con el proyecto al que has colaborado y la cantidad aportada al mismo.
 Finalmente esta la página de mis datos donde el usuario podra modificar su avatar, sus datos personales, correo y contraseña.
 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User1.PNG)
@@ -159,13 +162,21 @@ Cuenta (users.html)
 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Users.png)
 
-## CAMBIOS SOBRE LA PLANTILLA
+## CAMBIOS SOBRE LAS PLANTILLAS
 
-La plantilla que cogimos era una plantilla muy genérica ya que cada link que tenía era como otra plantilla en si misma (https://bootstrapmade.com/demo/themes/Sailor/) entonces los cambios que hemos realizado han sido bastante amplios y en función de lo que íbamos a necesitar la ibamos adaptando, ya que como se ha podido ver la practica de índice no tiene nada que ver con la página privada del usuario, por ejemplo.
-Cambios genéricos que hemos realizado:
+La plantilla que cogimos para la mayoría de la aplicación era una muy genérica ya que cada link nos llevaba, básicamente, a otra página sino igual, muy similar: (https://bootstrapmade.com/demo/themes/Sailor/). 
+La otra plantilla utilizada ha sido dedicada, exclusivamente, a la parte del admin: (------)
+Los cambios que hemos aplicado han sido abundantes y, en función de lo que íbamos a necesitar, íbamos adaptando la aplicación, ya que como se ha podido observar, la página de índice no tiene nada que ver con la página privada del usuario, por ejemplo.
+
+Cambios genéricos que se han realizado a la plantilla de la página (NO ADMIN):
 1 - Background
-2 - Footer
-3 - Barra de menús
-4 - Toda la parte de contenido, ya que de cada página html que tenía la página hemos ido cogiendo los elementos que necesitabamos e intercambiando los de una a otra, en función de nuestras necesidades y añadiendo algunos nuevos.
-En general con esto hemos resumido nuestros cambios
+2 - Logo
+3 - Footer
+4 - Barra de menús
+6 - Toda la parte de contenido, ya que de cada página html que se tenía se ha ido cogiendo los elementos que se necesitaban,
+intercambiandolos de una a otra en función de nuestras necesidades y, añadiendo algunos nuevos.
+
+Cambios genéricos que se han realizado a la plantilla del admin:
+
+(------------------------------------------)
 

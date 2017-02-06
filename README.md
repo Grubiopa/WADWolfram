@@ -4,7 +4,7 @@
 
 <ol>
   <li>Parés Ponce, Juan Antonio - ja.pares@alumnos.urjc.es - JuanAntonioPares </li>
-  <li>Príncipe Aguirre, Karen  - k.principe@alumnos.urjc.es - karenPAPP</li>
+S  <li>Príncipe Aguirre, Karen  - k.principe@alumnos.urjc.es - karenPAPP</li>
   <li>Rubio Palacios, Gabriel - g.rubiopa@alumnos.urjc.es - GRubiopa</li>
   <li>Timón Mayo, Sandra - s.timonm@alumnos.urjc.es - stimonm</li>
 </ol>
@@ -14,7 +14,7 @@
 Recaudación de fondos para proyectos medicinales de esta enfermedad rara para la Asociación Española para la Investigación y Ayuda al Síndrome de Wolfram.
 
 ## Idea del proyecto
-
+S
 La idea del proyecto surge de la necesidad de la creación de un sistema de crowfunding para la financiación del tratamiento para los pacientes de dicha asociación.
 La página estará compuesta por 3 partes diferenciadas. 
 
@@ -24,7 +24,7 @@ Seguidamente, la parte privada de cada usuario que se hubiera logueado previamen
 En la parte de los proyectos se verá la información de los mismos, cómo realizar una colaboración, y el número de personas que han participado hasta el momento.
 
 En último lugar, el administrador, tendrá su parte privada en la que podrá realizar modificaciones en toda la página, proyectos, blog, usuarios, gestionar los mensajes y/o comentarios privados de los usuarios, étc.
-
+S
 ## Entidades
 
 Por lo tanto, las entidades del proyecto son las siguientes:
@@ -34,7 +34,7 @@ Por lo tanto, las entidades del proyecto son las siguientes:
     </ul>
     <ul>
     Donación -> Contendrá el nickname del usuario, la cantidad aportada por el mismo, el proyecto al que se dona y la fecha en la que se hace.
-    </ul>
+S    </ul>
     <ul>
     Usuario -> Contendrá el tipo de usuario (admin o visitante), nombre y apellidos del usuario, nickname, correo electrónico, contraseña e imagen (avatar).
     </ul>
@@ -55,46 +55,46 @@ Inicio (index.html)
 
 Contiene un carrusel de fotos de los proyectos, las cuales incluyen el título y una breve descripción del mismo. Al pinchar una foto, nos redirige a una página con la información detallada del proyecto. También incluye una breve descripción de la finalidad de la app (encabezado Sobre nuestra asociación) y barras de progreso que muestran el estado de cada proyecto (encabezado Colabora con nuestros proyectos). Por último, posee una sección de noticias, de las que se muestra el título y una imagen de las mismas. Al seleccionar una noticia, el enlace lleva el fco oa la noticia en concreto en la página Noticias.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Indice1.png)  ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Indice2.png) 
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Indice1.png)  ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Indice2.png) 
 
 
 Proyectos (projects.html)
 
 Posee una lista fija de los proyectos (con la posibilidad de cargar más) y la posibilidad de poder filtrarlos (recientes, años o ver los que ya han concluido), el título, fecha de lanzamiento y una imagen que al pasar el ratón por encima ofrece la opción de "Leer más", la cual reenvía a la página del proyecto correspondiente con la información detallada de éste. La página de cada proyecto contiene una fotografía, una tabla con datos concretos del presupuesto total y condecido, financiación pendiente,... (solo el proyecto bio-psicosocial no proporciona esta tabla) e información ampliada del mismo.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Proyectos1.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Proyectos2.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Proyectos1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Proyectos2.png)
 
 
 Pagina proyecto(oneProject.html)
 
 Esta página sera la encargada de mostrar la descripción extensa del proyecto, una foto, las caracticas del proyecto (fecha, aportaciones...) y el botón más importante Participa para animar a la gente a colaborar en el proyecto.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/proyectoEjemplo1.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/proyectoEjemplo2.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/proyectoEjemplo1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/proyectoEjemplo2.png)
 
 Noticias (blog.html)
 
 Incluye una lista con las nooticias (título, imagen, información del cuerpo de la noticia, fecha de publicación y número de comentarios realizados por los usuarios, enlace que redirige al foro con los comentarios pertinentes). Por otra parte, proporciona un formulario que se debe rellenar para poder dejar un comentario relacionado con una noticia (la cual selecciona el usuario en dicho formulario). Por último, dispone de una lista de enlaces referentes a las categorías en las que se organizan las noticias, cuya selección lleva a la sección correspondiente dentro de la lista de noticias. 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Noticias1.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Noticias2.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Noticias1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Noticias2.png)
 
 
 Contacto (contact.html)
 
 Muestra, centrados, un texto que invita a los usuarios a resolver sus dudas y, por debajo, un área de texto (con etiqueta “Chat”), para poder consultar sus dudas al administrador de la aplicación manteniendo una comunicación directa, y un botón enviar (con un icono de mensaje). 
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Contacto.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Contacto.png)
 
 
 Sobre sus desarrolladores (about.html)
 
 Ofrece un texto centrado explicando el origen de la aplicación, por qué y cómo srgió, y los integrantes del grupo de desarrolladores de la aplicación web con sus respectivas titulaciones. Además, incluirá próximamente una fotografía con los miembros del grupo.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/About.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/About.png)
 
 Registro (register.html)
 
 Proporciona un formulario para registrarse como usuario con campos de texto para introducir nombre, apellidos, nombre de usuario, correo electrónico, contraseña y confirmación de contraseña y un botón "Regístrate". Además, ofrece un enlace a la página de inicio de sesión para aquellos que ya están registrados.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Registrarse.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas//Registrarse.png)
 
 
 Login (login.html)

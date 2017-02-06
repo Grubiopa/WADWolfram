@@ -116,7 +116,7 @@ Finalmente esta la página de mis datos donde el usuario podra modificar su avat
 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User1.PNG)
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User2.PNG)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/user3.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/user3.PNG)
 
 ## Diagramas de actividad
 
@@ -181,22 +181,24 @@ Cambios genéricos que se han realizado a la plantilla de la página (NO ADMIN):
 <li> Logo</li>
 <li> Footer</li>
 <li> Barra de menús</li>
+<li> Titles en los html </li>
 <li> Toda la parte de contenido, ya que de cada página html que se tenía se ha ido cogiendo los elementos que se necesitaban,
-intercambiandolos de una a otra en función de nuestras necesidades y, añadiendo algunos nuevos.
+intercambiandolos de una a otra en función de nuestras necesidades y, añadiendo algunos nuevos.</li>
 </ol>
 
 Cambios genéricos que se han realizado a la plantilla del admin:
-
--Solo se han conservado el menú superior, el footer y la navegación lateral.
-- Se han eliminado la barra de búsqueda y todos los html que venían por defecto.
-- Se han utilizado elementos como tablas, graficas o formularios para modelar el contenido de las páginas web.
-- Se ha modelado cada página desde cero, ateniéndose a las necesidades de cada una de ellas.
-- Se ha cambiado los títulos (<title>) la información del footer, el nombre de los elementos de navegación y de la página en el header, y el botón superior de la misma para todas las páginas del administrador.
+<ol>
+<li>Solo se han conservado el menú superior, el footer y la navegación lateral.</li>
+<li>Se han eliminado la barra de búsqueda y todos los html que venían por defecto.</li>
+<li>Se han utilizado elementos como tablas, gráficas o formularios para modelar el contenido de las páginas web.</li>
+<li>Se ha modelado cada página desde cero, ateniéndose a las necesidades de cada una de ellas.</li>
+<li>Se ha cambiado los títulos <title>, la información del footer, el nombre de los elementos de navegación y de la página en el header, y el botón superior de la misma para todas las páginas del administrador.</li>
+</ol>
 
 CAMBIOS EN LAS PANTALLAS DEL ADMIN:
 
 Header:
-Se ha eliminado la barra de búsqueda, se ha cambiado el nombre del título h1 a Admin Wolfram, se ha colocado un botón desplegable llamado “mi cuenta” con las opciones de cerrar sesión y perfil.
+Se ha eliminado la barra de búsqueda, se ha cambiado el nombre del título h1 a Admin Wolfram, se ha colocado un botón desplegable llamado "mi cuenta" con las opciones de cerrar sesión y perfil.
 Página de inicio:
 Se ha eliminado todo el contenido y se han colocado dos gráficas para ver las visitas de las noticias en el tiempo y la evolución de donaciones de los proyectos.
 Añadir proyectos:

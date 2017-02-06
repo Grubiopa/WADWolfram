@@ -136,7 +136,7 @@ Pagina proyecto(oneProject.html)
 
 Noticias (blog.html)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Noticias2.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Blog.png)
 
 
 Contacto (contact.html)
@@ -192,7 +192,7 @@ Cambios genéricos que se han realizado a la plantilla del admin:
 <li>Se han eliminado la barra de búsqueda y todos los html que venían por defecto.</li>
 <li>Se han utilizado elementos como tablas, gráficas o formularios para modelar el contenido de las páginas web.</li>
 <li>Se ha modelado cada página desde cero, ateniéndose a las necesidades de cada una de ellas.</li>
-<li>Se ha cambiado los títulos <title>, la información del footer, el nombre de los elementos de navegación y de la página en el header, y el botón superior de la misma para todas las páginas del administrador.</li>
+<li>Se ha cambiado los títulos "title", la información del footer, el nombre de los elementos de navegación y de la página en el header, y el botón superior de la misma para todas las páginas del administrador.</li>
 </ol>
 
 ## Cambios en la plantilla del admin

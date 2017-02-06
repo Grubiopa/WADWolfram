@@ -202,29 +202,29 @@ Se ha eliminado la barra de búsqueda, se ha cambiado el nombre del título h1 a
 
 <b>Página de inicio</b>
 Se ha eliminado todo el contenido y se han colocado dos gráficas para ver las visitas de las noticias en el tiempo y la evolución de donaciones de los proyectos.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Index-admin1.PNG)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Index-admin2.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Index-admin1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Index-admin2.png)
 
 <b>Añadir proyectos</b>
 Se ha colocado un formulario para añadir un proyecto con todos los datos necesarios, y una tabla con todos los proyectos activos, para poder eliminarlos o editarlos en cualquier momento.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewProject-Admin1.PNG)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewProject-Admin2.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewProject-Admin1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewProject-Admin2.png)
 
 <b>Añadir noticias</b>
 Se ha colocado de nuevo un formulario para añadir una noticia, al igual que para los proyectos.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewBlog-admin.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewBlog-admin.png)
 
 <b>Donaciones</b>
 Se incluye una tabla con las personas que han donado, a que proyecto, y cuánto dinero, así como la fecha en la que se donó.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Donaciones-admin.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Donaciones-admin.png)
 
 <b>Mensajes</b>
 Contiene una lista a la izquierda de los usuarios a quienes se puede enviar un mensaje, así como un cuadro de texto a la derecha para redactarlo y enviarlo al pulsar el correspondiente botón.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Mensajes-admin.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Mensajes-admin.png)
 
 <b>Perfil</b>
 Permite cambiar los datos de la cuenta del administrador, así como crear otro administrador.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.png)
 
 
 

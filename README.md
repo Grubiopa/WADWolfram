@@ -113,3 +113,13 @@ Finalmente esta la página de mis datos donde el usuario podra modificar su avat
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/IniciarSesion.png)
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/IniciarSesion.png)
 
+## CAMBIOS SOBRE LA PLANTILLA
+
+La plantilla que cogimos era una plantilla muy genérica ya que cada link que tenía era como otra plantilla en si misma (https://bootstrapmade.com/demo/themes/Sailor/) entonces los cambios que hemos realizado han sido bastante amplios y en función de lo que íbamos a necesitar la ibamos adaptando, ya que como se ha podido ver la practica de índice no tiene nada que ver con la página privada del usuario, por ejemplo.
+Cambios genéricos que hemos realizado:
+1 - Background
+2 - Footer
+3 - Barra de menús
+4 - Toda la parte de contenido, ya que de cada página html que tenía la página hemos ido cogiendo los elementos que necesitabamos e intercambiando los de una a otra, en función de nuestras necesidades y añadiendo algunos nuevos.
+En general con esto hemos resumido nuestros cambios
+

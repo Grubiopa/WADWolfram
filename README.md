@@ -55,73 +55,52 @@ Inicio (index.html)
 
 Contiene un carrusel de fotos de los proyectos, las cuales incluyen el título y una breve descripción del mismo. Al pinchar una foto, nos redirige a una página con la información detallada del proyecto. También incluye una breve descripción de la finalidad de la app (encabezado Sobre nuestra asociación) y barras de progreso que muestran el estado de cada proyecto (encabezado Colabora con nuestros proyectos). Por último, posee una sección de noticias, de las que se muestra el título y una imagen de las mismas. Al seleccionar una noticia, el enlace lleva el fco oa la noticia en concreto en la página Noticias.
 
-![Imagen 1][1]  ![Imagen 2][2]
-
- [1]: https://github.com/Grubiopa/WADWolfram/blob/master/Indice1.png "Inicio 1"
- [2]: Indice2.png "Inicio 2"
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Indice1.png)  ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Indice2.png) 
 
 
 Proyectos (projects.html)
 
 Posee una lista fija de los proyectos (con la posibilidad de cargar más), con el título, fecha de lanzamiento y una imagen que al pasar el ratón por encima ofrece la opción de "Leer más", la cual reenvía a la página del proyecto correspondiente con la información detallada de éste. La página de cada proyecto contiene una fotografía, una tabla con datos concretos del presupuesto total y condecido, financiación pendiente,... (solo el proyecto bio-psicosocial no proporciona esta tabla) e información ampliada del mismo.
 
-![Imagen 1][1]  ![Imagen 2][2]
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Proyectos1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Proyectos2.png)
 
- [1]: Proyectos1.png "Proyectos 1"
- [2]: Proyectos2.png "Proyectos 2"
 
 Pagina proyecto(oneProject.html)
 
 Esta página sera la encargada de mostrar la descripción extensa del proyecto, una foto, las caracticas del proyecto (fecha, aportaciones...) y el botón más importante Participa para animar a la gente a colaborar en el proyecto.
-
-![Imagen 1][1]  ![Imagen 2][2]
-
- [1]: proyectoEjemplo1.png "Ejemplo 1"
- [2]: proyectoEjemplo2.png "Ejemplo 2"
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/proyectoEjemplo1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/proyectoEjemplo2.png)
 
 Noticias (blog.html)
 
 Incluye una lista con las nooticias (título, imagen, información del cuerpo de la noticia, fecha de publicación y número de comentarios realizados por los usuarios, enlace que redirige al foro con los comentarios pertinentes). Por otra parte, proporciona un formulario que se debe rellenar para poder dejar un comentario relacionado con una noticia (la cual selecciona el usuario en dicho formulario). Por último, dispone de una lista de enlaces referentes a las categorías en las que se organizan las noticias, cuya selección lleva a la sección correspondiente dentro de la lista de noticias. 
-
-![Imagen 1][1]  ![Imagen 2][2]
-
- [1]: Noticias1.png "Noticias 1"
- [2]: Noticias2.png "Noticias 2"
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Noticias1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Noticias2.png)
 
 
 Contacto (contact.html)
 
 Muestra, centrados, un texto que invita a los usuarios a resolver sus dudas y, por debajo, un área de texto (con etiqueta “Chat”), para poder consultar sus dudas al administrador de la aplicación manteniendo una comunicación directa, y un botón enviar (con un icono de mensaje). 
 
-![Imagen 1][1]  
-
- [1]: Contacto.png "Contacto"
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Contacto.png)
 
 
 Sobre sus desarrolladores (about.html)
 
 Ofrece un texto centrado explicando el origen de la aplicación, por qué y cómo srgió, y los integrantes del grupo de desarrolladores de la aplicación web con sus respectivas titulaciones. Además, incluirá próximamente una fotografía con los miembros del grupo.
-
-![Imagen 1][1]  
-
- [1]: Abaout.png "Inicio 1"
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/About.png)
 
 Registro (register.html)
 
 Proporciona un formulario para registrarse como usuario con campos de texto para introducir nombre, apellidos, nombre de usuario, correo electrónico, contraseña y confirmación de contraseña y un botón "Regístrate". Además, ofrece un enlace a la página de inicio de sesión para aquellos que ya están registrados.
-
-![Imagen 1][1]  
-
- [1]: Registrarse.png "Registrarse"
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/Registrarse.png)
 
 
 Login (login.html)
 
 Proporciona un formulario para loguearte como usuario y contraseña. También tiene 2 botones: "Se me ha olvidado la contraseña" y "Entrar". Asimismo, esta página también dispone de un enlace para aquellos que aún no están registrados, invitándoles a hacerlo.
-
-![Imagen 1][1]  ![Imagen 2][2]
-
- [1]: IniciarSesion.png "Inicio 1"
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/IniciarSesion.png)
  
  
 Cuenta (users.html)
@@ -131,7 +110,6 @@ En mis proyectos se podra ver una tabla resumen con los proyectos en los que ha 
 En mis movimientos se observa una tabla con el proyecto al que has colaborado y la cantidad aportada al mismo.
 Finalmente esta la página de mis datos donde el usuario podra modificar su avatar, sus datos personales, correo y contraseña.
 
-![Imagen 1][1]  ![Imagen 2][2]
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/IniciarSesion.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/IniciarSesion.png)
 
- [1]: pictures/Indice1.png "Inicio 1"
- [2]: pictures/Indice2.png "Inicio 2"

@@ -1,28 +1,29 @@
-Bootstrap Admin Theme [![Build Status](https://travis-ci.org/VinceG/Bootstrap-Admin-Theme.png?branch=master)](https://travis-ci.org/VinceG/Bootstrap-Admin-Theme)
+Bootstrap Admin Theme 3
 =====================
 
-##### If you are looking for the Admin theme designed for Bootstrap 3 please <a href='https://github.com/VinceG/Bootstrap-Admin-Theme-3' target="_blank">Click Here</a>
+<a href='https://github.com/VinceG/Bootstrap-Admin-Theme' target="_blank">Admin Theme for Bootstrap 2.x</a>
 
-
-A generic admin theme built with Bootstrap free for both personal and commercial use. 
+A generic admin theme built with Bootstrap 3 free for both personal and commercial use. 
 
 This is still a work in progress.
 
 Pages:
 
 - Login
-- Admin Dashboard (Tables, Statistics, Chart, Media Gallery)
+- Sign Up
+- Admin Dashboard
 - Full Calendar (Viewing calendar, adding events, dragging events)
 - Statistics & Charts (Multiple examples of Pie, Bar, Line charts using Morris.js, knob.js, jquery flot, easypiechart)
 - Buttons & Icons
 - WYSIWYG & HTML 5 Editors
 - Forms & Wizard
+- Form Plugins (Validation, masked input, tags, color picker, date, time, location, inline edit and more)
 - Tables & Bootstrap dataTables
 - UI & Interface Elements (Modals, Popovers, Tooltips, Alerts, Notifications, Labels, Progress Bars)
 
 Demo:
 
-http://vinceg.github.com/Bootstrap-Admin-Theme
+http://vinceg.github.com/Bootstrap-Admin-Theme-3
 
 <p>&copy; <a href='http://vadimg.com' target="_blank">Vadim Vincent Gabriel</a> <a href='https://twitter.com/gabrielva' target='_blank'>Follow @gabrielva</a> 2012</p>
 

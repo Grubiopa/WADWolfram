@@ -19,6 +19,11 @@ public class KarenController {
     public String saludo(Model m){
     m.addAttribute("nombre", "tono");
     return "karen";
+    }
     
+    @RequestMapping ("/prueba")
+    public String carga(Model m){
+    m.addAttribute("nombre", "tono");
+    return "oneProject";
     }
 }

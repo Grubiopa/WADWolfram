@@ -1,0 +1,65 @@
+import java.util;
+
+@entity
+public class Noticia{
+@id
+@GeneratedValue(strategy = GenerationType.AUTO)
+private long id;
+private long titulo;
+private String cuerpo;
+private Categoria categoria;
+private List<String> comentarios;
+private Date fecha;
+
+
+//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//Date d = sdf.parse("21/12/2012");
+
+protected Noticia(){}
+
+public Noticia(String titulo, String cuerpo, Categoria categoria, Date fecha){
+this.titulo=titulo;
+this.cuerpo=cuerpo;
+this.categoria=categoria;
+this.fecha=fecha;
+comentarios=new List<>();
+}
+
+public String getTitulo(){
+return this.titulo;
+}
+
+public String getCuerpo(){
+return this.cuerpo;
+}
+
+public Categoria getCategoria(){
+return this.categoria;
+}
+
+public Date getFecha(){
+return this.fecha;
+}
+
+public List<String> getComentarios(){
+return thsi.comentarios;
+}
+
+public void setTitulo(String titulo){
+this.titulo=titulo;
+}
+
+public void setCuerpo(String cuerpo){
+this.cuerpo=cuerpo;
+}
+
+public void setCategoria(Categoria categoria){
+this.categoria=categoria;
+}
+}
+
+public void setFecha(Date fecha){
+this.fecha=fecha;
+}
+
+}

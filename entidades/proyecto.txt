@@ -1,0 +1,55 @@
+@entity
+public class Proyecto{
+@id
+@GeneratedValue(strategy = GenerationType.AUTO)
+private long id;
+private String titulo;
+private String descripcion;
+private String informacion;
+private Date fecha;
+
+protected Proyecto(){}
+
+public Proyecto(String titulo, String descripcion, String informacion, Date fecha){
+this.titulo=titulo;
+this.descripcion=descripcion;
+this.informacion=informacion;
+this.fecha=fecha;
+}
+
+public String getTitulo(){
+return this.titulo;
+}
+
+public String getDescripcion(){
+return this.descripcion;
+}
+
+publci String getInformacion(){
+return this.informacion;
+}
+
+public Date getFecha(){
+return this.fecha;
+}
+
+public getFecha(){
+return this.fecha;
+}
+
+public void setTitulo(String titulo){
+this.titulo=titulo;
+}
+
+public void setDescripcion(String descripcion){
+this.descripcion=descripcion;
+}
+
+public void setInformacion(String informacion){
+this.informacion=informacion;
+}
+
+public void setFecha(Date fecha){
+this.fecha=fecha;
+}
+}

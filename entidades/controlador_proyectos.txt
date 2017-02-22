@@ -1,0 +1,42 @@
+@controller
+public class ProyectosController{
+@Autowired
+private ProyectosRepository proyectos;
+
+@RequestMapping("/mostrar")
+public String mostrar(Model model, @requestParam long id){
+Proyecto p=proyectos.findOne(id);
+model.addAttribute("idW, p.getId());
+model.addAttribute("titulo", p.getTitulo());
+model.addAttribute("ruta_imagen", p.getRutaImagen());
+model.addAttribute("informacion", p.getInformacion());
+model.addAttribute("presupuesto_total", p.getPresupuestoTotal());
+model.addAttribute("presupuesto_concedido", p.getPresupuestoConcedido());
+model.addAttribute("financiacion_pendiente", p.getFinanciacionPendiente());
+model.addAttribute("duracion", p.getDuracion());
+model.addAttribute("anyo_inicio", p.getAnyoInicio());
+model.addAttribute("mostrar", p.getEstadoAbierto());
+return "project_template.html";
+}
+
+@RequestMapping("/mostrarTodos", method = RequestMethod.GET)
+public String mostrarTodos(Model model){
+List<Proyecto> l=proyectos.findAll();
+model.addAttribute("projects", l);
+return "projects_template.html";
+}
+
+@RequestMapping("/cargar", method = RequestMethod.POST)
+public void cargar(@requestParam String titulo, @requestParam String ruta_imagen, @requestParam String descripcion, @requestParam String informacion, @requestParam Date fecha, @requestParam int presupuesto_total, @requestParam int presupuesto_concedido, @requestParam int duracion, @requestParam int anyo_inicio){
+Proyecto p=new Proyecto(titulo, ruta_imagen, descripcion, informacion, presupuesto_total, presupuesto_concedido, duracion, anyo_inicio);
+proyectos.save(p);
+}
+
+@RequestMapping("actualizar", method = RequestMethod.DELETE)
+public void borrar(@requestParam long id){
+Proyecto p=proyectos.findOne(id);
+proyectos.delete(p);
+}
+
+
+}

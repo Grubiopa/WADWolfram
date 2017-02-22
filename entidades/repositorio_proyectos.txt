@@ -1,0 +1,3 @@
+public interface ProyectosRepository extends JpaRepository<Proyecto, long>{
+public Proyecto findByTitulo(String titulo);
+}

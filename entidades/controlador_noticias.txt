@@ -1,0 +1,12 @@
+@controller
+public class NoticiasController{
+@Autowired
+private NoticiasRepository noticias;
+
+@RequestMapping("/mostrarPorCategoria", method = RequestMethod.GET)
+public String mostrarPorCategoria(Model model, @requestParam Categoria categoria){
+List<Noticia> l=noticias.findByCategoria(categoria);
+model.addAtTribute("categoria", l);
+return "blog_template.html";
+}
+}

@@ -1,2 +1,0 @@
-public class ProyectosRepository extends JpaRepository<Proyecto, long>{
-}

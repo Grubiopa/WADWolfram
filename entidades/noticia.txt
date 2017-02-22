@@ -6,27 +6,35 @@ public class Noticia{
 @GeneratedValue(strategy = GenerationType.AUTO)
 private long id;
 private long titulo;
+private String ruta_imagen;
 private String cuerpo;
 private Categoria categoria;
+private int num_comentarios;
 private List<String> comentarios;
 private Date fecha;
-
 
 //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 //Date d = sdf.parse("21/12/2012");
 
-protected Noticia(){}
-
-public Noticia(String titulo, String cuerpo, Categoria categoria, Date fecha){
+public Noticia(String titulo, String ruta_imagen, String cuerpo, Categoria categoria, Date fecha){
 this.titulo=titulo;
 this.cuerpo=cuerpo;
 this.categoria=categoria;
 this.fecha=fecha;
+num_comentarios=0;
 comentarios=new List<>();
+}
+
+public long getId(){
+return id;
 }
 
 public String getTitulo(){
 return this.titulo;
+}
+
+public String getRutaImagen(){
+return this.ruta_imagen;
 }
 
 public String getCuerpo(){
@@ -41,6 +49,10 @@ public Date getFecha(){
 return this.fecha;
 }
 
+public int getNumComentarios(){
+return this.num_comentarios;
+}
+
 public List<String> getComentarios(){
 return thsi.comentarios;
 }
@@ -49,12 +61,21 @@ public void setTitulo(String titulo){
 this.titulo=titulo;
 }
 
+public void setRutaImagen(String ruta_imagen){
+this.ruta_imagen=ruta_imagen;
+}
+
 public void setCuerpo(String cuerpo){
 this.cuerpo=cuerpo;
 }
 
 public void setCategoria(Categoria categoria){
 this.categoria=categoria;
+}
+
+public void insertarComentario(String comentario){
+comentarios.add(comentario);
+num_comentarios++;
 }
 }
 

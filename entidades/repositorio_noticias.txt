@@ -1,3 +1,4 @@
 public interface NoticiasRepository extends JpaRepository<Noticia, long>{
 public List<Noticia> findByCategoria(Categoria categoria);
+public Noticia findByTitulo(String titulo);
 }

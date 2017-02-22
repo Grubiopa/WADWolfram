@@ -4,21 +4,57 @@ public class Proyecto{
 @GeneratedValue(strategy = GenerationType.AUTO)
 private long id;
 private String titulo;
+private String ruta_imagen;
 private String descripcion;
 private String informacion;
 private Date fecha;
+private int presupuesto_total;
+private int presupuesto_concedido;
+private int financiacion_pendiente;
+private int duracion;
+private int anyo_inicio;
+private boolean estado_abierto;
 
 protected Proyecto(){}
 
-public Proyecto(String titulo, String descripcion, String informacion, Date fecha){
+public Proyecto(String titulo, String imagen, String descripcion, String informacion, Date fecha, int presupuesto_total, int presupuesto_concedido, int duracion, int anyo){
 this.titulo=titulo;
+this.ruta_imagen=imagen;
 this.descripcion=descripcion;
 this.informacion=informacion;
 this.fecha=fecha;
+this.presupuesto_total=presupuesto_total;
+this.presupuesto_concedido=presupuesto_concedido;
+this.financiacion_pendiente=this.presupuesto_total-this.presupuesto_concedido;
+this.duracion=duracion;
+this.anyo_inicio=anyo;
+if (estado.equal("abierto))
+this.estado_abierto=true;
+else
+this.estado_abierto=false;
+}
+
+/*
+public Proyecto(String titulo, String imagen, String descripcion, String informacion){
+this.titulo=titulo;
+this.ruta_imagen=imagen;
+this.descripcion=descripcion;
+this.informacion=informacion;
+this.fecha=fecha;
+this.estado_abierto=false;
+}
+*/
+
+public long getId(){
+return id;
 }
 
 public String getTitulo(){
 return this.titulo;
+}
+
+public String getRutaImagen(){
+return this.ruta_imagen;
 }
 
 public String getDescripcion(){
@@ -33,12 +69,36 @@ public Date getFecha(){
 return this.fecha;
 }
 
-public getFecha(){
-return this.fecha;
+public int getPresupuestoTotal(){
+return this.presupuesto_total;
+}
+
+public int getPresupuestoConcedido(){
+return this.presupuesto_concedido;
+}
+
+public int getFinanciacionPendiente(){
+return this.financiacion_pendiente;
+}
+
+public int getDuracion(){
+return this.duracion;
+}
+
+public int getAnyoInicio(){
+return this.anyo_inicio;
+}
+
+public boolean getEstadoAbierto(){
+return this.estado_abierto;
 }
 
 public void setTitulo(String titulo){
 this.titulo=titulo;
+}
+
+public void setRutaImagen(String ruta_imagen){
+this.ruta_imagen=this.ruta_imagen;
 }
 
 public void setDescripcion(String descripcion){
@@ -51,5 +111,31 @@ this.informacion=informacion;
 
 public void setFecha(Date fecha){
 this.fecha=fecha;
+}
+
+private void setFinanciacionPendiente(int financiacion){
+this.financiacion_pendiente=financiacion;
+}
+
+public void setPresupuestoTotal(int presupuesto){
+this.presupuesto_total=presupuesto;
+this.setFinanciacionPendiente(this.presupuesto_total-this.presupuesto_concedido);
+}
+
+public void setPresupuestoConcedido(int presupuesto{
+this.presupuesto_concedido=presupuesto;
+this.setFinanciacionPendiente(this.presupuesto_total-this.presupuesto_concedido);
+}
+
+public void setDuracion(int duracion){
+this.duracion=duracion;
+}
+
+public void setAnyoInicio(int anyo){
+this.anyo_inicio=anyo;
+}
+
+public void setEstadoAbierto(boolean estado_abierto){
+this.estado_abierto=estado_abierto;
 }
 }

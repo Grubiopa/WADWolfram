@@ -3,21 +3,21 @@
 
 <head>
     <meta charset="utf-8">
-    <title>WADWolfram - Ensayo clínico del Dr. Fumihiko Urano</title>
+    <title>WADWolfram - Proyectos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Bootstrap 3 template for corporate business" />
     <!-- css -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/cubeportfolio.min.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/cubeportfolio.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
 
 
     <!-- Theme skin -->
-    <link id="t-colors" href="skins/default.css" rel="stylesheet" />
+    <link id="t-colors" href="/skins/default.css" rel="stylesheet" />
 
 
     <!-- boxed bg -->
-    <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
+    <link id="bodybg" href="/bodybg/bg1.css" rel="stylesheet" type="text/css" />
 
     <!-- =======================================================
     Author: Group13. 2017
@@ -34,52 +34,38 @@
             <div class="top hide">
                 <div class="container">
                     <div class="row">
+
                         <div class="col-md-6">
                             <div id="sb-search" class="sb-search">
                                 <form>
-                                    <input class="sb-search-input" placeholder="Introduzca el término de búsqueda..." type="text" value="" name="search" id="search">
+                                    <input class="sb-search-input" placeholder="Enter your search term..." type="text" value="" name="search" id="search">
                                     <input class="sb-search-submit" type="submit" value="">
-                                    <span class="sb-icon-search" title="Click to start searching">Buscar</span>
+                                    <span class="sb-icon-search" title="Click to start searching"></span>
                                 </form>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
 
-        <nav>
+
             <div class="navbar navbar-default navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Logotipo de la asociación" width="199" height="52" /></a>
+                        <a class="navbar-brand" href="index.html"><img src="/img/logo.png" alt="Logotipo de la asociación" width="199" height="52" /></a>
                     </div>
                     <div class="navbar-collapse collapse ">
                         <ul class="nav navbar-nav">
                             <li><a href="index.html">Inicio</a></li>
                             <li class="active"><a href="projects.html">Proyectos</a></li>
-                            <!--  <li class="dropdown">
-                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Proyectos <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="newProyects.html">Proyectos Nuevos</a></li>
-                                <li><a href="oldProyects.html">Proyectos Antiguos</a></li>
-								<li class="dropdown-submenu">
-									<a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown">Pages</a>
-									<ul class="dropdown-menu">
-										<li><a href="404.html">404</a></li>
-										<li><a href="register.html">Register</a></li>
-										<li><a href="login.html">Login</a></li>
-									</ul>	
-								</li>
-                            </ul>
-                        </li>-->
                             <li><a href="blog.html">Noticias</a></li>
-                            <!--	<li><a href="post-rightsidebar.html">Post right sidebar</a></li> -->
-
                             <li><a href="contact.html">Contacto</a></li>
-                            <li><a href="about.html">Sobre sus desarrolladores</a></li>
+                            <li><a href="about.html">Sobre los desarrolladores</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu">
@@ -91,20 +77,23 @@
                     </div>
                 </div>
             </div>
-          </nav>
-        <section id="inner-headline">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul class="breadcrumb">
-                            <li><a href="index.html"><i class="fa fa-home"></i> Volver al Inicio</a><i class="icon-angle-right"></i></li>
-                            <li><a href="projects.html">Proyectos</a></li>
-                            <li class="active">Proyecto</li>
-                        </ul>
+
+            <section id="inner-headline">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <br>
+                            <br>
+                            <br>
+                            <!--               <ul class="breadcrumb">
+                           <li><a href="index.html"><i class="fa fa-home"></i> Volver al Inicio</a><i class="icon-angle-right"></i></li>
+                                <li><a href="projects.html">Proyectos</a></li>
+                                <li class="active">Proyecto</li>
+                            </ul>-->
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
         </header>
 
@@ -114,40 +103,56 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                      <header>
-                        <h4 class="heading">Ensayo clínico del Dr. Fumihiko Urano</h4>
-                      </header>
+                        <h4 class="heading">Nuestros proyectos</h4>
 
-                        <img src="fotos/fumi.jpg" alt="Foto del investigador"/>
+                        <div id="filters-container" class="cbp-l-filters-button">
+                            <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">Todos
+                                <div class="cbp-filter-counter"></div>
+                            </div>
+                            <div data-filter=".identity" class="cbp-filter-item">Recientes
+                                <div class="cbp-filter-counter"></div>
+                            </div>
+                            <div data-filter=".web-design" class="cbp-filter-item">2016
+                                <div class="cbp-filter-counter"></div>
+                            </div>
+
+                            <div data-filter=".graphic" class="cbp-filter-item">2015
+                                <div class="cbp-filter-counter"></div>
+                            </div>
+                            <div data-filter=".logo" class="cbp-filter-item">Cerrados
+                                <div class="cbp-filter-counter"></div>
+                            </div>
+                        </div>
 
 
-                     <table class="table table-bordered">                      
-                        <tr>
-                           <th>Presupuesto total</th>
-                           <td>60.000 euros</td>
-                        </tr>
-                        <tr>
-                           <th>Presupuesto concedido</th>
-                           <td>0 euros</td>
-                        </tr>
-                        <tr>
-                           <th>Financiación pendiente
-                           <td>60.000 euros</td>
-                        </tr>
-                        <tr>
-                           <th>Duración</th>
-                           <td>9 meses</td>
-                        </tr>
-                        <tr>
-                           <th>Año de inicio previsto</th>
-                           <td>2018</td>
-                        </tr>
-                     </table>                      
-                     <article>                              
-                     <p>Consiste en determinar la seguridad y efectividad de un medicamento para las personas, tanto niños como adultos, con síndrome de Wolfram con la finalidad de retrasar la progresión de dicho síndrome mediante los parámetros de la agudeza visual, del equilibrio y bioquímicos. Previamente se realizarán unos controles exhaustivos de los pacientes al igual que una vez finalizado el ensayo clínico.</p>
-                     <p>El Dr. Fumihiko Urano es uno de los grandes investigadores en el área del síndrome de Wolfram. Actualmente está en fase de reclutamiento de pacientes para su ensayo clínico en Washington con la finalidad de determinar la seguridad de su principio activo en pacientes con síndrome de Wolfram, teniendo en cuenta que el objetivo del fármaco es retrasar el progreso de esta compleja enfermedad. Requiere, al menos, de 24 pacientes (12 adultos y 12 niños) para llegar a cabo tal ensayo. A consecuencia de los estudios y seguimiento exhaustivos que deben realizarse en tal proyecto, en esta fase sólo pueden participar pacientes que estén próximos a su clínica. Si los resultados obtenidos son óptimos, podrá avanzarse la fase del ensayo clínico y poder determinar también su efectividad.</p>
-                     <p>Previamente ha empleado tal fármaco en modelos de ratones, donde ha obtenido resultados positivos. Sin embargo, requiere, en primer lugar, determinar la seguridad del fármaco para poder ampliarse al resto de pacientes con síndrome de Wolfram.</p>
-                     </article>                              
+                        <div id="grid-container" class="cbp-l-grid-projects">
+                            <ul>
+                               {{#projects}}
+                                <li class="cbp-item graphic">
+                                    <div class="cbp-caption">
+                                        <div class="cbp-caption-defaultWrap">
+                                            <img src="{{ruta_imagen}}" alt="foto del proyecto" />
+                                        </div>
+                                        <div class="cbp-caption-activeWrap">
+                                            <div class="cbp-l-caption-alignCenter">
+                                                <div class="cbp-l-caption-body">
+<!--aquí:-->                                                    <a href=(/mostrar?id={{id}}) class="cbp-l-caption-buttonRight" data-title="Proyecto<br>Fecha lanzamiento">Leer más</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cbp-l-grid-projects-title">{{titulo}}</div>
+                                    <div class="cbp-l-grid-projects-desc">Fecha lanzamiento: {{fecha}}</div>
+                                </li>
+                            {{/projects}}
+                            </ul>
+                        </div>
+
+                        <div class="cbp-l-loadMore-button">
+                            <!--  <a href="ajax/loadMore.html" class="cbp-l-loadMore-button-link">Cargar más</a> -->
+                            <a href="#" class="cbp-l-loadMore-button-link">Cargar más</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -218,7 +223,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -228,18 +232,18 @@
     <!-- javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/modernizr.custom.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.appear.js"></script>
-    <script src="js/stellar.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/uisearch.js"></script>
-    <script src="js/jquery.cubeportfolio.min.js"></script>
-    <script src="js/google-code-prettify/prettify.js"></script>
-    <script src="js/animate.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/modernizr.custom.js"></script>
+    <script src="/js/jquery.easing.1.3.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.appear.js"></script>
+    <script src="/js/stellar.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/uisearch.js"></script>
+    <script src="/js/jquery.cubeportfolio.min.js"></script>
+    <script src="/js/google-code-prettify/prettify.js"></script>
+    <script src="/js/animate.js"></script>
+    <script src="/js/custom.js"></script>
 
 
 </body>

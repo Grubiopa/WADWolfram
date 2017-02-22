@@ -1,16 +1,19 @@
 package com.mycompany.mavenproject1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class User {
 	
-	ArrayList<UserProject> colaborateProjects;
-	ArrayList<UserProject> otherProjects;
-	ArrayList<UserMovements> userMovements;
+	List<UserProject> colaborateProjects;
+	List<UserProject> otherProjects;
+	List<UserMovements> userMovements;
 	UserPersonalData user;
 	
-	public User(ArrayList<UserProject> colaborateProjects, ArrayList<UserProject> otherProjects,
-			ArrayList<UserMovements> userMovements, UserPersonalData user) {
+	
+
+	public User(List<UserProject> colaborateProjects, List<UserProject> otherProjects,
+			List<UserMovements> userMovements, UserPersonalData user) {
 		super();
 		this.colaborateProjects = colaborateProjects;
 		this.otherProjects = otherProjects;
@@ -18,27 +21,27 @@ public class User {
 		this.user = user;
 	}
 
-	public ArrayList<UserProject> getColaborateProjects() {
+	public List<UserProject> getColaborateProjects() {
 		return colaborateProjects;
 	}
 
-	public void setColaborateProjects(ArrayList<UserProject> colaborateProjects) {
+	public void setColaborateProjects(List<UserProject> colaborateProjects) {
 		this.colaborateProjects = colaborateProjects;
 	}
 
-	public ArrayList<UserProject> getOtherProjects() {
+	public List<UserProject> getOtherProjects() {
 		return otherProjects;
 	}
 
-	public void setOtherProjects(ArrayList<UserProject> otherProjects) {
+	public void setOtherProjects(List<UserProject> otherProjects) {
 		this.otherProjects = otherProjects;
 	}
 
-	public ArrayList<UserMovements> getUserMovements() {
+	public List<UserMovements> getUserMovements() {
 		return userMovements;
 	}
 
-	public void setUserMovements(ArrayList<UserMovements> userMovements) {
+	public void setUserMovements(List<UserMovements> userMovements) {
 		this.userMovements = userMovements;
 	}
 
@@ -49,6 +52,7 @@ public class User {
 	public void setUser(UserPersonalData user) {
 		this.user = user;
 	}
+
 	
 	
 	

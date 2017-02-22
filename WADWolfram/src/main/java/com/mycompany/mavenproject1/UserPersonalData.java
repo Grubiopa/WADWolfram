@@ -21,6 +21,8 @@ public class UserPersonalData {
 		this.newPassword = newPassword;
 		this.photo = photo;
 	}
+	public UserPersonalData(){			
+	}
 
 
 	public String getName() {

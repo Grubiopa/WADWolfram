@@ -24,6 +24,26 @@ public class KarenController {
     @RequestMapping ("/prueba")
     public String carga(Model m){
     m.addAttribute("nombre", "tono");
-    return "users2";
+    return "Bootstrap-Admin-Theme/index";
+    }
+    @RequestMapping ("/prueba1")
+    public String carga1(Model m){
+    m.addAttribute("nombre", "tono");
+    return "Bootstrap-Admin-Theme/addproject";
+    }
+    @RequestMapping ("/prueba2")
+    public String carga2(Model m){
+    m.addAttribute("nombre", "tono");
+    return "Bootstrap-Admin-Theme/addblog";
+    }
+    @RequestMapping ("/prueba3")
+    public String carga3(Model m){
+    m.addAttribute("nombre", "tono");
+    return "Bootstrap-Admin-Theme/donations";
+    }
+    @RequestMapping ("/prueba4")
+    public String carga4(Model m){
+    m.addAttribute("nombre", "tono");
+    return "Bootstrap-Admin-Theme/profile";
     }
 }

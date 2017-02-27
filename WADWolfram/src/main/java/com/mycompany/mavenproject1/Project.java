@@ -1,7 +1,7 @@
 package com.mycompany.mavenproject1;
 
 public class Project {
-	int id;
+	long id;
 	String title;
 	String shortDescription;
 	String description;
@@ -14,7 +14,7 @@ public class Project {
 	
 	
 	
-	public Project(int id, String title, String shortDescription, String description, Double totalBudget, Double parcialBudget,
+	public Project(long id, String title, String shortDescription, String description, Double totalBudget, Double parcialBudget,
 			String type, String startYear,String image) {
 		super();
 		this.id=id;
@@ -30,12 +30,12 @@ public class Project {
 	}
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

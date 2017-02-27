@@ -9,7 +9,7 @@ public class ProjectController {
 	
 	@RequestMapping ("/project")
 	public String loadProject(Model m){
-		int id=0;
+		long id=0;
 		String title = "title";
 		String shortDescription="shortDescription";
 		String description = "description";
@@ -24,7 +24,7 @@ public class ProjectController {
 	}
 	
 	@RequestMapping("/pay")
-	public String donate(Model m, int projectId){
+	public String donate(Model m, long projectId){
 		//projectId es el id para reconocer al proyecto que se dona
 		
 		return "pay";

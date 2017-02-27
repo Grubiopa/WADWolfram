@@ -24,7 +24,7 @@ model.addAttribute("projects", l);
 return "projects_template";
 }
 
-@RequestMapping("/load", method = RequestMethod.POST)
+@RequestMapping("/loadProject", method = RequestMethod.POST)
 public void loadProject(@requestParam String title, @requestParam String image, @requestParam String description, @requestParam String shortDescription, @requestParam Date releaseDate, @requestParam double totalBudget, @requestParam double parcialBudget, @requestParam double time, @requestParam int startYear){
 Project p=new Project(tittle, shortDescription, description, totalBudget, parcialBudget, time, opened, releaseDate, startYear, image);
 projects.save(p);

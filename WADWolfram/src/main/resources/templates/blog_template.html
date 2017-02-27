@@ -88,26 +88,25 @@
                         <article>
                          <header>{{categoria}}</header>
                            <ul>
-                              {{#noticias}}
+                              {{#news}}
                             <li>
                             <div class="post-image">
                                 <div class="post-heading">
-                                    <a href=(/mostrar?titulo={{titulo}}><h3><a>{{titulo}}</a></h3></a>
+                                    <h3><a href=(/new?id={{id}}>{{title}}</a></h3>
                                 </div>
-                                <a href=(/mostrar?titulo={{titulo}})><img src="{{ruta_imagen}}" alt="" class="img-responsive" /></a>
+                                <a href=(/new?id={{id}})><img src="{{ruta_imagen}}" alt="Foto de la noticia" class="img-responsive" /></a>
                             </div>
                             <div class="bottom-article">
                                 <ul class="meta-post">
-                                    <li><i class="fa fa-calendar"></i><a>{{fecha}}</a></li>
-                                    <li><i class="fa fa-comments"></i><a href="#">{{num_comentarios}} Comentarios</a></li>
+                                    <li><i class="fa fa-calendar"></i><a>{{date}}</a></li>
+                                    <li><i class="fa fa-comments"></i><a href="#">{{number_comments}} Comentarios</a></li>
                                 </ul>
                                 <!--		<a href="#" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>-->
                             </div>
                            </li>
-                          {{/noticias}}
+                          {{/news}}
                          </ul>
                         </article>
-
 
                         <!--			<div id="pagination">
 					<span class="all">Page 1 of 3</span>
@@ -115,34 +114,6 @@
 					<a href="#" class="inactive">2</a>
 					<a href="#" class="inactive">3</a>
 				</div>-->
-                        <div class="clear"></div>
-
-                        <div class="marginbot30"></div>
-                        <h4>Deja tu comentario</h4>
-
-
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="Introduce tu nombre">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="Introduce tu correo electrónico">
-                            </div>
-<!--                            <div class="form-group">
-                                <select class="form-control">
-                                    <option selected="true">Selecciona la noticia a comentar</option>
-                                    <option>¿En qué consiste el síndrome de Wolfram?</option>
-                                    <option>Actividades realizadas por la asociación</option>
-                                </select>
-                            </div>
--->
-                            <div class="form-group">
-                                <textarea class="form-control" rows="8" placeholder="Comenta aquí"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-theme btn-md">Comentar</button>
-                        </form>
-
-                    </div>
                     <div class="col-lg-4">
                         <aside class="right-sidebar">
                             <div class="widget">

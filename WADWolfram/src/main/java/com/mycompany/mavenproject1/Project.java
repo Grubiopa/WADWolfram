@@ -1,21 +1,23 @@
 package com.mycompany.mavenproject1;
 
 public class Project {
-	int id;
-	String title;
-	String shortDescription;
-	String description;
-	Double totalBudget;
-	Double parcialBudget;
-	Double restBudget;
-	String type;
-	String startYear;
-	String image;
+	private int id;
+	private String title;
+	private String shortDescription;
+	private String description;
+	private double totalBudget;
+	private double parcialBudget;
+	private double restBudget;
+ private double time;  
+	private boolean opened;
+  private Date releaseDate;
+	private int startYear;
+	private String image;
 	
+  protected Project(){}	
 	
-	
-	public Project(int id, String title, String shortDescription, String description, Double totalBudget, Double parcialBudget,
-			String type, String startYear,String image) {
+	public Project(int id, String title, String shortDescription, String description, double totalBudget, double parcialBudget,
+			double time, boolean opened, Date releaseDate, int startYear, String image) {
 		super();
 		this.id=id;
 		this.title = title;
@@ -24,7 +26,9 @@ public class Project {
 		this.totalBudget = totalBudget;
 		this.parcialBudget = parcialBudget;
 		this.restBudget = totalBudget - parcialBudget;
-		this.type = type;
+		this.time = time;
+  this.opened=opened;
+  this.releaseDate=releaseDate;
 		this.startYear = startYear;
 		this.image = image;
 	}
@@ -39,7 +43,6 @@ public class Project {
 		this.id = id;
 	}
 
-
 	public String getImage() {
 		return image;
 	}
@@ -47,7 +50,6 @@ public class Project {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 
 	public String getTitle() {
 		return title;
@@ -67,34 +69,50 @@ public class Project {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Double getTotalBudget() {
+	public double getTotalBudget() {
 		return totalBudget;
 	}
-	public void setTotalBudget(Double totalBudget) {
-		this.totalBudget = totalBudget;
-	}
-	public Double getParcialBudget() {
-		return parcialBudget;
-	}
-	public void setParcialBudget(Double parcialBudget) {
-		this.parcialBudget = parcialBudget;
-	}
-	public Double getRestBudget() {
-		return restBudget;
-	}
-	public void setRestBudget(Double restBudget) {
+
+	private void setRestBudget(double restBudget) {
 		this.restBudget = restBudget;
 	}
-	public String getType() {
-		return type;
+
+	public void setTotalBudget(double totalBudget) {
+		this.totalBudget = totalBudget;
+  this.setRestBudget(this.totalBuget-this.parcialBuget);
 	}
-	public void setType(String type) {
-		this.type = type;
+	public double getParcialBudget() {
+		return parcialBudget;
 	}
-	public String getStartYear() {
+	public void setParcialBudget(double parcialBudget) {
+		this.parcialBudget = parcialBudget;
+  this.setRestBudget(this.totalBuget-this.parcialBuget);
+	}
+	public double getRestBudget() {
+		return restBudget;
+	}
+	public double getTime() {
+		return time;
+	}
+	public void setTime(double time) {
+		this.time = time;
+	}
+  public boolean getOpened(){
+    return opened;
+  }
+  public void setOpened(boolean opened){
+    this.opened=opened;
+  }
+  public Date getReleaseDate(){
+    return releaseDate;
+  }
+  public void setReleaseDate(Date releaseDate){
+   this.releaseDate=releaseDate;
+  }
+	public int getStartYear() {
 		return startYear;
 	}
-	public void setStartYear(String startYear) {
+	public void setStartYear(int startYear) {
 		this.startYear = startYear;
 	}
 	

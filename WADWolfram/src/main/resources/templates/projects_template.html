@@ -131,19 +131,19 @@
                                 <li class="cbp-item graphic">
                                     <div class="cbp-caption">
                                         <div class="cbp-caption-defaultWrap">
-                                            <img src="{{ruta_imagen}}" alt="foto del proyecto" />
+                                            <img src="{{image}}" alt="foto del proyecto" />
                                         </div>
                                         <div class="cbp-caption-activeWrap">
                                             <div class="cbp-l-caption-alignCenter">
                                                 <div class="cbp-l-caption-body">
-<!--aquí:-->                                                    <a href=(/mostrar?id={{id}}) class="cbp-l-caption-buttonRight" data-title="Proyecto<br>Fecha lanzamiento">Leer más</a>
+                                                    <a href=(/project?id={{id}}) class="cbp-l-caption-buttonRight" data-title="Proyecto<br>Fecha lanzamiento">Leer más</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="cbp-l-grid-projects-title">{{titulo}}</div>
-                                    <div class="cbp-l-grid-projects-desc">Fecha lanzamiento: {{fecha}}</div>
+                                    <div class="cbp-l-grid-projects-title">{{title}}</div>
+                                    <div class="cbp-l-grid-projects-desc">Fecha lanzamiento: {{releaseDate}}</div>
                                 </li>
                             {{/projects}}
                             </ul>

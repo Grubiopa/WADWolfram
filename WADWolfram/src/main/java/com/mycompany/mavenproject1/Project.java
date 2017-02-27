@@ -1,6 +1,9 @@
 package com.mycompany.mavenproject1;
 
+@entity
 public class Project {
+  @id
+  @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String title;
 	private String shortDescription;
@@ -10,14 +13,13 @@ public class Project {
 	private double restBudget;
  private double time;  
 	private boolean opened;
-  private Date releaseDate;
+ private Date releaseDate;
 	private int startYear;
 	private String image;
 	
   protected Project(){}	
 	
-	public Project(int id, String title, String shortDescription, String description, double totalBudget, double parcialBudget,
-			double time, boolean opened, Date releaseDate, int startYear, String image) {
+	public Project(String title, String shortDescription, String description, double totalBudget, double parcialBudget,			double time, boolean opened, Date releaseDate, int startYear, String image) {
 		super();
 		this.id=id;
 		this.title = title;

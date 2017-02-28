@@ -1,45 +1,34 @@
 package com.mycompany.mavenproject1;
 
-@entity
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Project {
-<<<<<<< HEAD
-  @id
+  @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 	private String title;
 	private String shortDescription;
 	private String description;
 	private double totalBudget;
 	private double parcialBudget;
 	private double restBudget;
- private double time;  
+        private double time;  
 	private boolean opened;
- private Date releaseDate;
+        private Date releaseDate;
 	private int startYear;
 	private String image;
-=======
-	long id;
-	String title;
-	String shortDescription;
-	String description;
-	Double totalBudget;
-	Double parcialBudget;
-	Double restBudget;
-	String type;
-	String startYear;
-	String image;
->>>>>>> 075791d19c4fc432a276b98bd99ed80b4d46e1e3
+	
 	
   protected Project(){}	
 	
-<<<<<<< HEAD
-	public Project(String title, String shortDescription, String description, double totalBudget, double parcialBudget,			double time, boolean opened, Date releaseDate, int startYear, String image) {
-=======
-	
-	public Project(long id, String title, String shortDescription, String description, Double totalBudget, Double parcialBudget,
-			String type, String startYear,String image) {
->>>>>>> 075791d19c4fc432a276b98bd99ed80b4d46e1e3
-		super();
+
+	public Project(String title, String shortDescription, String description, double totalBudget, double parcialBudget, double time, boolean opened, Date releaseDate, int startYear, String image) {
+        	super();
 		this.id=id;
 		this.title = title;
 		this.shortDescription = shortDescription;
@@ -100,14 +89,14 @@ public class Project {
 
 	public void setTotalBudget(double totalBudget) {
 		this.totalBudget = totalBudget;
-  this.setRestBudget(this.totalBuget-this.parcialBuget);
+  this.setRestBudget(this.totalBudget-this.parcialBudget);
 	}
 	public double getParcialBudget() {
 		return parcialBudget;
 	}
 	public void setParcialBudget(double parcialBudget) {
 		this.parcialBudget = parcialBudget;
-  this.setRestBudget(this.totalBuget-this.parcialBuget);
+  this.setRestBudget(this.totalBudget-this.parcialBudget);
 	}
 	public double getRestBudget() {
 		return restBudget;

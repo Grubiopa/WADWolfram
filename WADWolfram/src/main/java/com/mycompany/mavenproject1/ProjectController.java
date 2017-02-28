@@ -31,7 +31,7 @@ return "projects_template";
 }
 
 @RequestMapping(value= "/loadProject", method = RequestMethod.POST)
-public void loadProject(@RequestParam String title, @RequestParam String image, @RequestParam String description, @RequestParam String shortDescription, @RequestParam Date releaseDate, @RequestParam double totalBudget, @RequestParam double parcialBudget, @RequestParam double time, @RequestParam int startYear){
+public void loadProject(@RequestParam String title, @RequestParam String image, @RequestParam String description, @RequestParam String shortDescription,@RequestParam Boolean opened, @RequestParam Date releaseDate, @RequestParam double totalBudget, @RequestParam double parcialBudget, @RequestParam double time, @RequestParam int startYear){
 Project p=new Project(title, shortDescription, description, totalBudget, parcialBudget, time, opened, releaseDate, startYear, image);
 projects.save(p);
 }

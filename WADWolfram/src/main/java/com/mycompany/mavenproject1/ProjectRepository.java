@@ -1,5 +1,10 @@
 package com.mycompany.mavenproject1;
 
-public interface ProjectsRepository extends JpaRepository<Proyecto, long>{
-public Project findByTitle(String ttitle);
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProjectRepository extends JpaRepository<Project, Long>{
+    
+    public Project findByTitle(String ttitle);
+    public long findOne(long id);
+
 }

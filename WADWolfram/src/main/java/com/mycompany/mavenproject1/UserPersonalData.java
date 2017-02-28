@@ -1,25 +1,29 @@
 package com.mycompany.mavenproject1;
 
+import java.util.List;
+
 public class UserPersonalData {
-	String name;
-	String surname;
-	String email;
-	String userName;
-	String oldPassword;
-	String newPassword;
-	String photo;
-	
-	
+	private String name;
+	private String surname;
+	private String email;
+	private String userName;
+	private String oldPassword;
+	private String newPassword;
+	private String photo;
+ private List<Role> roles;
+
+ protected UserMovements(){}	
+
 	public UserPersonalData(String name, String surname, String email, String userName, String oldPassword,
-			String newPassword, String photo) {
-		super();
-		this.name = name;
+			String newPassword, String photo, List<Role> roles) {
+			this.name = name;
 		this.surname = surname;
 		this.email = email;
 		this.userName = userName;
 		this.oldPassword = oldPassword;
 		this.newPassword = newPassword;
 		this.photo = photo;
+  this.roles=roles;
 	}
 	public UserPersonalData(){			
 	}
@@ -93,6 +97,13 @@ public class UserPersonalData {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	
+
+ public List<Role> getRole(){
+   return roles;	
+ }
+
+ public void setRoles(List<Role> roles){
+  this.roles=roles;
+ }
 	
 }

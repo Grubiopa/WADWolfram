@@ -1,9 +1,9 @@
 package com.mycompany.mavenproject1;
 
 public class UserProject {
-	String title;
-	String shortDescription;
-	Double money;
+	private String title;
+	private String shortDescription;
+	private Double money;
 	
 	public UserProject(String title, String shortDescription, Double money) {
 		super();

@@ -3,11 +3,12 @@ package com.mycompany.mavenproject1;
 import java.util.Date;
 
 public class UserMovements {
-	String projectTitle;
-	Double money;
-	Date date;
-	
-	public UserMovements(String projectTitle, Double money, Date date) {
+	private String projectTitle;
+	private double money;
+	private Date date;
+
+ protected UserMovements(){}	
+	public UserMovements(String projectTitle, double money, Date date) {
 		super();
 		this.projectTitle = projectTitle;
 		this.money = money;
@@ -22,11 +23,11 @@ public class UserMovements {
 		this.projectTitle = projectTitle;
 	}
 
-	public Double getMoney() {
+	public double getMoney() {
 		return money;
 	}
 
-	public void setMoney(Double money) {
+	public void setMoney(double money) {
 		this.money = money;
 	}
 

@@ -1,35 +1,43 @@
 package com.mycompany.mavenproject1;
 
-@controller
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
 public class NewsController{
 @Autowired
 private NewsRepository news;
 
-@RequestMapping("/news"), method = RequestMethod.GET)
+@RequestMapping(value="/news", method = RequestMethod.GET)
 public String viewAllNews(Model model){
 List<New> l=news.findAll();
 model.addAttribute("news", l);
 return "blog_template";
 }
 
-@RequestMapping("/new"), method = RequestMethod.GET)
-public String viewNew(Model model, @requestParam int id){
-New n=news.findOne(id);
+@RequestMapping(value="/new", method = RequestMethod.GET)
+public String viewNew(Model model, @RequestParam long id){
+New n = news.findOne(id);
 model.addAttribute("new", n);
 return "new_template";
 }
 
-@RequestMapping("/newsCategory"), method = RequestMethod.GET)
-public String newsFromCategory(Model model, @requestParam Category category){
-List<New> l=news.findByCategory(Category category);
-model.addAtTribute("categories", l);
+@RequestMapping(value= "/newsCategory", method = RequestMethod.GET)
+public String newsFromCategory(Model model, @RequestParam Category category){
+List<New> l = news.findByCategory(category);
+model.addAttribute("categories", l);
 return "blog_template";
 }
 
-@RequestMapping("/loadNew"), method = RequestMethod.POST)
-public void loadNew(@requestParam String title, @requestParam String body, @requestParam String image){
-New n=new New(title, image, body);
-new.save(n);
+@RequestMapping(value="/loadNew", method = RequestMethod.POST)
+public void loadNew(@RequestParam String title, @RequestParam String body, @RequestParam String image){
+New n= new New(title, image, body);
+news.save(n);
 }
 
 }

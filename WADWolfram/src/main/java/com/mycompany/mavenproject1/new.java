@@ -1,12 +1,16 @@
 package com.mycompany.mavenproject1;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@entity
+@Entity
 public class New{
-@id
+@Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private int id;
 private String title;
@@ -27,7 +31,7 @@ this.title=title;
 this.image=image;
 this.body=body;
 this.number_comments=0;
-this.commentss=new ArrayList<>();
+this.comments=new ArrayList<>();
 this.date = new Date();
 }
 
@@ -60,7 +64,7 @@ return this.number_comments;
 }
 
 public List<String> getComments(){
-return thsi.comments;
+return this.comments;
 }
 
 public void setId(int id){

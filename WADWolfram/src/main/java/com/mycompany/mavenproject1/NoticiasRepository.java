@@ -6,10 +6,17 @@
 package com.mycompany.mavenproject1;
 
 import java.util.ArrayList;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface NoticiasRepository extends JpaRepository<Noticia, Long>{
-public ArrayList<Noticia> findByCategoria(Categoria categoria);
-public Noticia findByTitulo(String titulo);
+public interface NoticiasRepository extends JpaRepository<Noticia, Long> {
+
+    public Noticia findById(long id);
+    
+    
+
+    public ArrayList<Noticia> findByCategoria(Categoria categoria);
+
+    public Noticia findByTitulo(String titulo);
+
+    public ArrayList<Noticia> findAll();
 }

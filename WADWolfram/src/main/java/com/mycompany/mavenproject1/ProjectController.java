@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProjectController {
 
 @Autowired
-private ProjectsRepository projects;
+private ProjectRepository projects;
 
 @RequestMapping("/project")
 public String viewProject(Model model, @RequestParam int id){
-Project p=projects.findOne(id);
+Project p=projects.findById(id);
 model.addAttribute("project", p);
 return "oneProject";
 }

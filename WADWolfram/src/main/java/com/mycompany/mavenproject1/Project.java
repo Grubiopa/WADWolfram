@@ -2,6 +2,7 @@ package com.mycompany.mavenproject1;
 
 @entity
 public class Project {
+<<<<<<< HEAD
   @id
   @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -16,10 +17,28 @@ public class Project {
  private Date releaseDate;
 	private int startYear;
 	private String image;
+=======
+	long id;
+	String title;
+	String shortDescription;
+	String description;
+	Double totalBudget;
+	Double parcialBudget;
+	Double restBudget;
+	String type;
+	String startYear;
+	String image;
+>>>>>>> 075791d19c4fc432a276b98bd99ed80b4d46e1e3
 	
   protected Project(){}	
 	
+<<<<<<< HEAD
 	public Project(String title, String shortDescription, String description, double totalBudget, double parcialBudget,			double time, boolean opened, Date releaseDate, int startYear, String image) {
+=======
+	
+	public Project(long id, String title, String shortDescription, String description, Double totalBudget, Double parcialBudget,
+			String type, String startYear,String image) {
+>>>>>>> 075791d19c4fc432a276b98bd99ed80b4d46e1e3
 		super();
 		this.id=id;
 		this.title = title;
@@ -36,12 +55,12 @@ public class Project {
 	}
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

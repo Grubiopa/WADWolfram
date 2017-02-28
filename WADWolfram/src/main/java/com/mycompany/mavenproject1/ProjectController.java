@@ -1,8 +1,14 @@
 package com.mycompany.mavenproject1;
 
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ProjectController {
@@ -11,27 +17,27 @@ public class ProjectController {
 private ProjectsRepository projects;
 
 @RequestMapping("/project")
-public String viewProject(Model model, @requestParam int id){
+public String viewProject(Model model, @RequestParam int id){
 Project p=projects.findOne(id);
 model.addAttribute("project", p);
 return "oneProject";
 }
 
-@RequestMapping("/allProjects", method = RequestMethod.GET)
+@RequestMapping (value="/allProjects", method = RequestMethod.GET)
 public String viewAllProjects(Model model){
 List<Project> l=projects.findAll();
 model.addAttribute("projects", l);
 return "projects_template";
 }
 
-@RequestMapping("/loadProject", method = RequestMethod.POST)
-public void loadProject(@requestParam String title, @requestParam String image, @requestParam String description, @requestParam String shortDescription, @requestParam Date releaseDate, @requestParam double totalBudget, @requestParam double parcialBudget, @requestParam double time, @requestParam int startYear){
-Project p=new Project(tittle, shortDescription, description, totalBudget, parcialBudget, time, opened, releaseDate, startYear, image);
+@RequestMapping(value= "/loadProject", method = RequestMethod.POST)
+public void loadProject(@RequestParam String title, @RequestParam String image, @RequestParam String description, @RequestParam String shortDescription, @RequestParam Date releaseDate, @RequestParam double totalBudget, @RequestParam double parcialBudget, @RequestParam double time, @RequestParam int startYear){
+Project p=new Project(title, shortDescription, description, totalBudget, parcialBudget, time, opened, releaseDate, startYear, image);
 projects.save(p);
 }
 
-@RequestMapping("/", method = RequestMethod.DELETE)
-public void deleteProject(@requestParam long id){
+@RequestMapping(value = "/", method = RequestMethod.DELETE)
+public void deleteProject(@RequestParam long id){
 Project p=projects.findOne(id);
 projects.delete(p);
 }

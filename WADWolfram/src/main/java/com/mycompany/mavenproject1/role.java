@@ -1,11 +1,11 @@
 package com.mycompany.mavenproject1;
 
 public enum Role{
-USER,
-ADMIN
+	USER,
+	ADMIN
 }
 	
-	List<UserProject> colaborateProjects;
+	/*List<UserProject> colaborateProjects;
 	List<UserProject> otherProjects;
 	List<UserMovements> userMovements;
 	UserPersonalData user;
@@ -51,10 +51,10 @@ ADMIN
 
 	public void setUser(UserPersonalData user) {
 		this.user = user;
-	}
+	}*/
 
 	
 	
 	
 	
-}
+

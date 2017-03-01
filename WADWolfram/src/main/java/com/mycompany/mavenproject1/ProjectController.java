@@ -17,9 +17,19 @@ public class ProjectController {
 	private ProjectRepository projects;
 
 	@RequestMapping("/project")
-	public String viewProject(Model model, @RequestParam int id) {
+	/* ESTO SI VALDRA EN EL FUTURO PORQUE ES CON LA BBDD
+	 * public String viewProject(Model model, @RequestParam long id) {
 		Project p = projects.findById(id);
+		//Project p = new Project(id,"title", "shortDescription", "description", 50, 10, 36, true, releaseDate , 2017, "image");
 		model.addAttribute("project", p);
+		return "oneProject";
+	}*/
+	
+	public String prueba(Model m){
+		Date releaseDate = new Date();
+		long id = 0;
+		Project p = new Project(id,"title", "shortDescription", "description", 50, 10, 36, true, releaseDate , 2017, "image");
+		m.addAttribute("Project", p);
 		return "oneProject";
 	}
 
@@ -35,7 +45,8 @@ public class ProjectController {
 			@RequestParam String shortDescription, @RequestParam Boolean opened, @RequestParam Date releaseDate,
 			@RequestParam double totalBudget, @RequestParam double parcialBudget, @RequestParam double time,
 			@RequestParam int startYear) {
-		Project p = new Project(title, shortDescription, description, totalBudget, parcialBudget, time, opened,
+		long id = 0;
+		Project p = new Project(id,title, shortDescription, description, totalBudget, parcialBudget, time, opened,
 				releaseDate, startYear, image);
 		projects.save(p);
 	}

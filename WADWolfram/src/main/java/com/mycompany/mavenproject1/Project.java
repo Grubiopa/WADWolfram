@@ -27,7 +27,7 @@ public class Project {
     protected Project() {
     }
 
-    public Project(String title, String shortDescription, String description, double totalBudget, double parcialBudget, double time, boolean opened, Date releaseDate, int startYear, String image) {
+    public Project(Long id,String title, String shortDescription, String description, double totalBudget, double parcialBudget, double time, boolean opened, Date releaseDate, int startYear, String image) {
         super();
         this.id = id;
         this.title = title;
@@ -141,4 +141,21 @@ public class Project {
         this.startYear = startYear;
     }
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Project [id=" + id + 
+				", title="+title
+				+", shortDescription" + shortDescription
+				+", description" + description
+				+", totalBudget" + totalBudget
+				+", parcialBudget" + parcialBudget
+				+", restBudget" + restBudget
+				+", time" + time
+				+", opened" + opened
+				+", releaseDate" + releaseDate
+				+", startYear" + startYear
+				+", image" + image;
+	}
+    
 }

@@ -10,13 +10,13 @@ public class UserPersonalData {
 	private String oldPassword;
 	private String newPassword;
 	private String photo;
- private List<Role> roles;
+	private List<Role> roles;
 
- protected UserMovements(){}	
+ //protected UserMovements(){}	
 
 	public UserPersonalData(String name, String surname, String email, String userName, String oldPassword,
 			String newPassword, String photo, List<Role> roles) {
-			this.name = name;
+		this.name = name;
 		this.surname = surname;
 		this.email = email;
 		this.userName = userName;

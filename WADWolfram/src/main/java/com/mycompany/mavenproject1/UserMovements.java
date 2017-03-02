@@ -1,14 +1,15 @@
 package com.mycompany.mavenproject1;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class UserMovements {
 	private String projectTitle;
 	private double money;
-	private Date date;
+	private Calendar date;
 
  protected UserMovements(){}	
-	public UserMovements(String projectTitle, double money, Date date) {
+	public UserMovements(String projectTitle, double money, Calendar date) {
 		super();
 		this.projectTitle = projectTitle;
 		this.money = money;
@@ -31,11 +32,11 @@ public class UserMovements {
 		this.money = money;
 	}
 
-	public Date getDate() {
+	public Calendar getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Calendar date) {
 		this.date = date;
 	}
 	

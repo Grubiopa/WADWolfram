@@ -1,7 +1,11 @@
 package com.mycompany.mavenproject1;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,23 +19,31 @@ public class ProjectController {
 
 	@Autowired
 	private ProjectRepository projects;
+	private MovementsRepository movements;
+
+	@PostConstruct
+	public void init() {
+		Date releaseDate = null;
+		projects.save(new Project("Titulo", "Breve Descripcion", "description", 50.0, 0.0, 36, true, releaseDate, 2017,
+				"image"));
+		projects.save(new Project("Titulo2", "Breve Descripcion2", "description2", 50.0, 0.0, 36, true, releaseDate,
+				2017, "image"));
+	}
 
 	@RequestMapping("/project")
-	/* ESTO SI VALDRA EN EL FUTURO PORQUE ES CON LA BBDD
-	 * public String viewProject(Model model, @RequestParam long id) {
-		Project p = projects.findById(id);
-		//Project p = new Project(id,"title", "shortDescription", "description", 50, 10, 36, true, releaseDate , 2017, "image");
-		model.addAttribute("project", p);
-		return "oneProject";
-	}*/
 	
-	public String prueba(Model m){
-		Date releaseDate = new Date();
-		long id = 0;
-		Project p = new Project(id,"title", "shortDescription", "description", 50, 10, 36, true, releaseDate , 2017, "image");
-		m.addAttribute("Project", p);
+	public String viewProject(Model model, @RequestParam long id) {
+		Date releaseDate = null;
+		Project p = projects.findOne(id);
+		model.addAttribute("Project", p);
 		return "oneProject";
 	}
+
+	/// ESTO SACARIA TODOS LOS PROYECTOS
+	/*
+	 * public String viewProject2(Model model){ model.addAttribute("Project",
+	 * projects.findAll()); return "oneProject"; }
+	 */
 
 	@RequestMapping(value = "/allProjects", method = RequestMethod.GET)
 	public String viewAllProjects(Model model) {
@@ -40,37 +52,33 @@ public class ProjectController {
 		return "projects_template";
 	}
 
-	@RequestMapping(value = "/loadProject", method = RequestMethod.POST)
-	public void loadProject(@RequestParam String title, @RequestParam String image, @RequestParam String description,
-			@RequestParam String shortDescription, @RequestParam Boolean opened, @RequestParam Date releaseDate,
-			@RequestParam double totalBudget, @RequestParam double parcialBudget, @RequestParam double time,
-			@RequestParam int startYear) {
-		long id = 0;
-		Project p = new Project(id,title, shortDescription, description, totalBudget, parcialBudget, time, opened,
-				releaseDate, startYear, image);
-		projects.save(p);
-	}
+	
 
 	@RequestMapping(value = "/", method = RequestMethod.DELETE)
 	public void deleteProject(@RequestParam long id) {
 		Project p = projects.findOne(id);
 		projects.delete(p);
 	}
-
-	/*
-	 * 
-	 * @RequestMapping ("/project") public String loadProject(Model m){ long
-	 * id=0; String title = "title"; String shortDescription="shortDescription";
-	 * String description = "description"; Double totalBudget = 50.0; Double
-	 * parcialBudget = 0.0; String type = "type"; String startYear = "year";
-	 * String image = "image"; Project p = new Project(id, title,
-	 * shortDescription, description, totalBudget, parcialBudget, type,
-	 * startYear, image); m.addAttribute("Project", p); return "oneProject"; }
-	 */
+	
 	@RequestMapping("/pay")
-	public String donate(Model m, long projectId) {
+	public String donate(Model m, int projectId, HttpSession sesion) {
 		// projectId es el id para reconocer al proyecto que se dona
+		User s = (User) sesion.getAttribute("User");
 
-		return "pay";
+		if (s != null) {
+			m.addAttribute("User", s.getUser());
+			return "pay";
+		} else {
+			return "login";
+		}
+
+	}
+
+	@RequestMapping("/pay/projects")
+	public String donate(Model m, long projectId, HttpSession sesion, double money) {
+		Calendar fecha = Calendar.getInstance();
+		User s = (User) sesion.getAttribute("User");
+		movements.save(new Movements(s.getUser().getId(), projectId, money, fecha));
+		return "project";
 	}
 }

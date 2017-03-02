@@ -36,7 +36,7 @@ public class NoticiasController {
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String mostrarUna(Model model, @RequestParam long id) {
-        Noticia n = noticias.findById(id);
+        Noticia n = noticias.findOne(id);
         model.addAttribute("new", n);
         return "new_template";
     }

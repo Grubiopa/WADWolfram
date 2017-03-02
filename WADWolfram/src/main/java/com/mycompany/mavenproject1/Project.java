@@ -26,8 +26,23 @@ public class Project {
 
     protected Project() {
     }
+    
+    public Project(String title, String shortDescription, String description, double totalBudget, double parcialBudget,
+			double time, boolean opened, Date releaseDate, int startYear, String image) {
+		this.title = title;
+		this.shortDescription = shortDescription;
+		this.description = description;
+		this.totalBudget = totalBudget;
+		this.parcialBudget = parcialBudget;
+		this.restBudget = totalBudget-parcialBudget;
+		this.time = time;
+		this.opened = opened;
+		this.releaseDate = releaseDate;
+		this.startYear = startYear;
+		this.image = image;
+	}
 
-    public Project(Long id,String title, String shortDescription, String description, double totalBudget, double parcialBudget, double time, boolean opened, Date releaseDate, int startYear, String image) {
+	/*public Project(long id,String title, String shortDescription, String description, double totalBudget, double parcialBudget, double time, boolean opened, Date releaseDate, int startYear, String image) {
         super();
         this.id = id;
         this.title = title;
@@ -41,7 +56,7 @@ public class Project {
         this.releaseDate = releaseDate;
         this.startYear = startYear;
         this.image = image;
-    }
+    }*/
 
     public long getId() {
         return id;
@@ -141,7 +156,7 @@ public class Project {
         this.startYear = startYear;
     }
 
-	@Override
+	/*@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Project [id=" + id + 
@@ -156,6 +171,6 @@ public class Project {
 				+", releaseDate" + releaseDate
 				+", startYear" + startYear
 				+", image" + image;
-	}
+	}*/
     
 }

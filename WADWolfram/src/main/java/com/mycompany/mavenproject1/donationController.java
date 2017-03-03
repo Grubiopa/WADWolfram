@@ -31,7 +31,7 @@ public class ProjectController {
 	}
 
 	@RequestMapping("/project")
-
+	
 	public String viewProject(Model model, @RequestParam long id) {
 		Date releaseDate = null;
 		Project p = projects.findOne(id);
@@ -81,12 +81,4 @@ public class ProjectController {
 		movements.save(new Movements(s.getUser().getId(), projectId, money, fecha));
 		return "project";
 	}
-
- @RequestMapping(value="/loadProject", method = RequestMethod.POST)
- public void loadProject(@requestParam String title, @requestParam String image, @requestParam String description, @requestParam String shortDescription, @requestParam Date releaseDate, @requestParam double totalBudget, @requestParam double parcialBudget, @requestParam double time, @requestParam int startYear){
-   Project p=new Project(tittle, shortDescription, description, totalBudget, parcialBudget, time, opened, releaseDate, startYear, image);
-   projects.save(p);
- }
-
-
 }

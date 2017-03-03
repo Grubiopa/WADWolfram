@@ -9,33 +9,37 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Movements {
+public class Donation {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-	private long userId;
-	private long projectId;
+  private long id;
+ @ManyToOne(mappedBy="donations")
+	private User user;
+ @ManyToOne(mappedBy="donations")
+	private Project project;
 	private double money;
 	private Calendar date;
-	public Movements(long userId, long projectId, double money, Calendar date) {
-		super();
-		this.userId = userId;
-		this.projectId = projectId;
+
+ protected Donation(){}
+
+	public Donation(User user, Project project, double money, Calendar date) {
+		this.user = user;
+		this.project = project;
 		this.money = money;
 		this.date = date;
 	}
-	public long getUserId() {
-		return userId;
+  public User getUser() {
+		return user;
 	}
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setUser(User user){
+		this.user = user;
 	}
-	public long getProjectId() {
-		return projectId;
+	public Project getProject() {
+		return project;
 	}
-	public void setProjectId(long projectId) {
-		this.projectId = projectId;
+	public void setProject(Project project) {
+		this.project = project;
 	}
 	public double getMoney() {
 		return money;
@@ -49,6 +53,5 @@ public class Movements {
 	public void setDate(Calendar date) {
 		this.date = date;
 	}
-	
 	
 }

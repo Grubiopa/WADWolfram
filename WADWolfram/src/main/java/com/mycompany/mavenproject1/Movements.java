@@ -1,6 +1,8 @@
 package com.mycompany.mavenproject1;
 
 import java.util.Calendar;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

@@ -66,15 +66,12 @@ public class UserController {
 	 */
 	//crear User user = new User(userProject, otherProject,userMovements,data);
 	//sesion.setAttribute("User", user);
-	List<Role> role = new ArrayList<>();
-	role.add(Role.ADMIN);
-	User user = new User(userProject,otherProjects,userMovements,new UserPersonalData("Gabi","R","g.ru@yo.com","gabi0794","aaaa","aaaa","icon.png",role));
-	sesion.setAttribute("User", user);
-	m.addAttribute("username",user.getUser().getUserName());
+	
+	/*m.addAttribute("username",user.getUser().getUserName());
 	m.addAttribute("colaborateProjects", user.getColaborateProjects());
 	m.addAttribute("otherProjects", user.getOtherProjects());
 	m.addAttribute("movements", user.getUserMovements());
-	m.addAttribute("User", user.getUser());
+	m.addAttribute("User", user.getUser());*/
 	return "users";			
 		
 	}

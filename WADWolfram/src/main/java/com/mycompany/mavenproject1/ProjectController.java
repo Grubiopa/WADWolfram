@@ -19,7 +19,7 @@ public class ProjectController {
 
 	@Autowired
 	private ProjectRepository projects;
-	private MovementRepository movements;
+	private MovementsRepository movements;
 
 	@PostConstruct
 	public void init() {
@@ -31,10 +31,10 @@ public class ProjectController {
 	}
 
 	@RequestMapping("/project")
-
+	
 	public String viewProject(Model model, @RequestParam long id) {
 		Date releaseDate = null;
-		Project p = projects.findById(id);
+		Project p = projects.findOne(id);
 		model.addAttribute("Project", p);
 		return "oneProject";
 	}
@@ -81,12 +81,4 @@ public class ProjectController {
 		movements.save(new Movements(s.getUser().getId(), projectId, money, fecha));
 		return "project";
 	}
-
- @RequestMapping(value="/loadProject", method = RequestMethod.POST)
- public void loadProject(@RequestParam String title, @RequestParam String image, @RequestParam String description,@RequestParam Boolean opened, @RequestParam String shortDescription, @RequestParam Date releaseDate, @RequestParam double totalBudget, @RequestParam double parcialBudget, @RequestParam double time, @RequestParam int startYear){
-   Project p=new Project(title, shortDescription, description, totalBudget, parcialBudget, time, opened, releaseDate, startYear, image);
-   projects.save(p);
- }
-
-
 }

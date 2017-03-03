@@ -23,11 +23,11 @@ public class UserController {
 	@Autowired
 		private UserPersonalDataRepository users;
 		private ProjectRepository projects;
-		private MovementRepository movements;
+		private MovementsRepository movements;
 		
 	@PostConstruct
 	public void init() {
-		ArrayList<Role> role = new ArrayList<>();
+		List<Role> role = new ArrayList<>();
 		role.add(Role.ADMIN);
 		users.save(new UserPersonalData("Gabi","R","g.ru@yo.com","gabi0794","aaaa","aaaa","icon.png",role));
 		users.save(new UserPersonalData("TU","t","t.ru@yo.com","tu","bbbb","bbbb","icon.png",role));
@@ -66,12 +66,15 @@ public class UserController {
 	 */
 	//crear User user = new User(userProject, otherProject,userMovements,data);
 	//sesion.setAttribute("User", user);
-	
-	/*m.addAttribute("username",user.getUser().getUserName());
+	List<Role> role = new ArrayList<>();
+	role.add(Role.ADMIN);
+	User user = new User(userProject,otherProjects,userMovements,new UserPersonalData("Gabi","R","g.ru@yo.com","gabi0794","aaaa","aaaa","icon.png",role));
+	sesion.setAttribute("User", user);
+	m.addAttribute("username",user.getUser().getUserName());
 	m.addAttribute("colaborateProjects", user.getColaborateProjects());
 	m.addAttribute("otherProjects", user.getOtherProjects());
 	m.addAttribute("movements", user.getUserMovements());
-	m.addAttribute("User", user.getUser());*/
+	m.addAttribute("User", user.getUser());
 	return "users";			
 		
 	}

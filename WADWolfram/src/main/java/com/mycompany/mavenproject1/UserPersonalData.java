@@ -1,5 +1,6 @@
 package com.mycompany.mavenproject1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -20,12 +21,12 @@ public class UserPersonalData {
 	private String oldPassword;
 	private String newPassword;
 	private String photo;
-	private List<Role> roles;
+	private ArrayList<Role> roles;
 
 	// protected UserMovements(){}
 
 	public UserPersonalData(String name, String surname, String email, String userName, String oldPassword,
-			String newPassword, String photo, List<Role> roles) {
+			String newPassword, String photo, ArrayList<Role> roles) {
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
@@ -99,7 +100,7 @@ public class UserPersonalData {
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) {
+	public void setRoles(ArrayList<Role> roles) {
 		this.roles = roles;
 	}
 

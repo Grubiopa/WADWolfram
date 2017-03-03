@@ -5,7 +5,7 @@
  */
 package com.mycompany.mavenproject1;
 
-public enum Categoria {
+public enum Category {
     ENFERMEDAD,
     ASOCIACION,
     NUEVOS_DESCUBRIMIENTOS,

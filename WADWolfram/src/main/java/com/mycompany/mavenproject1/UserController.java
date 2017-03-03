@@ -23,11 +23,11 @@ public class UserController {
 	@Autowired
 		private UserPersonalDataRepository users;
 		private ProjectRepository projects;
-		private MovementsRepository movements;
+		private MovementRepository movements;
 		
 	@PostConstruct
 	public void init() {
-		List<Role> role = new ArrayList<>();
+		ArrayList<Role> role = new ArrayList<>();
 		role.add(Role.ADMIN);
 		users.save(new UserPersonalData("Gabi","R","g.ru@yo.com","gabi0794","aaaa","aaaa","icon.png",role));
 		users.save(new UserPersonalData("TU","t","t.ru@yo.com","tu","bbbb","bbbb","icon.png",role));

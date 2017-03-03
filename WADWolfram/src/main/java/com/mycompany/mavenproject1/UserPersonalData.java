@@ -20,7 +20,7 @@ public class UserPersonalData {
 	private String oldPassword;
 	private String newPassword;
 	private String photo;
-	private List<Role> roles;
+	//private List<Role> roles;
 
 	// protected UserMovements(){}
 
@@ -33,7 +33,7 @@ public class UserPersonalData {
 		this.oldPassword = oldPassword;
 		this.newPassword = newPassword;
 		this.photo = photo;
-		this.roles = roles;
+		//this.roles = roles;
 	}
 
 	public UserPersonalData() {
@@ -95,13 +95,7 @@ public class UserPersonalData {
 		this.photo = photo;
 	}
 
-	public List<Role> getRole() {
-		return roles;
-	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
+	
 
 	public long getId() {
 		return id;

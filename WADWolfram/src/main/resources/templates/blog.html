@@ -37,22 +37,22 @@
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="icon-bar"></span>Buscar
                             </button>
-                            <a class="navbar-brand" href="index.html"><img src="/img/logo.png" alt="" width="199" height="52" /></a>
+                            <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="" width="199" height="52" /></a>
                         </div>
                         <div class="navbar-collapse collapse ">
                             <ul class="nav navbar-nav">
-                                <li><a href="/index.html">Inicio</a></li>
-                                <li><a href="/projects.html">Proyectos</a></li>
+                                <li><a href="/">Inicio</a></li>
+                                <li><a href="/projects">Proyectos</a></li>
 
-                                <li class="active"><a href="/blog.html">Noticias</a></li>
+                                <li class="active"><a href="/blog">Noticias</a></li>
 
-                                <li><a href="/contact.html">Contacto</a></li>
-                                <li><a href="/about.html">Sobre sus desarrolladores</a></li>
+                                <li><a href="/contact">Contacto</a></li>
+                                <li><a href="/about">Sobre sus desarrolladores</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta<i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/register.html">Únete</a></li>
-                                        <li><a href="/login.html">Inicia sesión</a></li>
+                                        <li><a href="/register">Únete</a></li>
+                                        <li><a href="/login">Inicia sesión</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -80,72 +80,32 @@
         </header>
         <!-- end header -->
 
-        <section id="content">
+        <ul id="content">
+        <li>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        <article id="sindromeWolfram">
+                        <article>
+                         <header>{{categoria}}</header>
+                           <ul>
+                              {{#news}}
+                            <li>
                             <div class="post-image">
                                 <div class="post-heading">
-                                    <h3><a>¿En qué consiste el síndrome de Wolfram?</a></h3>
+                                    <h3><a href=(/new?id={{id}}>{{title}}</a></h3>
                                 </div>
-                                <img src="/fotos/libro.jpg" alt="" class="img-responsive" />
+                                <a href=(/new?id={{id}})><img src="{{ruta_imagen}}" alt="Foto de la noticia" class="img-responsive" /></a>
                             </div>
-                            <p>El síndrome de Wolfram (SW) es una rara y compleja enfermedad neurodegenerativa progresiva, cuya prevalencia estimada es de 1/770.000 en Reino Unido y aún desconocida en España. El SW también se conoce por el acrónimo anglosajón DIDMOAD: diabetes insípida (DI), diabetes mellitus (DM), atrofia óptica (OA) y sordera neurosensorial (D). Esta enfermedad puede acompañarse también con alteraciones del tracto urinario, sistema nervioso central y atrofia gonadal. Su curso degenerativo progresivo ocasionará que los pacientes desarrollen la mayoría de las complicaciones de la enfermedad siendo, por tanto, una patología altamente discapacitante que implica devastadoras consecuencias tanto en la esfera física como psicológica y social. El fallecimiento suele producirse en la tercera o cuarta década de la vida.</p>
-                            <p>La baja prevalencia del SW propicia la escasez de estudios y el conocimiento limitado de este síndrome tanto desde el punto de vista clínico como de los mecanismos etiopatogénicos implicados. El análisis de los datos clínicos recogidos hasta la fecha y el seguimiento multidisciplinar con un abordaje integral de los pacientes con SW nos permitirá obtener datos clínico-epidemiológicos fundamentales para definir el fenotipo, el curso evolutivo, y los factores pronósticos que ayudarán a un mejor manejo de la enfermedad y de sus complicaciones, preservando en la medida de lo posible el bienestar y la calidad de vida de estos pacientes y familiares.</p>
                             <div class="bottom-article">
                                 <ul class="meta-post">
-                                    <li><i class="fa fa-calendar"></i><a> Mar 27, 2014</a></li>
-                                    <li><i class="fa fa-comments"></i><a href="#">4 Comentarios</a></li>
+                                    <li><i class="fa fa-calendar"></i><a>{{date}}</a></li>
+                                    <li><i class="fa fa-comments"></i><a href="#">{{number_comments}} Comentarios</a></li>
                                 </ul>
                                 <!--		<a href="#" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>-->
                             </div>
-                        </article>
-
-                        <article id="actividades">
-                            <div class="post-image">
-                                <div class="post-heading">
-                                    <h3><a>Actividades realizadas por la asociación</a></h3>
-                                </div>
-                                <img src="/fotos/medicos.jpg" alt="" class="img-responsive" />
-                            </div>
-                            <ol>
-                                <li>Acogida, detección y evaluación de la persona afectada por el Síndrome de Wolfram y su familia.</li>
-                                <li>Revisión continúa de los afectados por el SW por diferentes especialidades para ayudar en el seguimiento clínico del paciente y en la detección de las complicaciones asociadas a la enfermedad. </li>
-                                <li>Coordinación con investigadores europeos y americanos para la puesta en marcha de dos ensayos clínicos.</li>
-                                <li>Creación de una red social que permita y articule información sobre recursos socioeconómicos sociosanitarios, y de orientación sociolaboral.</li>
-                                <li>Talleres de afrontamiento y aceptación del Síndrome de Wolfram.</li>
-                                <li>Conferencias, seminarios, charlas-coloquio.</li>
-                                <li>Concienciación ciudadana.</li>
-                                <li>Búsqueda de recursos para la ejecución de los ensayos clínicos. </li>
-                                <li>Captación de recursos para el mejor funcionamiento de la Asociación.</li>
-                                <li>Utilizar modelos lícitos de propaganda y difusión para divulgar la problemática general de los usuarios.</li>
-                                <li>Trabajar junto con federaciones, asociaciones y organismos públicos de cualquier ámbito, dedicados a fines similares.</li>
-                                <li>Conseguir la colaboración personal de voluntarios para la consecución de los objetivos de la asociación.</li>
-                            </ol>
-                            <div class="bottom-article">
-                                <ul class="meta-post">
-                                    <li><i class="fa fa-calendar"></i><a> Mar 27, 2014</a></li>
-                                    <li><i class="fa fa-comments"></i><a href="#">4 Comentarios</a></li>
-                                </ul>
-                                <!--		<a href="#" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>-->
-                            </div>
-                        </article>
-
-
-                        <article id="anulacion">
-                            <div class="post-video">
-                                <div class="post-heading">
-                                    <h3><a>Anulación de la unidad multidisciplinar de Wolfram</a></h3>
-                                </div>
-                                <img src="/fotos/noticia.jpg" alt="" class="img-responsive" />
-                            </div>
-                            <div class="bottom-article">
-                                <ul class="meta-post">
-                                    <li><i class="fa fa-calendar"></i><a href="#"> May 17, 2014</a></li>
-                                    <li><i class="fa fa-comments"></i><a href="#">4 Comentarios</a></li>
-                                </ul>
-                            </div>
+                           </li>
+                          {{/news}}
+                         </ul>
                         </article>
 
                         <!--			<div id="pagination">
@@ -154,34 +114,6 @@
 					<a href="#" class="inactive">2</a>
 					<a href="#" class="inactive">3</a>
 				</div>-->
-                        <div class="clear"></div>
-
-                        <div class="marginbot30"></div>
-                        <h4>Deja tu comentario</h4>
-
-
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="Introduce tu nombre">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="Introduce tu correo electrónico">
-                            </div>
-<!--                            <div class="form-group">
-                                <select class="form-control">
-                                    <option selected="true">Selecciona la noticia a comentar</option>
-                                    <option>¿En qué consiste el síndrome de Wolfram?</option>
-                                    <option>Actividades realizadas por la asociación</option>
-                                </select>
-                            </div>
--->
-                            <div class="form-group">
-                                <textarea class="form-control" rows="8" placeholder="Comenta aquí"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-theme btn-md">Comentar</button>
-                        </form>
-
-                    </div>
                     <div class="col-lg-4">
                         <aside class="right-sidebar">
                             <div class="widget">
@@ -227,7 +159,7 @@
                             <ul class="link-list">
                                 <li><a href="#">Términos y condiciones</a></li>
                                 <li><a href="#">Política de privacidad</a></li>
-                                <li><a href="contact.html">Contáctanos</a></li>
+                                <li><a href="/contact">Contáctanos</a></li>
                             </ul>
                         </div>
 

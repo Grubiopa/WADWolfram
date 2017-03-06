@@ -19,6 +19,7 @@ public class ProjectController {
 
 	@Autowired
 	private ProjectRepository projects;
+	@Autowired
 	private DonationsRepository movements;
 
 	@PostConstruct
@@ -45,7 +46,7 @@ public class ProjectController {
 	 * projects.findAll()); return "oneProject"; }
 	 */
 
-	@RequestMapping(value = "/projects", method = RequestMethod.GET)
+	@RequestMapping(value = "/allProjects", method = RequestMethod.GET)
 	public String viewAllProjects(Model model) {
 		List<Project> l = projects.findAll();
 		model.addAttribute("projects", l);
@@ -54,7 +55,7 @@ public class ProjectController {
 
 	
 
-	@RequestMapping(value = "/BorrarProyecto", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/", method = RequestMethod.DELETE)
 	public void deleteProject(@RequestParam long id) {
 		Project p = projects.findOne(id);
 		projects.delete(p);
@@ -76,9 +77,10 @@ public class ProjectController {
 
 	@RequestMapping("/pay/projects")
 	public String donate(Model m, long projectId, HttpSession sesion, double money) {
-		Calendar fecha = Calendar.getInstance();
+		Date d = new Date();
 		User s = (User) sesion.getAttribute("User");
-		movements.save(new Donation(s.getUser().getId(), projectId, money, fecha));
-		return "oneProject";
+		movements.save(new Donation(s.getUser().getId(), projectId, money, d));
+		return "project";
 	}
 }
+

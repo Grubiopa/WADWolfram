@@ -1,6 +1,6 @@
 package com.mycompany.mavenproject1;
 
-import java.util.Calendar;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +15,9 @@ public class Donation {
 	private long userId;
 	private long projectId;
 	private double money;
-	private Calendar date;
-	public Donation(long userId, long projectId, double money, Calendar date) {
+	private Date date;
+	public Donation(){}
+	public Donation(long userId, long projectId, double money, Date date) {
 		super();
 		this.userId = userId;
 		this.projectId = projectId;
@@ -41,10 +42,10 @@ public class Donation {
 	public void setMoney(double money) {
 		this.money = money;
 	}
-	public Calendar getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(Calendar date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	

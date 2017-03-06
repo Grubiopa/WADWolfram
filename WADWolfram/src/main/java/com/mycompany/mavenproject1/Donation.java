@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Movements {
+public class Donation {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,7 +16,7 @@ public class Movements {
 	private long projectId;
 	private double money;
 	private Calendar date;
-	public Movements(long userId, long projectId, double money, Calendar date) {
+	public Donation(long userId, long projectId, double money, Calendar date) {
 		super();
 		this.userId = userId;
 		this.projectId = projectId;

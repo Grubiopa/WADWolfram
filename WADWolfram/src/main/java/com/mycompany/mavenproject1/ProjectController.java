@@ -19,7 +19,7 @@ public class ProjectController {
 
 	@Autowired
 	private ProjectRepository projects;
-	private MovementsRepository movements;
+	private DonationsRepository movements;
 
 	@PostConstruct
 	public void init() {
@@ -78,7 +78,7 @@ public class ProjectController {
 	public String donate(Model m, long projectId, HttpSession sesion, double money) {
 		Calendar fecha = Calendar.getInstance();
 		User s = (User) sesion.getAttribute("User");
-		movements.save(new Movements(s.getUser().getId(), projectId, money, fecha));
+		movements.save(new Donation(s.getUser().getId(), projectId, money, fecha));
 		return "project";
 	}
 }

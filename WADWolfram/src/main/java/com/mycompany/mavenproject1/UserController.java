@@ -23,7 +23,7 @@ public class UserController {
 	@Autowired
 		private UserPersonalDataRepository users;
 		private ProjectRepository projects;
-		private MovementsRepository movements;
+		private DonationsRepository movements;
 		
 	@PostConstruct
 	public void init() {

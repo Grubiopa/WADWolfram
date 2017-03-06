@@ -63,9 +63,6 @@ public class UserController {
 		List<UserPersonalData> data = users.findByEmailAndOldPassword(emailRecieve, passwordRecieve);
 		if (!(data.size()==0)) {
 			long id = data.get(0).getId();
-			System.out.println(id);
-			System.out.println(movements.count());
-			
 			List<Donation> donations = movements.findByuserId(id);
 			List<Long> idDonateProjects = new ArrayList<>();
 
@@ -81,7 +78,7 @@ public class UserController {
 					}
 				}
 				if (!find) {
-					userProject.add(new UserProject(title, p.getShortDescription(), d.getMoney()));
+					userProject.add(new UserProject(d.getProjectId(),title, p.getShortDescription(), d.getMoney()));
 					idDonateProjects.add(d.getProjectId());
 				}
 				userMovements.add(new UserMovements(title, d.getMoney(), d.getDate()));
@@ -91,7 +88,7 @@ public class UserController {
 			for (long i = 1; i <= maximoID; i++) {
 				if (!idDonateProjects.contains(i)) {
 					Project p = projects.findOne(i);
-					otherProjects.add(new UserProject(p.getTitle(), p.getShortDescription(), p.getRestBudget()));
+					otherProjects.add(new UserProject(p.getId(),p.getTitle(), p.getShortDescription(), p.getRestBudget()));
 				}
 			}
 

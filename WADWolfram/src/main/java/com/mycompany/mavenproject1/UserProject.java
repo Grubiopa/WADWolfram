@@ -1,12 +1,14 @@
 package com.mycompany.mavenproject1;
 
 public class UserProject {
+	private long projectId;
 	private String title;
 	private String shortDescription;
 	private Double money;
 	
-	public UserProject(String title, String shortDescription, Double money) {
+	public UserProject(long id,String title, String shortDescription, Double money) {
 		super();
+		this.projectId = id;
 		this.title = title;
 		this.shortDescription = shortDescription;
 		this.money = money;

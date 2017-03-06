@@ -45,7 +45,7 @@ public class ProjectController {
 	 * projects.findAll()); return "oneProject"; }
 	 */
 
-	@RequestMapping(value = "/allProjects", method = RequestMethod.GET)
+	@RequestMapping(value = "/projects", method = RequestMethod.GET)
 	public String viewAllProjects(Model model) {
 		List<Project> l = projects.findAll();
 		model.addAttribute("projects", l);
@@ -54,7 +54,7 @@ public class ProjectController {
 
 	
 
-	@RequestMapping(value = "/", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/BorrarProyecto", method = RequestMethod.DELETE)
 	public void deleteProject(@RequestParam long id) {
 		Project p = projects.findOne(id);
 		projects.delete(p);
@@ -79,6 +79,6 @@ public class ProjectController {
 		Calendar fecha = Calendar.getInstance();
 		User s = (User) sesion.getAttribute("User");
 		movements.save(new Donation(s.getUser().getId(), projectId, money, fecha));
-		return "project";
+		return "oneProject";
 	}
 }

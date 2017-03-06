@@ -24,10 +24,10 @@ public class NoticiasController {
     public String mostrarPorCategoria(Model model, @RequestParam Categoria categoria) {
         ArrayList<Noticia> l = noticias.findByCategoria(categoria);
         model.addAttribute("categoria", l);
-        return "blog_template.html";
+        return "blog_template";
     }
 
-    @RequestMapping(value = "/news", method = RequestMethod.GET)
+    @RequestMapping(value = "/blog", method = RequestMethod.GET)
     public String mostrarTodas(Model model) {
         ArrayList<Noticia> l = noticias.findAll();
         model.addAttribute("news", l);

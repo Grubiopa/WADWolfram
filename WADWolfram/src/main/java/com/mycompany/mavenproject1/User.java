@@ -4,72 +4,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-
- @ManyToMany
-	private List<Project> colaborateProjects;
- @ManyToMany
-	private List<Project> otherProjects;
- @OneToMany(mappedBy="user")
-	private List<Donation> donations;
- @OneToOne(cascade=CascadeType.ALL)
-	UserPersonalData user;
- @ElementCollection(fetch = FetchType.EAGER)
- private List<String> roles;
 	
- protected User(){}	
+	List<UserProject> colaborateProjects;
+	List<UserProject> otherProjects;
+	List<UserMovements> userMovements;
+	UserPersonalData user;
+	
+	
 
-	public User(List<Project> colaborateProjects, List<Project> otherProjects,
-			List<Donation> donations, UserPersonalData user, List<String> roles) {
+	public User(List<UserProject> colaborateProjects, List<UserProject> otherProjects,
+			List<UserMovements> userMovements, UserPersonalData user) {
+		super();
 		this.colaborateProjects = colaborateProjects;
 		this.otherProjects = otherProjects;
-		this.donations=donations;
+		this.userMovements = userMovements;
 		this.user = user;
-  this.roles=roles;
 	}
 
-    public User(UserPersonalData user){
-		this.colaborateProjects = new ArrayList<>();
-		this.otherProjects = new ArrayList<>();
-		this.donations = new ArrayList<>();
-		this.user = user;
-  this.roles = new ArrayList<>();
-	}
-
-	public List<Project> getColaborateProjects() {
+	public List<UserProject> getColaborateProjects() {
 		return colaborateProjects;
 	}
 
-	public void setColaborateProjects(List<Project> colaborateProjects) {
+	public void setColaborateProjects(List<UserProject> colaborateProjects) {
 		this.colaborateProjects = colaborateProjects;
 	}
 
- public void addColaborateProjects(Project p){
-   colaborateProjects.add(p);
- }
-
-	public List<Project> getOtherProjects() {
+	public List<UserProject> getOtherProjects() {
 		return otherProjects;
 	}
 
-	public void setOtherProjects(List<Project> otherProjects) {
+	public void setOtherProjects(List<UserProject> otherProjects) {
 		this.otherProjects = otherProjects;
 	}
 
- public void addOtherProject(Project p){
-   otherProjects.add(p);
- }
-
-	public List<Donation> getDonations(){
-		return donations;
+	public List<UserMovements> getUserMovements() {
+		return userMovements;
 	}
 
-	public void setDonation(List<Donation> donations){
-		this.donations=donations;
+	public void setUserMovements(List<UserMovements> userMovements) {
+		this.userMovements = userMovements;
 	}
-
- public void addDonation(Donation d){
-   donations.add(d);
- }
 
 	public UserPersonalData getUser() {
 		return user;
@@ -77,15 +51,10 @@ public class User {
 
 	public void setUser(UserPersonalData user) {
 		this.user = user;
-	}	
+	}
 
-    public List<String> getRoles(){ 
-   return roles;
- }
- public void setRoles(List<String> roles){
-   this.roles=roles;
- }
- public void addRole(String r){
-   roles.add(r);
- }
+	
+	
+	
+	
 }

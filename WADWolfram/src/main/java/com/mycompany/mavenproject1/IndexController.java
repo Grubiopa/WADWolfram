@@ -15,8 +15,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class IndexController {
+/*
+@Autowired
+private ProjectsRepository projects;
+@Autowired
+private NewsRepository news;
+*/
+
     @RequestMapping ("/")
     public String ShowIndex(Model m){
+  /*
+    List<Project> projectsList=projects.findAll(new PageRequest(1, 3)); 
+    List<New> newsList=news.findAll(new PageRequest(1, 3));
+    model.addAttribute("projects", projectsList);
+    model.addAttribute("news", newsList);
+    List<ProjectProgress> percentages=new ArrayList<>();
+    for(Project p: projects){
+      ProjectProgress percentage=new ProjectProgress(p.getTitle(), p.calculateProgressPercentage());
+      percentages.add(percentage);
+    }
+  
+  */
     return "index_template";
     }
     

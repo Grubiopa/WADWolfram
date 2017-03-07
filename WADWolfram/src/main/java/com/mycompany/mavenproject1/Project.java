@@ -45,7 +45,7 @@ public class Project {
   this.donations=new ArrayList<>();
 	}
 
-	/*public Project(long id,String title, String shortDescription, String description, double totalBudget, double parcialBudget, double time, boolean opened, Date releaseDate, int startYear, String image) {
+	/*public Project(long id,String title, String shortDescription, String description, double totalBudget, double parcialBudget, double time, boolean opened, String releaseDate, int startYear, String image) {
         super();
         this.id = id;
         this.title = title;

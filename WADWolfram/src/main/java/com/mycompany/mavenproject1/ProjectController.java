@@ -1,5 +1,7 @@
 package com.mycompany.mavenproject1;
 
+import java.io.Console;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -82,5 +84,19 @@ public class ProjectController {
 		movements.save(new Donation(s.getUser().getId(), projectId, money, d));
 		return "project";
 	}
+	
+	
+	/*@RequestMapping(value="/admin/AddProject/create", method=RequestMethod.POST)
+	public void addNewProject(@RequestParam String title,@RequestParam String shortDescription,
+			@RequestParam String description,@RequestParam double totalBudget,@RequestParam double parcialBudget,
+			@RequestParam double time,@RequestParam String releaseDate,@RequestParam boolean opened,
+			@RequestParam int startYear,@RequestParam String image){
+		
+		Date date = .parse(releaseDate);
+		Project p= new Project(title, shortDescription, description, totalBudget, parcialBudget, time, true, date, startYear, image);
+		projects.save(p);
+		
+	}*/
+	
 }
 

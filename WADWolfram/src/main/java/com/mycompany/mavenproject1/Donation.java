@@ -1,6 +1,8 @@
 package com.mycompany.mavenproject1;
 
+import java.util.Calendar;
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,31 +12,34 @@ import javax.persistence.Id;
 public class Donation {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-	private long userId;
-	private long projectId;
+ @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
+ @ManyToOne
+	private User user;
+ @ManyToOne
+	private Project project;
 	private double money;
-	private Date date;
-	public Donation(){}
-	public Donation(long userId, long projectId, double money, Date date) {
-		super();
-		this.userId = userId;
-		this.projectId = projectId;
+	private Calendar date;
+
+ protected Donation(){}
+
+	public Donation(User user, Project project, double money, Calendar date) {
+		this.user = user;
+		this.project = project;
 		this.money = money;
 		this.date = date;
 	}
-	public long getUserId() {
-		return userId;
+  public User getUser() {
+		return user;
 	}
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setUser(User user){
+		this.user = user;
 	}
-	public long getProjectId() {
-		return projectId;
+	public Project getProject() {
+		return project;
 	}
-	public void setProjectId(long projectId) {
-		this.projectId = projectId;
+	public void setProject(Project project) {
+		this.project = project;
 	}
 	public double getMoney() {
 		return money;
@@ -42,12 +47,11 @@ public class Donation {
 	public void setMoney(double money) {
 		this.money = money;
 	}
-	public Date getDate() {
+	public Calendar getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(Calendar date) {
 		this.date = date;
 	}
-	
 	
 }

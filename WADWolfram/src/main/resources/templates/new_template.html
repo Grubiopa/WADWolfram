@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -69,7 +69,7 @@
                             <br>
                             <br>
                             <ul class="breadcrumb">
-                           <li><a href="/"><i class="fa fa-home"></i> Volver al Inicio</a><i class="icon-angle-right"></i></li>
+                                <li><a href="/"><i class="fa fa-home"></i> Volver al Inicio</a><i class="icon-angle-right"></i></li>
                                 <li><a href="/blog">Noticias</a></li>
                                 <li class="active">Noticia</li>
                             </ul>
@@ -84,13 +84,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-{{#new}}
+                        {{#new}}
                         <article id="sindromeWolfram">
                             <div class="post-image">
                                 <div class="post-heading">
                                     <h3>{{title}}</h3>
                                 </div>
-                                <img src={{image}} alt="Foto de la noticia" class="img-responsive" />
+                                <img src={{ruta_imagen}} alt="Foto de la noticia" class="img-responsive" />
                             </div>
                             <p>{{body}}</p>
                             <div class="bottom-article">
@@ -101,7 +101,7 @@
                                 <!--		<a href="#" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>-->
                             </div>
                         </article>
-{{/new}}
+                        {{/new}}
                         <!--			<div id="pagination">
 					<span class="all">Page 1 of 3</span>
 					<span class="current">1</span>

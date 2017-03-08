@@ -19,31 +19,33 @@ public class Noticia {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String titulo;
+    private String title;
     private String ruta_imagen;
     private String cuerpo;
     private Categoria categoria;
-    private int num_comentarios;
+    private int number_comments;
     private ArrayList<String> comentarios;
-    private Date fecha;
+    private Date date;
 
 //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 //Date d = sdf.parse("21/12/2012");
-    public Noticia(String titulo, String ruta_imagen, String cuerpo, Categoria categoria, ArrayList comentarios, Date fecha) {
-        this.titulo = titulo;
+    public Noticia(){}
+    public Noticia(String title, String ruta_imagen, String cuerpo, Categoria categoria, ArrayList comentarios, Date date) {
+        this.title = title;
         this.cuerpo = cuerpo;
         this.categoria = categoria;
-        this.fecha = fecha;
-        num_comentarios = 0;
+        this.date = date;
+        number_comments = 0;
         this.comentarios = comentarios;
+        this.ruta_imagen=ruta_imagen;
     }
 
     public long getId() {
         return id;
     }
 
-    public String getTitulo() {
-        return this.titulo;
+    public String gettitle() {
+        return this.title;
     }
 
     public String getRutaImagen() {
@@ -58,20 +60,20 @@ public class Noticia {
         return this.categoria;
     }
 
-    public Date getFecha() {
-        return this.fecha;
+    public Date getdate() {
+        return this.date;
     }
 
     public int getNumComentarios() {
-        return this.num_comentarios;
+        return this.number_comments;
     }
 
     public ArrayList<String> getComentarios() {
         return this.comentarios;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void settitle(String title) {
+        this.title = title;
     }
 
     public void setRutaImagen(String ruta_imagen) {
@@ -88,11 +90,11 @@ public class Noticia {
 
     public void insertarComentario(String comentario) {
         comentarios.add(comentario);
-        num_comentarios++;
+        number_comments++;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setdate(Date date) {
+        this.date = date;
     }
 
 }

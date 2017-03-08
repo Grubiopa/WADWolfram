@@ -12,7 +12,7 @@ public interface NoticiasRepository extends JpaRepository<Noticia, Long> {
 
     public ArrayList<Noticia> findByCategoria(Categoria categoria);
 
-    public Noticia findByTitulo(String titulo);
+    public Noticia findByTitle(String title);
 
     public ArrayList<Noticia> findAll();
 }

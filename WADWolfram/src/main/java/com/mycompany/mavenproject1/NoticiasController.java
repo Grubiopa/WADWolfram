@@ -7,6 +7,9 @@ package com.mycompany.mavenproject1;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +22,14 @@ public class NoticiasController {
 
     @Autowired
     public NoticiasRepository noticias;
-
+    
+    @PostConstruct
+    public void init() {
+		Date releaseDate = new Date();
+		ArrayList coments = new ArrayList<>();
+		noticias.save(new  Noticia("Noticia1", "i.jpg", "cuerpo", Categoria.ENFERMEDAD, coments, releaseDate));
+		noticias.save(new  Noticia("Noticia2", "i.jpg", "cuerpo2", Categoria.ASOCIACION, coments, releaseDate));
+	}
     @RequestMapping(value = "/mostrarPorCategoria", method = RequestMethod.GET)
     public String mostrarPorCategoria(Model model, @RequestParam Categoria categoria) {
         ArrayList<Noticia> l = noticias.findByCategoria(categoria);

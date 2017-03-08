@@ -36,7 +36,6 @@ public class ProjectController {
 	@RequestMapping("/project")
 	
 	public String viewProject(Model model, @RequestParam long id) {
-		Date releaseDate = null;
 		Project p = projects.findOne(id);
 		model.addAttribute("Project", p);
 		return "oneProject";
@@ -48,7 +47,7 @@ public class ProjectController {
 	 * projects.findAll()); return "oneProject"; }
 	 */
 
-	@RequestMapping(value = "/allProjects", method = RequestMethod.GET)
+	@RequestMapping(value = "/projects", method = RequestMethod.GET)
 	public String viewAllProjects(Model model) {
 		List<Project> l = projects.findAll();
 		model.addAttribute("projects", l);
@@ -86,17 +85,19 @@ public class ProjectController {
 	}
 	
 	
-	/*@RequestMapping(value="/admin/AddProject/create", method=RequestMethod.POST)
-	public void addNewProject(@RequestParam String title,@RequestParam String shortDescription,
+	@RequestMapping(value="/admin/AddProject/create", method=RequestMethod.POST)
+	public String addNewProject(@RequestParam String title,@RequestParam String shortDescription,
 			@RequestParam String description,@RequestParam double totalBudget,@RequestParam double parcialBudget,
 			@RequestParam double time,@RequestParam String releaseDate,@RequestParam boolean opened,
 			@RequestParam int startYear,@RequestParam String image){
 		
-		Date date = .parse(releaseDate);
+		Date date= new Date();
 		Project p= new Project(title, shortDescription, description, totalBudget, parcialBudget, time, true, date, startYear, image);
 		projects.save(p);
+                
+                return "Bootstrap-Admin-Theme/index";
 		
-	}*/
+	}
 	
 }
 

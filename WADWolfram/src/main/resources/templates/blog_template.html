@@ -1,30 +1,30 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <title>WADWolfram - Noticias </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Wolfram.org" />
-    <!-- css -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/plugins/flexslider/flexslider.css" rel="stylesheet" media="screen" />
-    <link href="/css/cubeportfolio.min.css" rel="stylesheet" />
-    <link href="vcss/style.css" rel="stylesheet" />
+    <head>
+        <meta charset="utf-8">
+        <title>WADWolfram - Noticias </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Wolfram.org" />
+        <!-- css -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/plugins/flexslider/flexslider.css" rel="stylesheet" media="screen" />
+        <link href="/css/cubeportfolio.min.css" rel="stylesheet" />
+        <link href="vcss/style.css" rel="stylesheet" />
 
-    <!-- Theme skin -->
-    <link id="t-colors" href="/skins/default.css" rel="stylesheet" />
+        <!-- Theme skin -->
+        <link id="t-colors" href="/skins/default.css" rel="stylesheet" />
 
-    <!-- boxed bg -->
-    <link id="bodybg" href="/bodybg/bg1.css" rel="stylesheet" type="text/css" />
+        <!-- boxed bg -->
+        <link id="bodybg" href="/bodybg/bg1.css" rel="stylesheet" type="text/css" />
 
-    <!-- =======================================================
-    Author: Group13. 2017
-======================================================= -->
+        <!-- =======================================================
+        Author: Group13. 2017
+    ======================================================= -->
 
-</head>
+    </head>
 
-<body>
+    <body>
 
 
     <div id="wrapper">
@@ -65,14 +65,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <br>
-                            <br>
-                            <br>
-                            <!--               <ul class="breadcrumb">
-                           <li><a href="index.html"><i class="fa fa-home"></i> Volver al Inicio</a><i class="icon-angle-right"></i></li>
-                                <li><a href="projects.html">Proyectos</a></li>
-                                <li class="active">Proyecto</li>
-                            </ul>-->
+                            <ul class="breadcrumb">
+                                <li><a href="/"><i class="fa fa-home"></i> Volver al Inicio</a><i class="icon-angle-right"></i></li>
+                                <li class="active">Noticias</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -80,44 +76,44 @@
         </header>
         <!-- end header -->
 
-        <ul id="content">
-        <li>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <article>
-                         <header>{{categoria}}</header>
-                           <ul>
-                              {{#news}}
-                            <li>
-                            <div class="post-image">
-                                <div class="post-heading">
-                                    <h3><a href=(/new?id={{id}}>{{title}}</a></h3>
-                                </div>
-                                <a href=(/new?id={{id}})><img src="{{ruta_imagen}}" alt="Foto de la noticia" class="img-responsive" /></a>
-                            </div>
-                            <div class="bottom-article">
-                                <ul class="meta-post">
-                                    <li><i class="fa fa-calendar"></i><a>{{date}}</a></li>
-                                    <li><i class="fa fa-comments"></i><a href="#">{{number_comments}} Comentarios</a></li>
-                                </ul>
-                                <!--		<a href="#" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>-->
-                            </div>
-                           </li>
-                          {{/news}}
-                         </ul>
-                        </article>
+        <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <article>
+                        {{#news}}
+                        <header>{{categoria}}</header>
+                        <ul>
 
-                        <!--			<div id="pagination">
-					<span class="all">Page 1 of 3</span>
-					<span class="current">1</span>
-					<a href="#" class="inactive">2</a>
-					<a href="#" class="inactive">3</a>
-				</div>-->
+                            <li>
+                                <div class="post-image">
+                                    <div class="post-heading">
+                                        <h3><a href=(/new?id={{id}}>{{title}}</a></h3>
+                                    </div>
+                                    <a href=(/new?id={{id}})><img src="{{ruta_imagen}}" alt="Foto de la noticia" class="img-responsive" /></a>
+                                </div>
+                                <div class="bottom-article">
+                                    <ul class="meta-post">
+                                        <li><i class="fa fa-calendar"></i><a>{{date}}</a></li>
+                                        <li><i class="fa fa-comments"></i><a href="#">{{number_comments}} Comentarios</a></li>
+                                    </ul>
+                                    <!--		<a href="#" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>-->
+                                </div>
+                            </li>
+
+                        </ul>
+                        {{/news}}
+                    </article>
+
+                    <!--			<div id="pagination">
+                                    <span class="all">Page 1 of 3</span>
+                                    <span class="current">1</span>
+                                    <a href="#" class="inactive">2</a>
+                                    <a href="#" class="inactive">3</a>
+                            </div>-->
                     <div class="col-lg-4">
                         <aside class="right-sidebar">
                             <div class="widget">
-
                             </div>
                             <div class="widget">
                                 <h5 class="widgetheading">Categorías</h5>
@@ -135,80 +131,83 @@
                     </div>
                 </div>
             </div>
+        </div>
         </section>
 
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3 col-lg-3">
-                        <div class="widget">
-                            <h4>Estamos en: </h4>
-                            <address>
-					<strong>Asociación Española para la Investigación y Ayuda al Síndrome de Wolfram</strong><br>
-					 C/ Picadilly, nº 7, Almería, Andalucía</address>
-                            <p>
-                                <i class="icon-phone"></i>653 115 307
-                                <br>
-                                <i class="icon-envelope-alt"></i> email@domainname.com
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-lg-3">
-                        <div class="widget">
-                            <h4>Información</h4>
-                            <ul class="link-list">
-                                <li><a href="#">Términos y condiciones</a></li>
-                                <li><a href="#">Política de privacidad</a></li>
-                                <li><a href="/contact">Contáctanos</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="col-sm-3 col-lg-3">
-                        <div class="widget">
-                            <h4>Páginas relacionadas</h4>
-                            <ul class="link-list">
-                                <li><a href="http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=ES&Expert=3463.0">ORPHANET – Síndrome de Wolfram</a></li>
-                                <li><a href="http://www.association-du-syndrome-de-wolfram.org/faire-un-don.html">Asociación Francesa del síndrome de Wolfram</a></li>
-                                <li><a href="http://wolframsyndrome.dom.wustl.edu/">Universidad de Washington en St. Louis – Síndrome de Wolfram</a></li>
-                                <li><a href="http://aswolfram.org/">Asociación Española para la Investigación y Ayuda al síndrome de Wolfram</a></li>
-                                <li><a href="http://www.eurordis.org/es/content/un-nuevo-registro-para-las-diabetes-raras">EURORDIS – Un nuevo registro para las diabetes raras</a></li>
-                                <li><a href="http://www.euro-wabb.org/es/">EURO-WABB</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-lg-3">
-                        <div class="widget">
-                            <h4>Idioma</h4>
-                            <!--   <div class="form-group multiple-form-group input-group">
-                        <input type="email" name="email" class="form-control">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-theme btn-add">Subscribe</button>
-                        </span>
-                    </div>-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="sub-footer">
+            <footer>
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="copyright">
-                                <p>&copy; Sailor Theme - All Right Reserved</p>
-                                <div class="credits">
-
-                                    <a href="https://bootstrapmade.com/free-business-bootstrap-themes-website-templates/">Business Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                                </div>
+                        <div class="col-sm-3 col-lg-3">
+                            <div class="widget">
+                                <h4>Estamos en: </h4>
+                                <address>
+                                    <strong>Asociación Española para la Investigación y Ayuda al Síndrome de Wolfram</strong><br>
+                                    C/ Picadilly, nº 7, Almería, Andalucía</address>
+                                <p>
+                                    <i class="icon-phone"></i>653 115 307
+                                    <br>
+                                    <i class="icon-envelope-alt"></i> email@domainname.com
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-lg-3">
+                            <div class="widget">
+                                <h4>Información</h4>
+                                <ul class="link-list">
+                                    <li><a href="#">Términos y condiciones</a></li>
+                                    <li><a href="#">Política de privacidad</a></li>
+                                    <li><a href="/contact">Contáctanos</a></li>
+                                </ul>
                             </div>
 
                         </div>
-
+                        <div class="col-sm-3 col-lg-3">
+                            <div class="widget">
+                                <h4>Páginas relacionadas</h4>
+                                <ul class="link-list">
+                                    <li><a href="http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=ES&Expert=3463.0">ORPHANET – Síndrome de Wolfram</a></li>
+                                    <li><a href="http://www.association-du-syndrome-de-wolfram.org/faire-un-don.html">Asociación Francesa del síndrome de Wolfram</a></li>
+                                    <li><a href="http://wolframsyndrome.dom.wustl.edu/">Universidad de Washington en St. Louis – Síndrome de Wolfram</a></li>
+                                    <li><a href="http://aswolfram.org/">Asociación Española para la Investigación y Ayuda al síndrome de Wolfram</a></li>
+                                    <li><a href="http://www.eurordis.org/es/content/un-nuevo-registro-para-las-diabetes-raras">EURORDIS – Un nuevo registro para las diabetes raras</a></li>
+                                    <li><a href="http://www.euro-wabb.org/es/">EURO-WABB</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-lg-3">
+                            <div class="widget">
+                                <h4>Idioma</h4>
+                                <!--   <div class="form-group multiple-form-group input-group">
+                            <input type="email" name="email" class="form-control">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-theme btn-add">Subscribe</button>
+                            </span>
+                        </div>-->
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+                <div id="sub-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="copyright">
+                                    <p>&copy; Sailor Theme - All Right Reserved</p>
+                                    <div class="credits">
+
+                                        <a href="https://bootstrapmade.com/free-business-bootstrap-themes-website-templates/">Business Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        
     </div>
+
     <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
     <!-- javascript
     ================================================== -->
@@ -228,7 +227,7 @@
     <script src="/js/animate.js"></script>
     <script src="/js/custom.js"></script>
 
-
 </body>
+
 
 </html>

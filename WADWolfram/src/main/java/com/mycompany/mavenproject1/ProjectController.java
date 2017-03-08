@@ -26,7 +26,7 @@ public class ProjectController {
 
 	@PostConstruct
 	public void init() {
-		Date releaseDate = null;
+		Date releaseDate = new Date();
 		projects.save(new Project("Titulo", "Breve Descripcion", "description", 50.0, 0.0, 36, true, releaseDate, 2017,
 				"image"));
 		projects.save(new Project("Titulo2", "Breve Descripcion2", "description2", 50.0, 0.0, 36, true, releaseDate,

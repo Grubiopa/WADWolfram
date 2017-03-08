@@ -135,20 +135,20 @@
 
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" role="form">
+                                                            <form class="form-horizontal" role="form" action="/admin/AddBlog/create" method="post">
 									<div class="form-group">
 										<label for="inputEmail3" class="col-sm-2 control-label">Título
 											de la noticia</label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" id="inputEmail3"
-												placeholder="Título">
+												placeholder="Título" name="title">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="inputEmail3" class="col-sm-2 control-label">Categoría</label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" id="inputEmail3"
-												placeholder="Categoría">
+												placeholder="Categoría" name="categoria">
 										</div>
 									</div>
 									<div class="form-group">
@@ -156,7 +156,7 @@
 											de publicación</label>
 										<div class="col-sm-10">
 											<input type="date" class="form-control" id="inputEmail3"
-												placeholder="Fecha">
+												name="fecha">
 										</div>
 									</div>
 
@@ -165,7 +165,7 @@
 											cabecera</label>
 										<div class="col-md-10">
 											<input type="file" class="btn btn-default"
-												id="exampleInputFile1">
+                                                                                               id="exampleInputFile1" name="imagen">
 											<p class="help-block"></p>
 										</div>
 									</div>
@@ -173,14 +173,14 @@
 										<label class="col-sm-2 control-label">Cuerpo de la
 											noticia</label>
 										<div class="col-sm-10">
-											<textarea class="form-control" placeholder="Cuerpo" rows="9"></textarea>
+                                                                                    <textarea class="form-control" placeholder="Cuerpo" rows="9" name="cuerpo"></textarea>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="col-sm-offset-2 col-sm-10">
 											<div class="checkbox">
-												<label> <input type="checkbox"> Confirmar
+                                                                                            <label> <input type="checkbox" name="confirm"> Confirmar
 													todos los cambios
 												</label>
 											</div>

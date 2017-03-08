@@ -5,9 +5,18 @@
  */
 package com.mycompany.mavenproject1.admin;
 
+import com.mycompany.mavenproject1.NoticiasRepository;
+import com.mycompany.mavenproject1.Role;
+import com.mycompany.mavenproject1.User;
+import com.mycompany.mavenproject1.UserPersonalData;
+import com.mycompany.mavenproject1.UserPersonalDataRepository;
+import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -15,7 +24,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/admin")
-public class AdminController {
+public class AdminController { 
+
+    @Autowired
+    public UserPersonalDataRepository adminuser;
     
     @RequestMapping("/Index")
     public String index(Model m){
@@ -49,6 +61,21 @@ public class AdminController {
         return "Bootstrap-Admin-Theme/profile";
     }
     
+    @RequestMapping (value="/Profile/create", method=RequestMethod.POST)
+    public String NewAdmin(@RequestParam String name,@RequestParam String email,
+            @RequestParam String password,@RequestParam String repeat_password,
+            @RequestParam Boolean confirm){
+        
+        ArrayList<Role> rol= new ArrayList<>();
+        UserPersonalData u = new UserPersonalData(name, "", email, name, password, repeat_password, "i.jpg", rol);
+        adminuser.save(u);
+    return "Bootstrap-Admin-Theme/index";
+    }
     
+    
+    @RequestMapping (value="/Profile/update", method = RequestMethod.PUT)
+    public String UpdateAdmin(){
+    return "Bootstrap-Admin-Theme/index";
+    }
     
 }

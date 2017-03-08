@@ -53,11 +53,17 @@ public class NoticiasController {
     }
 
 
-    @RequestMapping(value = "/loadNew", method = RequestMethod.POST)
-    public void cargarNoticia(@RequestParam String titulo,@RequestParam String ruta_imagen,
-            @RequestParam String cuerpo,@RequestParam Categoria categoria,@RequestParam ArrayList comentarios, @RequestParam Date fecha){
-        Noticia n = new Noticia(titulo, ruta_imagen, cuerpo, categoria, comentarios, fecha);
-        noticias.save(n);
-    }
+    @RequestMapping(value="/admin/AddBlog/create", method=RequestMethod.POST)
+	public String addNewBlog(@RequestParam String title,@RequestParam String categoria,
+                @RequestParam String fecha,@RequestParam String imagen, 
+                @RequestParam String cuerpo, @RequestParam Boolean confirm){
+		
+		Date date= new Date();
+		Noticia n= new Noticia(title, imagen, cuerpo, Categoria.PROYECTOS, null, date);
+		noticias.save(n);
+                
+                return "Bootstrap-Admin-Theme/index";
+		
+	}
 
 }

@@ -53,16 +53,16 @@ public class NoticiasController {
     }
 
 
-    @RequestMapping(value="/admin/AddBlog/create", method=RequestMethod.POST)
+    @RequestMapping(value="/admin/AddBlog/create", method=RequestMethod.POST)  //URL y method post necesarios.
 	public String addNewBlog(@RequestParam String title,@RequestParam String categoria,
-                @RequestParam String fecha,@RequestParam String imagen, 
-                @RequestParam String cuerpo, @RequestParam Boolean confirm){
+                @RequestParam String fecha,@RequestParam String imagen,     //@RP String hola, significa que en el form hay un input con name="hola"
+                @RequestParam String cuerpo, @RequestParam Boolean confirm){ ///Se le pasa como parámetros todos los input del form
 		
-		Date date= new Date();
-		Noticia n= new Noticia(title, imagen, cuerpo, Categoria.PROYECTOS, null, date);
-		noticias.save(n);
+		Date date= new Date();  //Simulamos la hora actual
+		Noticia n= new Noticia(title, imagen, cuerpo, Categoria.PROYECTOS, null, date); //Creamos una noticia con todos los datos.
+		noticias.save(n);                                                               //Añadimos la noticia a la bbdd
                 
-                return "Bootstrap-Admin-Theme/index";
+                return "Bootstrap-Admin-Theme/index";           //WE ARE OUT!
 		
 	}
 

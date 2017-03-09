@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class NoticiasController {
@@ -27,8 +28,10 @@ public class NoticiasController {
     public void init() {
 		Date releaseDate = new Date();
 		ArrayList coments = new ArrayList<>();
-		noticias.save(new  Noticia("Noticia1", "i.jpg", "cuerpo", Categoria.ENFERMEDAD, coments, releaseDate));
-		noticias.save(new  Noticia("Noticia2", "i.jpg", "cuerpo2", Categoria.ASOCIACION, coments, releaseDate));
+		MultipartFile a = null;
+		noticias.save(new  Noticia("Noticia1", a, "cuerpo", "enfermedad", coments, releaseDate));
+		MultipartFile b=null;
+		noticias.save(new  Noticia("Noticia2", b, "cuerpo2", "eventos", coments, releaseDate));
 	}
     @RequestMapping(value = "/mostrarPorCategoria", method = RequestMethod.GET)
     public String mostrarPorCategoria(Model model, @RequestParam Categoria categoria) {
@@ -54,12 +57,12 @@ public class NoticiasController {
 
 
     @RequestMapping(value="/admin/AddBlog/create", method=RequestMethod.POST)  //URL y method post necesarios.
-	public String addNewBlog(@RequestParam String title,@RequestParam String categoria,
-                @RequestParam String fecha,@RequestParam String imagen,     //@RP String hola, significa que en el form hay un input con name="hola"
+	public String addNewBlog(Model model,@RequestParam String title,@RequestParam String categoria,
+                @RequestParam String fecha,@RequestParam ("imagen") MultipartFile imagen,     //@RP String hola, significa que en el form hay un input con name="hola"
                 @RequestParam String cuerpo, @RequestParam Boolean confirm){ ///Se le pasa como parámetros todos los input del form
 		
 		Date date= new Date();  //Simulamos la hora actual
-		Noticia n= new Noticia(title, imagen, cuerpo, Categoria.PROYECTOS, null, date); //Creamos una noticia con todos los datos.
+		Noticia n= new Noticia(title, imagen, cuerpo, categoria, null, date); //Creamos una noticia con todos los datos.
 		noticias.save(n);                                                               //Añadimos la noticia a la bbdd
                 
                 return "Bootstrap-Admin-Theme/index";           //WE ARE OUT!

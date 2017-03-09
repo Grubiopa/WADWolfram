@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Entity
 public class Noticia {
 
@@ -20,9 +22,9 @@ public class Noticia {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String title;
-    private String ruta_imagen;
+    private MultipartFile ruta_imagen;
     private String cuerpo;
-    private Categoria categoria;
+    private String categoria;
     private int number_comments;
     private ArrayList<String> comentarios;
     private Date date;
@@ -30,7 +32,7 @@ public class Noticia {
 //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 //Date d = sdf.parse("21/12/2012");
     public Noticia(){}
-    public Noticia(String title, String ruta_imagen, String cuerpo, Categoria categoria, ArrayList comentarios, Date date) {
+    public Noticia(String title, MultipartFile ruta_imagen, String cuerpo, String categoria, ArrayList comentarios, Date date) {
         this.title = title;
         this.cuerpo = cuerpo;
         this.categoria = categoria;
@@ -48,7 +50,7 @@ public class Noticia {
         return this.title;
     }
 
-    public String getRutaImagen() {
+    public MultipartFile getRutaImagen() {
         return this.ruta_imagen;
     }
 
@@ -56,7 +58,7 @@ public class Noticia {
         return this.cuerpo;
     }
 
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return this.categoria;
     }
 
@@ -76,7 +78,7 @@ public class Noticia {
         this.title = title;
     }
 
-    public void setRutaImagen(String ruta_imagen) {
+    public void setRutaImagen(MultipartFile ruta_imagen) {
         this.ruta_imagen = ruta_imagen;
     }
 
@@ -84,7 +86,7 @@ public class Noticia {
         this.cuerpo = cuerpo;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 

@@ -6,8 +6,10 @@
 <title>Admin WAD Wolfram - Noticias</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
- 
+<link
+	href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css"
+	rel="stylesheet" media="screen">
+
 <link data-brackets-id='124'
 	href="/Bootstrap-Admin-Theme/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -61,7 +63,7 @@
 						</h1>
 					</div>
 				</div>
-			
+
 				<div class="col-md-2 col-sm-2 col-xs-2" style="margin-left: 180px">
 					<div class="navbar navbar-inverse " role="banner ">
 						<ul class="nav navbar-nav ">
@@ -103,7 +105,7 @@
 					</ul>
 				</div>
 			</div>
-			
+
 
 			<div class="col-md-9">
 				<div class="row">
@@ -115,13 +117,16 @@
 
 							</div>
 							<div class="panel-body">
-                          <!-- Ponemos method post al form-->       <form class="form-horizontal" role="form" action="/admin/AddBlog/create" method="post">
+								<!-- Ponemos method post al form-->
+								<form class="form-horizontal" role="form"
+									action="/admin/AddBlog/create" method="post">
 									<div class="form-group">
 										<label for="inputEmail3" class="col-sm-2 control-label">Título
 											de la noticia</label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" id="inputEmail3"
-												placeholder="Título" name="title"> <!--Ponemos en name title (@RP)-->
+												placeholder="Título" name="title">
+											<!--Ponemos en name title (@RP)-->
 										</div>
 									</div>
 									<div class="form-group">
@@ -145,29 +150,30 @@
 											cabecera</label>
 										<div class="col-md-10">
 											<input type="file" class="btn btn-default"
-                                                                                               id="exampleInputFile1" name="imagen">
+												id="exampleInputFile1" name="imagen">
 											<p class="help-block"></p>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-2 control-label">Cuerpo de la
 											noticia</label>
-											
-											         
-											
+
+
+
 										<div class="col-sm-10">
-										
-                                                                                    <textarea class="form-control" id="ckeditor_standard" placeholder="Cuerpo" rows="9" name="cuerpo"></textarea>
+
+											<textarea class="form-control" id="ckeditor_standard"
+												placeholder="Cuerpo" rows="9" name="cuerpo"></textarea>
 										</div>
-								
+
 									</div>
 
 
 									<div class="form-group">
 										<div class="col-sm-offset-2 col-sm-10">
 											<div class="checkbox">
-                                                                                            <label> <input type="checkbox" name="confirm"> Confirmar
-													todos los cambios
+												<label> <input type="checkbox" name="confirm">
+													Confirmar todos los cambios
 												</label>
 											</div>
 										</div>
@@ -183,9 +189,9 @@
 						</div>
 					</div>
 				</div>
-				
-				
-				
+
+
+
 				<div data-brackets-id='179' class="content-box-large">
 					<div data-brackets-id='180' class="panel-heading">
 						<div data-brackets-id='181' class="panel-title">
@@ -196,8 +202,8 @@
 
 
 					<div data-brackets-id='185' class="panel-body">
-					
-						<br> 
+
+						<br>
 						<table data-brackets-id='186' cellpadding="0" cellspacing="0"
 							border="0" class="table table-striped table-bordered"
 							id="example">
@@ -210,19 +216,21 @@
 								</tr>
 							</thead>
 							<tbody data-brackets-id='193'>
+								{{#noticias}}
 								<tr data-brackets-id='194' class="odd gradeX">
-									<td data-brackets-id='195'>Noticia 1</td>
-									<td data-brackets-id='196'>2016/11/04</td>
-									<td data-brackets-id='197'>Categoría 1</td>
+									<td data-brackets-id='195'>{{title}}</td>
+									<td data-brackets-id='196'>{{date}}</td>
+									<td data-brackets-id='197'>{{categoria}}</td>
 									<td data-brackets-id='198'><button class="btn btn-primary">
-														<i class="glyphicon glyphicon-pencil"></i> Editar
-													</button>
-													<button class="btn btn-danger">
-														<i class="glyphicon glyphicon-remove"></i> Borrar
-													</button></td>
+											<i class="glyphicon glyphicon-pencil"></i> Editar
+										</button>
+										<button class="btn btn-danger">
+											<i class="glyphicon glyphicon-remove"></i> Borrar
+										</button></td>
 
 								</tr>
-						<!--		<tr data-brackets-id='199' class="even gradeC">
+								{{/noticias}}
+								<!--		<tr data-brackets-id='199' class="even gradeC">
 									<td data-brackets-id='200'>Proyecto 1</td>
 									<td data-brackets-id='201'>Usuario 2</td>
 									<td data-brackets-id='202'>55</td>
@@ -258,12 +266,12 @@
 					</div>
 				</div>
 
-		
-			
-				
-				
-				
-				
+
+
+
+
+
+
 			</div>
 		</div>
 	</div>
@@ -277,10 +285,10 @@
 
 		</div>
 	</footer>
-	
-	
-	
-  	<link data-brackets-id='228'
+
+
+
+	<link data-brackets-id='228'
 		href="/Bootstrap-Admin-Theme/filtros/vendors/datatables/dataTables.bootstrap.css"
 		rel="stylesheet" media="screen">
 
@@ -301,23 +309,23 @@
 	<script data-brackets-id='235'
 		src="/Bootstrap-Admin-Theme/js/tables.js"></script>
 
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://code.jquery.com/jquery.js"></script>  
+	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- jQuery UI -->
-	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> 
+	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/Bootstrap-Admin-Theme/bootstrap/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet"
 		href="/Bootstrap-Admin-Theme/vendors/morris/morris.css">
-<link data-brackets-id='228'
+	<link data-brackets-id='228'
 		href="/Bootstrap-Admin-Theme/filtros/vendors/datatables/dataTables.bootstrap.css"
 		rel="stylesheet" media="screen">
 
@@ -343,30 +351,37 @@
 		src="/Bootstrap-Admin-Theme/filtros/vendors/datatables/dataTables.bootstrap.js"></script>
 	<script data-brackets-id='235'
 		src="/Bootstrap-Admin-Theme/js/tables.js"></script>
-		
 
-		
-		 <link rel="stylesheet" type="text/css" href="/Bootstrap-Admin-Theme/filtros/vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css"></link> 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
- <script src="https://code.jquery.com/jquery.js"></script> 
-    <!-- jQuery UI -->
-     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-   
-    <script src="/Bootstrap-Admin-Theme/filtros/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="/Bootstrap-Admin-Theme/filtros/vendors/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
-    <script src="/Bootstrap-Admin-Theme/filtros/vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"></script>
+	<link rel="stylesheet" type="text/css"
+		href="/Bootstrap-Admin-Theme/filtros/vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css"></link>
 
-    <script src="/Bootstrap-Admin-Theme/filtros/vendors/ckeditor/ckeditor.js"></script>
-    <script src="/Bootstrap-Admin-Theme/filtros/vendors/ckeditor/adapters/jquery.js"></script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- jQuery UI -->
+	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
 
-    <script type="text/javascript" src="/Bootstrap-Admin-Theme/filtros/vendors/tinymce/js/tinymce/tinymce.min.js"></script>
+	<script
+		src="/Bootstrap-Admin-Theme/filtros/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="/Bootstrap-Admin-Theme/js/custom.js"></script>
-    <script src="/Bootstrap-Admin-Theme/js/editors.js"></script>
-		
+	<script
+		src="/Bootstrap-Admin-Theme/filtros/vendors/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+	<script
+		src="/Bootstrap-Admin-Theme/filtros/vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"></script>
+
+	<script
+		src="/Bootstrap-Admin-Theme/filtros/vendors/ckeditor/ckeditor.js"></script>
+	<script
+		src="/Bootstrap-Admin-Theme/filtros/vendors/ckeditor/adapters/jquery.js"></script>
+
+	<script type="text/javascript"
+		src="/Bootstrap-Admin-Theme/filtros/vendors/tinymce/js/tinymce/tinymce.min.js"></script>
+
+	<script src="/Bootstrap-Admin-Theme/js/custom.js"></script>
+	<script src="/Bootstrap-Admin-Theme/js/editors.js"></script>
+
 </body>
 
-</html>  
+</html>

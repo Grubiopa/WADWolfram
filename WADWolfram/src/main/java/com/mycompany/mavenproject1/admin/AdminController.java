@@ -5,12 +5,17 @@
  */
 package com.mycompany.mavenproject1.admin;
 
+import com.mycompany.mavenproject1.Noticia;
 import com.mycompany.mavenproject1.NoticiasRepository;
+import com.mycompany.mavenproject1.Project;
+import com.mycompany.mavenproject1.ProjectRepository;
 import com.mycompany.mavenproject1.Role;
 import com.mycompany.mavenproject1.User;
 import com.mycompany.mavenproject1.UserPersonalData;
 import com.mycompany.mavenproject1.UserPersonalDataRepository;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +30,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/admin")
 public class AdminController { 
+	
+
+    @Autowired
+    public NoticiasRepository noticias;
+
+    @Autowired
+    public ProjectRepository projects;
 
     @Autowired
     public UserPersonalDataRepository adminuser;
@@ -37,6 +49,8 @@ public class AdminController {
     
     @RequestMapping("/AddBlog")
     public String addblog(Model m){
+    	List<Noticia> not= noticias.findAll();
+    	m.addAttribute("noticias",not);
         return "Bootstrap-Admin-Theme/addblog";
     }
     
@@ -44,6 +58,8 @@ public class AdminController {
     
     @RequestMapping("/AddProject")
     public String addproject(Model m){
+		List<Project> proj= projects.findAll();
+    	m.addAttribute("projects",proj);
         return "Bootstrap-Admin-Theme/addproject";
     }
     

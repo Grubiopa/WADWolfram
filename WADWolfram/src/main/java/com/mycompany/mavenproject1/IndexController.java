@@ -7,6 +7,8 @@ package com.mycompany.mavenproject1;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,11 +55,13 @@ public class IndexController {
     
     @RequestMapping (value="/register/create", method=RequestMethod.POST)
     public String NewUser(Model model,@RequestParam String aname,@RequestParam String lastName,@RequestParam String username,@RequestParam String aemail,
-            @RequestParam String apass,@RequestParam String apass2){
+            @RequestParam String apass,@RequestParam String apass2, HttpSession sesion){
         ArrayList<Role> rol= new ArrayList<>();
         UserPersonalData u = new UserPersonalData(aname,lastName,username,aemail,apass, apass2, "i.jpg", rol);
         anotheruser.save(u); 
-    //    model.addAttribute("username",username);
+    //    model.addAttribute("username",username); 
+        User us = new User(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), u);
+        sesion.setAttribute("User", us);
     return "index_template";
     }
    

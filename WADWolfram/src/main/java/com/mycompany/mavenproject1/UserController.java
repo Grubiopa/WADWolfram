@@ -110,7 +110,59 @@ public class UserController {
 		return "users";
 
 	}
+	
+	@RequestMapping("/users")
+	public String userChagerge(Model m, HttpSession sesion) {
 
+		List<UserProject> userProject = new ArrayList<>();
+		List<UserProject> otherProjects = new ArrayList<>();
+		List<UserMovements> userMovements = new ArrayList<>();
+		
+		User u = (User) sesion.getAttribute("User");
+		
+			long id = u.getUser().getId();
+			List<Donation> donations = movements.findByuserId(id);
+			List<Long> idDonateProjects = new ArrayList<>();
+
+			for (Donation d : donations) {
+				Project p = projects.findOne(d.getProjectId());
+				String title = p.getTitle();
+				boolean find = false;
+				for (UserProject us : userProject) {
+					if (us.getTitle() == title) {
+						us.setMoney(us.getMoney() + d.getMoney());
+						find = true;
+						break;
+					}
+				}
+				if (!find) {
+					userProject.add(new UserProject(d.getProjectId(),title, p.getShortDescription(), d.getMoney()));
+					idDonateProjects.add(d.getProjectId());
+				}
+				userMovements.add(new UserMovements(title, d.getMoney(), d.getDate()));
+			}
+
+			long maximoID = projects.maxID();
+			for (long i = 1; i <= maximoID; i++) {
+				if (!idDonateProjects.contains(i)) {
+					Project p = projects.findOne(i);
+					otherProjects.add(new UserProject(p.getId(),p.getTitle(), p.getShortDescription(), p.getRestBudget()));
+				}
+			}
+
+			User user = new User(userProject, otherProjects, userMovements, u.getUser());
+			sesion.setAttribute("User", user);
+
+			m.addAttribute("username", user.getUser().getUserName());
+			m.addAttribute("colaborateProjects", user.getColaborateProjects());
+			m.addAttribute("otherProjects", user.getOtherProjects());
+			m.addAttribute("movements", user.getUserMovements());
+			m.addAttribute("User", user.getUser());
+		
+		return "users";
+
+	}
+	
 	@RequestMapping("/login")
 	public String login(Model m) {
 		return "login";

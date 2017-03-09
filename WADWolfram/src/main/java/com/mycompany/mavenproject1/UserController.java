@@ -116,4 +116,38 @@ public class UserController {
 		return "login";
 	}
 
+	/*@RequestMapping("/users/logged/index")
+	public String loggedIndex(Model m) {
+		return "/";
+	}
+	
+	@RequestMapping("/users/logged/about")
+	public String loggedAbout(Model m) {
+		return "about";
+	}
+	
+	@RequestMapping("/users/logged/blog")
+	public String loggedBlog(Model m) {
+		return "blog_template";
+	}
+	
+	@RequestMapping("/users/logged/new")
+	public String loggedNew(Model m) {
+		return "new_template";
+	}
+	
+	@RequestMapping("/users/logged/projects")
+	public String loggedProjects(Model m) {
+		return "projects_template";
+	}
+	
+	@RequestMapping("/users/logged/project")
+	public String loggedProject(Model m) {
+		return "oneProject";
+	}*/
+	
+	
+	
+	
+
 }

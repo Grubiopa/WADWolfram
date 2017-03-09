@@ -111,7 +111,7 @@ public class UserController {
 
 	}
 	
-	@RequestMapping("/users")
+	@RequestMapping("/users/load")
 	public String userChagerge(Model m, HttpSession sesion) {
 
 		List<UserProject> userProject = new ArrayList<>();
@@ -164,7 +164,12 @@ public class UserController {
 	}
 	
 	@RequestMapping("/login")
-	public String login(Model m) {
+	public String login(Model m, HttpSession sesion) {
+		User s = (User) sesion.getAttribute("User");
+
+		if (s != null) {
+			return "/users/load";
+		}
 		return "login";
 	}
 

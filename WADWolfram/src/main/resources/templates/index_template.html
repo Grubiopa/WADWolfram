@@ -53,7 +53,7 @@
                                     <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/register">Únete</a></li>
-                                        <li><a href="/login">Inicia sesión/ Mi cuenta</a></li>
+                                        <li><a href="/login">Inicia sesión</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -108,27 +108,13 @@
                                 <br/>
 
                                 <h4>Colabora con nuestros proyectos</h4>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuetext="Ensayo clínico del Dr. Fumihiko Urano: 0%" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                                        Ensayo clínico del Dr. Fumihiko Urano: 0%
+{{#percentages}}
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuetext="{{title}}: {{percentage}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage}}%">
+                                         {{title}}: {{percentage}}
                                     </div>
                                 </div>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="93" aria-valuetext="Ensayo clínico liderado por Dr. Timothy Barrett: 93%" aria-valuemin="0" aria-valuemax="100" style="width: 93%">
-                                        Ensayo clínico liderado por Dr. Timothy Barrett: 93%
-                                    </div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="69" aria-valuetext="Subvenciones para la financiación de la I+D+i biomédica y en Ciencias de la Salud en Andalucía. Proyectos de Investigación en Salud: 69%" aria-valuemin="0" aria-valuemax="100" style="width: 69%">
-                                        Subvenciones para la financiación de la I+D+i biomédica y en Ciencias de la Salud en Andalucía: 69%
-                                    </div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuetext="Investigación y Atención bio-psicosocial a las personas afectadas por el síndrome de Wolfram y a sus familiares: 100%" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                                        Investigación y Atención bio-psicosocial a las personas afectadas por el síndrome de Wolfram y a sus familiares: 100%
-                                    </div>
-                                </div>
-
+{{/percentages}}
                                 <div class="flex-caption">
                                     <a href="/projects" class="btn btn-theme">¡Anímate y participa!</a>
                                 </div>

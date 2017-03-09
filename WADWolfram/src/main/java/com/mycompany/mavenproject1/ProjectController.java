@@ -76,6 +76,7 @@ public class ProjectController {
 
 	}
 
+	/*
 	@RequestMapping("/pay/projects")
 	public String donate(Model m, long projectId, HttpSession sesion, double money) {
 		Date d = new Date();
@@ -83,7 +84,7 @@ public class ProjectController {
 		movements.save(new Donation(s.getUser().getId(), projectId, money, d));
 		return "project";
 	}
-	
+	*/
 	
 	@RequestMapping(value="/admin/AddProject/create", method=RequestMethod.POST)
 	public String addNewProject(@RequestParam String title,@RequestParam String shortDescription,

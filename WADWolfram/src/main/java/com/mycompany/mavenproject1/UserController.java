@@ -29,7 +29,7 @@ public class UserController {
 	private ProjectRepository projects;
 	@Autowired
 	private DonationsRepository movements;
-
+/*
 	@PostConstruct
 	public void init() {
 		List<Role> role = new ArrayList<>();
@@ -42,7 +42,7 @@ public class UserController {
 		movements.save(new Donation(1, 1, 40, d));
 		movements.save(new Donation(1, 2, 10, d));
 	}
-
+*/
 	@RequestMapping("/users/update")
 	public String updateDB(Model m, UserPersonalData u) {
 		// Consulta SQL de update
@@ -51,7 +51,7 @@ public class UserController {
 
 	@RequestMapping("/users/login")
 	public String userLogin(Model m, UserLogin s, HttpSession sesion) {
-
+/*
 		List<UserProject> userProject = new ArrayList<>();
 		List<UserProject> otherProjects = new ArrayList<>();
 		List<UserMovements> userMovements = new ArrayList<>();
@@ -108,22 +108,23 @@ public class UserController {
 			m.addAttribute("movements", userMovements);
 			m.addAttribute("User", new UserPersonalData());
 		}
+		*/
 		return "users";
 
 	}
 	
 	@RequestMapping("/users/load")
 	public String userChagerge(Model m, HttpSession sesion) {
-
-//		List<UserProject> userProject = new ArrayList<>();
-//		List<UserProject> otherProjects = new ArrayList<>();
-//		List<UserMovements> userMovements = new ArrayList<>();
+/*
+		* List<UserProject> userProject = new ArrayList<>();
+* 		List<UserProject> otherProjects = new ArrayList<>();
+* 		List<UserMovements> userMovements = new ArrayList<>();
 		
 		User u = (User) sesion.getAttribute("User");
 		
 			long id = u.getUser().getId();
 			List<Donation> donations = movements.findByuserId(id);
-//			List<Long> idDonateProjects = new ArrayList<>();
+			List<Long> idDonateProjects = new ArrayList<>();
 
 			for (Donation d : donations) {
 				Project p = projects.findOne(d.getProjectId());
@@ -151,7 +152,7 @@ public class UserController {
 				}
 			}
 
-//			User user = new User(userProject, otherProjects, userMovements, u.getUser());
+			* User user = new User(userProject, otherProjects, userMovements, u.getUser());
 			User user = new User(u.getUser());
 			sesion.setAttribute("User", user);
 
@@ -160,7 +161,7 @@ public class UserController {
 			m.addAttribute("otherProjects", user.getOtherProjects());
 			m.addAttribute("movements", user.getDonations());
 			m.addAttribute("User", user.getUser());
-		
+*/		
 		return "users";
 
 	}

@@ -60,7 +60,8 @@ public class IndexController {
         UserPersonalData u = new UserPersonalData(aname,lastName,username,aemail,apass, apass2, "i.jpg", rol);
         anotheruser.save(u); 
     //    model.addAttribute("username",username); 
-        User us = new User(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), u);
+//        User us = new User(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), u);
+        User us = new User(u);
         sesion.setAttribute("User", us);
     return "index_template";
     }

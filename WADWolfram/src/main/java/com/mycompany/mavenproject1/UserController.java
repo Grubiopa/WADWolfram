@@ -92,13 +92,14 @@ public class UserController {
 				}
 			}
 
-			User user = new User(userProject, otherProjects, userMovements, data.get(0));
+//			User user = new User(userProject, otherProjects, userMovements, data.get(0));
+			User user = new User(data.get(0));
 			sesion.setAttribute("User", user);
 
 			m.addAttribute("username", user.getUser().getUserName());
 			m.addAttribute("colaborateProjects", user.getColaborateProjects());
 			m.addAttribute("otherProjects", user.getOtherProjects());
-			m.addAttribute("movements", user.getUserMovements());
+			m.addAttribute("movements", user.getDonations());
 			m.addAttribute("User", user.getUser());
 		} else {
 			m.addAttribute("username", "fallo");
@@ -114,15 +115,15 @@ public class UserController {
 	@RequestMapping("/users/load")
 	public String userChagerge(Model m, HttpSession sesion) {
 
-		List<UserProject> userProject = new ArrayList<>();
-		List<UserProject> otherProjects = new ArrayList<>();
-		List<UserMovements> userMovements = new ArrayList<>();
+//		List<UserProject> userProject = new ArrayList<>();
+//		List<UserProject> otherProjects = new ArrayList<>();
+//		List<UserMovements> userMovements = new ArrayList<>();
 		
 		User u = (User) sesion.getAttribute("User");
 		
 			long id = u.getUser().getId();
 			List<Donation> donations = movements.findByuserId(id);
-			List<Long> idDonateProjects = new ArrayList<>();
+//			List<Long> idDonateProjects = new ArrayList<>();
 
 			for (Donation d : donations) {
 				Project p = projects.findOne(d.getProjectId());
@@ -150,13 +151,14 @@ public class UserController {
 				}
 			}
 
-			User user = new User(userProject, otherProjects, userMovements, u.getUser());
+//			User user = new User(userProject, otherProjects, userMovements, u.getUser());
+			User user = new User(u.getUser());
 			sesion.setAttribute("User", user);
 
 			m.addAttribute("username", user.getUser().getUserName());
 			m.addAttribute("colaborateProjects", user.getColaborateProjects());
 			m.addAttribute("otherProjects", user.getOtherProjects());
-			m.addAttribute("movements", user.getUserMovements());
+			m.addAttribute("movements", user.getDonations());
 			m.addAttribute("User", user.getUser());
 		
 		return "users";

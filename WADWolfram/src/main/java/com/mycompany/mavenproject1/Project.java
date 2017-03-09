@@ -3,8 +3,15 @@ package com.mycompany.mavenproject1;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+
+import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Project {
@@ -23,6 +30,8 @@ public class Project {
     private Date releaseDate;
     private int startYear;
     private String image;
+    @OneToMany(mappedBy="project")
+    private List<Donation> donations;
 
     protected Project() {
     }
@@ -40,9 +49,10 @@ public class Project {
 		this.releaseDate = releaseDate;
 		this.startYear = startYear;
 		this.image = image;
+  this.donations=new ArrayList<>();
 	}
 
-	/*public Project(long id,String title, String shortDescription, String description, double totalBudget, double parcialBudget, double time, boolean opened, String releaseDate, int startYear, String image) {
+	/*public Project(long id,String title, String shortDescription, String description, double totalBudget, double parcialBudget, double time, boolean opened, Date releaseDate, int startYear, String image) {
         super();
         this.id = id;
         this.title = title;
@@ -156,6 +166,18 @@ public class Project {
         this.startYear = startYear;
     }
 
+    public List<Donation> getDonations(){
+      return donations;
+    }
+
+    public void setDonations(List<Donation> donations){
+      this.donations=donations;
+    }
+    public void addDonation(Donation d){
+      donations.add(d);
+      setParcialBudget(parcialBudget+d.getMoney());
+     }
+
 	/*@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -172,5 +194,8 @@ public class Project {
 				+", startYear" + startYear
 				+", image" + image;
 	}*/
-    
+
+  public int calculateProgressPercentage(){
+    return (int)(parcialBudget*100/totalBudget);
+  }    
 }

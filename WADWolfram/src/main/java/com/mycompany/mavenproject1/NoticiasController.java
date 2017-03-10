@@ -32,6 +32,7 @@ public class NoticiasController {
     @Autowired
     public NoticiasRepository noticias;
     
+    
     private static final String FILES_FOLDER = "files";
     
     
@@ -70,28 +71,41 @@ public class NoticiasController {
         return "new_template";
     }
     
-    @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.PUT) //put
-    public String Comentar(Model model, @RequestParam String comentarios, @PathVariable long id) {
-    	Noticia n= noticias.findOne(id);
+    @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.POST) //put???
+    public String Comentar(Model model, @RequestParam String comentarios, @PathVariable long id) {//pillamos id y el comentario
+    	Noticia n= noticias.findOne(id);    //pillamos la noticia de la bd
     	/*
     	System.out.println("n.getcomentarios: " + n.getComentarios());
     	System.out.println("getcomentarios: " + noticias.findOne(id).getComentarios());
     	*/
+        
+        /*
     	ArrayList<String> listaComentarios = new ArrayList<>();
     	listaComentarios= n.getComentarios();
+        System.out.println("comentarios antes: "+ listaComentarios);
     	listaComentarios.add(comentarios);
     	n.setComentarios(listaComentarios);
+        System.out.println("comentarios despues: "+ n.getComentarios());
     	/*noticias.findOne(id).setComentarios(listaComentarios);
     	System.out.println("ListaComentarios: " + listaComentarios);
     	System.out.println("getcomentarios: " + noticias.findOne(id).getComentarios());*/
     	
-    	/*ArrayList<String> comment = new ArrayList<>();
-    	comment.add(comentarios);
-    	n.setComentarios(comment);*/
+    	ArrayList<String> comment = new ArrayList<>();    //aux
+        comment= n.getComentarios();      //pillamos los coments de la noticia donde comentamos
+    	comment.add(comentarios);       //añadimos el nuevo comentario a la lista
+    	n.setComentarios(comment);      //guardamos en n los comentarios con el añadido.
     	
-    	Noticia n2= new Noticia(n.gettitle(),n.getCuerpo(),n.getCategoria(),listaComentarios,n.getdate());
-    	model.addAttribute("new",n);
-    	model.addAttribute("comentarios",n.getComentarios());
+        long aux= n.getId();
+        noticias.delete(n);
+    	
+    	Noticia n2= new Noticia(n.gettitle(),n.getCuerpo(),n.getCategoria(),n.getComentarios(),n.getdate());
+        //CREAMOS UNA NOTICIA (POST) CON TODOS LOS DATOS DE LA ANTERIOR INCLUSO EL MISMO ID
+        noticias.save(n2);
+        
+        
+        //n2.Comentar(comentarios, id);
+        model.addAttribute("new",n2);
+    	model.addAttribute("comentarios", n2.getComentarios());
         return "new_template";
         }
     

@@ -41,6 +41,16 @@ public class Noticia {
         this.comentarios = comentarios;
         //this.ruta_imagen=ruta_imagen;
     }
+    public Noticia(long id, String title, /*MultipartFile ruta_imagen,*/ String cuerpo, String categoria, ArrayList comentarios, Date date) {
+        this.id=id;
+        this.title = title;
+        this.cuerpo = cuerpo;
+        this.categoria = categoria;
+        this.date = date;
+        number_comments = 0;
+        this.comentarios = comentarios;
+        //this.ruta_imagen=ruta_imagen;
+    }
 
     public long getId() {
         return id;
@@ -101,6 +111,10 @@ public class Noticia {
 
     public void setdate(Date date) {
         this.date = date;
+    }
+
+    public void setId(long id) {
+        this.id=id;
     }
 
 }

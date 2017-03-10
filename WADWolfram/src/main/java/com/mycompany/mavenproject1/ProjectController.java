@@ -76,15 +76,16 @@ public class ProjectController {
 
 	}
 
-	/*
+	
 	@RequestMapping("/pay/projects")
 	public String donate(Model m, long projectId, HttpSession sesion, double money) {
 		Date d = new Date();
 		User s = (User) sesion.getAttribute("User");
-		movements.save(new Donation(s.getUser().getId(), projectId, money, d));
+		Project p  = projects.findOne(projectId);
+		movements.save(new Donation(s.getUser(), p, money, d));
 		return "project";
 	}
-	*/
+	
 	
 	@RequestMapping(value="/admin/AddProject/create", method=RequestMethod.POST)
 	public String addNewProject(@RequestParam String title,@RequestParam String shortDescription,

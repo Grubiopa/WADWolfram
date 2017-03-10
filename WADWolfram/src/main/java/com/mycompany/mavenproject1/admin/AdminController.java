@@ -82,7 +82,8 @@ public class AdminController {
             @RequestParam String password,@RequestParam String repeat_password,
             @RequestParam Boolean confirm){
         
-        ArrayList<Role> rol= new ArrayList<>();
+        ArrayList<String> rol= new ArrayList<>();
+        rol.add("ADMIN");
         UserPersonalData u = new UserPersonalData(name, "", email, name, password, repeat_password, "i.jpg", rol);
         adminuser.save(u);
     return "Bootstrap-Admin-Theme/index";

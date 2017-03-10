@@ -22,7 +22,7 @@ public class Noticia {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String title;
-    private MultipartFile ruta_imagen;
+    //private MultipartFile ruta_imagen;
     private String cuerpo;
     private String categoria;
     private int number_comments;
@@ -39,7 +39,7 @@ public class Noticia {
         this.date = date;
         number_comments = 0;
         this.comentarios = comentarios;
-        this.ruta_imagen=ruta_imagen;
+        //this.ruta_imagen=ruta_imagen;
     }
 
     public long getId() {
@@ -50,9 +50,9 @@ public class Noticia {
         return this.title;
     }
 
-    public MultipartFile getRutaImagen() {
+    /*public MultipartFile getRutaImagen() {
         return this.ruta_imagen;
-    }
+    }*/
 
     public String getCuerpo() {
         return this.cuerpo;
@@ -78,9 +78,9 @@ public class Noticia {
         this.title = title;
     }
 
-    public void setRutaImagen(MultipartFile ruta_imagen) {
+    /*public void setRutaImagen(MultipartFile ruta_imagen) {
         this.ruta_imagen = ruta_imagen;
-    }
+    }*/
 
     public void setCuerpo(String cuerpo) {
         this.cuerpo = cuerpo;

@@ -2,7 +2,9 @@ package com.mycompany.mavenproject1;
 
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,12 +22,13 @@ public class UserPersonalData {
 	private String oldPassword;
 	private String newPassword;
 	private String photo;
-	//private List<Role> roles;
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
 
 	// protected UserMovements(){}
 
 	public UserPersonalData(String name, String surname, String email, String userName, String oldPassword,
-			String newPassword, String photo, List<Role> roles) {
+			String newPassword, String photo, List<String> roles) {
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
@@ -33,7 +36,7 @@ public class UserPersonalData {
 		this.oldPassword = oldPassword;
 		this.newPassword = newPassword;
 		this.photo = photo;
-		//this.roles = roles;
+		this.roles = roles;
 	}
 
 	public UserPersonalData() {

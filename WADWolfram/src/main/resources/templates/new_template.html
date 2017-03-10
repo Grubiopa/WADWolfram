@@ -10,7 +10,8 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/plugins/flexslider/flexslider.css" rel="stylesheet" media="screen" />
     <link href="/css/cubeportfolio.min.css" rel="stylesheet" />
-    <link href="vcss/style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/user.css" rel="stylesheet" />
 
     <!-- Theme skin -->
     <link id="t-colors" href="/skins/default.css" rel="stylesheet" />
@@ -18,56 +19,63 @@
     <!-- boxed bg -->
     <link id="bodybg" href="/bodybg/bg1.css" rel="stylesheet" type="text/css" />
 
-    <!-- =======================================================
-    Author: Group13. 2017
-======================================================= -->
+
+    <script src="/js/jquery.min.js "></script>
+    <script src="/js/modernizr.custom.js "></script>
+    <script src="/js/jquery.easing.1.3.js "></script>
+    <script src="/js/bootstrap.min.js "></script>
+    <script src="/plugins/flexslider/jquery.flexslider-min.js "></script>
+    <script src="/plugins/flexslider/flexslider.config.js "></script>
+    <script src="/js/jquery.appear.js "></script>
+    <script src="/js/stellar.js "></script>
+    <script src="/js/classie.js "></script>
+    <script src="/js/uisearch.js "></script>
+    <script src="/js/jquery.cubeportfolio.min.js "></script>
+    <script src="/js/google-code-prettify/prettify.js "></script>
+    <script src="/js/animate.js "></script>
+    <script src="/js/custom.js "></script>
+    <script src="/js/user.js"></script>
 
 </head>
 
 <body>
 
-
-    <div id="wrapper">
+   <div id="wrapper">
         <!-- start header -->
         <header>
-            <nav>
-                <div class="navbar navbar-default navbar-static-top">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="icon-bar"></span>Buscar
-                            </button>
-                            <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="" width="199" height="52" /></a>
-                        </div>
-                        <div class="navbar-collapse collapse ">
-                            <ul class="nav navbar-nav">
-                                <li><a href="/">Inicio</a></li>
-                                <li><a href="/projects">Proyectos</a></li>
-
-                                <li class="active"><a href="/blog">Noticias</a></li>
-
-                                <li><a href="/contact">Contacto</a></li>
-                                <li><a href="/about">Sobre sus desarrolladores</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta<i class="fa fa-angle-down"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/register">Únete</a></li>
-                                        <li><a href="/login">Inicia sesión/ Mi cuenta</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+            <div class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="" width="199" height="52" /></a>
+                    </div>
+                    <div class="navbar-collapse collapse ">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Inicio</a></li>
+                            <li><a href="/projects">Proyectos </a></li>
+                            <li  class="active"><a href="/blog_template">Noticias </a></li>
+                            <li><a href="/contact">Contacto </a></li>
+                            <li><a href="/about">Sobre nosotros </a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/register">Únete</a></li>
+                                    <li><a href="/login">Inicia sesión/ Mi cuenta</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </nav>
+            </div>
 
-            <section id="inner-headline">
+                  <section id="inner-headline">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <br>
-                            <br>
-                            <br>
                             <ul class="breadcrumb">
                                 <li><a href="/"><i class="fa fa-home"></i> Volver al Inicio</a><i class="icon-angle-right"></i></li>
                                 <li><a href="/blog">Noticias</a></li>
@@ -78,6 +86,7 @@
                 </div>
             </section>
         </header>
+        
         <!-- end header -->
 
         <section id="content">
@@ -98,53 +107,46 @@
                                     <li><i class="fa fa-calendar"></i>{{date}}</li>
                                     <li><i class="fa fa-comments"></i><a href="#">{{number_comments}} Comentarios</a></li>
                                 </ul>
-                                <!--		<a href="#" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>-->
+                                
+                                {{#comentarios}}
+                                <ul>
+                                <li>
+                                    <p>{{.}}</p>
+                                    </li>
+                                 </ul>
+                                 {{/comentarios}}
                             </div>
                         </article>
-                        {{/new}}
-                        <!--			<div id="pagination">
-					<span class="all">Page 1 of 3</span>
-					<span class="current">1</span>
-					<a href="#" class="inactive">2</a>
-					<a href="#" class="inactive">3</a>
-				</div>-->
                         <div class="clear"></div>
                         <div class="marginbot30"></div>
                         <h4>Deja tu comentario</h4>
-                        <form role="form">
+                        <form role="form" action="/comment/upload/{{id}}" method="put">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="Introduce tu nombre">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="Introduce tu correo electrónico">
-                            </div>
-
-                            <div class="form-group">
-                                <textarea class="form-control" rows="8" placeholder="Comenta aquí"></textarea>
+                                <textarea class="form-control" rows="8" placeholder="Comenta aquí" name="comentarios"></textarea>
                             </div>
                             <button type="submit" class="btn btn-theme btn-md">Comentar</button>
                         </form>
-
+ 				{{/new}}
                     </div>
-                    <!--<div class="col-lg-4">
+                    <div class="col-lg-4">
                         <aside class="right-sidebar">
                             <div class="widget">
 
                             </div>
                             <div class="widget">
-                                <h5 class="widgetheading">Categorías</h5>
+                                <h3>Categorías</h3>
                                 <ul class="cat">
-                                    <li><i class="fa fa-angle-right"></i><a href="#sindromeWolfram">Enfermedad</a><span> (2)</span></li>
-                                    <li><i class="fa fa-angle-right"></i><a href="#">Asociación</a><span> (0)</span></li>
-                                    <li><i class="fa fa-angle-right"></i><a href="#">Nuevos descubrimientos</a><span> (0)</span></li>
-                                    <li><i class="fa fa-angle-right"></i><a href="#">Proyectos</a><span> (0)</span></li>
-                                    <li><i class="fa fa-angle-right"></i><a href="#actividades">Próximos eventos</a><span> (1)</span></li>
+                                    <li><i class="fa fa-angle-right"></i><a>Enfermedad</a><span> (2)</span></li>
+                                    <li><i class="fa fa-angle-right"></i><a>Asociación</a><span>(0) </span></li>
+                                    <li><i class="fa fa-angle-right"></i><a>Nuevos descubrimientos</a><span> (0)</span></li>
+                                    <li><i class="fa fa-angle-right"></i><a>Proyectos</a><span> (0)</span></li>
+                                    <li><i class="fa fa-angle-right"></i><a>Próximos eventos</a><span> (1)</span></li>
                                 </ul>
                             </div>
                             <div class="widget">
                             </div>
                         </aside>
-                    </div>-->
+                    </div>
                 </div>
             </div>
         </section>
@@ -192,12 +194,6 @@
                     <div class="col-sm-3 col-lg-3">
                         <div class="widget">
                             <h4>Idioma</h4>
-                            <!--   <div class="form-group multiple-form-group input-group">
-                        <input type="email" name="email" class="form-control">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-theme btn-add">Subscribe</button>
-                        </span>
-                    </div>-->
                         </div>
                     </div>
                 </div>
@@ -221,24 +217,9 @@
             </div>
         </footer>
     </div>
-    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
-    <!-- javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/modernizr.custom.js"></script>
-    <script src="/js/jquery.easing.1.3.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/plugins/flexslider/jquery.flexslider-min.js"></script>
-    <script src="/plugins/flexslider/flexslider.config.js"></script>
-    <script src="/js/jquery.appear.js"></script>
-    <script src="/js/stellar.js"></script>
-    <script src="/js/classie.js"></script>
-    <script src="/js/uisearch.js"></script>
-    <script src="/js/jquery.cubeportfolio.min.js"></script>
-    <script src="/js/google-code-prettify/prettify.js"></script>
-    <script src="/js/animate.js"></script>
-    <script src="/js/custom.js"></script>
+    <a href="# " class="scrollup "><i class="fa fa-angle-up active "></i></a>
+
+
 
 
 </body>

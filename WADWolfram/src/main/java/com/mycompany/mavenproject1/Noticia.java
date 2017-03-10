@@ -32,7 +32,7 @@ public class Noticia {
 //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 //Date d = sdf.parse("21/12/2012");
     public Noticia(){}
-    public Noticia(String title, MultipartFile ruta_imagen, String cuerpo, String categoria, ArrayList comentarios, Date date) {
+    public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, String categoria, ArrayList comentarios, Date date) {
         this.title = title;
         this.cuerpo = cuerpo;
         this.categoria = categoria;
@@ -93,6 +93,10 @@ public class Noticia {
     public void insertarComentario(String comentario) {
         comentarios.add(comentario);
         number_comments++;
+    }
+    
+    public void setComentarios(ArrayList<String> comentarios){
+    	this.comentarios= comentarios;
     }
 
     public void setdate(Date date) {

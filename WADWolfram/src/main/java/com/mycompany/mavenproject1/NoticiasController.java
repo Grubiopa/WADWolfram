@@ -14,6 +14,7 @@ import java.util.Date;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,14 +34,18 @@ public class NoticiasController {
     
     private static final String FILES_FOLDER = "files";
     
+    
+    
     @PostConstruct
     public void init() {
 		Date releaseDate = new Date();
-		ArrayList coments = new ArrayList<>();
+		ArrayList<String> coments = new ArrayList<>();
 		MultipartFile a = null;
-		noticias.save(new  Noticia("Noticia1", a, "cuerpo", "enfermedad", coments, releaseDate));
+		coments.add("holaa");
+		coments.add("holeee");
+		noticias.save(new  Noticia("Noticia1", /*a,*/ "cuerpo", "enfermedad", coments, releaseDate));
 		MultipartFile b=null;
-		noticias.save(new  Noticia("Noticia2", b, "cuerpo2", "eventos", coments, releaseDate));
+		noticias.save(new  Noticia("Noticia2", /*b,*/ "cuerpo2", "eventos", coments, releaseDate));
 	}
     @RequestMapping(value = "/mostrarPorCategoria", method = RequestMethod.GET)
     public String mostrarPorCategoria(Model model, @RequestParam Categoria categoria) {
@@ -61,8 +66,35 @@ public class NoticiasController {
     public String mostrarUna(Model model, @RequestParam long id) {
         Noticia n = noticias.findOne(id);
         model.addAttribute("new", n);
+        model.addAttribute("comentarios",n.getComentarios());
         return "new_template";
     }
+    
+    @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.PUT) //put
+    public String Comentar(Model model, @RequestParam String comentarios, @PathVariable long id) {
+    	Noticia n= noticias.findOne(id);
+    	/*
+    	System.out.println("n.getcomentarios: " + n.getComentarios());
+    	System.out.println("getcomentarios: " + noticias.findOne(id).getComentarios());
+    	*/
+    	ArrayList<String> listaComentarios = new ArrayList<>();
+    	listaComentarios= n.getComentarios();
+    	listaComentarios.add(comentarios);
+    	n.setComentarios(listaComentarios);
+    	/*noticias.findOne(id).setComentarios(listaComentarios);
+    	System.out.println("ListaComentarios: " + listaComentarios);
+    	System.out.println("getcomentarios: " + noticias.findOne(id).getComentarios());*/
+    	
+    	/*ArrayList<String> comment = new ArrayList<>();
+    	comment.add(comentarios);
+    	n.setComentarios(comment);*/
+    	
+    	Noticia n2= new Noticia(n.gettitle(),n.getCuerpo(),n.getCategoria(),listaComentarios,n.getdate());
+    	model.addAttribute("new",n);
+    	model.addAttribute("comentarios",n.getComentarios());
+        return "new_template";
+        }
+    
 
 
     @RequestMapping(value="/admin/AddBlog/create", method=RequestMethod.POST)  //URL y method post necesarios.
@@ -71,22 +103,29 @@ public class NoticiasController {
                 @RequestParam String cuerpo, @RequestParam Boolean confirm){ ///Se le pasa como parámetros todos los input del form
     	
 		Date date= new Date();  //Simulamos la hora actual
-		Noticia n= new Noticia(title, imagen, cuerpo, categoria, null, date); //Creamos una noticia con todos los datos.
+		Noticia n= new Noticia(title, /*imagen,*/ cuerpo, categoria, null, date); //Creamos una noticia con todos los datos.
 		
 		noticias.save(n);                                                               //Añadimos la noticia a la bbdd
                 
 		String fileName = n.getId() + ".jpg";
-		File filesFolder = new File(FILES_FOLDER);
-		File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
-		try {
-			imagen.transferTo(uploadedFile);
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (!imagen.isEmpty()) {
+			try {
+
+				File filesFolder = new File(FILES_FOLDER);
+				if (!filesFolder.exists()) {
+					filesFolder.mkdirs();
+				}
+
+				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+				imagen.transferTo(uploadedFile);
+			}catch(IllegalStateException e){
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+
                 return "Bootstrap-Admin-Theme/index";           //WE ARE OUT!
 		
 	}

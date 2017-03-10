@@ -15,4 +15,5 @@ public interface NoticiasRepository extends JpaRepository<Noticia, Long> {
     public Noticia findByTitle(String title);
 
     public ArrayList<Noticia> findAll();
+    
 }

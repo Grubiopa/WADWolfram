@@ -18,7 +18,7 @@ public class User {
  @OneToMany(mappedBy="user")
 	private List<Donation> donations;
  @OneToOne(cascade=CascadeType.ALL)
-	UserPersonalData user;
+private 	UserPersonalData user;
  @ElementCollection(fetch = FetchType.EAGER)
  private List<String> roles;
 	

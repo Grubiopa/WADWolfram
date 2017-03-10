@@ -104,15 +104,13 @@ public class UserController {
 			m.addAttribute("otherProjects", user.getOtherProjects());
 			m.addAttribute("movements", user.getDonations());
 			m.addAttribute("User", user.getUser());
+			return "users";
 		} else {
-			m.addAttribute("username", "fallo");
-			m.addAttribute("colaborateProjects", userProject);
-			m.addAttribute("otherProjects", otherProjects);
-			m.addAttribute("movements", userMovements);
-			m.addAttribute("User", new UserPersonalData());
+			
+			return "login";
 		}
 		
-		return "users";
+		
 
 	}
 	
@@ -168,7 +166,11 @@ public class UserController {
 		return "users";
 
 	}*/
-	
+	@RequestMapping("/user/close")
+	public String closeSesion(Model m, HttpSession sesion){
+		sesion.setAttribute("User", null);
+		return "index_template";
+	}
 	@RequestMapping("/login")
 	public String login(Model m, HttpSession sesion) {
 		User s = (User) sesion.getAttribute("User");

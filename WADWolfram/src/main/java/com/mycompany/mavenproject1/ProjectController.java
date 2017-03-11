@@ -32,7 +32,7 @@ public class ProjectController {
 	@Autowired
 	private DonationsRepository movements;
 	
-	private static final String FILES_FOLDER = "files";
+	private static final String FILES_FOLDER_PROJECTS = "files";
 
 	@PostConstruct
 	public void init() {
@@ -101,7 +101,7 @@ public class ProjectController {
 	public String addNewProject(@RequestParam String title,@RequestParam String shortDescription,
 			@RequestParam String description,@RequestParam double totalBudget,@RequestParam double parcialBudget,
 			@RequestParam double time,@RequestParam String releaseDate,@RequestParam boolean opened,
-			@RequestParam int startYear,@RequestParam MultipartFile imagen){
+			@RequestParam int startYear,@RequestParam ("imagen") MultipartFile imagen){
 		
 		Date date= new Date();
 		Project p= new Project(title, shortDescription, description, totalBudget, parcialBudget, time, true, date, startYear,"");
@@ -111,7 +111,7 @@ public class ProjectController {
 		if (!imagen.isEmpty()) {
 			try {
 
-				File filesFolder = new File(FILES_FOLDER);
+				File filesFolder = new File(FILES_FOLDER_PROJECTS);
 				if (!filesFolder.exists()) {
 					filesFolder.mkdirs();
 				}
@@ -130,6 +130,23 @@ public class ProjectController {
 		
 	}
 
-    
+	  @RequestMapping("/imagep/{fileName}.jpg")
+		public void handleFileDownload(@PathVariable String fileName,
+				HttpServletResponse res) throws FileNotFoundException, IOException {
+
+			File file = new File(FILES_FOLDER_PROJECTS, fileName+".jpg");
+
+			if (file.exists()) {
+				res.setContentType("imagep/jpeg");
+				res.setContentLength(new Long(file.length()).intValue());
+				FileCopyUtils
+						.copy(new FileInputStream(file), res.getOutputStream());
+			} else {
+				res.sendError(404, "File" + fileName + "(" + file.getAbsolutePath()
+						+ ") does not exist");
+			}
+		}
+	
+	
 }
 

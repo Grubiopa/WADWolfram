@@ -65,7 +65,7 @@
                             <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/login">Cerrar sesión/ Mi cuenta</a></li>
+                                    <li><a href="/user/close">Cerrar sesión/ Mi cuenta</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -151,22 +151,21 @@
                                     </div>
                                 </div>
                                 <div class="row hide" id="dataPage">
-                                    <form role="form" class="register-form" action="/users/update" method="post">
+                                    <form role="form" class="register-form" action="/users/update" method="post" enctype="multipart/form-data">
+                                         {{#User}}
                                         <div class="col-md-6">
                                             <div id="profilePhoto">
 
-                                                <img src="/img/icono.jpg" id="profileIcon" class="img-responsive" />
+                                                <img src="/imageu/{id}.jpg" id="profileIcon" class="img-responsive" />
                                                 <div class="form-group">
                                                     <label for="exampleInputFile">Cambiar foto</label>
-                                                    <input type="file" id="exampleInputFile" class="center-block" name="photo">
-                                                    <p class="help-block">Seleccionar nueva foto.</p>
+                                                    <input type="file" id="exampleInputFile" class="center-block" name="imagen">
+                                                    <p class="help-block">Seleccionar nueva foto</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div id="data">
-
-                                                {{#User}}
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Nombre</label>
                                                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder={{name}} name="name">
@@ -194,10 +193,10 @@
                                                 </div>
 
                                                 <button type="submit" class="btn btn-primary btn-lg">Guardar Cambios</button>
-                                                {{/User}}
-
+                                             
                                             </div>
                                         </div>
+                                         {{/User}}
                                     </form>
                                 </div>
                             </div>

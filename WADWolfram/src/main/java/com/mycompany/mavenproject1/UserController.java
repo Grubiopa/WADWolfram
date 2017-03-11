@@ -1,5 +1,9 @@
 package com.mycompany.mavenproject1;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,13 +12,19 @@ import java.util.Set;
 import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.h2.util.New;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -29,6 +39,8 @@ public class UserController {
 	private ProjectRepository projects;
 	@Autowired
 	private DonationsRepository movements;
+	
+	private static final String FILES_FOLDER_USERS = "files";
 
 	@PostConstruct
 	public void init() {
@@ -46,11 +58,38 @@ public class UserController {
 		movements.save(new Donation(u, p, 10, d));
 	}
 
-	@RequestMapping("/users/update")
-	public String updateDB(Model m, UserPersonalData u) {
-		// Consulta SQL de update
+/*	@RequestMapping(value= "/users/update/{id}", method = RequestMethod.POST)
+	public String updateDB(Model m, @RequestParam MultipartFile imagen, /*@RequestParam String photo, @PathVariable long id) {
+		UserPersonalData upd= users.findOne(id);
+		
+		upd.setPhoto(imagen);
+		users.save(upd);
+		m.addAttribute("User",upd);
+		
+		String fileName = upd.getId() + ".jpg";
+		if (!imagen.isEmpty()) {
+			try {
+
+				File filesFolder = new File(FILES_FOLDER_USERS);
+				if (!filesFolder.exists()) {
+					filesFolder.mkdirs();
+				}
+
+				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+				imagen.transferTo(uploadedFile);
+			}catch(IllegalStateException e){
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
 		return "users";
 	}
+	*/
 
 	@RequestMapping("/users/login")
 	public String userLogin(Model m, UserLogin s, HttpSession sesion) {
@@ -114,7 +153,7 @@ public class UserController {
 
 	}
 	
-	/*@RequestMapping("/users/load")
+	@RequestMapping("/users/load")
 	public String userChagerge(Model m, HttpSession sesion) {
 
 		List<UserProject> userProject = new ArrayList<>();
@@ -165,7 +204,7 @@ public class UserController {
 		
 		return "users";
 
-	}*/
+	}
 	@RequestMapping("/user/close")
 	public String closeSesion(Model m, HttpSession sesion){
 		sesion.setAttribute("User", null);
@@ -258,6 +297,63 @@ public class UserController {
 	}*/
 	
 	
+	@RequestMapping(value = "/register/create", method=RequestMethod.POST)
+
+	public String NewUser(Model model, @RequestParam String aname, @RequestParam String lastName,
+			@RequestParam String username, @RequestParam String aemail, @RequestParam String apass,
+			@RequestParam String apass2/*, @RequestParam MultipartFile imagen/*, HttpSession sesion*/) {
+
+		ArrayList<String> rol = new ArrayList<>();
+		rol.add("USER");
+		UserPersonalData u = new UserPersonalData(aname, lastName, aemail, username, apass, apass2,"icon.png",rol);
+
+		users.save(u);
+			
+		//model.addAttribute("username",username);
+
+		//User us = new User(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), u);
+
+		//sesion.setAttribute("User", us);
+
+		//return "index_template";
+		
+	/*	String fileName = u.getId() + ".jpg";
+		if (!imagen.isEmpty()) {
+			try {
+
+				File filesFolder = new File(FILES_FOLDER_USERS);
+				if (!filesFolder.exists()) {
+					filesFolder.mkdirs();
+				}
+
+				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+				imagen.transferTo(uploadedFile);
+			}catch(IllegalStateException e){
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}*/
+		return "login";
+	}
+	
+	 @RequestMapping("/imageu/{fileName}.jpg")
+		public void handleFileDownload(@PathVariable String fileName,
+				HttpServletResponse res) throws FileNotFoundException, IOException {
+
+			File file = new File(FILES_FOLDER_USERS, fileName+".jpg");
+
+			if (file.exists()) {
+				res.setContentType("imageu/jpeg");
+				res.setContentLength(new Long(file.length()).intValue());
+				FileCopyUtils
+						.copy(new FileInputStream(file), res.getOutputStream());
+			} else {
+				res.sendError(404, "File" + fileName + "(" + file.getAbsolutePath()
+						+ ") does not exist");
+			}
+		}
 	
 	
 

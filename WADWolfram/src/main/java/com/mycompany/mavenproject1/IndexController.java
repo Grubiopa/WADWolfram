@@ -27,8 +27,7 @@ public class IndexController {
 	 * 
 	 * @Autowired private NewsRepository news;
 	 */
-	@Autowired
-	public UserPersonalDataRepository anotheruser;
+	
 
 	@RequestMapping("/")
 	public String ShowIndex(Model m) {
@@ -65,27 +64,5 @@ public class IndexController {
 	@RequestMapping("/register")
 	public String ShowRegister(Model m) {
 		return "register";
-	}
-
-	@RequestMapping(value = "/register/create", method = RequestMethod.POST)
-
-	public String NewUser(Model model, @RequestParam String aname, @RequestParam String lastName,
-			@RequestParam String username, @RequestParam String aemail, @RequestParam String apass,
-			@RequestParam String apass2, HttpSession sesion) {
-
-		ArrayList<String> rol = new ArrayList<>();
-		rol.add("User");
-		UserPersonalData u = new UserPersonalData(aname, lastName, username, aemail, apass, apass2, "i.jpg", rol);
-
-		anotheruser.save(u);
-
-		// model.addAttribute("username",username);
-
-		User us = new User(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), u);
-
-		sesion.setAttribute("User", us);
-
-		return "index_template";
-
 	}
 }

@@ -31,7 +31,9 @@ public class Noticia {
 
 //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 //Date d = sdf.parse("21/12/2012");
-    public Noticia(){}
+    public Noticia() {
+    }
+
     public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, String categoria, ArrayList comentarios, Date date) {
         this.title = title;
         this.cuerpo = cuerpo;
@@ -41,13 +43,13 @@ public class Noticia {
         this.comentarios = comentarios;
         //this.ruta_imagen=ruta_imagen;
     }
-    public Noticia(long id, String title, /*MultipartFile ruta_imagen,*/ String cuerpo, String categoria, ArrayList comentarios, Date date) {
-        this.id=id;
+
+    public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, int ncom, String categoria, ArrayList comentarios, Date date) {
         this.title = title;
         this.cuerpo = cuerpo;
         this.categoria = categoria;
         this.date = date;
-        number_comments = 0;
+        this.number_comments = ncom;
         this.comentarios = comentarios;
         //this.ruta_imagen=ruta_imagen;
     }
@@ -61,9 +63,8 @@ public class Noticia {
     }
 
     /*public MultipartFile getRutaImagen() {
-        return this.ruta_imagen;
-    }*/
-
+     return this.ruta_imagen;
+     }*/
     public String getCuerpo() {
         return this.cuerpo;
     }
@@ -89,9 +90,8 @@ public class Noticia {
     }
 
     /*public void setRutaImagen(MultipartFile ruta_imagen) {
-        this.ruta_imagen = ruta_imagen;
-    }*/
-
+     this.ruta_imagen = ruta_imagen;
+     }*/
     public void setCuerpo(String cuerpo) {
         this.cuerpo = cuerpo;
     }
@@ -104,9 +104,13 @@ public class Noticia {
         comentarios.add(comentario);
         number_comments++;
     }
+
+    public void setComentarios(ArrayList<String> comentarios) {
+        this.comentarios = comentarios;
+    }
     
-    public void setComentarios(ArrayList<String> comentarios){
-    	this.comentarios= comentarios;
+    public void setNumber_comments(int number_comments) {
+        this.number_comments = number_comments;
     }
 
     public void setdate(Date date) {
@@ -114,7 +118,7 @@ public class Noticia {
     }
 
     public void setId(long id) {
-        this.id=id;
+        this.id = id;
     }
 
 }

@@ -31,27 +31,29 @@ public class NoticiasController {
 
     @Autowired
     public NoticiasRepository noticias;
-    
-    
-    private static final String FILES_FOLDER = "files";
-    
-    
-    
+
+    private static final String FILES_FOLDER = "fileFolderNews";
+
     @PostConstruct
     public void init() {
-		Date releaseDate = new Date();
-		ArrayList<String> coments = new ArrayList<>();
-		MultipartFile a = null;
-		coments.add("holaa");
-		coments.add("holeee");
-		noticias.save(new  Noticia("Noticia1", /*a,*/ "cuerpo", "enfermedad", coments, releaseDate));
-		MultipartFile b=null;
-		noticias.save(new  Noticia("Noticia2", /*b,*/ "cuerpo2", "eventos", coments, releaseDate));
-	}
+        Date releaseDate = new Date();
+        ArrayList<CommentClass> coments = new ArrayList<>();
+        
+        ArrayList<CommentClass> coments2 = new ArrayList<>();/*
+         MultipartFile a = null;
+         CommentClass cc= null;
+         CommentClass cc2= null;
+         coments.add(cc);
+         coments2.add(cc2);*/
+        noticias.save(new Noticia("Noticia1", /*a,*/ "cuerpo", 0, "enfermedad", coments, releaseDate));
+        MultipartFile b = null;
+        noticias.save(new Noticia("Noticia2", /*b,*/ "cuerpo2", 0, "eventos", coments, releaseDate));
+    }
+
     @RequestMapping(value = "/mostrarPorCategoria", method = RequestMethod.GET)
     public String mostrarPorCategoria(Model model, @RequestParam Categoria categoria) {
         ArrayList<Noticia> l = noticias.findByCategoria(categoria);
-        model.addAttribute("categoria",categoria);
+        model.addAttribute("categoria", categoria);
         model.addAttribute("news", l);
         return "blog_template";
     }
@@ -67,104 +69,100 @@ public class NoticiasController {
     public String mostrarUna(Model model, @RequestParam long id) {
         Noticia n = noticias.findOne(id);
         model.addAttribute("new", n);
-        model.addAttribute("comentarios",n.getComentarios());
+        model.addAttribute("lcomentarios", n.getComentarios());
+        model.addAttribute("id", n.getId());
         return "new_template";
     }
-    
+
     @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.POST) //put???
-    public String Comentar(Model model, @RequestParam String comentarios, @PathVariable long id) {//pillamos id y el comentario
-    	Noticia n= noticias.findOne(id);    //pillamos la noticia de la bd
-    	
-    	System.out.println("n.getcomentarios: " + n.getComentarios());
-    	
-    	
-        
+    public String Comentar(Model model, HttpSession sesion, @RequestParam String comentarios, @PathVariable long id) {//pillamos id y el comentario
+        Noticia n = noticias.findOne(id);    //pillamos la noticia de la bd
+
         /*
-    	ArrayList<String> listaComentarios = new ArrayList<>();
-    	listaComentarios= n.getComentarios();
-        System.out.println("comentarios antes: "+ listaComentarios);
-    	listaComentarios.add(comentarios);
-    	n.setComentarios(listaComentarios);
-        System.out.println("comentarios despues: "+ n.getComentarios());
-    	/*noticias.findOne(id).setComentarios(listaComentarios);
-    	System.out.println("ListaComentarios: " + listaComentarios);
-    	System.out.println("getcomentarios: " + noticias.findOne(id).getComentarios());*/
+         ArrayList<String> listaComentarios = new ArrayList<>();
+         listaComentarios= n.getComentarios();
+         System.out.println("comentarios antes: "+ listaComentarios);
+         listaComentarios.add(comentarios);
+         n.setComentarios(listaComentarios);
+         System.out.println("comentarios despues: "+ n.getComentarios());
+         /*noticias.findOne(id).setComentarios(listaComentarios);
+         System.out.println("ListaComentarios: " + listaComentarios);
+         System.out.println("getcomentarios: " + noticias.findOne(id).getComentarios());*/
+        /*ArrayList<String> comment = new ArrayList<>();    //aux
+         comment= n.getComentarios();      //pillamos los coments de la noticia donde comentamos
+         comment.add(comentarios);       //añadimos el nuevo comentario a la lista
+         n.setComentarios(comment);      //guardamos en n los comentarios con el añadido.
     	
-    	/*ArrayList<String> comment = new ArrayList<>();    //aux
-        comment= n.getComentarios();      //pillamos los coments de la noticia donde comentamos
-    	comment.add(comentarios);       //añadimos el nuevo comentario a la lista
-    	n.setComentarios(comment);      //guardamos en n los comentarios con el añadido.
+         long aux= n.getId();
+         noticias.delete(n);
     	
-        long aux= n.getId();
-        noticias.delete(n);
-    	
-    	Noticia n2= new Noticia(n.gettitle(),n.getCuerpo(),n.getCategoria(),n.getComentarios(),n.getdate());
-        //CREAMOS UNA NOTICIA (POST) CON TODOS LOS DATOS DE LA ANTERIOR INCLUSO EL MISMO ID
-        noticias.save(n2);*/
-        
+         Noticia n2= new Noticia(n.gettitle(),n.getCuerpo(),n.getCategoria(),n.getComentarios(),n.getdate());
+         //CREAMOS UNA NOTICIA (POST) CON TODOS LOS DATOS DE LA ANTERIOR INCLUSO EL MISMO ID
+         noticias.save(n2);*/
         ////CAMBIOS GABI
-        n.getComentarios().add(comentarios);
+        User s = (User) sesion.getAttribute("User");
+        String nombre = s.user.getName();
+        nombre= nombre + " dice: \n" + comentarios + "\n";
+        n.getComentarios().add(nombre);
+
+        n.setNumber_comments(n.getNumComentarios() + 1);
         noticias.save(n);
-        //Para que veais que funciona, si poneis el new lo que pasa es que se crea otra variable con otra referencia
-        // y por lo tanto entiende que es otra variable, por eso hay que tabajar sobre ella misma.
-        Noticia n2 = noticias.findOne(id);
-        System.out.println(n2.getComentarios());
         //n2.Comentar(comentarios, id);
-        model.addAttribute("new",n);
-    	model.addAttribute("comentarios", n.getComentarios());
+
+        
+        model.addAttribute("new", n);
+        model.addAttribute("lcomentarios", n.getComentarios());
+        model.addAttribute("id", n.getId());
         return "new_template";
+    }
+
+    @RequestMapping(value = "/admin/AddBlog/create", method = RequestMethod.POST)  //URL y method post necesarios.
+    public String addNewBlog(Model model, @RequestParam String title, @RequestParam String categoria,
+            @RequestParam String fecha, @RequestParam("imagen") MultipartFile imagen, //@RP String hola, significa que en el form hay un input con name="hola"
+            @RequestParam String cuerpo, @RequestParam Boolean confirm) { ///Se le pasa como parámetros todos los input del form
+
+        Date date = new Date();  //Simulamos la hora actual
+        Noticia n = new Noticia(title, /*imagen,*/ cuerpo, categoria, null, date); //Creamos una noticia con todos los datos.
+
+        noticias.save(n);                                                               //Añadimos la noticia a la bbdd
+
+        String fileName = n.getId() + ".jpg";
+        if (!imagen.isEmpty()) {
+            try {
+
+                File filesFolder = new File(FILES_FOLDER);
+                if (!filesFolder.exists()) {
+                    filesFolder.mkdirs();
+                }
+
+                File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
+                imagen.transferTo(uploadedFile);
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
-    
 
+        return "Bootstrap-Admin-Theme/index";           //WE ARE OUT!
 
-    @RequestMapping(value="/admin/AddBlog/create", method=RequestMethod.POST)  //URL y method post necesarios.
-	public String addNewBlog(Model model,@RequestParam String title,@RequestParam String categoria,
-                @RequestParam String fecha,@RequestParam ("imagen") MultipartFile imagen,     //@RP String hola, significa que en el form hay un input con name="hola"
-                @RequestParam String cuerpo, @RequestParam Boolean confirm){ ///Se le pasa como parámetros todos los input del form
-    	
-		Date date= new Date();  //Simulamos la hora actual
-		Noticia n= new Noticia(title, /*imagen,*/ cuerpo, categoria, null, date); //Creamos una noticia con todos los datos.
-		
-		noticias.save(n);                                                               //Añadimos la noticia a la bbdd
-                
-		String fileName = n.getId() + ".jpg";
-		if (!imagen.isEmpty()) {
-			try {
+    }
 
-				File filesFolder = new File(FILES_FOLDER);
-				if (!filesFolder.exists()) {
-					filesFolder.mkdirs();
-				}
-
-				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
-				imagen.transferTo(uploadedFile);
-			}catch(IllegalStateException e){
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-                return "Bootstrap-Admin-Theme/index";           //WE ARE OUT!
-		
-	}
-
-    
     @RequestMapping("/image/{fileName}.jpg")
-	public void handleFileDownload(@PathVariable String fileName,
-			HttpServletResponse res) throws FileNotFoundException, IOException {
+    public void handleFileDownload(@PathVariable String fileName,
+            HttpServletResponse res) throws FileNotFoundException, IOException {
 
-		File file = new File(FILES_FOLDER, fileName+".jpg");
+        File file = new File(FILES_FOLDER, fileName + ".jpg");
 
-		if (file.exists()) {
-			res.setContentType("image/jpeg");
-			res.setContentLength(new Long(file.length()).intValue());
-			FileCopyUtils
-					.copy(new FileInputStream(file), res.getOutputStream());
-		} else {
-			res.sendError(404, "File" + fileName + "(" + file.getAbsolutePath()
-					+ ") does not exist");
-		}
-	}
+        if (file.exists()) {
+            res.setContentType("image/jpeg");
+            res.setContentLength(new Long(file.length()).intValue());
+            FileCopyUtils
+                    .copy(new FileInputStream(file), res.getOutputStream());
+        } else {
+            res.sendError(404, "File" + fileName + "(" + file.getAbsolutePath()
+                    + ") does not exist");
+        }
+    }
 }

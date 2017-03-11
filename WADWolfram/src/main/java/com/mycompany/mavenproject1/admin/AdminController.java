@@ -15,6 +15,7 @@ import com.mycompany.mavenproject1.UserPersonalData;
 import com.mycompany.mavenproject1.UserPersonalDataRepository;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,8 +42,13 @@ public class AdminController {
     @Autowired
     public UserPersonalDataRepository adminuser;
     
-    @RequestMapping("/Index")
-    public String index(Model m){
+    @RequestMapping("/")
+    public String index(Model m, HttpSession sesion){
+        User u = (User) sesion.getAttribute("User");
+        if(u==null){
+            return "login";
+        }
+        m.addAttribute("vienbenido",u.getUser().getUserName());
         return "Bootstrap-Admin-Theme/index";
     }
     
@@ -73,7 +79,9 @@ public class AdminController {
     
     
     @RequestMapping("/Profile")
-    public String profile(Model m){
+    public String profile(Model m, HttpSession sesion){
+        User u = (User) sesion.getAttribute("User");
+        m.addAttribute("User", u.getUser());
         return "Bootstrap-Admin-Theme/profile";
     }
     
@@ -90,8 +98,28 @@ public class AdminController {
     }
     
     
-    @RequestMapping (value="/Profile/update", method = RequestMethod.PUT)
-    public String UpdateAdmin(){
+    @RequestMapping (value="/Profile/update", method = RequestMethod.POST)
+    public String UpdateAdmin(Model m, HttpSession sesion, @RequestParam String memail,
+            @RequestParam String mpassword, @RequestParam String mnew_password,
+            @RequestParam String mrepeat_password){
+        
+        User u = (User) sesion.getAttribute("User");
+        UserPersonalData upd = u.getUser();
+                if (!memail.isEmpty()){
+		upd.setEmail(memail);
+                }
+                if (!mpassword.isEmpty()){
+                    upd.setOldPassword(mpassword);
+                }
+		upd.setNewPassword(mnew_password);
+                upd.setNewPassword(mrepeat_password);
+                
+		
+		adminuser.save(upd);
+                sesion.setAttribute("User", u);
+                
+        
+        m.addAttribute("vienbenido", upd.getUserName());
     return "Bootstrap-Admin-Theme/index";
     }
     

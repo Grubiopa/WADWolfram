@@ -74,10 +74,10 @@ public class NoticiasController {
     @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.POST) //put???
     public String Comentar(Model model, @RequestParam String comentarios, @PathVariable long id) {//pillamos id y el comentario
     	Noticia n= noticias.findOne(id);    //pillamos la noticia de la bd
-    	/*
+    	
     	System.out.println("n.getcomentarios: " + n.getComentarios());
-    	System.out.println("getcomentarios: " + noticias.findOne(id).getComentarios());
-    	*/
+    	
+    	
         
         /*
     	ArrayList<String> listaComentarios = new ArrayList<>();
@@ -90,7 +90,7 @@ public class NoticiasController {
     	System.out.println("ListaComentarios: " + listaComentarios);
     	System.out.println("getcomentarios: " + noticias.findOne(id).getComentarios());*/
     	
-    	ArrayList<String> comment = new ArrayList<>();    //aux
+    	/*ArrayList<String> comment = new ArrayList<>();    //aux
         comment= n.getComentarios();      //pillamos los coments de la noticia donde comentamos
     	comment.add(comentarios);       //añadimos el nuevo comentario a la lista
     	n.setComentarios(comment);      //guardamos en n los comentarios con el añadido.
@@ -100,12 +100,18 @@ public class NoticiasController {
     	
     	Noticia n2= new Noticia(n.gettitle(),n.getCuerpo(),n.getCategoria(),n.getComentarios(),n.getdate());
         //CREAMOS UNA NOTICIA (POST) CON TODOS LOS DATOS DE LA ANTERIOR INCLUSO EL MISMO ID
-        noticias.save(n2);
+        noticias.save(n2);*/
         
-        
+        ////CAMBIOS GABI
+        n.getComentarios().add(comentarios);
+        noticias.save(n);
+        //Para que veais que funciona, si poneis el new lo que pasa es que se crea otra variable con otra referencia
+        // y por lo tanto entiende que es otra variable, por eso hay que tabajar sobre ella misma.
+        Noticia n2 = noticias.findOne(id);
+        System.out.println(n2.getComentarios());
         //n2.Comentar(comentarios, id);
-        model.addAttribute("new",n2);
-    	model.addAttribute("comentarios", n2.getComentarios());
+        model.addAttribute("new",n);
+    	model.addAttribute("comentarios", n.getComentarios());
         return "new_template";
         }
     

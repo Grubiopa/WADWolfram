@@ -40,7 +40,7 @@ public class UserController {
 	@Autowired
 	private DonationsRepository movements;
 	
-	private static final String FILES_FOLDER_USERS = "files";
+	private static final String FILES_FOLDER_USERS = "filesUsers";
 
 	@PostConstruct
 	public void init() {
@@ -59,18 +59,28 @@ public class UserController {
 	}
 
 	@RequestMapping(value= "/users/update/{id}", method = RequestMethod.POST)
-	public String updateDB(Model m, @RequestParam MultipartFile imagen, @RequestParam String email, @RequestParam String username,
+	public String updateDB(Model m, HttpSession sesion, @RequestParam MultipartFile imagen, @RequestParam String email, @RequestParam String username,
 		@RequestParam String oldPassword, @RequestParam String newPassword,/*@RequestParam String photo,*/
 		@PathVariable long id) {
-		
+		User user= (User) sesion.getAttribute("User");
 		UserPersonalData upd= users.findOne(id);
+                if (!email.isEmpty()){
 		upd.setEmail(email);
-		upd.setUserName(username);
+                }
+                if (!username.isEmpty()){
+                    upd.setUserName(username);
+                }
 		upd.setOldPassword(oldPassword);
-		upd.setNewPassword(newPassword);
+                if (!newPassword.isEmpty()){
+                    upd.setNewPassword(newPassword);
+                }
 		//upd.setPhoto(imagen);
 		users.save(upd);
-		m.addAttribute("User",upd);
+                
+               
+                
+                
+                
 		
 		String fileName = upd.getId() + ".jpg";
 		if (!imagen.isEmpty()) {
@@ -90,6 +100,13 @@ public class UserController {
 				e.printStackTrace();
 			}
 		}
+                
+                
+                m.addAttribute("username", upd.getUserName());
+                m.addAttribute("colaborateProjects", user.getColaborateProjects());
+                m.addAttribute("otherProjects", user.getOtherProjects());
+                m.addAttribute("movements", user.getDonations());
+		m.addAttribute("User",upd);
 		return "users";
 	}
 	
@@ -211,7 +228,7 @@ public class UserController {
 	@RequestMapping("/user/close")
 	public String closeSesion(Model m, HttpSession sesion){
 		sesion.setAttribute("User", null);
-		return "index_template";
+		return "login";
 	}
 	@RequestMapping("/login")
 	public String login(Model m, HttpSession sesion) {
@@ -342,13 +359,13 @@ public class UserController {
 	}
 	
 	 @RequestMapping("/imageu/{fileName}.jpg")
-		public void handleFileDownload(@PathVariable String fileName,
+		public void handleFile(@PathVariable String fileName,
 				HttpServletResponse res) throws FileNotFoundException, IOException {
 
-			File file = new File(FILES_FOLDER_USERS, fileName+".jpg");
+			File file = new File(FILES_FOLDER_USERS, fileName +".jpg");
 
 			if (file.exists()) {
-				res.setContentType("imageu/jpeg");
+				res.setContentType("image/jpeg");
 				res.setContentLength(new Long(file.length()).intValue());
 				FileCopyUtils
 						.copy(new FileInputStream(file), res.getOutputStream());

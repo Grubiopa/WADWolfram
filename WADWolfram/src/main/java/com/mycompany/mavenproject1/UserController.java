@@ -58,11 +58,17 @@ public class UserController {
 		movements.save(new Donation(u, p, 10, d));
 	}
 
-/*	@RequestMapping(value= "/users/update/{id}", method = RequestMethod.POST)
-	public String updateDB(Model m, @RequestParam MultipartFile imagen, /*@RequestParam String photo, @PathVariable long id) {
-		UserPersonalData upd= users.findOne(id);
+	@RequestMapping(value= "/users/update/{id}", method = RequestMethod.POST)
+	public String updateDB(Model m, @RequestParam MultipartFile imagen, @RequestParam String email, @RequestParam String username,
+		@RequestParam String oldPassword, @RequestParam String newPassword,/*@RequestParam String photo,*/
+		@PathVariable long id) {
 		
-		upd.setPhoto(imagen);
+		UserPersonalData upd= users.findOne(id);
+		upd.setEmail(email);
+		upd.setUserName(username);
+		upd.setOldPassword(oldPassword);
+		upd.setNewPassword(newPassword);
+		//upd.setPhoto(imagen);
 		users.save(upd);
 		m.addAttribute("User",upd);
 		
@@ -84,12 +90,9 @@ public class UserController {
 				e.printStackTrace();
 			}
 		}
-		
-		
-		
 		return "users";
 	}
-	*/
+	
 
 	@RequestMapping("/users/login")
 	public String userLogin(Model m, UserLogin s, HttpSession sesion) {

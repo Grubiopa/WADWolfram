@@ -42,8 +42,8 @@ public class UserPersonalData {
 		this.photo2 = photo2;
 		this.roles = roles;
 	}
-
-/*	public UserPersonalData(String name, String surname, String email, String userName, String oldPassword,
+/*
+	public UserPersonalData(String name, String surname, String email, String userName, String oldPassword,
 			String newPassword, MultipartFile photo, List<String> roles) {
 		this.name = name;
 		this.surname = surname;
@@ -51,7 +51,7 @@ public class UserPersonalData {
 		this.userName = userName;
 		this.oldPassword = oldPassword;
 		this.newPassword = newPassword;
-		this.photo = photo;
+		this.setPhoto(photo);
 		this.roles = roles;
 	}
 	*/
@@ -115,17 +115,6 @@ public class UserPersonalData {
 		this.photo2 = photo2;
 	}
 
-	/*public MultipartFile getPhoto() {
-		return photo;
-	}
-
-	public MultipartFile setPhoto(MultipartFile photo) {
-		this.photo = photo;
-		return photo;
-	}
-*/
-	
-
 	public long getId() {
 		return id;
 	}
@@ -141,5 +130,13 @@ public class UserPersonalData {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
+
+	/*public MultipartFile getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(MultipartFile photo) {
+		this.photo = photo;
+	}*/
 
 }

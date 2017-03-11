@@ -122,7 +122,8 @@ public class NoticiasController {
             @RequestParam String cuerpo, @RequestParam Boolean confirm) { ///Se le pasa como parámetros todos los input del form
 
         Date date = new Date();  //Simulamos la hora actual
-        Noticia n = new Noticia(title, /*imagen,*/ cuerpo, categoria, null, date); //Creamos una noticia con todos los datos.
+        ArrayList<String> x = new ArrayList<>();
+        Noticia n = new Noticia(title, /*imagen,*/ cuerpo, categoria, x, date); //Creamos una noticia con todos los datos.
 
         noticias.save(n);                                                               //Añadimos la noticia a la bbdd
 

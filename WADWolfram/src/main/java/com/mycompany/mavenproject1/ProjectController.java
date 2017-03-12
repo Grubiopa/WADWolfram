@@ -76,8 +76,9 @@ public class ProjectController {
 	public String donate(Model m, int projectId, HttpSession sesion) {
 		// projectId es el id para reconocer al proyecto que se dona
 		User s = (User) sesion.getAttribute("User");
-
+		
 		if (s != null) {
+			m.addAttribute("projectId",projectId);
 			m.addAttribute("User", s.getUser());
 			return "pay";
 		} else {
@@ -87,13 +88,17 @@ public class ProjectController {
 	}
 
 	
-	@RequestMapping("/pay/projects")
-	public String donate(Model m, long projectId, HttpSession sesion, double money) {
+	@RequestMapping(value="/pay/projects", method=RequestMethod.POST)
+	public String donate(@RequestParam long projectId, HttpSession sesion, @RequestParam double money, Model model) {
 		Date d = new Date();
 		User s = (User) sesion.getAttribute("User");
 		Project p  = projects.findOne(projectId);
 		movements.save(new Donation(s.getUser(), p, money, d));
-		return "project";
+		p.setParcialBudget(p.getParcialBudget()+money);
+		projects.save(p);
+		List<Project> l = projects.findAll();
+		model.addAttribute("projects", l);
+		return "projects_template";
 	}
 	
 	

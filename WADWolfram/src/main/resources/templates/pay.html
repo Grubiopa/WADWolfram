@@ -29,37 +29,37 @@
     <div id="wrapper">
         <!-- start header -->
         <header>
-                <div class="navbar navbar-default navbar-static-top">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="Logotipo de la asociación" width="199" height="52" /></a>
-                        </div>
-                        <div class="navbar-collapse collapse ">
-                            <ul class="nav navbar-nav">
-                                <li><a href="/">Inicio</a></li>
-                                <li class="active"><a href="/projects">Proyectos</a></li>
+            <div class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="Logotipo de la asociación" width="199" height="52" /></a>
+                    </div>
+                    <div class="navbar-collapse collapse ">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Inicio</a></li>
+                            <li class="active"><a href="/projects">Proyectos</a></li>
 
-                                <li><a href="/blog">Noticias</a></li>
-                                <!--	<li><a href="post-rightsidebar.html">Post right sidebar</a></li> -->
+                            <li><a href="/blog">Noticias</a></li>
+                            <!--	<li><a href="post-rightsidebar.html">Post right sidebar</a></li> -->
 
-                                <li><a href="/contact">Contacto</a></li>
-                                <li><a href="/about">Sobre sus desarrolladores</a></li>
+                            <li><a href="/contact">Contacto</a></li>
+                            <li><a href="/about">Sobre sus desarrolladores</a></li>
 
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta <i class="fa fa-angle-down"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/register">Únete</a></li>
-                                        <li><a href="/login">Inicia sesión/ Mi cuenta</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/register">Únete</a></li>
+                                    <li><a href="/login">Inicia sesión/ Mi cuenta</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-             <section id="inner-headline">
+            </div>
+            <section id="inner-headline">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -67,15 +67,15 @@
                                 <li><a href="/"><i class="fa fa-home"></i> Volver al Inicio</a><i class="icon-angle-right"></i></li>
                                 <li href="/porjects">Proyectos</li>
                                 <li href="/porject">Proyecto</li>
-                                <li >Donación</li>
+                                <li>Donación</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
-            
-            
-            
+
+
+
         </header>
         <!-- end header -->
 
@@ -83,62 +83,63 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
+                        <form method="post" action="/pay/projects?projectId={{projectId}}">
+                            <div id="data">
+                                {{#User}}
+                                <div>
+                                    <label for="exampleInputEmail1">Nombre</label>
+                                    <input readonly class="form-control" id="exampleInputEmail1" placeholder="{{name}}">
+                                </div>
+                                <div>
+                                    <label for="exampleInputEmail1">Apellidos</label>
+                                    <input readonly class="form-control" id="exampleInputEmail1" placeholder="{{surname}}">
+                                </div>
+                                {{/User}}
+                                <div class="form-group">
+                                    <label for="creditCard">Tarjeta de crédito</label>
+                                    <input maxlength="16" type="number" class="form-control" id="creditCard" placeholder="Número de tarjeta" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="expiry-month">Fecha Expiración</label>
 
-                        <div id="data">
-                            {{#User}}
-                            <div >
-                                <label for="exampleInputEmail1">Nombre</label>
-                                <input readonly class="form-control" id="exampleInputEmail1" placeholder="{{name}}">
-                            </div>
-                            <div>
-                                <label for="exampleInputEmail1">Apellidos</label>
-                                <input readonly class="form-control" id="exampleInputEmail1" placeholder="{{surname}}">
-                            </div>
-                            {{/User}}
-                            <div class="form-group">
-                                <label for="creditCard">Tarjeta de crédito</label>
-                                <input maxlength="16" type="number" class="form-control" id="creditCard" placeholder="Número de tarjeta" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label" for="expiry-month">Fecha Expiración</label>
+                                    <select name="expiry-month" class="form-control " id="expiry-month" required>
+                                        <option>Mes</option>
+                                        <option value="01">Enero (01)</option>
+                                        <option value="02">Febrero (02)</option>
+                                        <option value="03">Marzo (03)</option>
+                                        <option value="04">Abril (04)</option>
+                                        <option value="05">Mayo (05)</option>
+                                        <option value="06">Junio (06)</option>
+                                        <option value="07">Julio (07)</option>
+                                        <option value="08">Agosto (08)</option>
+                                        <option value="09">Septiembre (09)</option>
+                                        <option value="10">Octubre (10)</option>
+                                        <option value="11">Noviembre (11)</option>
+                                        <option value="12">Diciembre (12)</option>
+                                    </select>
+                                    <br>
+                                    <select name="expiry-year" class="form-control" required>
+                                        <option value="17">2017</option>
+                                        <option value="18">2018</option>
+                                        <option value="19">2019</option>
+                                        <option value="20">2020</option>
+                                        <option value="21">2021</option>
+                                        <option value="22">2022</option>
+                                        <option value="23">2023</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="csv">Número de seguridad</label>
+                                    <input maxlength="3" type="number" class="form-control" id="csv" placeholder="CSV" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity">Donación</label>
+                                    <input type="number" class="form-control" id="quantity" placeholder="Cantidad: 0,00€" name="money" required>
+                                </div>
 
-                                <select name="expiry-month" class="form-control " id="expiry-month" required>
-                                    <option>Mes</option>
-                                    <option value="01">Enero (01)</option>
-                                    <option value="02">Febrero (02)</option>
-                                    <option value="03">Marzo (03)</option>
-                                    <option value="04">Abril (04)</option>
-                                    <option value="05">Mayo (05)</option>
-                                    <option value="06">Junio (06)</option>
-                                    <option value="07">Julio (07)</option>
-                                    <option value="08">Agosto (08)</option>
-                                    <option value="09">Septiembre (09)</option>
-                                    <option value="10">Octubre (10)</option>
-                                    <option value="11">Noviembre (11)</option>
-                                    <option value="12">Diciembre (12)</option>
-                                </select>
-                                <br>
-                                <select name="expiry-year" class="form-control" required>
-                                    <option value="17">2017</option>
-                                    <option value="18">2018</option>
-                                    <option value="19">2019</option>
-                                    <option value="20">2020</option>
-                                    <option value="21">2021</option>
-                                    <option value="22">2022</option>
-                                    <option value="23">2023</option>
-                                </select>
+                                <button type="submit" class="btn btn-primary btn-lg">Realizar Pago</button>
                             </div>
-                            <div class="form-group">
-                                <label for="csv">Número de seguridad</label>
-                                <input maxlength="3" type="number" class="form-control" id="csv" placeholder="CSV" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="quantity">Donación</label>
-                                <input type="number" class="form-control" id="quantity" placeholder="Cantidad: 0,00€" required>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-lg">Realizar Pago</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -187,7 +188,7 @@
                     <div class="col-sm-3 col-lg-3">
                         <div class="widget">
                             <h4>Idioma</h4>
-                     
+
                         </div>
                     </div>
                 </div>

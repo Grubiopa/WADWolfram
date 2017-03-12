@@ -50,6 +50,7 @@ public class ProjectController {
 		model.addAttribute("Project", p);
 		return "oneProject";
 	}
+	
 
 	/// ESTO SACARIA TODOS LOS PROYECTOS
 	/*
@@ -73,12 +74,13 @@ public class ProjectController {
 	}
 	
 	@RequestMapping("/pay")
-	public String donate(Model m, int projectId, HttpSession sesion) {
+	public String donate(Model m, long projectId, HttpSession sesion) {
 		// projectId es el id para reconocer al proyecto que se dona
 		User s = (User) sesion.getAttribute("User");
-		
+		Project p=projects.findOne(projectId);
 		if (s != null) {
 			m.addAttribute("projectId",projectId);
+			m.addAttribute("RestBudget",p.getRestBudget());
 			m.addAttribute("User", s.getUser());
 			return "pay";
 		} else {

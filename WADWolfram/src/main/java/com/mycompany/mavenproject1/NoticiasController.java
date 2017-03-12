@@ -38,13 +38,14 @@ public class NoticiasController {
     public void init() {
         Date releaseDate = new Date();
         ArrayList<CommentClass> coments = new ArrayList<>();
-        
+
         ArrayList<CommentClass> coments2 = new ArrayList<>();/*
          MultipartFile a = null;
          CommentClass cc= null;
          CommentClass cc2= null;
          coments.add(cc);
          coments2.add(cc2);*/
+
         noticias.save(new Noticia("Noticia1", /*a,*/ "cuerpo", 0, "enfermedad", coments, releaseDate));
         MultipartFile b = null;
         noticias.save(new Noticia("Noticia2", /*b,*/ "cuerpo2", 0, "eventos", coments, releaseDate));
@@ -53,7 +54,7 @@ public class NoticiasController {
     @RequestMapping(value = "/mostrarPorCategoria", method = RequestMethod.GET)
     public String mostrarPorCategoria(Model model, @RequestParam String categoria) {
         ArrayList<Noticia> l = noticias.findByCategoria(categoria);
-      //  model.addAttribute("categoria", categoria);
+        //  model.addAttribute("categoria", categoria);
         model.addAttribute("news", l);
         return "blog_template";
     }
@@ -66,11 +67,17 @@ public class NoticiasController {
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String mostrarUna(Model model, @RequestParam long id) {
+    public String mostrarUna(Model model, HttpSession sesion, @RequestParam long id) {
         Noticia n = noticias.findOne(id);
+        User s = (User) sesion.getAttribute("User");
         model.addAttribute("new", n);
         model.addAttribute("lcomentarios", n.getComentarios());
         model.addAttribute("id", n.getId());
+        if(s==null){
+            model.addAttribute("logeado", true);
+        }else{
+            model.addAttribute("logeado2", true);
+        }
         return "new_template";
     }
 
@@ -101,19 +108,24 @@ public class NoticiasController {
          noticias.save(n2);*/
         ////CAMBIOS GABI
         User s = (User) sesion.getAttribute("User");
-        String nombre = s.user.getName();
-        nombre= nombre + " dice: \n" + comentarios + "\n";
-        n.getComentarios().add(nombre);
+        if (s == null) {
+            return "login";
+        } else {
+            String nombre = s.user.getName();
+            nombre = nombre + " dice: \n" + comentarios + "\n";
+            n.getComentarios().add(nombre);
 
-        n.setNumber_comments(n.getNumComentarios() + 1);
-        noticias.save(n);
-        //n2.Comentar(comentarios, id);
+            n.setNumber_comments(n.getNumComentarios() + 1);
+            noticias.save(n);
+            //n2.Comentar(comentarios, id);
 
-        
-        model.addAttribute("new", n);
-        model.addAttribute("lcomentarios", n.getComentarios());
-        model.addAttribute("id", n.getId());
-        return "new_template";
+            model.addAttribute("new", n);
+            model.addAttribute("lcomentarios", n.getComentarios());
+            model.addAttribute("id", n.getId());
+            model.addAttribute("logeado2", true);
+            
+            return "new_template";
+        }
     }
 
     @RequestMapping(value = "/admin/AddBlog/create", method = RequestMethod.POST)  //URL y method post necesarios.
@@ -165,5 +177,11 @@ public class NoticiasController {
             res.sendError(404, "File" + fileName + "(" + file.getAbsolutePath()
                     + ") does not exist");
         }
+    }
+
+    @RequestMapping(value = "/borrarNoticia", method = RequestMethod.DELETE)
+    public void deleteProject(@RequestParam long id) {
+        Noticia n = noticias.findOne(id);
+        noticias.delete(n);
     }
 }

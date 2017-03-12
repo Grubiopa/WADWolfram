@@ -34,8 +34,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 @RequestMapping("/admin")
-public class AdminController { 
-	
+public class AdminController {
 
     @Autowired
     public NoticiasRepository noticias;
@@ -45,94 +44,102 @@ public class AdminController {
 
     @Autowired
     public UserPersonalDataRepository adminuser;
-    
+
     @Autowired
     public DonationsRepository donations;
-    
-   
-    
+
     @RequestMapping("/")
-    public String index(Model m, HttpSession sesion){
+    public String index(Model m, HttpSession sesion) {
         User u = (User) sesion.getAttribute("User");
-        if(u==null){
+        if (u == null) {
             return "login";
         }
-        m.addAttribute("vienbenido",u.getUser().getUserName());
+        m.addAttribute("vienbenido", u.getUser().getUserName());
         return "Bootstrap-Admin-Theme/index";
     }
-    
-    
+
     @RequestMapping("/AddBlog")
-    public String addblog(Model m){
-    	List<Noticia> not= noticias.findAll();
-    	m.addAttribute("noticias",not);
+    public String addblog(Model m) {
+        List<Noticia> not = noticias.findAll();
+        m.addAttribute("noticias", not);
         return "Bootstrap-Admin-Theme/addblog";
     }
-    
-    
-    
+
     @RequestMapping("/AddProject")
-    public String addproject(Model m){
-		List<Project> proj= projects.findAll();
-    	m.addAttribute("projects",proj);
+    public String addproject(Model m) {
+        List<Project> proj = projects.findAll();
+        m.addAttribute("projects", proj);
         return "Bootstrap-Admin-Theme/addproject";
     }
-    
-    
-    
+
     @RequestMapping("/Donations")
-    public String donations(Model m){
-        List<Donation> don= donations.findAll();
-        m.addAttribute("donations",don);
+    public String donations(Model m) {
+        List<Donation> don = donations.findAll();
+        m.addAttribute("donations", don);
         return "Bootstrap-Admin-Theme/donations";
     }
-    
-    
-    
+
     @RequestMapping("/Profile")
-    public String profile(Model m, HttpSession sesion){
+    public String profile(Model m, HttpSession sesion) {
         User u = (User) sesion.getAttribute("User");
         m.addAttribute("User", u.getUser());
         return "Bootstrap-Admin-Theme/profile";
     }
-    
-    @RequestMapping (value="/Profile/create", method=RequestMethod.POST)
-    public String NewAdmin(Model m,@RequestParam String name,@RequestParam String email,
-            @RequestParam String password,@RequestParam String repeat_password,
-            @RequestParam Boolean confirm){
-        
-        ArrayList<String> rol= new ArrayList<>();
+
+    @RequestMapping(value = "/Profile/create", method = RequestMethod.POST)
+    public String NewAdmin(Model m, @RequestParam String name, @RequestParam String email,
+            @RequestParam String password, @RequestParam String repeat_password,
+            @RequestParam Boolean confirm) {
+
+        ArrayList<String> rol = new ArrayList<>();
         rol.add("ADMIN");
         UserPersonalData u = new UserPersonalData(name, "", email, name, password, repeat_password, "i.jpg", rol);
         adminuser.save(u);
-                m.addAttribute("vienbenido",u.getUserName());
-    return "Bootstrap-Admin-Theme/index";
+        m.addAttribute("vienbenido", u.getUserName());
+        return "Bootstrap-Admin-Theme/index";
     }
-    
-    
-    @RequestMapping (value="/Profile/update", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/Profile/update", method = RequestMethod.POST)
     public String UpdateAdmin(Model m, HttpSession sesion, @RequestParam String memail,
             @RequestParam String mpassword, @RequestParam String mnew_password,
-            @RequestParam String mrepeat_password){
-        
+            @RequestParam String mrepeat_password) {
+
         User u = (User) sesion.getAttribute("User");
         UserPersonalData upd = u.getUser();
-                if (!memail.isEmpty()){
-		upd.setEmail(memail);
-                }
-                if (!mpassword.isEmpty()){
-                    upd.setOldPassword(mpassword);
-                }
-		upd.setNewPassword(mnew_password);
-                upd.setNewPassword(mrepeat_password);
-                
-		
-		adminuser.save(upd);
-                sesion.setAttribute("User", u);
-                
+        if (!memail.isEmpty()) {
+            upd.setEmail(memail);
+        }
+       
+
+        if (! upd.getOldPassword().equals(mpassword)) {
+            return "error2";
+        }
         
+        if (!mnew_password.isEmpty() && mnew_password.isEmpty()){
+            return "error2";
+        }
+        if (mnew_password.isEmpty() && !mnew_password.isEmpty()){
+            return "error2";
+        }
+        
+
+        if (!mnew_password.isEmpty() && !mrepeat_password.isEmpty()) {
+            if (mnew_password.equals(mrepeat_password)) {
+                upd.setOldPassword(mnew_password);
+                upd.setNewPassword(mnew_password);
+            } else {
+                return "error2";
+            }
+        }
+
+        adminuser.save(upd);
+
+        u.setUser(upd);
+
+        sesion.setAttribute("User", u);
+
         m.addAttribute("vienbenido", upd.getUserName());
-    return "Bootstrap-Admin-Theme/index";
+        return "Bootstrap-Admin-Theme/index";
     }
-    
+
 }

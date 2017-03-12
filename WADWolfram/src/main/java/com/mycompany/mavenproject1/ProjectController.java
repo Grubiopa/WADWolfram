@@ -67,7 +67,7 @@ public class ProjectController {
 
 	
 
-	@RequestMapping(value = "/", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/borrarProyecto", method = RequestMethod.DELETE)
 	public void deleteProject(@RequestParam long id) {
 		Project p = projects.findOne(id);
 		projects.delete(p);

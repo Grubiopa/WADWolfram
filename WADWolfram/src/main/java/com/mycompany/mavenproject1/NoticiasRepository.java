@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NoticiasRepository extends JpaRepository<Noticia, Long> {
 
-    public ArrayList<Noticia> findByCategoria(Categoria categoria);
+    public ArrayList<Noticia> findByCategoria(String categoria);
 
     public Noticia findByTitle(String title);
 

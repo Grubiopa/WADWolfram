@@ -5,6 +5,8 @@
  */
 package com.mycompany.mavenproject1.admin;
 
+import com.mycompany.mavenproject1.Donation;
+import com.mycompany.mavenproject1.DonationsRepository;
 import com.mycompany.mavenproject1.Noticia;
 import com.mycompany.mavenproject1.NoticiasRepository;
 import com.mycompany.mavenproject1.Project;
@@ -14,7 +16,9 @@ import com.mycompany.mavenproject1.User;
 import com.mycompany.mavenproject1.UserPersonalData;
 import com.mycompany.mavenproject1.UserPersonalDataRepository;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +45,11 @@ public class AdminController {
 
     @Autowired
     public UserPersonalDataRepository adminuser;
+    
+    @Autowired
+    public DonationsRepository donations;
+    
+   
     
     @RequestMapping("/")
     public String index(Model m, HttpSession sesion){
@@ -73,6 +82,8 @@ public class AdminController {
     
     @RequestMapping("/Donations")
     public String donations(Model m){
+        List<Donation> don= donations.findAll();
+        m.addAttribute("donations",don);
         return "Bootstrap-Admin-Theme/donations";
     }
     
@@ -86,7 +97,7 @@ public class AdminController {
     }
     
     @RequestMapping (value="/Profile/create", method=RequestMethod.POST)
-    public String NewAdmin(@RequestParam String name,@RequestParam String email,
+    public String NewAdmin(Model m,@RequestParam String name,@RequestParam String email,
             @RequestParam String password,@RequestParam String repeat_password,
             @RequestParam Boolean confirm){
         
@@ -94,6 +105,7 @@ public class AdminController {
         rol.add("ADMIN");
         UserPersonalData u = new UserPersonalData(name, "", email, name, password, repeat_password, "i.jpg", rol);
         adminuser.save(u);
+                m.addAttribute("vienbenido",u.getUserName());
     return "Bootstrap-Admin-Theme/index";
     }
     

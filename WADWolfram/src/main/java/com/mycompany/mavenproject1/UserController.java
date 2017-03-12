@@ -129,7 +129,7 @@ public class UserController {
 		///////
 
 		List<UserPersonalData> data = users.findByEmailAndOldPassword(emailRecieve, passwordRecieve);
-		if (!(data.size()==0)) {
+		/*if (!(data.size()==0)) {*/
 			long id = data.get(0).getId();
 			List<Donation> donations = movements.findByuserId(id);
 			List<Long> idDonateProjects = new ArrayList<>();
@@ -170,10 +170,10 @@ public class UserController {
 			m.addAttribute("movements", user.getDonations());
 			m.addAttribute("User", user.getUser());
 			return "users";
-		} else {
+		/*} else {
 			
 			return "login";
-		}
+		}*/
 		
 		
 

@@ -46,7 +46,7 @@ public class AdminController {
     public UserPersonalDataRepository adminuser;
 
     @Autowired
-    public DonationsRepository donations;
+    public DonationsRepository movements;
 
     @RequestMapping("/")
     public String index(Model m, HttpSession sesion) {
@@ -74,8 +74,8 @@ public class AdminController {
 
     @RequestMapping("/Donations")
     public String donations(Model m) {
-        List<Donation> don = donations.findAll();
-        m.addAttribute("donations", don);
+        List<Donation> don = movements.findAll();
+        m.addAttribute("donaciones", don);
         return "Bootstrap-Admin-Theme/donations";
     }
 

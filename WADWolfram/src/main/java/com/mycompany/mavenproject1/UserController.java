@@ -107,6 +107,8 @@ public class UserController {
                 m.addAttribute("otherProjects", user.getOtherProjects());
                 m.addAttribute("movements", user.getDonations());
 		m.addAttribute("User",upd);
+		sesion.setAttribute("User", upd);
+		
 		return "users";
 	}
 	

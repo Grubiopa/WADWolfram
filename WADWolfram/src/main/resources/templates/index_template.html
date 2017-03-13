@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -53,7 +53,7 @@
                                     <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/register">Únete</a></li>
-                                        <li><a href="/login">Inicia sesión</a></li>
+                                        <li><a href="/login">Inicia sesión/Mi Cuenta</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -75,18 +75,18 @@
                         <!-- Slider -->
                         <div id="main-slider" class="main-slider flexslider">
                             <ul class="slides">
-{{#projects}}
+                                {{#projects}}
                                 <li>
-                                    <img src="{{image}}" alt="Foto del proyecto" />
+                                    <img src="/imagep/{{id}}.jpg" alt="Foto del proyecto" />
                                     <div class="flex-caption">
                                         <h3>{{title}}</h3>
-                                        <p>{{shorDescription}}</p>
+                                        <p>{{shortDescription}}</p>
                                         <!--cambiar lo de arriba-->
-                                        <a href="/Project?id={{id}}" class="btn btn-theme">Leer más</a>
+                                        <a href="/project?id={{id}}" class="btn btn-theme">Leer más</a>
                                     </div>
                                 </li>
 
-{{/projects}}
+                                {{/projects}}
                             </ul>
                         </div>
                         <!-- end slider -->
@@ -103,18 +103,17 @@
                             <div class="col-sm-6 col-lg-6">
                                 <h4>Sobre nuestra asociación</h4>
                                 <p>
-                                    Bienvenido a la página web donde podrás hacer tu aportación económica a proyectos médicos dirigidos a personas que padecen el Síndrome de Wolfram. Además, podrás hacer un seguimiento general de todos los proyectos y, por supuesto, de aquellos en los que has aportado. Regístrate de manera gratuíta para poder contribuir con la asociación. Para más información haz <a href="about.html">click aquí</a>.
+                                    Bienvenido a la página web donde podrás hacer tu aportación económica a proyectos médicos dirigidos a personas que padecen el Síndrome de Wolfram. Además, podrás hacer un seguimiento general de todos los proyectos y, por supuesto, de aquellos en los que has aportado. Regístrate de manera gratuíta para poder contribuir con la asociación. Para más información haz <a href="/about">click aquí</a>.
                                 </p>
                                 <br/>
 
-                                <h4>Colabora con nuestros proyectos</h4>
-{{#percentages}}
-                            <div class="progress">
-                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuetext="{{title}}: {{percentage}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage}}%">
-                                         {{title}}: {{percentage}}
+                                <h4>Colabora con nuestros proyectos</h4> {{#percentages}}
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="{{percentage}}" aria-valuetext="{{title}}: {{percentage}}%" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        {{title}}: {{percentage}}
                                     </div>
                                 </div>
-{{/percentages}}
+                                {{/percentages}}
                                 <div class="flex-caption">
                                     <a href="/projects" class="btn btn-theme">¡Anímate y participa!</a>
                                 </div>
@@ -123,12 +122,12 @@
                                 <div class="widget" style="margin-left: 120px;">
                                     <h4 class="widgetheading">Noticias de interés</h4>
                                     <ul class="recent">
-{{#news}}
+                                        {{#news}}
                                         <li>
-                                            <a href="/new?id={{id}}"> <img src="{{image}}" class="pull-left" alt="Foto de la noticia" /></a>
+                                            <a href="/new?id={{id}}"> <img src="/image/{{id}}.jpg" class="pull-left" alt="Foto de la noticia" /></a>
                                             <h6><a href="/new?id={{id}}">{{title}}</a></h6>
                                         </li>
-{{/news}}
+                                        {{/news}}
 
                                     </ul>
                                 </div>
@@ -183,12 +182,7 @@
                     <div class="col-sm-3 col-lg-3">
                         <div class="widget">
                             <h4>Idioma</h4>
-                            <!--   <div class="form-group multiple-form-group input-group">
-                        <input type="email" name="email" class="form-control">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-theme btn-add">Subscribe</button>
-                        </span>
-                    </div>  -->
+                        
                         </div>
                     </div>
                 </div>

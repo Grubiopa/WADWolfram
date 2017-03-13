@@ -86,30 +86,30 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" id="first_name" class="form-control input-lg" placeholder="Nombre" name="aname">
+                                        <input type="text" id="first_name" class="form-control input-lg" placeholder="Nombre" name="aname" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" id="last_name" class="form-control input-lg" placeholder="Apellidos" name="lastName">
+                                        <input type="text" id="last_name" class="form-control input-lg" placeholder="Apellidos" name="lastName" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="display_name" class="form-control input-lg" placeholder="Nombre de Usuario" name="username">
+                                <input type="text" id="display_name" class="form-control input-lg" placeholder="Nombre de Usuario" name="username" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" id="email" class="form-control input-lg" placeholder="Dirección de correo electrónico" name="aemail">
+                                <input type="email" id="email" class="form-control input-lg" placeholder="Dirección de correo electrónico" name="aemail" required>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" id="password" class="form-control input-lg" placeholder="Contraseña" name="apass">
+                                        <input type="password" id="password" class="form-control input-lg" placeholder="Contraseña" name="apass" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" id="password_confirmation" class="form-control input-lg" placeholder="Confirma la contraseña" name="apass2">
+                                        <input type="password" id="password_confirmation" class="form-control input-lg" placeholder="Confirma la contraseña" name="apass2" required>
                                     </div>
                                 </div>
                             </div>
@@ -123,11 +123,10 @@
                             <hr class="colorgraph">
                             <div class="row">
                                 <div class="col-xs-12 col-md-6">
-                                    <input type="submit" value="Regístrate" class="btn btn-theme btn-block btn-lg" tabindex="7">
+                                    <button type="submit" class="btn btn-primary btn-block btn-lg">Regístrate</button>
                                 </div>
                                 <div class="col-xs-12 col-md-6">¿Tienes ya una cuenta? <a href="/login">¡Entra en tu cuenta!</a></div>
                             </div>
-                        </form>
                     </div>
                 </div>
                 <!-- Modal -->
@@ -146,6 +145,7 @@
                             </div>
                         </div>
                         <!-- /.modal-content -->
+                         </form>
                     </div>
                     <!-- /.modal-dialog -->
                 </div>

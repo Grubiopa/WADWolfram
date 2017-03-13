@@ -65,7 +65,7 @@
                             <li><a href="/projects">Proyectos</a></li>
                             <li class="active"><a href="/blog">Noticias</a></li>
                             <li><a href="/contact">Contacto</a></li>
-                            <li><a href="/about">Sobre los desarrolladores</a></li>
+                            <li><a href="/about">Sobre sus desarrolladores</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta<i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu">
@@ -84,7 +84,7 @@
                         <div class="col-lg-12">
                             <ul class="breadcrumb">
                                 <li><a href="/"><i class="fa fa-home"></i> Volver al Inicio</a><i class="icon-angle-right"></i></li>
-                                <li class="active">Proyectos</li>
+                                <li class="active">Noticias</li>
                             </ul>
                         </div>
                     </div>
@@ -106,17 +106,17 @@
                                 <li>
                                     <div class="post-image">
                                         <div class="post-heading">
-                                            <h3><a href=(/new?id={{id}}>{{title}}</a></h3>
+                                            <h3><a href=/new?id={{id}}>{{title}}</a></h3>
                                         </div>
-                                        <a href=(/new?id={{id}})><img src="/image/{{id}}.jpg" alt="Foto de la noticia" class="img-responsive" /></a>
-                                         <div><a>{{cuerpo}}</a></div>
+                                  <a href=/new?id={{id}}><img src="/image/{{id}}.jpg" alt="Foto de la noticia" class="img-responsive" /></a>
+                                      <!--   <div><a>{{cuerpo}}</a></div>  --> 
                                     </div>
                                     <div class="bottom-article">
                                         <ul class="meta-post">
-                                            <li><i class="fa fa-calendar"></i><a>{{date}}</a></li>
-                                            <li><i class="fa fa-comments"></i><a href="#">{{number_comments}} Comentarios</a></li>
+                                            <li><i class="fa fa-calendar"></i>{{date}}</li>
+                                            <li><i class="fa fa-comments"></i>{{number_comments}} Comentarios</li>
                                         </ul>
-                                        <!--		<a href="#" class="readmore pull-right">Continue reading <i class="fa fa-angle-right"></i></a>-->
+                                       <a href=/new?id={{id}} class="readmore pull-right">Ir a la noticia <i class="fa fa-angle-right"></i></a>
                                     </div>
                                 </li>
 
@@ -138,11 +138,11 @@
                             <div class="widget">
                                 <h5 class="widgetheading">Categorías</h5>
                                 <ul class="cat">
-                                    <li><i class="fa fa-angle-right"></i><a href="#sindromeWolfram">Enfermedad</a><span> (2)</span></li>
-                                    <li><i class="fa fa-angle-right"></i><a href="#">Asociación</a><span> (0)</span></li>
-                                    <li><i class="fa fa-angle-right"></i><a href="#">Nuevos descubrimientos</a><span> (0)</span></li>
-                                    <li><i class="fa fa-angle-right"></i><a href="#">Proyectos</a><span> (0)</span></li>
-                                    <li><i class="fa fa-angle-right"></i><a href="#actividades">Próximos eventos</a><span> (1)</span></li>
+                                    <li><i class="fa fa-angle-right"></i><a href=/mostrarPorCategoria?categoria=Enfermedad>Enfermedad</a></li>
+                                    <li><i class="fa fa-angle-right"></i><a href=/mostrarPorCategoria?categoria=Asociación>Asociación</a></li>
+                                    <li><i class="fa fa-angle-right"></i><a href=/mostrarPorCategoria?categoria=NuevosDescubrimientos>Nuevos descubrimientos</a></li>
+                                    <li><i class="fa fa-angle-right"></i><a href=/mostrarPorCategoria?categoria=Proyectos>Proyectos</a></li>
+                                    <li><i class="fa fa-angle-right"></i><a href=/mostrarPorCategoria?categoria=PróximosEventos>Próximos eventos</a></li>
                                 </ul>
                             </div>
                             <div class="widget">

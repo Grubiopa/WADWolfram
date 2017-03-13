@@ -229,6 +229,10 @@ Permite cambiar los datos de la cuenta del administrador, así como crear otro a
 
 ##Fase 3
 
+Los cambios más relevantes a destacar con respecto a la fase anterior (fase 2), han sido los dos siguientes.
+Por un lado, hemos creado la entidad "donación", la cual no había sido tenida en cuenta en un primer momento. Al valorar si incluir este dato en la entidad usuario o en la entidad proyecto, nos dimos cuenta de que, en verdad, un usuario determinado realiza una donación para un proyecto en concreto y que una donación tiene dos características propias: la cuantía y la fecha. Así que decidimos que el dato donación sería una entidad en sí misma con una relación 1-1 (o, más concretamente, n-1, ya que tanto un usuario como un proyecto pueden tener varias donaciones asociadas) con las entidades usuario y proyecto.
+Por otra parte, inicialmente, habíamos incluido el cuerpo de las noticias en la página correspondiente al blog sin la posibilidad de visualizar el contenido de cada noticia por separado. En esta fase, hemos creado una plantilla para generar una página específica para cada noticia con sus correspondientes comentarios realizados por los usuarios de la aplicación. Por tanto, como consecuencia del cambio anterior, ya no aparece en la página del blog el formulario para dejar un comentario, teniendo que seleccionar la noticia a comentar, sino que éste se encuentra dentro de la página propia de cada noticia facilitando así su contextualización.
+
 ##Navegación
 
 La navegación por las pantallas no ha cambiado mucho respecto a la fase 2, por eso se muestran las pantallas donde ha habido cambios significativos.

@@ -178,7 +178,7 @@ Los cambios que hemos aplicado han sido abundantes y, en función de lo que íba
 Cambios genéricos que se han realizado a la plantilla de la página (NO ADMIN):
 <ol>
 <li> Background</li>
-<li> Logo</li>
+z<li> Logo</li>
 <li> Footer</li>
 <li> Barra de menús</li>
 <li> Titles en los html </li>
@@ -228,18 +228,23 @@ Permite cambiar los datos de la cuenta del administrador, así como crear otro a
 
 ##Fase 3
 
+
 ##Navegación
 
 La navegación por las pantallas no ha cambiado mucho respecto a la fase 2, por eso se muestran las pantallas donde ha habido cambios significativos.
+
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.png)
 
+
 ##Entidades de la Base de Datos
+
 En este diagrama se muestran las entidades de la base de datos y sus relaciones entre sí.
+
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.png)
+
+
 ##Diagrama de clases y templates
 
 A continuación se muestra un diagrama de clases con las relaciones entre los @Controller y los Repository, así como los templates que los usan.
+
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.png)
-
-
-

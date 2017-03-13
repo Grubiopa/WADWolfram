@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 
 public class User {
 
+
 // @ManyToMany
 	private List<UserProject> colaborateProjects;
 // @ManyToMany
@@ -21,7 +22,6 @@ public class User {
 	UserPersonalData user;
  /*@ElementCollection(fetch = FetchType.EAGER)
  private List<String> roles;*/
-	
  protected User(){}	
 
 	/*public User(List<Project> colaborateProjects, List<Project> otherProjects,

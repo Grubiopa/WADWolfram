@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -25,75 +24,51 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import org.springframework.stereotype.Component;
 
-
-
 @Component
 
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider {
 
+	@Autowired
+
+	private UserPersonalDataRepository userRepository;
 	
-@Autowired
-	
-private UserRepository userRepository;
+	@Override
 
-	
-@Autowired
-	
-private UserComponent userComponent;
+	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-	
-@Override
-	
-public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+		UserPersonalData user = userRepository.findByEmail(authentication.getName());
 
-		
-String username = authentication.getName();
-		
-String password = (String) authentication.getCredentials();
+		if (user == null) {
 
-		
-User user = userRepository.findByName(username);
+			throw new BadCredentialsException("Usuario no encontrado");
 
-		
-if (user == null) {
-			
-  throw new BadCredentialsException("User not found");
-		
-}
+		}
+		String password = (String) authentication.getCredentials();
+		if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
 
-		
-if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
+			throw new BadCredentialsException("Contraseña incorrecta");
 
-			
-  throw new BadCredentialsException("Wrong password");
-		
-} else {
+		} //else {
 
-			
-  userComponent.setLoggedUser(user);
+			//userComponent.setLoggedUser(user);
 
-			
-List<GrantedAuthority> roles = new ArrayList<>();
-			
-for (String role : user.getRoles()) {
+			List<GrantedAuthority> roles = new ArrayList<>();
 
-  roles.add(new SimpleGrantedAuthority(role));
-			
-}
+			for (String role : user.getRoles()) {
 
-			
-return new UsernamePasswordAuthenticationToken(username, password, roles);
-		
-}
-	
-}
+				roles.add(new SimpleGrantedAuthority(role));
 
-	
-@Override
+			}
+
+			return new UsernamePasswordAuthenticationToken(user.getEmail(), password, roles);
+
+		}
+
+	@Override
 	public boolean supports(Class<?> authenticationObject) {
-		
-return true;
-	
-}
+
+		return true;
+
+	}
 
 }

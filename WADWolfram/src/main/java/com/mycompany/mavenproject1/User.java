@@ -11,71 +11,80 @@ import javax.persistence.FetchType;
 
 public class User {
 
- @ManyToMany
-	private List<Project> colaborateProjects;
- @ManyToMany
-	private List<Project> otherProjects;
- @OneToMany(mappedBy="user")
-	private List<Donation> donations;
- @OneToOne(cascade=CascadeType.ALL)
-private 	UserPersonalData user;
- @ElementCollection(fetch = FetchType.EAGER)
- private List<String> roles;
-	
+
+// @ManyToMany
+	private List<UserProject> colaborateProjects;
+// @ManyToMany
+	private List<UserProject> otherProjects;
+ //@OneToMany(mappedBy="user")
+	private List<UserMovements> donations;
+ //@OneToOne(cascade=CascadeType.ALL)
+	UserPersonalData user;
+ /*@ElementCollection(fetch = FetchType.EAGER)
+ private List<String> roles;*/
  protected User(){}	
 
-	public User(List<Project> colaborateProjects, List<Project> otherProjects,
+	/*public User(List<Project> colaborateProjects, List<Project> otherProjects,
 			List<Donation> donations, UserPersonalData user, List<String> roles) {
 		this.colaborateProjects = colaborateProjects;
 		this.otherProjects = otherProjects;
 		this.donations=donations;
 		this.user = user;
   this.roles=roles;
-	}
+	}*/
 
-    public User(UserPersonalData user){
+    /*public User(UserPersonalData user){
 		this.colaborateProjects = new ArrayList<>();
 		this.otherProjects = new ArrayList<>();
 		this.donations = new ArrayList<>();
 		this.user = user;
   this.roles = new ArrayList<>();
-	}
+	}*/
 
-	public List<Project> getColaborateProjects() {
+	public List<UserProject> getColaborateProjects() {
 		return colaborateProjects;
 	}
 
-	public void setColaborateProjects(List<Project> colaborateProjects) {
+	public User(List<UserProject> colaborateProjects, List<UserProject> otherProjects, List<UserMovements> donations,
+			UserPersonalData user) {
+		super();
+		this.colaborateProjects = colaborateProjects;
+		this.otherProjects = otherProjects;
+		this.donations = donations;
+		this.user = user;
+	}
+
+	public void setColaborateProjects(List<UserProject> colaborateProjects) {
 		this.colaborateProjects = colaborateProjects;
 	}
 
- public void addColaborateProjects(Project p){
+ /*public void addColaborateProjects(Project p){
    colaborateProjects.add(p);
- }
+ }*/
 
-	public List<Project> getOtherProjects() {
+	public List<UserProject> getOtherProjects() {
 		return otherProjects;
 	}
 
-	public void setOtherProjects(List<Project> otherProjects) {
+	public void setOtherProjects(List<UserProject> otherProjects) {
 		this.otherProjects = otherProjects;
 	}
 
- public void addOtherProject(Project p){
+/* public void addOtherProject(Project p){
    otherProjects.add(p);
- }
+ }*/
 
-	public List<Donation> getDonations(){
+	public List<UserMovements> getDonations(){
 		return donations;
 	}
 
-	public void setDonation(List<Donation> donations){
+	public void setDonation(List<UserMovements> donations){
 		this.donations=donations;
 	}
 
- public void addDonation(Donation d){
+ /*public void addDonation(Donation d){
    donations.add(d);
- }
+ }*/
 
 	public UserPersonalData getUser() {
 		return user;
@@ -85,7 +94,7 @@ private 	UserPersonalData user;
 		this.user = user;
 	}	
 
-    public List<String> getRoles(){ 
+   /* public List<String> getRoles(){ 
    return roles;
  }
  public void setRoles(List<String> roles){
@@ -93,5 +102,5 @@ private 	UserPersonalData user;
  }
  public void addRole(String r){
    roles.add(r);
- }
+ }*/
 }

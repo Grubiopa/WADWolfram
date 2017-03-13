@@ -178,7 +178,7 @@ Los cambios que hemos aplicado han sido abundantes y, en función de lo que íba
 Cambios genéricos que se han realizado a la plantilla de la página (NO ADMIN):
 <ol>
 <li> Background</li>
-<li> Logo</li>
+z<li> Logo</li>
 <li> Footer</li>
 <li> Barra de menús</li>
 <li> Titles en los html </li>
@@ -226,8 +226,8 @@ Contiene una lista a la izquierda de los usuarios a quienes se puede enviar un m
 Permite cambiar los datos de la cuenta del administrador, así como crear otro administrador.
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.png)
 
-
 ##Fase 3
+
 
 ##Navegación
 

@@ -80,7 +80,7 @@
                                     <img src="/imagep/{{id}}.jpg" alt="Foto del proyecto" />
                                     <div class="flex-caption">
                                         <h3>{{title}}</h3>
-                                        <p>{{shorDescription}}</p>
+                                        <p>{{shortDescription}}</p>
                                         <!--cambiar lo de arriba-->
                                         <a href="/project?id={{id}}" class="btn btn-theme">Leer más</a>
                                     </div>
@@ -109,7 +109,7 @@
 
                                 <h4>Colabora con nuestros proyectos</h4> {{#percentages}}
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuetext="{{title}}: {{percentage}}%" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage}}%">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="{{percentage}}" aria-valuetext="{{title}}: {{percentage}}%" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                         {{title}}: {{percentage}}
                                     </div>
                                 </div>

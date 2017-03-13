@@ -67,10 +67,17 @@ public class ProjectController {
 
 	
 
-	@RequestMapping(value = "/borrarProyecto", method = RequestMethod.DELETE)
-	public void deleteProject(@RequestParam long id) {
+	@RequestMapping(value = "/borrarProyecto", method = RequestMethod.POST)
+	public String deleteProject(@RequestParam long id) {
 		Project p = projects.findOne(id);
+		List<Donation> ld= projects.findByDonations(p.getDonations());
+		
+		for (Donation d: ld){
+			
+			movements.delete(d);
+		}
 		projects.delete(p);
+		return "contact";
 	}
 	
 	@RequestMapping("/pay")
@@ -105,7 +112,7 @@ public class ProjectController {
 	
 	
 	@RequestMapping(value="/admin/AddProject/create", method=RequestMethod.POST)
-	public String addNewProject(@RequestParam String title,@RequestParam String shortDescription,
+	public String addNewProject(Model m, HttpSession sesion,@RequestParam String title,@RequestParam String shortDescription,
 			@RequestParam String description,@RequestParam double totalBudget,@RequestParam double parcialBudget,
 			@RequestParam double time,@RequestParam String releaseDate,@RequestParam boolean opened,
 			@RequestParam int startYear,@RequestParam ("imagen") MultipartFile imagen){
@@ -132,7 +139,8 @@ public class ProjectController {
 				e.printStackTrace();
 			}
 		}
-
+				User u = (User) sesion.getAttribute("User");
+				m.addAttribute("bienvenido",u.getUser().getUserName());
                 return "Bootstrap-Admin-Theme/index";           //WE ARE OUT!
 		
 	}

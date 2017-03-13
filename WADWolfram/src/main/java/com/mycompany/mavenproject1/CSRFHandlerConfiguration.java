@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+/*package com.mycompany.mavenproject1;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,3 +30,4 @@ class CSRFHandlerInterceptor extends HandlerInterceptorAdapter {
     	modelAndView.addObject("token", token.getToken());    	
     }
 }
+*/

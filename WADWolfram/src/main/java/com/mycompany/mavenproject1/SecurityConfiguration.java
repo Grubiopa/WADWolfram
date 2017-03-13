@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+/*package com.mycompany.mavenproject1;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -59,4 +59,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 }
 
-
+*/

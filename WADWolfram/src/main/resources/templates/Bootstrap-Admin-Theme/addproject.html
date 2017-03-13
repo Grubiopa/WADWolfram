@@ -238,9 +238,10 @@
 									<td data-brackets-id='198'><button class="btn btn-primary">
 														<i class="glyphicon glyphicon-pencil"></i> Editar
 													</button>
-													<button class="btn btn-danger" href="/borrarProyecto?id={{id}}">
+													<form method="post" action="/borrarProyecto?id={{id}}">
+													<button class="btn btn-danger">
 														<i class="glyphicon glyphicon-remove"></i> Borrar
-													</button></td>
+													</button></form></td>
 
 								</tr>
 								{{/projects}}

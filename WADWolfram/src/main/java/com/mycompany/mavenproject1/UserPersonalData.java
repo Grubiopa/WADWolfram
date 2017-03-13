@@ -26,6 +26,8 @@ public class UserPersonalData {
 	private String newPassword;
 //	private MultipartFile photo;
 	private String photo2;
+	private String passwordHash;
+	
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 
@@ -130,13 +132,22 @@ public class UserPersonalData {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-
-	/*public MultipartFile getPhoto() {
-		return photo;
+	public String getPasswordHash() {
+		// TODO Auto-generated method stub
+		return passwordHash;
+	}
+	
+	public void setPasswordHash(String passwordHash) {
+		this.passwordHash = passwordHash;
 	}
 
-	public void setPhoto(MultipartFile photo) {
-		this.photo = photo;
-	}*/
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
 
 }

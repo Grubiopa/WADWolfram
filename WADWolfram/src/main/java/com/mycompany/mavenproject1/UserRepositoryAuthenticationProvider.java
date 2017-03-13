@@ -1,6 +1,6 @@
 package com.mycompany.mavenproject1;
 
-/*import java.util.ArrayList;
+import java.util.ArrayList;
 
 import java.util.List;
 
@@ -31,34 +31,26 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	@Autowired
 
 	private UserPersonalDataRepository userRepository;
-
-	@Autowired
-
-	private UserComponent userComponent;
-
+	
 	@Override
 
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-		String email = authentication.getemail();
-
-		String password = (String) authentication.getCredentials();
-
-		User user = userRepository.findByemail(email);
+		UserPersonalData user = userRepository.findByEmail(authentication.getName());
 
 		if (user == null) {
 
-			throw new BadCredentialsException("User not found");
+			throw new BadCredentialsException("Usuario no encontrado");
 
 		}
-
+		String password = (String) authentication.getCredentials();
 		if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
 
-			throw new BadCredentialsException("Wrong password");
+			throw new BadCredentialsException("Contraseña incorrecta");
 
-		} else {
+		} //else {
 
-			userComponent.setLoggedUser(user);
+			//userComponent.setLoggedUser(user);
 
 			List<GrantedAuthority> roles = new ArrayList<>();
 
@@ -68,11 +60,9 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 
 			}
 
-			return new UsernamePasswordAuthenticationToken(username, password, roles);
+			return new UsernamePasswordAuthenticationToken(user.getEmail(), password, roles);
 
 		}
-
-	}
 
 	@Override
 	public boolean supports(Class<?> authenticationObject) {
@@ -82,5 +72,3 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	}
 
 }
-
-*/

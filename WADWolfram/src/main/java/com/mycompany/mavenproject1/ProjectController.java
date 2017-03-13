@@ -107,6 +107,7 @@ public class ProjectController {
 		Project p  = projects.findOne(projectId);
 		movements.save(new Donation(s.getUser(), p, money, d));
 		p.setParcialBudget(p.getParcialBudget()+money);
+		p.setRestBudget(p.getRestBudget()-money);
 		projects.save(p);
 		List<Project> l = projects.findAll();
 		model.addAttribute("projects", l);
@@ -115,7 +116,7 @@ public class ProjectController {
 	
 	
 	@RequestMapping(value="/admin/AddProject/create", method=RequestMethod.POST)
-	public String addNewProject(@RequestParam String title,@RequestParam String shortDescription,
+	public String addNewProject(Model model, HttpSession sesion,@RequestParam String title,@RequestParam String shortDescription,
 			@RequestParam String description,@RequestParam double totalBudget,@RequestParam double parcialBudget,
 			@RequestParam double time,@RequestParam String releaseDate,@RequestParam boolean opened,
 			@RequestParam int startYear,@RequestParam ("imagen") MultipartFile imagen){
@@ -142,7 +143,8 @@ public class ProjectController {
 				e.printStackTrace();
 			}
 		}
-
+		User u = (User) sesion.getAttribute("User");
+        model.addAttribute("bienvenido",u.getUser().getUserName());
                 return "Bootstrap-Admin-Theme/index";           //WE ARE OUT!
 		
 	}

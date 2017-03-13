@@ -129,7 +129,7 @@ public class NoticiasController {
     }
 
     @RequestMapping(value = "/admin/AddBlog/create", method = RequestMethod.POST)  //URL y method post necesarios.
-    public String addNewBlog(Model model, @RequestParam String title, @RequestParam String categoria,
+    public String addNewBlog(Model model, HttpSession sesion,@RequestParam String title, @RequestParam String categoria,
             @RequestParam String fecha, @RequestParam("imagen") MultipartFile imagen, //@RP String hola, significa que en el form hay un input con name="hola"
             @RequestParam String cuerpo, @RequestParam Boolean confirm) { ///Se le pasa como parámetros todos los input del form
 
@@ -157,7 +157,9 @@ public class NoticiasController {
                 e.printStackTrace();
             }
         }
-
+        
+        User u = (User) sesion.getAttribute("User");
+        model.addAttribute("bienvenido",u.getUser().getUserName());
         return "Bootstrap-Admin-Theme/index";           //WE ARE OUT!
 
     }

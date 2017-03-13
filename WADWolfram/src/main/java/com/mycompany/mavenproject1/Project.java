@@ -112,7 +112,7 @@ public class Project {
         return totalBudget;
     }
 
-    private void setRestBudget(double restBudget) {
+    public void setRestBudget(double restBudget) {
         this.restBudget = restBudget;
     }
 

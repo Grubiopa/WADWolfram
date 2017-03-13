@@ -56,10 +56,12 @@ public class UserController {
         movements.save(new Donation(u, p, 60, d));
         movements.save(new Donation(u, p, 40, d));
         p.setParcialBudget(p.getParcialBudget() + 150);
+        p.setRestBudget(p.getRestBudget()-150);
         projects.save(p);
         p = projects.findOne((long) 2);
         movements.save(new Donation(u, p, 10, d));
         p.setParcialBudget(p.getParcialBudget() + 10);
+        p.setRestBudget(p.getRestBudget()-10);
         projects.save(p);
     }
 

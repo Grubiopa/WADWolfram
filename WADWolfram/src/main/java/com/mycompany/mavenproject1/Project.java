@@ -127,7 +127,6 @@ public class Project {
 
     public void setParcialBudget(double parcialBudget) {
         this.parcialBudget = parcialBudget;
-        this.setRestBudget(this.totalBudget - this.parcialBudget);
     }
 
     public double getRestBudget() {

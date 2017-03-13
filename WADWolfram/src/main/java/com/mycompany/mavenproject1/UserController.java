@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -119,7 +120,7 @@ public class UserController {
     }
 
     @RequestMapping("/users/login")
-    public String userLogin(Model m, UserLogin s, HttpSession sesion) {
+    public String userLogin(Model m, UserLogin s, HttpSession sesion, HttpServletRequest request) {
 
         List<UserProject> userProject = new ArrayList<>();
         List<UserProject> otherProjects = new ArrayList<>();
@@ -169,6 +170,10 @@ public class UserController {
             m.addAttribute("otherProjects", user.getOtherProjects());
             m.addAttribute("movements", user.getDonations());
             m.addAttribute("User", user.getUser());
+            if(!request.isUserInRole("USER")){
+            	m.addAttribute("bienvenido", user.getUser().getUserName());
+            	return "Bootstrap-Admin-Them/index";
+            }
             return "users";
         } else {
             m.addAttribute("malogin", true);

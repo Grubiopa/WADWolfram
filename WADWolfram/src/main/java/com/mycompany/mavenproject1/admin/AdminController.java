@@ -54,7 +54,7 @@ public class AdminController {
         if (u == null) {
             return "login";
         }
-        m.addAttribute("vienbenido", u.getUser().getUserName());
+        m.addAttribute("bienvenido", u.getUser().getUserName());
         return "Bootstrap-Admin-Theme/index";
     }
 
@@ -95,7 +95,7 @@ public class AdminController {
         rol.add("ADMIN");
         UserPersonalData u = new UserPersonalData(name, "", email, name, password, repeat_password, "i.jpg", rol);
         adminuser.save(u);
-        m.addAttribute("vienbenido", u.getUserName());
+        m.addAttribute("bienvenido", u.getUserName());
         return "Bootstrap-Admin-Theme/index";
     }
 
@@ -138,7 +138,7 @@ public class AdminController {
 
         sesion.setAttribute("User", u);
 
-        m.addAttribute("vienbenido", upd.getUserName());
+        m.addAttribute("bienvenido", upd.getUserName());
         return "Bootstrap-Admin-Theme/index";
     }
 

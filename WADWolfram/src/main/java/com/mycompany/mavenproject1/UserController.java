@@ -172,7 +172,7 @@ public class UserController {
             m.addAttribute("User", user.getUser());
             if(!request.isUserInRole("USER")){
             	m.addAttribute("bienvenido", user.getUser().getUserName());
-            	return "Bootstrap-Admin-Them/index";
+            	return "Bootstrap-Admin-Theme/index";
             }
             return "users";
         } else {

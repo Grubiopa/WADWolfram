@@ -77,7 +77,7 @@ public class UserController {
             upd.setUserName(username);
         }
 
-        if (upd.getOldPassword() != oldPassword) {
+        if (! upd.getOldPassword().equals(oldPassword)) {
             return "error";
         }
         if (!newPassword.isEmpty()) {
@@ -170,7 +170,9 @@ public class UserController {
             m.addAttribute("otherProjects", user.getOtherProjects());
             m.addAttribute("movements", user.getDonations());
             m.addAttribute("User", user.getUser());
-            if(!request.isUserInRole("USER")){
+            System.out.println(user.getUser().getRoles().get(0));
+            //if(!request.isUserInRole("USER")){
+            if(!user.getUser().getRoles().get(0).equals("USER")){
             	m.addAttribute("bienvenido", user.getUser().getUserName());
             	return "Bootstrap-Admin-Theme/index";
             }

@@ -94,7 +94,7 @@
 
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" role="form" method='post' 
+								<form class="form-horizontal" role="form" method='post'
 									action="/admin/AddProject/create" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="inputEmail3" class="col-sm-2 control-label">Nombre
@@ -179,8 +179,8 @@
 									<div class="form-group">
 										<div class="col-sm-offset-2 col-sm-10">
 											<div class="checkbox">
-												<label> <input type="checkbox" name="opened" required> Confirmar
-													todos los cambios
+												<label> <input type="checkbox" name="opened"
+													required> Confirmar todos los cambios
 												</label>
 											</div>
 										</div>
@@ -200,56 +200,56 @@
 				<div class="row">
 
 					<div class="col-md-12">
-						
-						
+
+
 						<div data-brackets-id='179' class="content-box-large">
-					<div data-brackets-id='180' class="panel-heading">
-						<div data-brackets-id='181' class="panel-title">
-							<h4>Todos los proyectos</h4>
-						</div>
+							<div data-brackets-id='180' class="panel-heading">
+								<div data-brackets-id='181' class="panel-title">
+									<h4>Todos los proyectos</h4>
+								</div>
 
-					</div>
+							</div>
 
 
-					<div data-brackets-id='185' class="panel-body">
-					
-						<br> 
-						<table data-brackets-id='186' cellpadding="0" cellspacing="0"
-							border="0" class="table table-striped table-bordered"
-							id="example">
-							<thead data-brackets-id='187'>
-								<tr data-brackets-id='188'>
-									<th data-brackets-id='189'>Nombre del proyecto</th>
-									<th data-brackets-id='191'>Financiación  concedido</th>
-									<th data-brackets-id='191'>Financiación pendiente</th>
-									<th data-brackets-id='191'>Duración</th>
-									<th data-brackets-id='190'>Año de inicio</th>
-									<th data-brackets-id='192'>Acción</th>
-								</tr>
-							</thead>
-							<tbody data-brackets-id='193'>
-							{{#projects}}
-								<tr data-brackets-id='194' class="odd gradeX">
-									<td data-brackets-id='195'>{{title}}</td>
-									<td data-brackets-id='196'>{{parcialBudget}}</td>
-									<td data-brackets-id='197'>{{restBudget}}</td>
-									<td data-brackets-id='197'>{{time}}</td>
-									<td data-brackets-id='197'>{{startYear}}</td>
-									<td data-brackets-id='198'><button class="btn btn-primary">
-														<i class="glyphicon glyphicon-pencil"></i> Editar
-													</button>
-													<form method="post" action="/borrarProyecto?id={{id}}">
+							<div data-brackets-id='185' class="panel-body">
+
+								<br>
+								<table data-brackets-id='186' cellpadding="0" cellspacing="0"
+									border="0" class="table table-striped table-bordered"
+									id="example">
+									<thead data-brackets-id='187'>
+										<tr data-brackets-id='188'>
+											<th data-brackets-id='189'>Nombre del proyecto</th>
+											<th data-brackets-id='191'>Financiación concedido</th>
+											<th data-brackets-id='191'>Financiación pendiente</th>
+											<th data-brackets-id='191'>Duración</th>
+											<th data-brackets-id='190'>Año de inicio</th>
+											<th data-brackets-id='192'>Acción</th>
+										</tr>
+									</thead>
+									<tbody data-brackets-id='193'>
+										{{#projects}}
+										<tr data-brackets-id='194' class="odd gradeX">
+											<td data-brackets-id='195'>{{title}}</td>
+											<td data-brackets-id='196'>{{parcialBudget}}</td>
+											<td data-brackets-id='197'>{{restBudget}}</td>
+											<td data-brackets-id='197'>{{time}}</td>
+											<td data-brackets-id='197'>{{startYear}}</td>
+											<td data-brackets-id='198'>
+												<form method="post" action="/borrarProyecto?id={{id}}">
 													<button class="btn btn-danger">
 														<i class="glyphicon glyphicon-remove"></i> Borrar
-													</button></form></td>
+													</button>
+												</form>
+											</td>
 
-								</tr>
-								{{/projects}}
-						
-							</tbody>
-						</table>
-					</div>
-				</div>
+										</tr>
+										{{/projects}}
+
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
 
 				</div>
@@ -267,7 +267,7 @@
 
 		</div>
 	</footer>
-	
+
 	<link data-brackets-id='228'
 		href="/Bootstrap-Admin-Theme/filtros/vendors/datatables/dataTables.bootstrap.css"
 		rel="stylesheet" media="screen">
@@ -292,10 +292,10 @@
 	<script data-brackets-id='235'
 		src="/Bootstrap-Admin-Theme/js/tables.js"></script>
 
-	
-	
-	
-	
+
+
+
+
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://code.jquery.com/jquery.js"></script>
@@ -309,8 +309,8 @@
 	<script src="/Bootstrap-Admin-Theme/vendors/fullcalendar/gcal.js"></script>
 	<script src="/Bootstrap-Admin-Theme/js/custom.js"></script>
 	<script src="/Bootstrap-Admin-Theme/js/calendar.js"></script>
-	
-	
+
+
 	<script data-brackets-id='232'
 		src="/Bootstrap-Admin-Theme/filtros/vendors/datatables/js/jquery.dataTables.min.js"></script>
 
@@ -318,8 +318,8 @@
 		src="/Bootstrap-Admin-Theme/filtros/vendors/datatables/dataTables.bootstrap.js"></script>
 	<script data-brackets-id='235'
 		src="/Bootstrap-Admin-Theme/js/tables.js"></script>
-	
-	
+
+
 </body>
 
 </html>

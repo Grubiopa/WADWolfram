@@ -1,6 +1,5 @@
-/*package com.mycompany.mavenproject1;
-
-import org.springframework.beans.factory.annotation.Autowired;
+package com.mycompany.mavenproject1;
+/*import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.context.annotation.Configuration;
 
@@ -58,5 +57,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 }
-
 */
+

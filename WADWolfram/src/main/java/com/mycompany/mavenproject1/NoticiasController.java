@@ -179,9 +179,12 @@ public class NoticiasController {
         }
     }
 
-    @RequestMapping(value = "/borrarNoticia", method = RequestMethod.DELETE)
-    public void deleteProject(@RequestParam long id) {
+    @RequestMapping(value = "/borrarNoticia", method = RequestMethod.POST)
+    public String deleteProject(@RequestParam long id, Model m, HttpSession sesion) {
         Noticia n = noticias.findOne(id);
         noticias.delete(n);
+        User u = (User) sesion.getAttribute("User");
+        m.addAttribute("bienvenido",u.getUser().getUserName());
+        return "Bootstrap-Admin-Theme/index";
     }
 }

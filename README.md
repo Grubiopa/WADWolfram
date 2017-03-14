@@ -244,11 +244,11 @@ La navegación por las pantallas no ha cambiado mucho respecto a la fase 2, por 
 
 En este diagrama se muestran las entidades de la base de datos y sus relaciones entre sí.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Perfil-admin.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Relacion de entidades.png)
 
 
 ##Diagrama de clases y templates
 
 A continuación se muestra un diagrama de clases con las relaciones entre los @Controller y los Repository, así como los templates que los usan.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Perfil-admin.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/diagrama clases.png)

@@ -104,6 +104,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
+                                    	<label for="password"></label>
                                         <input type="password" id="password" class="form-control input-lg" placeholder="Contraseña" name="apass" required>
                                     </div>
                                 </div>
@@ -135,13 +136,14 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+                                <h4 class="modal-title" id="myModalLabel">Términos y condiciones</h4>
                             </div>
                             <div class="modal-body">
                                 <p>Condiciones de uso... y términos</p>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Acepto</button>
+                            	
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="cifrar()">Acepto</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -184,12 +186,12 @@
                         <div class="widget">
                             <h4>Páginas relacionadas</h4>
                             <ul class="link-list">
-                                <li><a href="http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=ES&Expert=3463.0">ORPHANET – Síndrome de Wolfram</a></li>
-                                <li><a href="http://www.association-du-syndrome-de-wolfram.org/faire-un-don.html">Asociación Francesa del síndrome de Wolfram</a></li>
-                                <li><a href="http://wolframsyndrome.dom.wustl.edu/">Universidad de Washington en St. Louis – Síndrome de Wolfram</a></li>
-                                <li><a href="http://aswolfram.org/">Asociación Española para la Investigación y Ayuda al síndrome de Wolfram</a></li>
-                                <li><a href="http://www.eurordis.org/es/content/un-nuevo-registro-para-las-diabetes-raras">EURORDIS – Un nuevo registro para las diabetes raras</a></li>
-                                <li><a href="http://www.euro-wabb.org/es/">EURO-WABB</a></li>
+                                <li><a href="http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=ES&Expert=3463.0" target="_blank">ORPHANET – Síndrome de Wolfram</a></li>
+                                <li><a href="http://www.association-du-syndrome-de-wolfram.org/faire-un-don.html" target="_blank">Asociación Francesa del síndrome de Wolfram</a></li>
+                                <li><a href="http://wolframsyndrome.dom.wustl.edu/" target="_blank">Universidad de Washington en St. Louis – Síndrome de Wolfram</a></li>
+                                <li><a href="http://aswolfram.org/" target="_blank">Asociación Española para la Investigación y Ayuda al síndrome de Wolfram</a></li>
+                                <li><a href="http://www.eurordis.org/es/content/un-nuevo-registro-para-las-diabetes-raras" target="_blank">EURORDIS – Un nuevo registro para las diabetes raras</a></li>
+                                <li><a href="http://www.euro-wabb.org/es/" target="_blank">EURO-WABB</a></li>
                             </ul>
                         </div>
                     </div>
@@ -249,6 +251,14 @@
     <script src="/js/google-code-prettify/prettify.js"></script>
     <script src="/js/animate.js"></script>
     <script src="/js/custom.js"></script>
+    <script src="js/sha1.js"></script>
+	<script>
+		function cifrar(){
+			var input_pass = document.getElementById("password");
+			input_pass.value = sha1(input_pass.value);
+		}
+	</script>
+    
 
 </body>
 

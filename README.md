@@ -237,7 +237,7 @@ Por otra parte, inicialmente, habíamos incluido el cuerpo de las noticias en la
 
 La navegación por las pantallas no ha cambiado mucho respecto a la fase 2, por eso se muestran las pantallas donde ha habido cambios significativos.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Perfil-admin.png)
+![alt tag]()
 
 
 ##Entidades de la Base de Datos

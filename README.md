@@ -58,53 +58,53 @@ Hay una barra de navegación (Inicio, Proyectos, Noticias, Contacto, Sobre sus d
 
 Contiene un carrusel de fotos de los proyectos, las cuales incluyen el título y una breve descripción del mismo. Al pinchar una foto, nos redirige a una página con la información detallada del proyecto. También incluye una breve descripción de la finalidad de la app (encabezado Sobre nuestra asociación) y barras de progreso que muestran el estado de cada proyecto (encabezado Colabora con nuestros proyectos). Por último, posee una sección de noticias, de las que se muestra el título y una imagen de las mismas. Al seleccionar una noticia, el enlace lleva el foco a la noticia en concreto en la página Noticias.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Indice1.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Indice2.png) 
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Indice1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Indice2.png) 
 
 
 <b>Proyectos (projects.html)</b>
 
 Posee una lista fija de los proyectos (con la posibilidad de cargar más) y la posibilidad de poder filtrarlos (recientes, años o ver los que ya han concluido), el título, fecha de lanzamiento y una imagen que al pasar el ratón por encima ofrece la opción de "Leer más", la cual reenvía a la página del proyecto correspondiente con la información detallada de éste. La página de cada proyecto contiene una fotografía, una tabla con datos concretos del presupuesto total y condecido, financiación pendiente,... (solo el proyecto bio-psicosocial no proporciona esta tabla) e información ampliada del mismo.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Proyectos1.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Proyectos2.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Proyectos1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Proyectos2.png)
 
 
 <b>Pagina proyecto(oneProject.html)</b>
 
 Esta página sera la encargada de mostrar la descripción extensa del proyecto, una foto, las caracticas del proyecto (fecha, aportaciones...) y el botón más importante, "Participa", para animar a la gente a colaborar en el proyecto.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/proyectoEjemplo1.PNG)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/proyectoEjemplo2.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/proyectoEjemplo1.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/proyectoEjemplo2.PNG)
 
 <b>Noticias (blog.html)</b>
 
 Incluye una lista con las noticias (título, imagen, información del cuerpo de la noticia, fecha de publicación y número de comentarios realizados por los usuarios, enlace que redirige al foro con los comentarios pertinentes). Por otra parte, proporciona un formulario que se debe rellenar para poder dejar un comentario relacionado con una noticia (la cual selecciona el usuario en dicho formulario). Por último, dispone de una lista de enlaces referentes a las categorías en las que se organizan las noticias, cuya selección lleva a la sección correspondiente dentro de la lista de noticias. 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Noticias1.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Noticias2.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Noticias1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Noticias2.png)
 
 
 <b>Contacto (contact.html)</b>
 
 Muestra, tres columnas. En la primera, un texto que invita a los usuarios a resolver sus dudas y, por debajo, un área de texto (con etiqueta “Chat”), para poder consultar sus dudas al administrador de la aplicación manteniendo una comunicación directa, y un botón enviar (con un icono de mensaje). En la segunda, se hace más visible toda la información referente al perfil de la asociación, mostrando la dirección, el teléfono, fax... Finalmente, se muestra un mapa de su ubicación.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Contacto.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Contacto.png)
 
 
 <b>Sobre sus desarrolladores (about.html)</b>
 
 Ofrece un texto centrado explicando el origen de la aplicación, por qué y cómo surgió, y los integrantes del grupo de desarrolladores de la aplicación web con sus respectivas titulaciones. Además, incluirá próximamente una fotografía con los miembros del grupo.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/About.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/About.png)
 
 <b>Registro (register.html)</b>
 
 Proporciona un formulario para registrarse como usuario con campos de texto para introducir nombre, apellidos, nombre de usuario, correo electrónico, contraseña y confirmación de contraseña y un botón "Regístrate". Además, ofrece un enlace a la página de inicio de sesión para aquellos que ya están registrados.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Registrarse.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Registrarse.png)
 
 
 <b>Login (login.html)</b>
 
 Proporciona un formulario para loguearte como usuario y contraseña. También tiene 2 botones: "Se me ha olvidado la contraseña" y "Entrar". Asimismo, esta página también dispone de un enlace para aquellos que aún no están registrados, invitándoles a hacerlo.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/IniciarSesion.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/IniciarSesion.png)
  
  
 <b>Cuenta (users.html)</b>
@@ -114,9 +114,9 @@ En "Mis proyectos" se podrá ver una tabla resumen con los proyectos en los que 
 En "Mis movimientos" se observa una tabla con el proyecto al que has colaborado y la cantidad aportada al mismo.
 Finalmente esta la página de mis datos donde el usuario podra modificar su avatar, sus datos personales, correo y contraseña.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User1.PNG)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/User2.PNG)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/user3.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/User1.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/User2.PNG)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/user3.PNG)
 
 ## Diagramas de actividad
 
@@ -124,48 +124,48 @@ A continuación se mostraran los diferentes diagrama de actividad de las diferen
 
 Inicio (index.html)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Index.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Index.png)
 
 Proyectos (projects.html)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Proyectos1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Proyectos1.png)
 
 Pagina proyecto(oneProject.html)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/oneProject.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/oneProject.png)
 
 Noticias (blog.html)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Blog.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Blog.png)
 
 
 Contacto (contact.html)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Contacto.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Contacto.png)
 
 
 Sobre sus desarrolladores (about.html)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/About.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/About.png)
 
 Registro (register.html)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Register.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Register.png)
 
 
 Login (login.html)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Login.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Login.png)
  
  
 Cuenta (users.html)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Users.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Users.png)
 
 
 Administrador (Bootstrap-Admin-Theme)
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Diagramas/Admin.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Admin.png)
 
 
 
@@ -202,29 +202,29 @@ Se ha eliminado la barra de búsqueda, se ha cambiado el nombre del título h1 a
 
 <b>Página de inicio</b> <br>
 Se ha eliminado todo el contenido y se han colocado dos gráficas para ver las visitas de las noticias en el tiempo y la evolución de donaciones de los proyectos.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Index-admin1.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Index-admin2.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Index-admin1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Index-admin2.png)
 
 <b>Añadir proyectos</b> <br>
 Se ha colocado un formulario para añadir un proyecto con todos los datos necesarios, y una tabla con todos los proyectos activos, para poder eliminarlos o editarlos en cualquier momento.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewProject-Admin1.png)
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewProject-Admin2.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/NewProject-Admin1.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/NewProject-Admin2.png)
 
 <b>Añadir noticias</b> <br>
 Se ha colocado de nuevo un formulario para añadir una noticia, al igual que para los proyectos.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/NewBlog-admin.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/NewBlog-admin.png)
 
 <b>Donaciones</b> <br>
 Se incluye una tabla con las personas que han donado, a que proyecto, y cuánto dinero, así como la fecha en la que se donó.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Donaciones-admin.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Donaciones-admin.png)
 
 <b>Mensajes</b> <br>
 Contiene una lista a la izquierda de los usuarios a quienes se puede enviar un mensaje, así como un cuadro de texto a la derecha para redactarlo y enviarlo al pulsar el correspondiente botón.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Mensajes-admin.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Mensajes-admin.png)
 
 <b>Perfil</b> <br>
 Permite cambiar los datos de la cuenta del administrador, así como crear otro administrador.
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Perfil-admin.png)
 
 
 ##Fase 3
@@ -237,18 +237,18 @@ Por otra parte, inicialmente, habíamos incluido el cuerpo de las noticias en la
 
 La navegación por las pantallas no ha cambiado mucho respecto a la fase 2, por eso se muestran las pantallas donde ha habido cambios significativos.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Perfil-admin.png)
 
 
 ##Entidades de la Base de Datos
 
 En este diagrama se muestran las entidades de la base de datos y sus relaciones entre sí.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Perfil-admin.png)
 
 
 ##Diagrama de clases y templates
 
 A continuación se muestra un diagrama de clases con las relaciones entre los @Controller y los Repository, así como los templates que los usan.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/img/Capturas/Perfil-admin.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Perfil-admin.png)

@@ -54,6 +54,10 @@ public class AdminController {
         if (u == null) {
             return "login";
         }
+        if(u.getUser().getRoles().get(0).equals("USER")){
+        	return "error";
+        
+        }
         m.addAttribute("bienvenido", u.getUser().getUserName());
         return "Bootstrap-Admin-Theme/index";
     }

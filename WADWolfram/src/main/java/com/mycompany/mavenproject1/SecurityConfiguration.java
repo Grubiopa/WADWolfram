@@ -1,5 +1,5 @@
 package com.mycompany.mavenproject1;
-/*import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.context.annotation.Configuration;
 
@@ -43,19 +43,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.formLogin().loginPage("/login");
 		http.formLogin().usernameParameter("email");
 		http.formLogin().passwordParameter("password");
-		http.formLogin().defaultSuccessUrl("/login");
-		// http.formLogin().failureUrl("/error");
+		http.formLogin().defaultSuccessUrl("/users/login");
+		http.formLogin().failureUrl("/error");
 		// Logout
 		http.logout().logoutUrl("/user/close");
-		http.logout().logoutSuccessUrl("/login");
+		http.logout().logoutSuccessUrl("/");
+		
+		http.csrf().disable();
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
+		
 		auth.authenticationProvider(authenticationProvider);
 	}
 
 }
-*/
+
 

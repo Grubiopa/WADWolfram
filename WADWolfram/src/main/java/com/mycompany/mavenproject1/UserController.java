@@ -18,6 +18,9 @@ import javax.servlet.http.HttpSession;
 
 //import org.h2.util.New;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -48,6 +51,8 @@ public class UserController {
         List<String> role = new ArrayList<>();
         role.add("ADMIN");
         users.save(new UserPersonalData("Gabi", "R", "g.ru@yo.com", "gabi0794", "aaaa", "aaaa", "icon.png", role));
+        role.clear();
+        role.add("USER");
         users.save(new UserPersonalData("TU", "t", "t.ru@yo.com", "tu", "bbbb", "bbbb", "icon.png", role));
         Date d = new Date();
         UserPersonalData u = users.findOne((long) 1);
@@ -173,14 +178,17 @@ public class UserController {
             m.addAttribute("movements", user.getDonations());
             m.addAttribute("User", user.getUser());
             System.out.println(user.getUser().getRoles().get(0));
-            //if(!request.isUserInRole("USER")){
-            if(!user.getUser().getRoles().get(0).equals("USER")){
+            
+            if(!request.isUserInRole("USER")){
+            //if(!user.getUser().getRoles().get(0).equals("USER")){
             	m.addAttribute("bienvenido", user.getUser().getUserName());
             	return "Bootstrap-Admin-Theme/index";
             }
             return "users";
         } else {
             m.addAttribute("malogin", true);
+            //CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+    		//m.addAttribute("token",token.getToken());
             return "login";
         }
 
@@ -246,7 +254,7 @@ public class UserController {
     }
 
     @RequestMapping("/login")
-    public String login(Model m, HttpSession sesion) {
+    public String login(Model m, HttpSession sesion, HttpServletRequest request) {
         User s = (User) sesion.getAttribute("User");
 
         if (s != null) {
@@ -298,6 +306,8 @@ public class UserController {
 
             return "users";
         }
+        //CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+		//m.addAttribute("token",token.getToken());
         return "login";
     }
 
@@ -338,6 +348,7 @@ public class UserController {
 
         ArrayList<String> rol = new ArrayList<>();
         rol.add("USER");
+      
         UserPersonalData u = new UserPersonalData(aname, lastName, aemail, username, apass, apass2, "icon.png", rol);
 
         users.save(u);

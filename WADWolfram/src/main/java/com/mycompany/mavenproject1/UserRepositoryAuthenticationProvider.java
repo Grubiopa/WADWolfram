@@ -1,4 +1,4 @@
-/*package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1;
 
 import java.util.ArrayList;
 
@@ -71,4 +71,4 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 
 	}
 
-}*/
+}

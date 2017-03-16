@@ -43,6 +43,8 @@ public class UserController {
     private ProjectRepository projects;
     @Autowired
     private DonationsRepository movements;
+    @Autowired
+    private UserComponent userComponent;
 
     private static final String FILES_FOLDER_USERS = "filesUsers";
 
@@ -134,19 +136,19 @@ public class UserController {
     }
 
     @RequestMapping("/users/login")
-    public String userLogin(Model m, UserLogin s, HttpSession sesion, HttpServletRequest request) {
+    public String userLogin(Model m, HttpSession sesion, HttpServletRequest request) {
 
         List<UserProject> userProject = new ArrayList<>();
         List<UserProject> otherProjects = new ArrayList<>();
         List<UserMovements> userMovements = new ArrayList<>();
-        String emailRecieve = s.getEmail();
-        String passwordRecieve = s.getPassword();
-
+       
+        UserPersonalData user = users.findByEmail(userComponent.getLoggedUser().getEmail());
+        
 		///////
-        List<UserPersonalData> data = users.findByEmailAndOldPassword(emailRecieve, passwordRecieve);
-        if (!(data.size() == 0)) {
-            long id = data.get(0).getId();
-            List<Donation> donations = movements.findByuserId(id);
+ 
+        //List<UserPersonalData> data = (List<UserPersonalData>) users.findByEmail(emailRecieve);
+        //long id = data.get(0).getId();
+            List<Donation> donations = movements.findByuserId(user.getId());
             List<Long> idDonateProjects = new ArrayList<>();
 
             for (Donation d : donations) {
@@ -175,30 +177,30 @@ public class UserController {
                 }
             }
 
-            User user = new User(userProject, otherProjects, userMovements, data.get(0));
+            User user2 = new User(userProject, otherProjects, userMovements, user);
             //User user = new User(data.get(0));
-            sesion.setAttribute("User", user);
+            sesion.setAttribute("User", user2);
 
-            m.addAttribute("username", user.getUser().getUserName());
-            m.addAttribute("colaborateProjects", user.getColaborateProjects());
-            m.addAttribute("otherProjects", user.getOtherProjects());
-            m.addAttribute("movements", user.getDonations());
-            m.addAttribute("User", user.getUser());
-            System.out.println(user.getUser().getRoles().get(0));
+            m.addAttribute("username", user2.getUser().getUserName());
+            m.addAttribute("colaborateProjects", user2.getColaborateProjects());
+            m.addAttribute("otherProjects", user2.getOtherProjects());
+            m.addAttribute("movements", user2.getDonations());
+            m.addAttribute("User", user2.getUser());
+            System.out.println(user2.getUser().getRoles().get(0));
             
             if(!request.isUserInRole("USER")){
             //if(!user.getUser().getRoles().get(0).equals("USER")){
-            	m.addAttribute("bienvenido", user.getUser().getUserName());
+            	m.addAttribute("bienvenido", user2.getUser().getUserName());
             	return "Bootstrap-Admin-Theme/index";
             }
             return "users";
-        } else {
-            m.addAttribute("malogin", true);
+        // else {
+            //m.addAttribute("malogin", true);
             //esto no hace falta ponerlo porque lo he resumido todo en un handler
             //CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
     		//m.addAttribute("token",token.getToken());
-            return "login";
-        }
+           // return "login";
+        //}
 
     }
 

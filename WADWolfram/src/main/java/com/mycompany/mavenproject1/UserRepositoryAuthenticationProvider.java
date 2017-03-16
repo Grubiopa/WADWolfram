@@ -48,9 +48,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 
 			throw new BadCredentialsException("Contraseña incorrecta");
 
-		} //else {
-
-			//userComponent.setLoggedUser(user);
+		} 
 
 			List<GrantedAuthority> roles = new ArrayList<>();
 
@@ -60,7 +58,8 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 
 			}
 
-			return new UsernamePasswordAuthenticationToken(user.getEmail(), password, roles);
+			return new UsernamePasswordAuthenticationToken( user.getEmail(),
+				password, roles);
 
 		}
 

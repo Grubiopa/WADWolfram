@@ -48,13 +48,20 @@ public class UserController {
 
     @PostConstruct
     public void init() {
-        List<String> role = new ArrayList<>();
+    	
+    	users.save(new UserPersonalData("Gabi", "R", "g.ru@yo.com", "gabi0794", "aaaa", "aaaa", "icon.png", "ROLE_ADMIN"));
+	//	users.save(new User("admin", "adminpass", "ROLE_USER", "ROLE_ADMIN"));
+    
+       /* List<String> role = new ArrayList<>();
         role.add("ADMIN");
         users.save(new UserPersonalData("Gabi", "R", "g.ru@yo.com", "gabi0794", "aaaa", "aaaa", "icon.png", role));
         role.clear();
         role.add("USER");
-        users.save(new UserPersonalData("TU", "t", "t.ru@yo.com", "tu", "bbbb", "bbbb", "icon.png", role));
+        users.save(new UserPersonalData("TU", "t", "t.ru@yo.com", "tu", "bbbb", "bbbb", "icon.png", role));*/
+    	
+    	
         Date d = new Date();
+    	
         UserPersonalData u = users.findOne((long) 1);
         Project p = projects.findOne((long) 1);
         movements.save(new Donation(u, p, 50, d));
@@ -187,6 +194,7 @@ public class UserController {
             return "users";
         } else {
             m.addAttribute("malogin", true);
+            //esto no hace falta ponerlo porque lo he resumido todo en un handler
             //CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
     		//m.addAttribute("token",token.getToken());
             return "login";
@@ -306,40 +314,12 @@ public class UserController {
 
             return "users";
         }
-        //CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
-		//m.addAttribute("token",token.getToken());
+        CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+		m.addAttribute("token",token.getToken());
         return "login";
     }
 
-    /*@RequestMapping("/users/logged/index")
-     public String loggedIndex(Model m) {
-     return "/";
-     }
-	
-     @RequestMapping("/users/logged/about")
-     public String loggedAbout(Model m) {
-     return "about";
-     }
-	
-     @RequestMapping("/users/logged/blog")
-     public String loggedBlog(Model m) {
-     return "blog_template";
-     }
-	
-     @RequestMapping("/users/logged/new")
-     public String loggedNew(Model m) {
-     return "new_template";
-     }
-	
-     @RequestMapping("/users/logged/projects")
-     public String loggedProjects(Model m) {
-     return "projects_template";
-     }
-	
-     @RequestMapping("/users/logged/project")
-     public String loggedProject(Model m) {
-     return "oneProject";
-     }*/
+  
     @RequestMapping(value = "/register/create", method = RequestMethod.POST)
 
     public String NewUser(Model model, @RequestParam String aname, @RequestParam String lastName,
@@ -349,10 +329,10 @@ public class UserController {
         ArrayList<String> rol = new ArrayList<>();
         rol.add("USER");
       
-        UserPersonalData u = new UserPersonalData(aname, lastName, aemail, username, apass, apass2, "icon.png", rol);
+       // UserPersonalData u = new UserPersonalData(aname, lastName, aemail, username, apass, apass2, "icon.png", rol);
 
-        users.save(u);
-
+        //users.save(u);
+//----------------------------------no es mio--------------------------------------
 		//model.addAttribute("username",username);
 		//User us = new User(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), u);
 		//sesion.setAttribute("User", us);

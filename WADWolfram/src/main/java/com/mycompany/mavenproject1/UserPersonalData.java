@@ -1,5 +1,7 @@
 package com.mycompany.mavenproject1;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -34,29 +37,19 @@ public class UserPersonalData {
 	// protected UserMovements(){}
 	
    public UserPersonalData(String name, String surname, String email, String userName, String oldPassword,
-			String newPassword, String photo2, List<String> roles) {
+			String newPassword, String photo2, String...roles) {
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
 		this.userName = userName;
 		this.oldPassword = oldPassword;
-		this.newPassword = newPassword;
+	//	this.newPassword = newPassword;
 		this.photo2 = photo2;
-		this.roles = roles;
+		//this.roles = roles;
+		this.passwordHash = new BCryptPasswordEncoder().encode(newPassword);
+		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
-/*
-	public UserPersonalData(String name, String surname, String email, String userName, String oldPassword,
-			String newPassword, MultipartFile photo, List<String> roles) {
-		this.name = name;
-		this.surname = surname;
-		this.email = email;
-		this.userName = userName;
-		this.oldPassword = oldPassword;
-		this.newPassword = newPassword;
-		this.setPhoto(photo);
-		this.roles = roles;
-	}
-	*/
+   
 	public UserPersonalData() {
 	}
 

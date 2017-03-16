@@ -43,13 +43,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.formLogin().loginPage("/login");
 		http.formLogin().usernameParameter("email");
 		http.formLogin().passwordParameter("password");
-		http.formLogin().defaultSuccessUrl("/users/login");
+		http.formLogin().defaultSuccessUrl("/admin/");
 		http.formLogin().failureUrl("/error");
 		// Logout
 		http.logout().logoutUrl("/user/close");
 		http.logout().logoutSuccessUrl("/");
 		
-		http.csrf().disable();
+	//	http.csrf().disable();
 	}
 
 	@Override

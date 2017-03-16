@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +48,8 @@ public class AdminController {
 
     @Autowired
     public DonationsRepository movements;
-
-    @RequestMapping("/")
+//-------------------karen lo comentó*-------------------------
+   /* @RequestMapping("/")
     public String index(Model m, HttpSession sesion) {
         User u = (User) sesion.getAttribute("User");
         if (u == null) {
@@ -60,7 +61,16 @@ public class AdminController {
         }
         m.addAttribute("bienvenido", u.getUser().getUserName());
         return "Bootstrap-Admin-Theme/index";
+    }*/
+    
+    @RequestMapping("/")
+    public String home(Model model, HttpServletRequest request) {
+    	
+    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
+    	
+    	return "Bootstrap-Admin-Theme/index";
     }
+
 
     @RequestMapping("/AddBlog")
     public String addblog(Model m) {
@@ -90,7 +100,7 @@ public class AdminController {
         return "Bootstrap-Admin-Theme/profile";
     }
 
-    @RequestMapping(value = "/Profile/create", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/Profile/create", method = RequestMethod.POST)
     public String NewAdmin(Model m, @RequestParam String name, @RequestParam String email,
             @RequestParam String password, @RequestParam String repeat_password,
             @RequestParam Boolean confirm) {
@@ -98,10 +108,11 @@ public class AdminController {
         ArrayList<String> rol = new ArrayList<>();
         rol.add("ADMIN");
         UserPersonalData u = new UserPersonalData(name, "", email, name, password, repeat_password, "i.jpg", rol);
+        
         adminuser.save(u);
         m.addAttribute("bienvenido", u.getUserName());
         return "Bootstrap-Admin-Theme/index";
-    }
+    }*/
 
     @RequestMapping(value = "/Profile/update", method = RequestMethod.POST)
     public String UpdateAdmin(Model m, HttpSession sesion, @RequestParam String memail,

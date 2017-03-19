@@ -26,8 +26,6 @@ public class UserPersonalData {
 	private String email;
 	private String userName;
 	private String oldPassword;
-	//private String newPassword;
-//	private MultipartFile photo;
 	private String photo2;
 	private String passwordHash;
 	
@@ -40,6 +38,7 @@ public class UserPersonalData {
 			String newPassword, String photo2, String...roles) {
 		this.name = name;
 		this.surname = surname;
+		this.lastname = surname;
 		this.email = email;
 		this.userName = userName;
 		//this.oldPassword = oldPassword;

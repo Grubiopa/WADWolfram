@@ -79,28 +79,7 @@ public class NoticiasController {
     @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.POST) //put???
     public String Comentar(Model model, HttpSession sesion, @RequestParam String comentarios, @PathVariable long id) {//pillamos id y el comentario
         Noticia n = noticias.findOne(id);    //pillamos la noticia de la bd
-
-        /*
-         ArrayList<String> listaComentarios = new ArrayList<>();
-         listaComentarios= n.getComentarios();
-         System.out.println("comentarios antes: "+ listaComentarios);
-         listaComentarios.add(comentarios);
-         n.setComentarios(listaComentarios);
-         System.out.println("comentarios despues: "+ n.getComentarios());
-         /*noticias.findOne(id).setComentarios(listaComentarios);
-         System.out.println("ListaComentarios: " + listaComentarios);
-         System.out.println("getcomentarios: " + noticias.findOne(id).getComentarios());*/
-        /*ArrayList<String> comment = new ArrayList<>();    //aux
-         comment= n.getComentarios();      //pillamos los coments de la noticia donde comentamos
-         comment.add(comentarios);       //añadimos el nuevo comentario a la lista
-         n.setComentarios(comment);      //guardamos en n los comentarios con el añadido.
-    	
-         long aux= n.getId();
-         noticias.delete(n);
-    	
-         Noticia n2= new Noticia(n.gettitle(),n.getCuerpo(),n.getCategoria(),n.getComentarios(),n.getdate());
-         //CREAMOS UNA NOTICIA (POST) CON TODOS LOS DATOS DE LA ANTERIOR INCLUSO EL MISMO ID
-         noticias.save(n2);*/
+      
         ////CAMBIOS GABI
         User s = (User) sesion.getAttribute("User");
         if (s == null) {

@@ -130,11 +130,16 @@ public class UserController {
 
 	@RequestMapping("/users/login")
 	public String userLogin(Model m, HttpSession sesion, HttpServletRequest request) {
-
+		//Aqui es a donde va a redirigir una vez el login sea efectivo, no puede llamarse solo login tambien
+		//por eso se tiene que "repetir" el codigo de /login ya que nosotros lo usamos para los enlaces
+		
 		List<UserProject> userProject = new ArrayList<>();
 		List<UserProject> otherProjects = new ArrayList<>();
 		List<UserMovements> userMovements = new ArrayList<>();
-
+		
+		//UserComponent te da ya al usuario en accion pero me han dicho que si lo usas directamente muchas veces da
+		//problemas, que es mejor hacerlo asi.
+		
 		UserPersonalData user = users.findByEmail(userComponent.getLoggedUser().getEmail());
 
 		List<Donation> donations = movements.findByuserId(user.getId());
@@ -183,16 +188,13 @@ public class UserController {
 
 	}
 
-	@RequestMapping("/user/close")
-	public String closeSesion(Model m, HttpSession sesion) {
-		sesion.setAttribute("User", null);
-		return "login";
-	}
-
+	
 	@RequestMapping("/login")
 	public String login(Model m, HttpSession sesion, HttpServletRequest request) {
+		//NO hay cambios ya que funciona y usamos la sesion probablemente si lo hacemos como en User/login funciona
+		//pero abría que cambiar el codigo y creo que entonces la sesion sobraria
 		User s = (User) sesion.getAttribute("User");
-
+	
 		if (s != null) {
 			List<UserProject> userProject = new ArrayList<>();
 			List<UserProject> otherProjects = new ArrayList<>();

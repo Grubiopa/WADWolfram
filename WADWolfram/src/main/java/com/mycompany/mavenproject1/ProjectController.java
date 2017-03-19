@@ -51,13 +51,6 @@ public class ProjectController {
 		return "oneProject";
 	}
 	
-
-	/// ESTO SACARIA TODOS LOS PROYECTOS
-	/*
-	 * public String viewProject2(Model model){ model.addAttribute("Project",
-	 * projects.findAll()); return "oneProject"; }
-	 */
-
 	@RequestMapping(value = "/projects", method = RequestMethod.GET)
 	public String viewAllProjects(Model model) {
 		List<Project> l = projects.findAll();
@@ -66,7 +59,6 @@ public class ProjectController {
 	}
 
 	
-
 	@RequestMapping(value = "/borrarProyecto", method = RequestMethod.POST)
 	public String deleteProject(@RequestParam long id,Model m, HttpSession sesion) {
 		Project p = projects.findOne(id);
@@ -99,7 +91,6 @@ public class ProjectController {
 
 	}
 
-	
 	@RequestMapping(value="/pay/projects", method=RequestMethod.POST)
 	public String donate(@RequestParam long projectId, HttpSession sesion, @RequestParam double money, Model model) {
 		Date d = new Date();

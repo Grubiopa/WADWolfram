@@ -195,7 +195,7 @@ public class UserController {
 		//pero abría que cambiar el codigo y creo que entonces la sesion sobraria
 		User s = (User) sesion.getAttribute("User");
 	
-		if (s != null) {
+		if (s != null && request.isUserInRole("User")) {
 			List<UserProject> userProject = new ArrayList<>();
 			List<UserProject> otherProjects = new ArrayList<>();
 			List<UserMovements> userMovements = new ArrayList<>();
@@ -245,8 +245,8 @@ public class UserController {
 
 			return "users";
 		}
-		CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
-		m.addAttribute("token", token.getToken());
+	/*	CsrfToken token = (CsrfToken) request.getAttribute("_csrf");
+		m.addAttribute("token", token.getToken());*/	
 		return "login";
 	}
 

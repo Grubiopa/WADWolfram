@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -77,12 +78,14 @@ public class NoticiasController {
     }
 
     @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.POST) //put???
-    public String Comentar(Model model, HttpSession sesion, @RequestParam String comentarios, @PathVariable long id) {//pillamos id y el comentario
+    public String Comentar(Model model, HttpSession sesion, @RequestParam String comentarios, @PathVariable long id,
+    		HttpServletRequest request) {//pillamos id y el comentario
         Noticia n = noticias.findOne(id);    //pillamos la noticia de la bd
       
         ////CAMBIOS GABI
         User s = (User) sesion.getAttribute("User");
-        if (s == null) {
+        
+        if (!(request.isUserInRole("USER")||request.isUserInRole("ADMIN"))) {
             return "login";
         } else {
             String nombre = s.user.getName();

@@ -194,15 +194,15 @@ public class UserController {
 		//NO hay cambios ya que funciona y usamos la sesion probablemente si lo hacemos como en User/login funciona
 		//pero abría que cambiar el codigo y creo que entonces la sesion sobraria
 		User s = (User) sesion.getAttribute("User");
-	
-		if (s != null && request.isUserInRole("User")) {
+		
+		if (s != null && request.isUserInRole("USER")) {
 			List<UserProject> userProject = new ArrayList<>();
 			List<UserProject> otherProjects = new ArrayList<>();
 			List<UserMovements> userMovements = new ArrayList<>();
 
-			User u = (User) sesion.getAttribute("User");
+			//User u = (User) sesion.getAttribute("User");
 
-			long id = u.getUser().getId();
+			long id = s.getUser().getId();
 			List<Donation> donations = movements.findByuserId(id);
 			List<Long> idDonateProjects = new ArrayList<>();
 
@@ -234,7 +234,7 @@ public class UserController {
 				}
 			}
 
-			User user = new User(userProject, otherProjects, userMovements, u.getUser());
+			User user = new User(userProject, otherProjects, userMovements, s.getUser());
 			sesion.setAttribute("User", user);
 
 			m.addAttribute("username", user.getUser().getUserName());
@@ -279,6 +279,7 @@ public class UserController {
 		} else {
 			res.sendError(404, "File" + fileName + "(" + file.getAbsolutePath() + ") does not exist");
 		}
-	}
+	}	
+	
 
 }

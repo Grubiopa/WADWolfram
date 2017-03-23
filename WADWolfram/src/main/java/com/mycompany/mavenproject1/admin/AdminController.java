@@ -13,6 +13,7 @@ import com.mycompany.mavenproject1.Project;
 import com.mycompany.mavenproject1.ProjectRepository;
 import com.mycompany.mavenproject1.Role;
 import com.mycompany.mavenproject1.User;
+import com.mycompany.mavenproject1.UserComponent;
 import com.mycompany.mavenproject1.UserPersonalData;
 import com.mycompany.mavenproject1.UserPersonalDataRepository;
 import java.util.ArrayList;
@@ -48,6 +49,12 @@ public class AdminController {
 
     @Autowired
     public DonationsRepository movements;
+    
+    @Autowired
+	private UserPersonalDataRepository users;
+    
+    @Autowired
+	private UserComponent userComponent;
 //-------------------karen lo comentó*-------------------------
    /* @RequestMapping("/")
     public String index(Model m, HttpSession sesion) {
@@ -66,9 +73,11 @@ public class AdminController {
     @RequestMapping("/")
     public String home(Model model, HttpServletRequest request) {
     	
-    	model.addAttribute("admin", request.isUserInRole("ADMIN"));
-    	
-    	return "Bootstrap-Admin-Theme/index";
+    	if(request.isUserInRole("ADMIN")){
+    	  		model.addAttribute("bienvenido",users.findByEmail(userComponent.getLoggedUser().getEmail()).getUserName());
+    	    	return "Bootstrap-Admin-Theme/index";
+    	}
+    	return "login";
     }
 
 

@@ -88,13 +88,19 @@ public class UserController {
 		}
 		
 		if (!upd.matchPassword(oldPassword)) {
-			return "error";
+			 m.addAttribute("matchpass", true);
+				m.addAttribute("username", upd.getUserName());
+				m.addAttribute("colaborateProjects", user.getColaborateProjects());
+				m.addAttribute("otherProjects", user.getOtherProjects());
+				m.addAttribute("movements", user.getDonations());
+				m.addAttribute("User", upd);
+				sesion.setAttribute("User", user);
+			 return "users";
 		}
 		if (!newPassword.isEmpty()) {
 			upd.setPasswordHash(newPassword);
 		}
 
-		// upd.setPhoto(imagen);
 		users.save(upd);
 
 		user.setUser(upd);

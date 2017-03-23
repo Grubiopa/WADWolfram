@@ -114,6 +114,10 @@
                             </nav>
 
                             <div class="inside">
+                            {{#matchpass}}
+                            <h5 style="color: red"><strong> ¡Atención! Ningún cambio ha sido guardado porque la contraseña era incorrecta </strong></h5>
+                            
+                            {{/matchpass}}
                                 <h1>¡Bienvenid@ {{username}}!</h1>
                                 <div class="row show" id="userProjects">
                                     <div class="col-md-6">
@@ -202,7 +206,7 @@
                                                     <label for="exampleInputPassword1">Contraseña Nueva</label>
                                                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña nueva" name="newPassword" >
                                                 </div>
-
+ 							
                                                 <button type="submit" class="btn btn-primary btn-lg">Guardar Cambios</button>
                                              
                                             </div>

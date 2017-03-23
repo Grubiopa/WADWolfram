@@ -8,5 +8,12 @@
 }
 .href-btn{
 	text-align: center;
-	
+	color: gray;
+	font: bold;
 }
+.btn{
+	background-color: white;
+    color: gray;
+    font-weight: 400;
+}
+	

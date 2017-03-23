@@ -255,10 +255,14 @@ public class UserController {
 	public String NewUser(Model model, @RequestParam String aname, @RequestParam String lastName,
 			@RequestParam String username, @RequestParam String aemail, @RequestParam String apass,
 			@RequestParam String apass2) {
+		if(apass.equals(apass2)){
 		users.save(
 				new UserPersonalData(aname, lastName, aemail, username, apass, apass2, "icon.png", "ROLE_USER"));
 
-		return "login";
+		return "login";}
+		
+		else{return "register";}
+		
 	}
 	
 

@@ -1,0 +1,8 @@
+#boton_nuevo_cs {
+	width:100%;
+	background-color:white;
+	font: italic;
+	font-size:small;
+	font-size-adjust:inherit;
+	color: gray;
+}

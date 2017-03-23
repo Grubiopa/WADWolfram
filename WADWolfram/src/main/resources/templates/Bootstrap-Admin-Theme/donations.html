@@ -121,11 +121,18 @@
 								class="glyphicon glyphicon-record "></i> Mi cuenta <span
 								data-brackets-id='172' class="caret pull-right "></span>
 						</a> <!-- Sub menu -->
-							<ul data-brackets-id='173'>
-								<li data-brackets-id='174'><a data-brackets-id='175'
-									href="/admin/Profile">Perfil</a></li>
-								<li data-brackets-id='176'><a data-brackets-id='177'
-									href="/user/close">Cerrar sesión</a></li>
+							<ul>
+<li>
+									<form action="/admin/Profile" method="post" class="href-btn">
+                                    	<input type="submit" style="background-color: white" class="btn" value="Perfil" />  
+                                    	<input type="hidden" name="_csrf" value="{{token}}"/>                                  
+                                    	</form>
+                                    	</li>								<li>
+									<form action="/user/close" method="post" class="href-btn">
+                                    	<input type="submit" style="background-color: white" class="btn" value="Cerrar sesión" />  
+                                    	<input type="hidden" name="_csrf" value="{{token}}"/>                                  
+                                    	</form>
+                                    	</li>
 							</ul></li>
 					</ul>
 				</div>

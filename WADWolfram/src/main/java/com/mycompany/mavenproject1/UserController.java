@@ -261,7 +261,9 @@ public class UserController {
 
 		return "login";}
 		
-		else{return "register";}
+		else{
+			model.addAttribute("contraseñaIncorrecta", true);
+			return "register";}
 		
 	}
 	

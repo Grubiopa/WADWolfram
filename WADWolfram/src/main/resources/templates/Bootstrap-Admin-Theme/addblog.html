@@ -105,8 +105,17 @@
 								class="caret pull-right "></span>
 						</a> <!-- Sub menu -->
 							<ul>
-								<li><a href="/admin/Profile">Perfil</a></li>
-								<li><a href="/user/close">Cerrar sesión</a></li>
+<li>
+									<form action="/admin/Profile" method="post" class="href-btn">
+                                    	<input type="submit" style="background-color: white" class="btn" value="Perfil" />  
+                                    	<input type="hidden" name="_csrf" value="{{token}}"/>                                  
+                                    	</form>
+                                    	</li>								<li>
+									<form action="/user/close" method="post" class="href-btn">
+                                    	<input type="submit" style="background-color: white" class="btn" value="Cerrar sesión" />  
+                                    	<input type="hidden" name="_csrf" value="{{token}}"/>                                  
+                                    	</form>
+                                    	</li>
 							</ul></li>
 					</ul>
 				</div>

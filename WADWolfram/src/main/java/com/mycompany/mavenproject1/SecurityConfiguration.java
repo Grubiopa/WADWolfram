@@ -34,17 +34,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// Private pages (all other pages)
 		http.authorizeRequests().antMatchers("/pay").hasAnyRole("USER");
 		http.authorizeRequests().antMatchers("/admin/").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers("/adminBlog").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers("/adminProjects").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers("/adminDonations").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers("/adminProfile").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/admin/AddBlog").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/admin/AddProject").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/admin/Donations").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/admin/Profile").hasAnyRole("ADMIN");
 
 		// Login form
 		http.formLogin().loginPage("/login");
 		http.formLogin().usernameParameter("email");
 		http.formLogin().passwordParameter("password");
 		http.formLogin().defaultSuccessUrl("/users/login");
-		http.formLogin().failureUrl("/error");
+		http.formLogin().failureUrl("/login");
 		// Logout
 		http.logout().logoutUrl("/user/close");
 		http.logout().logoutSuccessUrl("/");

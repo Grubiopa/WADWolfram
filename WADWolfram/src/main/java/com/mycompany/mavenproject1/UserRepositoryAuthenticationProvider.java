@@ -47,7 +47,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 			throw new BadCredentialsException("Usuario no encontrado");
 
 		}
-		String password = (String) authentication.getCredentials();
+		String password = (String) authentication.getCredentials();		
 		if (!new BCryptPasswordEncoder().matches(password, user.getPasswordHash())) {
 
 			throw new BadCredentialsException("Contraseña incorrecta");

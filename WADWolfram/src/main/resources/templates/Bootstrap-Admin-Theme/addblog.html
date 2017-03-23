@@ -71,7 +71,13 @@
 								data-toggle="dropdown">Mi cuenta <b class="caret"></b></a>
 								<ul class="dropdown-menu animated fadeInUp">
 									<li><a href="/admin/Profile">Perfil</a></li>
-									<li><a href="/user/close">Cerrar sesión</a></li>
+									<li><a>
+											<form action="/user/close" method="post">
+												<input type="submit" id="boton_nuevo_cs" class="btn"
+													value="Cerrar sesión" /> <input type="hidden" name="_csrf"
+													value="{{token}}" />
+											</form>
+									</a></li>
 								</ul></li>
 						</ul>
 					</div>
@@ -133,15 +139,15 @@
 									<div class="form-group">
 										<label for="inputEmail3" class="col-sm-2 control-label">Categoría</label>
 										<div class="col-sm-10">
-										<select name="categoria" class="form-control "
-											id="expiry-month" required>
-											<option>Categoría</option>
-											<option value="01">Enfermedad</option>
-											<option value="02">Asociación</option>
-											<option value="03">Nuevos descubrimientos</option>
-											<option value="04">Proyectos</option>
-											<option value="05">Próximos eventos</option>
-										</select>
+											<select name="categoria" class="form-control "
+												id="expiry-month" required>
+												<option>Categoría</option>
+												<option value="01">Enfermedad</option>
+												<option value="02">Asociación</option>
+												<option value="03">Nuevos descubrimientos</option>
+												<option value="04">Proyectos</option>
+												<option value="05">Próximos eventos</option>
+											</select>
 										</div>
 									</div>
 									<div class="form-group">
@@ -192,8 +198,8 @@
 												noticia</button>
 										</div>
 									</div>
-									<input type="hidden" name="_csrf" value="{{token}}"/>
-									
+									<input type="hidden" name="_csrf" value="{{token}}" />
+
 								</form>
 							</div>
 						</div>
@@ -236,7 +242,7 @@
 											<button class="btn btn-danger">
 												<i class="glyphicon glyphicon-remove"></i> Borrar
 											</button>
-										<input type="hidden" name="_csrf" value="{{token}}"/>
+											<input type="hidden" name="_csrf" value="{{token}}" />
 										</form></td>
 
 								</tr>

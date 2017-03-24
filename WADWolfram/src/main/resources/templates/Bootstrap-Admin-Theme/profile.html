@@ -44,7 +44,8 @@
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">Mi cuenta <b class="caret"></b></a>
 								<ul class="dropdown-menu animated fadeInUp">
-									<li><a href="/admin/Profile" id="boton_nuevo_cs" class="btn">Perfil</a></li>
+									<li><a href="/admin/Profile" id="boton_nuevo_cs"
+										class="btn">Perfil</a></li>
 									<li><a>
 											<form action="/user/close" method="post">
 												<input type="submit" id="boton_nuevo_cs" class="btn"
@@ -80,17 +81,20 @@
 								class="caret pull-right "></span>
 						</a> <!-- Sub menu -->
 							<ul>
-<li>
+								<li>
 									<form action="/admin/Profile" method="post" class="href-btn">
-                                    	<input type="submit" style="background-color: white" class="btn" value="Perfil" />  
-                                    	<input type="hidden" name="_csrf" value="{{token}}"/>                                  
-                                    	</form>
-                                    	</li>								<li>
+										<input type="submit" style="background-color: white"
+											class="btn" value="Perfil" /> <input type="hidden"
+											name="_csrf" value="{{token}}" />
+									</form>
+								</li>
+								<li>
 									<form action="/user/close" method="post" class="href-btn">
-                                    	<input type="submit" style="background-color: white" class="btn" value="Cerrar sesión" />  
-                                    	<input type="hidden" name="_csrf" value="{{token}}"/>                                  
-                                    	</form>
-                                    	</li>
+										<input type="submit" style="background-color: white"
+											class="btn" value="Cerrar sesión" /> <input type="hidden"
+											name="_csrf" value="{{token}}" />
+									</form>
+								</li>
 							</ul></li>
 					</ul>
 				</div>
@@ -142,6 +146,25 @@
 								</div>
 							</div>
 
+							{{#malpass1}} <br>
+							<h5 style="color: red">
+								<strong> ¡La contraseña es inválida! </strong>
+							</h5>
+							<br>
+							 {{/malpass1}}
+							 {{#malpass2}}
+							 <br>
+							<h5 style="color: red">
+								<strong> ¡La contraseña antigua es inválida! </strong>
+							</h5>
+							<br> 
+							{{/malpass2}} {{#malpass3}}
+							<br>
+							<h5 style="color: red">
+								<strong> ¡Las contraseñas nuevas no coinciden! </strong>
+							</h5>
+							<br> 
+							{{/malpass3}}
 
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
@@ -197,6 +220,20 @@
 								</div>
 							</div>
 
+{{#UsuarioCreado}}
+							<br>
+							<h5 style="color: green">
+								<strong> ¡Usuario creado correctamente! </strong>
+							</h5>
+							<br> 
+							{{/UsuarioCreado}}
+							{{#contraseñaIncorrecta}}
+							<br>
+							<h5 style="color: red">
+								<strong>  ¡Las contraseñas deben coincidir! </strong>
+							</h5>
+							<br> 
+							{{/contraseñaIncorrecta}}
 
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">

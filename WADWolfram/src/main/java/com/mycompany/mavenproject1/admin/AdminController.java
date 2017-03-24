@@ -38,134 +38,143 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @Autowired
-    public NoticiasRepository noticias;
+	@Autowired
+	public NoticiasRepository noticias;
 
-    @Autowired
-    public ProjectRepository projects;
+	@Autowired
+	public ProjectRepository projects;
 
-    @Autowired
-    public UserPersonalDataRepository adminuser;
+	@Autowired
+	public UserPersonalDataRepository adminuser;
 
-    @Autowired
-    public DonationsRepository movements;
-    
-    @Autowired
+	@Autowired
+	public DonationsRepository movements;
+
+	@Autowired
 	private UserPersonalDataRepository users;
-    
-    @Autowired
+
+	@Autowired
 	private UserComponent userComponent;
-//-------------------karen lo comentó*-------------------------
-   /* @RequestMapping("/")
-    public String index(Model m, HttpSession sesion) {
-        User u = (User) sesion.getAttribute("User");
-        if (u == null) {
-            return "login";
-        }
-        if(u.getUser().getRoles().get(0).equals("USER")){
-        	return "error";
-        
-        }
-        m.addAttribute("bienvenido", u.getUser().getUserName());
-        return "Bootstrap-Admin-Theme/index";
-    }*/
-    
-    @RequestMapping("/")
-    public String home(Model model, HttpServletRequest request) {
-    	
-    	if(request.isUserInRole("ADMIN")){
-    	  		model.addAttribute("bienvenido",users.findByEmail(userComponent.getLoggedUser().getEmail()).getUserName());
-    	    	return "Bootstrap-Admin-Theme/index";
-    	}
-    	return "login";
-    }
+	// -------------------karen lo comentó*-------------------------
+	/*
+	 * @RequestMapping("/") public String index(Model m, HttpSession sesion) {
+	 * User u = (User) sesion.getAttribute("User"); if (u == null) { return
+	 * "login"; } if(u.getUser().getRoles().get(0).equals("USER")){ return
+	 * "error";
+	 * 
+	 * } m.addAttribute("bienvenido", u.getUser().getUserName()); return
+	 * "Bootstrap-Admin-Theme/index"; }
+	 */
+
+	@RequestMapping("/")
+	public String home(Model model, HttpServletRequest request) {
+
+		if (request.isUserInRole("ADMIN")) {
+			model.addAttribute("bienvenido", users.findByEmail(userComponent.getLoggedUser().getEmail()).getUserName());
+			return "Bootstrap-Admin-Theme/index";
+		}
+		return "login";
+	}
+
+	@RequestMapping("/AddBlog")
+	public String addblog(Model m) {
+		List<Noticia> not = noticias.findAll();
+		m.addAttribute("noticias", not);
+		return "Bootstrap-Admin-Theme/addblog";
+	}
+
+	@RequestMapping("/AddProject")
+	public String addproject(Model m) {
+		List<Project> proj = projects.findAll();
+		m.addAttribute("projects", proj);
+		return "Bootstrap-Admin-Theme/addproject";
+	}
+
+	@RequestMapping("/Donations")
+	public String donations(Model m) {
+		List<Donation> don = movements.findAll();
+		m.addAttribute("donaciones", don);
+		return "Bootstrap-Admin-Theme/donations";
+	}
+
+	@RequestMapping("/Profile")
+	public String profile(Model m, HttpSession sesion) {
+		User u = (User) sesion.getAttribute("User");
+		m.addAttribute("User", u.getUser());
+		
+		return "Bootstrap-Admin-Theme/profile";
+	}
+
+	 @RequestMapping(value = "/Profile/create", method = RequestMethod.POST)
+	  public String NewAdmin(Model m,HttpSession sesion, @RequestParam String name, @RequestParam
+	  String email, @RequestParam String password, @RequestParam String repeat_password,@RequestParam Boolean confirm) {
+	  
+	 User u = (User) sesion.getAttribute("User");
+		 if(password.equals(repeat_password)){
+				users.save(new UserPersonalData(name, "", email, name, password, repeat_password, "icon.png", "ROLE_ADMIN"));
+				m.addAttribute("UsuarioCreado", true);
+				m.addAttribute("User", u.getUser());
+				return "/Bootstrap-Admin-Theme/profile";
+				}
+				
+				else{
+					m.addAttribute("contraseñaIncorrecta", true);
+					m.addAttribute("User", u.getUser());
+					return "/Bootstrap-Admin-Theme/profile";
+					}
+	 }
+		 
+	 
+
+	@RequestMapping(value = "/Profile/update", method = RequestMethod.POST)
+	public String UpdateAdmin(Model m, HttpSession sesion, @RequestParam String memail, @RequestParam String mpassword,
+			@RequestParam String mnew_password, @RequestParam String mrepeat_password) {
+
+		User u = (User) sesion.getAttribute("User");
+		UserPersonalData upd = u.getUser();
+		if (!memail.isEmpty()) {
+			upd.setEmail(memail);
+		}
+
+		if (!upd.matchPassword(mpassword)) {
+			m.addAttribute("malpass1",true);
+			m.addAttribute("User", upd);
+			return "/Bootstrap-Admin-Theme/profile";
+		}
 
 
-    @RequestMapping("/AddBlog")
-    public String addblog(Model m) {
-        List<Noticia> not = noticias.findAll();
-        m.addAttribute("noticias", not);
-        return "Bootstrap-Admin-Theme/addblog";
-    }
+		if (!mnew_password.isEmpty() && !mrepeat_password.isEmpty()) {
+			if (mnew_password.equals(mrepeat_password)) {
+				if (upd.matchPassword(mpassword)) {
 
-    @RequestMapping("/AddProject")
-    public String addproject(Model m) {
-        List<Project> proj = projects.findAll();
-        m.addAttribute("projects", proj);
-        return "Bootstrap-Admin-Theme/addproject";
-    }
+					upd.setPasswordHash(mnew_password);
+				} else {
+					m.addAttribute("malpass2",true);
+					m.addAttribute("User", upd);
+					return "/Bootstrap-Admin-Theme/profile";
+				}
+			} else {
+				m.addAttribute("malpass3",true);
+				m.addAttribute("User", upd);
+				return "/Bootstrap-Admin-Theme/profile";
+			}
+		}
 
-    @RequestMapping("/Donations")
-    public String donations(Model m) {
-        List<Donation> don = movements.findAll();
-        m.addAttribute("donaciones", don);
-        return "Bootstrap-Admin-Theme/donations";
-    }
+		if ((!mnew_password.isEmpty() && mrepeat_password.isEmpty()) || (mnew_password.isEmpty() && !mrepeat_password.isEmpty() )){
+			m.addAttribute("malpass3",true);
+			m.addAttribute("User", upd);
+			return "/Bootstrap-Admin-Theme/profile";
+		}
+		
+		
+		adminuser.save(upd);
 
-    @RequestMapping("/Profile")
-    public String profile(Model m, HttpSession sesion) {
-        User u = (User) sesion.getAttribute("User");
-        m.addAttribute("User", u.getUser());
-        return "Bootstrap-Admin-Theme/profile";
-    }
+		u.setUser(upd);
 
-    /*@RequestMapping(value = "/Profile/create", method = RequestMethod.POST)
-    public String NewAdmin(Model m, @RequestParam String name, @RequestParam String email,
-            @RequestParam String password, @RequestParam String repeat_password,
-            @RequestParam Boolean confirm) {
+		sesion.setAttribute("User", u);
 
-        ArrayList<String> rol = new ArrayList<>();
-        rol.add("ADMIN");
-        UserPersonalData u = new UserPersonalData(name, "", email, name, password, repeat_password, "i.jpg", rol);
-        
-        adminuser.save(u);
-        m.addAttribute("bienvenido", u.getUserName());
-        return "Bootstrap-Admin-Theme/index";
-    }*/
-
-    @RequestMapping(value = "/Profile/update", method = RequestMethod.POST)
-    public String UpdateAdmin(Model m, HttpSession sesion, @RequestParam String memail,
-            @RequestParam String mpassword, @RequestParam String mnew_password,
-            @RequestParam String mrepeat_password) {
-
-        User u = (User) sesion.getAttribute("User");
-        UserPersonalData upd = u.getUser();
-        if (!memail.isEmpty()) {
-            upd.setEmail(memail);
-        }
-       
-
-        //if (! upd.getOldPassword().equals(mpassword)) {
-        //    return "error2";
-        //}
-        
-        if (!mnew_password.isEmpty() && mnew_password.isEmpty()){
-            return "error2";
-        }
-        if (mnew_password.isEmpty() && !mnew_password.isEmpty()){
-            return "error2";
-        }
-        
-
-        if (!mnew_password.isEmpty() && !mrepeat_password.isEmpty()) {
-        	////REVISADME ESTA LINEA Y QUE SEA CON NEW Y NO CON REPEAT
-            if (upd.matchPassword(mnew_password)) {
-                //upd.setOldPassword(mnew_password);
-                //upd.setNewPassword(mnew_password);
-            	upd.setPasswordHash(mnew_password);
-            } else {
-                return "error2";
-            }
-        }
-
-        adminuser.save(upd);
-
-        u.setUser(upd);
-
-        sesion.setAttribute("User", u);
-
-        m.addAttribute("bienvenido", upd.getUserName());
-        return "Bootstrap-Admin-Theme/index";
-    }
+		m.addAttribute("bienvenido", upd.getUserName());
+		return "Bootstrap-Admin-Theme/index";
+	}
 
 }

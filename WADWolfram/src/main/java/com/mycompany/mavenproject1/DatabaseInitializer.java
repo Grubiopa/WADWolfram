@@ -7,7 +7,15 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
+import com.mycompany.mavenproject1.donation.Donation;
+import com.mycompany.mavenproject1.donation.DonationsRepository;
+import com.mycompany.mavenproject1.noticias.CommentClass;
+import com.mycompany.mavenproject1.noticias.Noticia;
+import com.mycompany.mavenproject1.noticias.NoticiasRepository;
+import com.mycompany.mavenproject1.project.Project;
+import com.mycompany.mavenproject1.project.ProjectRepository;
+import com.mycompany.mavenproject1.user.UserPersonalData;
+import com.mycompany.mavenproject1.user.UserPersonalDataRepository;
 
 @Component
 public class DatabaseInitializer {

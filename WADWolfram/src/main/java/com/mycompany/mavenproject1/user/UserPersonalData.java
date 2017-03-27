@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.user;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class UserPersonalData {
@@ -25,7 +24,6 @@ public class UserPersonalData {
 	private String surname;
 	private String email;
 	private String userName;
-	private String oldPassword;
 	private String photo2;
 	private String passwordHash;
 	

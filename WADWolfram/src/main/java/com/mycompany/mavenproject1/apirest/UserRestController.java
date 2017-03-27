@@ -13,16 +13,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mycompany.mavenproject1.Donation;
-import com.mycompany.mavenproject1.DonationsRepository;
-import com.mycompany.mavenproject1.Project;
-import com.mycompany.mavenproject1.ProjectRepository;
-import com.mycompany.mavenproject1.User;
-import com.mycompany.mavenproject1.UserComponent;
-import com.mycompany.mavenproject1.UserMovements;
-import com.mycompany.mavenproject1.UserPersonalData;
-import com.mycompany.mavenproject1.UserPersonalDataRepository;
-import com.mycompany.mavenproject1.UserProject;
+import com.mycompany.mavenproject1.donation.Donation;
+import com.mycompany.mavenproject1.donation.DonationsRepository;
+import com.mycompany.mavenproject1.project.Project;
+import com.mycompany.mavenproject1.project.ProjectRepository;
+import com.mycompany.mavenproject1.user.User;
+import com.mycompany.mavenproject1.user.UserComponent;
+import com.mycompany.mavenproject1.user.UserMovements;
+import com.mycompany.mavenproject1.user.UserPersonalData;
+import com.mycompany.mavenproject1.user.UserPersonalDataRepository;
+import com.mycompany.mavenproject1.user.UserProject;
 
 
 @RestController

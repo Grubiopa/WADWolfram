@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.security;
 
 import java.util.ArrayList;
 
@@ -23,6 +23,10 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import org.springframework.stereotype.Component;
+
+import com.mycompany.mavenproject1.user.UserComponent;
+import com.mycompany.mavenproject1.user.UserPersonalData;
+import com.mycompany.mavenproject1.user.UserPersonalDataRepository;
 
 @Component
 

@@ -1,6 +1,5 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.user;
 
-import java.util.Date;
 import java.util.Date;
 
 public class UserMovements {

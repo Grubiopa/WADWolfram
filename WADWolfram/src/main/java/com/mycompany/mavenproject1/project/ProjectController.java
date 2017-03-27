@@ -1,16 +1,12 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.project;
 
-import java.io.Console;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -23,6 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.mycompany.mavenproject1.donation.Donation;
+import com.mycompany.mavenproject1.donation.DonationsRepository;
+import com.mycompany.mavenproject1.user.User;
 
 @Controller
 public class ProjectController {

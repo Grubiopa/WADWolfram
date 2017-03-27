@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.noticias;
 
 import java.util.ArrayList;
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Noticia {
@@ -26,14 +24,14 @@ public class Noticia {
     private String cuerpo;
     private String categoria;
     private int number_comments;
-    private ArrayList<String> comentarios;
+    private ArrayList<CommentClass> comentarios;
     private Date date;
 
 
     public Noticia() {
     }
 
-    public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, String categoria, ArrayList comentarios, Date date) {
+    public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, String categoria, ArrayList<CommentClass> comentarios, Date date) {
         this.title = title;
         this.cuerpo = cuerpo;
         this.categoria = categoria;
@@ -43,7 +41,7 @@ public class Noticia {
         //this.ruta_imagen=ruta_imagen;
     }
 
-    public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, int ncom, String categoria, ArrayList comentarios, Date date) {
+    public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, int ncom, String categoria, ArrayList<CommentClass> comentarios, Date date) {
         this.title = title;
         this.cuerpo = cuerpo;
         this.categoria = categoria;
@@ -80,7 +78,7 @@ public class Noticia {
         return this.number_comments;
     }
 
-    public ArrayList<String> getComentarios() {
+    public ArrayList<CommentClass> getComentarios() {
         return this.comentarios;
     }
 
@@ -97,12 +95,12 @@ public class Noticia {
         this.categoria = categoria;
     }
 
-    public void insertarComentario(String comentario) {
+    /*public void insertarComentario(String comentario) {
         comentarios.add(comentario);
         number_comments++;
-    }
+    }*/
 
-    public void setComentarios(ArrayList<String> comentarios) {
+    public void setComentarios(ArrayList<CommentClass> comentarios) {
         this.comentarios = comentarios;
     }
     

@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.noticias;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.mycompany.mavenproject1.user.User;
 
 @Controller
 public class NoticiasController {
@@ -71,9 +72,9 @@ public class NoticiasController {
         if (!(request.isUserInRole("USER")||request.isUserInRole("ADMIN"))) {
             return "login";
         } else {
-            String nombre = s.user.getName();
+            String nombre = s.getUser().getName();
             nombre = nombre + " dice: \n" + comentarios + "\n";
-            n.getComentarios().add(nombre);
+            n.getComentarios().add(new CommentClass(nombre,comentarios));
 
             n.setNumber_comments(n.getNumComentarios() + 1);
             noticias.save(n);
@@ -94,7 +95,7 @@ public class NoticiasController {
             @RequestParam String cuerpo, @RequestParam Boolean confirm) { ///Se le pasa como parámetros todos los input del form
 
         Date date = new Date();  //Simulamos la hora actual
-        ArrayList<String> x = new ArrayList<>();
+        ArrayList<CommentClass> x = new ArrayList<>();
         Noticia n = new Noticia(title, /*imagen,*/ cuerpo, categoria, x, date); //Creamos una noticia con todos los datos.
 
         noticias.save(n);                                                               //Añadimos la noticia a la bbdd

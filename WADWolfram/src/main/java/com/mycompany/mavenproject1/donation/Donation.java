@@ -1,6 +1,5 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.donation;
 
-import java.util.Date;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.mycompany.mavenproject1.project.Project;
+import com.mycompany.mavenproject1.user.UserPersonalData;
 
 @Entity
 public class Donation {

@@ -8,16 +8,16 @@ package com.mycompany.mavenproject1;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import com.mycompany.mavenproject1.noticias.Noticia;
+import com.mycompany.mavenproject1.noticias.NoticiasRepository;
+import com.mycompany.mavenproject1.project.Project;
+import com.mycompany.mavenproject1.project.ProjectProgress;
+import com.mycompany.mavenproject1.project.ProjectRepository;
 
 /**
  *

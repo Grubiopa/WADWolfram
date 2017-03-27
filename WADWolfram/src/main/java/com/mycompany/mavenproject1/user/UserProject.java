@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.user;
 
 public class UserProject {
 	private long projectId;
@@ -8,7 +8,7 @@ public class UserProject {
 	
 	public UserProject(long id,String title, String shortDescription, Double money) {
 		super();
-		this.projectId = id;
+		this.setProjectId(id);
 		this.title = title;
 		this.shortDescription = shortDescription;
 		this.money = money;
@@ -36,6 +36,14 @@ public class UserProject {
 
 	public void setMoney(Double money) {
 		this.money = money;
+	}
+
+	public long getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(long projectId) {
+		this.projectId = projectId;
 	}
 	
 	

@@ -3,14 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.noticias;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author JuanAntonio
  */
+
 public class CommentClass {
-    String comentario;
+	String comentario;
     String nombreUsuario;
 
     public CommentClass() {

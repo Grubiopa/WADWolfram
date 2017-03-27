@@ -1,17 +1,16 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.project;
 
-import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.mycompany.mavenproject1.donation.Donation;
 
 @Entity
 public class Project {

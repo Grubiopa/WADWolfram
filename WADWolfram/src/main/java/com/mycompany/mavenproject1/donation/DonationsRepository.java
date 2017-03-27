@@ -1,8 +1,11 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.mavenproject1.donation;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.mycompany.mavenproject1.project.Project;
+import com.mycompany.mavenproject1.user.User;
 
 public interface DonationsRepository extends JpaRepository<Donation, Long> {
 	

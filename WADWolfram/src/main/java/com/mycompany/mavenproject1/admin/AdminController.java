@@ -5,21 +5,8 @@
  */
 package com.mycompany.mavenproject1.admin;
 
-import com.mycompany.mavenproject1.Donation;
-import com.mycompany.mavenproject1.DonationsRepository;
-import com.mycompany.mavenproject1.Noticia;
-import com.mycompany.mavenproject1.NoticiasRepository;
-import com.mycompany.mavenproject1.Project;
-import com.mycompany.mavenproject1.ProjectRepository;
-import com.mycompany.mavenproject1.Role;
-import com.mycompany.mavenproject1.User;
-import com.mycompany.mavenproject1.UserComponent;
-import com.mycompany.mavenproject1.UserPersonalData;
-import com.mycompany.mavenproject1.UserPersonalDataRepository;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import javax.annotation.PostConstruct;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -29,6 +16,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.mycompany.mavenproject1.donation.Donation;
+import com.mycompany.mavenproject1.donation.DonationsRepository;
+import com.mycompany.mavenproject1.noticias.Noticia;
+import com.mycompany.mavenproject1.noticias.NoticiasRepository;
+import com.mycompany.mavenproject1.project.Project;
+import com.mycompany.mavenproject1.project.ProjectRepository;
+import com.mycompany.mavenproject1.user.User;
+import com.mycompany.mavenproject1.user.UserComponent;
+import com.mycompany.mavenproject1.user.UserPersonalData;
+import com.mycompany.mavenproject1.user.UserPersonalDataRepository;
 
 /**
  *

@@ -48,29 +48,6 @@ public class UserController {
 
 	private static final String FILES_FOLDER_USERS = "filesUsers";
 
-	@PostConstruct
-	public void init() {
-
-		users.save(
-				new UserPersonalData("Gabi", "R", "g.ru@yo.com", "gabi0794", "aaaa", "aaaa", "icon.png", "ROLE_ADMIN"));
-
-		Date d = new Date();
-
-		UserPersonalData u = users.findOne((long) 1);
-		Project p = projects.findOne((long) 1);
-		movements.save(new Donation(u, p, 50, d));
-		movements.save(new Donation(u, p, 60, d));
-		movements.save(new Donation(u, p, 40, d));
-		p.setParcialBudget(p.getParcialBudget() + 150);
-		p.setRestBudget(p.getRestBudget() - 150);
-		projects.save(p);
-		p = projects.findOne((long) 2);
-		movements.save(new Donation(u, p, 10, d));
-		p.setParcialBudget(p.getParcialBudget() + 10);
-		p.setRestBudget(p.getRestBudget() - 10);
-		projects.save(p);
-	}
-
 	@RequestMapping(value = "/users/update/{id}", method = RequestMethod.POST)
 	public String updateDB(Model m, HttpSession sesion, @RequestParam MultipartFile imagen, @RequestParam String email,
 			@RequestParam String username, @RequestParam String oldPassword,

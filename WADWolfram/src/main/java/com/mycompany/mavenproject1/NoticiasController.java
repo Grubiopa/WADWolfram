@@ -30,23 +30,6 @@ public class NoticiasController {
 
     private static final String FILES_FOLDER = "fileFolderNews";
 
-    @PostConstruct
-    public void init() {
-        Date releaseDate = new Date();
-        ArrayList<CommentClass> coments = new ArrayList<>();
-
-        ArrayList<CommentClass> coments2 = new ArrayList<>();/*
-         MultipartFile a = null;
-         CommentClass cc= null;
-         CommentClass cc2= null;
-         coments.add(cc);
-         coments2.add(cc2);*/
-
-        noticias.save(new Noticia("Noticia1", /*a,*/ "cuerpo", 0, "enfermedad", coments, releaseDate));
-        MultipartFile b = null;
-        noticias.save(new Noticia("Noticia2", /*b,*/ "cuerpo2", 0, "eventos", coments, releaseDate));
-    }
-
     @RequestMapping(value = "/mostrarPorCategoria", method = RequestMethod.GET)
     public String mostrarPorCategoria(Model model, @RequestParam String categoria) {
         ArrayList<Noticia> l = noticias.findByCategoria(categoria);

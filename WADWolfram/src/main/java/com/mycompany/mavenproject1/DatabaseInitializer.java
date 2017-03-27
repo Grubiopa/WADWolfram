@@ -38,6 +38,8 @@ public class DatabaseInitializer {
 		//USER
 		users.save(
 				new UserPersonalData("Gabi", "R", "g.ru@yo.com", "gabi0794", "aaaa", "aaaa", "icon.png", "ROLE_ADMIN"));
+		users.save(
+				new UserPersonalData("Elnombre", "Elapellido", "e@e.es", "e", "e", "e", "icon.png", "ROLE_USER"));
 
 		//DONACIONEs
 		Date d = new Date();

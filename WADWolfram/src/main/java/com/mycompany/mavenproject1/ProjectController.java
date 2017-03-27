@@ -34,15 +34,6 @@ public class ProjectController {
 	
 	private static final String FILES_FOLDER_PROJECTS = "files";
 
-	@PostConstruct
-	public void init() {
-		Date releaseDate = new Date();
-		projects.save(new Project("Titulo", "Breve Descripcion", "description", 500000.0, 0.0, 36, true, releaseDate, 2017,
-				"image"));
-		projects.save(new Project("Titulo2", "Breve Descripcion2", "description2", 600.0, 0.0, 36, true, releaseDate,
-				2017, "image"));
-	}
-
 	@RequestMapping("/project")
 	
 	public String viewProject(Model model, @RequestParam long id) {

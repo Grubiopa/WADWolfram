@@ -1,12 +1,16 @@
-package com.mycompany.mavenproject1.project;
+package com.mycompany.mavenproject1;
 
+import java.io.Console;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -20,49 +24,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.mycompany.mavenproject1.donation.Donation;
-import com.mycompany.mavenproject1.donation.DonationsRepository;
-import com.mycompany.mavenproject1.user.User;
-
 @Controller
 public class ProjectController {
 
 	@Autowired
-	private ProjectRepository projects;
-	@Autowired
-	private DonationsRepository movements;
+	private ProjectService service;
 	
 	private static final String FILES_FOLDER_PROJECTS = "files";
 
 	@RequestMapping("/project")
-	
 	public String viewProject(Model model, @RequestParam long id) {
-		Project p = projects.findOne(id);
+		Project p= service.viewProject(id);
 		model.addAttribute("Project", p);
 		return "oneProject";
 	}
 	
 	@RequestMapping(value = "/projects", method = RequestMethod.GET)
 	public String viewAllProjects(Model model) {
-		List<Project> l = projects.findAll();
+		List<Project> l =service.viewAllProjects();
 		model.addAttribute("projects", l);
 		return "projects_template";
 	}
 
-	
-	@RequestMapping(value = "/borrarProyecto", method = RequestMethod.POST)
+	@RequestMapping(value = "/borrarProyecto", method = RequestMethod.DELETE)
 	public String deleteProject(@RequestParam long id,Model m, HttpSession sesion) {
-		Project p = projects.findOne(id);
-		
-		for (Donation d: p.getDonations()){
-			
-			movements.delete(d);
-		}
-		projects.delete(p);
-		
+service.deleteProject(id);	
 		User u= (User) sesion.getAttribute("User");
-		
-		m.addAttribute("bienvenido",u.getUser().getUserName());
+m.addAttribute("bienvenido",u.getUser().getUserName());
 		return "Bootstrap-Admin-Theme/index";
 	}
 	
@@ -70,28 +58,27 @@ public class ProjectController {
 	public String donate(Model m, long projectId, HttpSession sesion) {
 		// projectId es el id para reconocer al proyecto que se dona
 		User s = (User) sesion.getAttribute("User");
-		Project p=projects.findOne(projectId);
+		Project p=service.viewProject(projectId);
 		if (s != null) {
 			m.addAttribute("projectId",projectId);
+//revisar: p null
 			m.addAttribute("RestBudget",p.getRestBudget());
 			m.addAttribute("User", s.getUser());
 			return "pay";
 		} else {
 			return "login";
 		}
-
 	}
 
-	@RequestMapping(value="/pay/projects", method=RequestMethod.POST)
+	@RequestMapping(value="/pay/projects", method=RequestMethod.PUT)
 	public String donate(@RequestParam long projectId, HttpSession sesion, @RequestParam double money, Model model) {
-		Date d = new Date();
 		User s = (User) sesion.getAttribute("User");
-		Project p  = projects.findOne(projectId);
-		movements.save(new Donation(s.getUser(), p, money, d));
-		p.setParcialBudget(p.getParcialBudget()+money);
-		p.setRestBudget(p.getRestBudget()-money);
-		projects.save(p);
-		List<Project> l = projects.findAll();
+Project p=service.viewProject(projectId);
+		Date date=new Date();
+		Donation d=new Donation(s.getUser(), p, money, date);
+service.donate(projectId, s, d);
+		List<Project> l=service.viewAllProjects();
+				 
 		model.addAttribute("projects", l);
 		return "projects_template";
 	}
@@ -102,20 +89,18 @@ public class ProjectController {
 			@RequestParam String description,@RequestParam double totalBudget,@RequestParam double parcialBudget,
 			@RequestParam double time,@RequestParam String releaseDate,@RequestParam boolean opened,
 			@RequestParam int startYear,@RequestParam ("imagen") MultipartFile imagen){
-		
+//revisar: fecha inicio proyecto
 		Date date= new Date();
 		Project p= new Project(title, shortDescription, description, totalBudget, parcialBudget, time, true, date, startYear,"");
-		projects.save(p);
+service.addNewProject(p);
 		
 		String fileName = p.getId() + ".jpg";
 		if (!imagen.isEmpty()) {
 			try {
-
 				File filesFolder = new File(FILES_FOLDER_PROJECTS);
 				if (!filesFolder.exists()) {
 					filesFolder.mkdirs();
 				}
-
 				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
 				imagen.transferTo(uploadedFile);
 			}catch(IllegalStateException e){
@@ -126,12 +111,11 @@ public class ProjectController {
 			}
 		}
 		User u = (User) sesion.getAttribute("User");
-        model.addAttribute("bienvenido",u.getUser().getUserName());
-                return "Bootstrap-Admin-Theme/index";           //WE ARE OUT!
-		
-	}
+model.addAttribute("bienvenido",u.getUser().getUserName());
+return "Bootstrap-Admin-Theme/index";           //WE ARE OUT!
+}
 
-	  @RequestMapping("/imagep/{fileName}.jpg")
+@RequestMapping("/imagep/{fileName}.jpg")
 		public void handleFileDownload(@PathVariable String fileName,
 				HttpServletResponse res) throws FileNotFoundException, IOException {
 

@@ -252,3 +252,29 @@ En este diagrama se muestran las entidades de la base de datos y sus relaciones 
 A continuación se muestra un diagrama de clases con las relaciones entre los @Controller y los Repository, así como los templates que los usan.
 
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/diagrama clases.png)
+
+
+##Fase 4
+
+A continuación exponemos las operaciones que ofrece la API REST para cada recurso, junto con el formato de la URL, información de entrada y salida y códigos de error asociados a cada una de ellas.
+
+##Proyectos
+
+| URL | Método | Info. entrada | Info. salida | Cód. estado |
+| ----- | ----- | ----- | ----- | ----- |
+| /api/admin/AddProject/create | POST | ... | ... | 201 (CREATED) / 4'4 (NOT FOUND) |
+| /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":]} | 200 (OK) / 4'4 (NOT FOUND) |
+| /api/projects | GET | ... | ... | 200 (OK) |
+| /api/pay/projects | PUT | ... | ... | 200 (OK)
+| /api/borrarProyecto/id | DELETE | ... | ... | 200 (OK) |
+
+##Noticias
+
+| URL | Método | Info. entrada | Info. salida | Cód. estado |
+| ----- | ----- | ----- | ----- | ----- |
+| /api/admin/AddBlog/create | POST | ... |  ... | 201 (CREATED) |
+| /api/new | GET | ... | ... | 200 (OK) |
+| /api/mostrarPorCategoria | GET | ... | .... | 200 (OK) |
+| /api/blog | GET | ... | ... | 200 (OK) |
+| /api/comment/upload/{id} | PUT | ... | ... | 200 (OK) |
+| /api/borrarNoticia | DELETE | ... |  | 200 (OK) |

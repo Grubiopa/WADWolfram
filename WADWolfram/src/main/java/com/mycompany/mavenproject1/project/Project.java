@@ -1,8 +1,13 @@
-package com.mycompany.mavenproject1.project;
+package com.mycompany.mavenproject1;
 
-import java.util.ArrayList;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+
 import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,25 +15,40 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.mycompany.mavenproject1.donation.Donation;
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Project {
-
+	interface Basico {}
+	interface Donaciones{}
+	
+	    @JsonView(Basico.class)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @JsonView(Basico.class)
     private String title;
+    @JsonView(Basico.class)
     private String shortDescription;
+    @JsonView(Basico.class)
     private String description;
+    @JsonView(Basico.class)
     private double totalBudget;
+    @JsonView(Basico.class)
     private double parcialBudget;
+    @JsonView(Basico.class)
     private double restBudget;
+    @JsonView(Basico.class)
     private double time;
+    @JsonView(Basico.class)
     private boolean opened;
+    @JsonView(Basico.class)
     private Date releaseDate;
+    @JsonView(Basico.class)
     private int startYear;
+    @JsonView(Basico.class)
     private String image;
+    @JsonView(Donaciones.class)
     @OneToMany(mappedBy="project")
     private List<Donation> donations;
 

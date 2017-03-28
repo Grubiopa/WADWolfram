@@ -8,12 +8,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.mycompany.mavenproject1.project.Project;
 import com.mycompany.mavenproject1.user.UserPersonalData;
 
 @Entity
 public class Donation {
 
+	public interface Basico {
+
+	}
 	@Id
  @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
@@ -21,7 +25,9 @@ public class Donation {
 	private UserPersonalData user;
  @ManyToOne
 	private Project project;
-	private double money;
+@JsonView(Basico.class)
+ private double money;
+@JsonView(Basico.class)
 	private Date date;
 
  protected Donation(){}

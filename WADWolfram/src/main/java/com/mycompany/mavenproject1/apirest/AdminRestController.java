@@ -56,16 +56,7 @@ public class AdminRestController {
 
 	@Autowired
 	private UserComponent userComponent;
-	// -------------------karen lo comentó*-------------------------
-	/*
-	 * @RequestMapping("/") public String index(Model m, HttpSession sesion) {
-	 * User u = (User) sesion.getAttribute("User"); if (u == null) { return
-	 * "login"; } if(u.getUser().getRoles().get(0).equals("USER")){ return
-	 * "error";
-	 * 
-	 * } m.addAttribute("bienvenido", u.getUser().getUserName()); return
-	 * "Bootstrap-Admin-Theme/index"; }
-	 */
+	
 
 	 @RequestMapping(value = "/Profile/create", method = RequestMethod.POST)
 	  public ResponseEntity<User> NewAdmin(Model m,HttpSession sesion, @RequestParam String name, @RequestParam
@@ -83,7 +74,7 @@ public class AdminRestController {
 	 }
 		 
 	 
-
+	 //convertirlo en put
 	@RequestMapping(value = "/Profile/update", method = RequestMethod.POST)
 	public ResponseEntity<User> UpdateAdmin(Model m, HttpSession sesion, @RequestParam String memail, @RequestParam String mpassword,
 			@RequestParam String mnew_password, @RequestParam String mrepeat_password) {

@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1.project;
+package com.mycompany.mavenproject1.apirest;
 
 import java.util.Date;
 import java.util.List;
@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.mycompany.mavenproject1.donation.Donation;
+import com.mycompany.mavenproject1.project.Project;
+import com.mycompany.mavenproject1.project.ProjectService;
+import com.mycompany.mavenproject1.project.Project.Basico;
+import com.mycompany.mavenproject1.project.Project.Donaciones;
 import com.mycompany.mavenproject1.user.User;
 
 @RestController

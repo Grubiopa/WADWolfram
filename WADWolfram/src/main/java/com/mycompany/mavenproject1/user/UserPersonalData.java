@@ -13,6 +13,8 @@ import javax.persistence.Id;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class UserPersonalData {
 
@@ -25,6 +27,7 @@ public class UserPersonalData {
 	private String email;
 	private String userName;
 	private String photo2;
+	@JsonIgnore
 	private String passwordHash;
 	
 	@ElementCollection(fetch = FetchType.EAGER)

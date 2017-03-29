@@ -52,7 +52,7 @@ public class DatabaseInitializer {
 		//DONACIONEs
 		Date d = new Date();
 
-		UserPersonalData u = users.findOne((long) 1);
+		UserPersonalData u = users.findOne((long) 2);
 		Project p = projects.findOne((long) 1);
 		movements.save(new Donation(u, p, 50, d));
 		movements.save(new Donation(u, p, 60, d));

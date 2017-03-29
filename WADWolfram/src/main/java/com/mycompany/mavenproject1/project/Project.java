@@ -15,10 +15,10 @@ import com.mycompany.mavenproject1.donation.Donation;
 
 @Entity
 public class Project {
-	interface Basico {
+	public interface Basico {
 	}
 
-	interface Donaciones {
+	public interface Donaciones {
 	}
 
 	@JsonView(Basico.class)

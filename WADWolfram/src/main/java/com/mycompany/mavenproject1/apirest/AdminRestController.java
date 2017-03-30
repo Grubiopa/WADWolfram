@@ -73,12 +73,10 @@ public class AdminRestController {
 				}
 	 }
 		 
-	 
-	 //convertirlo en put
-	@RequestMapping(value = "/Profile/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/Profile/update", method = RequestMethod.PUT)
 	public ResponseEntity<User> UpdateAdmin(Model m, HttpSession sesion, @RequestParam String memail, @RequestParam String mpassword,
 			@RequestParam String mnew_password, @RequestParam String mrepeat_password) {
-
+		
 		User u = (User) sesion.getAttribute("User");
 		UserPersonalData upd = u.getUser();
 		if (!memail.isEmpty()) {

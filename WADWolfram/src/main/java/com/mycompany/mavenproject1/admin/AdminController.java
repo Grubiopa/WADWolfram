@@ -53,17 +53,7 @@ public class AdminController {
 
 	@Autowired
 	private UserComponent userComponent;
-	// -------------------karen lo comentó*-------------------------
-	/*
-	 * @RequestMapping("/") public String index(Model m, HttpSession sesion) {
-	 * User u = (User) sesion.getAttribute("User"); if (u == null) { return
-	 * "login"; } if(u.getUser().getRoles().get(0).equals("USER")){ return
-	 * "error";
-	 * 
-	 * } m.addAttribute("bienvenido", u.getUser().getUserName()); return
-	 * "Bootstrap-Admin-Theme/index"; }
-	 */
-
+	
 	@RequestMapping("/")
 	public String home(Model model, HttpServletRequest request) {
 

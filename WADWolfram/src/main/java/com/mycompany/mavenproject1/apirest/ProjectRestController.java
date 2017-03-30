@@ -82,32 +82,7 @@ public class ProjectRestController {
 	public Project addNewProject(@RequestBody Project project) {
 		Project p = service.addNewProject(project);
 		return p;
-		/*
-		 * String fileName = p.getId() + ".jpg"; if (!imagen.isEmpty()) { try {
-		 * 
-		 * File filesFolder = new File(FILES_FOLDER_PROJECTS); if
-		 * (!filesFolder.exists()) { filesFolder.mkdirs(); }
-		 * 
-		 * File uploadedFile = new File(filesFolder.getAbsolutePath(),
-		 * fileName); imagen.transferTo(uploadedFile);
-		 * }catch(IllegalStateException e){ e.printStackTrace(); } catch
-		 * (IOException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); } }
-		 */
+	
 	}
-
-	/*
-	 * @RequestMapping("/imagep/{fileName}.jpg") public void
-	 * handleFileDownload(@PathVariable String fileName, HttpServletResponse
-	 * res) throws FileNotFoundException, IOException {
-	 * 
-	 * File file = new File(FILES_FOLDER_PROJECTS, fileName+".jpg");
-	 * 
-	 * if (file.exists()) { res.setContentType("imagep/jpeg");
-	 * res.setContentLength(new Long(file.length()).intValue()); FileCopyUtils
-	 * .copy(new FileInputStream(file), res.getOutputStream()); } else {
-	 * res.sendError(404, "File" + fileName + "(" + file.getAbsolutePath() +
-	 * ") does not exist"); } }
-	 */
 
 }

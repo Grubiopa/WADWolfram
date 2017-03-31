@@ -15,9 +15,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mycompany.mavenproject1.donation.Donation;
@@ -30,6 +32,7 @@ import com.mycompany.mavenproject1.user.User;
 import com.mycompany.mavenproject1.user.UserComponent;
 import com.mycompany.mavenproject1.user.UserPersonalData;
 import com.mycompany.mavenproject1.user.UserPersonalDataRepository;
+import com.mycompany.mavenproject1.user.UserService;
 
 /**
  *
@@ -51,73 +54,48 @@ public class AdminRestController {
 	@Autowired
 	public DonationsRepository movements;
 
-	@Autowired
-	private UserPersonalDataRepository users;
 
 	@Autowired
 	private UserComponent userComponent;
-	
 
-	 @RequestMapping(value = "/Profile/create", method = RequestMethod.POST)
-	  public ResponseEntity<User> NewAdmin(Model m,HttpSession sesion, @RequestParam String name, @RequestParam
-	  String email, @RequestParam String password, @RequestParam String repeat_password,@RequestParam Boolean confirm) {
-	  
-	 User u = (User) sesion.getAttribute("User");
-		 if(password.equals(repeat_password)){
-				users.save(new UserPersonalData(name, "", email, name, password, repeat_password, "icon.png", "ROLE_ADMIN"));
-				return new ResponseEntity<>(u, HttpStatus.OK);
-				}
-				
-				else{
-					return new ResponseEntity<>(u, HttpStatus.BAD_REQUEST);
-				}
-	 }
-		 
+	@Autowired
+	private UserService userService;
+
+	@RequestMapping(value = "/Profile/create", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<UserPersonalData> NewAdmin(Model m, HttpSession sesion, @RequestBody UserPersonalData u) {
+
+		if(u!=null){
+			adminuser.save(u);
+			return new ResponseEntity<UserPersonalData>(u,HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+
 	@RequestMapping(value = "/Profile/update", method = RequestMethod.PUT)
-	public ResponseEntity<User> UpdateAdmin(Model m, HttpSession sesion, @RequestParam String memail, @RequestParam String mpassword,
-			@RequestParam String mnew_password, @RequestParam String mrepeat_password) {
-		
-		User u = (User) sesion.getAttribute("User");
+	public ResponseEntity<User> UpdateAdmin(Model m, HttpSession sesion, @RequestBody User u) {
+
 		UserPersonalData upd = u.getUser();
-		if (!memail.isEmpty()) {
-			upd.setEmail(memail);
+		if (!upd.getEmail().isEmpty()) {
+			upd.setEmail(upd.getEmail());
 		}
 
-		if (!upd.matchPassword(mpassword)) {
+		if (!upd.matchPassword(upd.getPasswordHash())) {
 			return new ResponseEntity<>(u, HttpStatus.BAD_REQUEST);
 		}
 
-
-		if (!mnew_password.isEmpty() && !mrepeat_password.isEmpty()) {
-			if (mnew_password.equals(mrepeat_password)) {
-				if (upd.matchPassword(mpassword)) {
-
-					upd.setPasswordHash(mnew_password);
-				} else {
-					m.addAttribute("malpass2",true);
-					m.addAttribute("User", upd);
-					return new ResponseEntity<>(u, HttpStatus.BAD_REQUEST);
-				}
-			} else {
-				m.addAttribute("malpass3",true);
-				m.addAttribute("User", upd);
-				return new ResponseEntity<>(u, HttpStatus.BAD_REQUEST);
-			}
-		}
-
-		if ((!mnew_password.isEmpty() && mrepeat_password.isEmpty()) || (mnew_password.isEmpty() && !mrepeat_password.isEmpty() )){
-			m.addAttribute("malpass3",true);
-			m.addAttribute("User", upd);
+		if (!upd.getPasswordHash().isEmpty() && upd.matchPassword(upd.getPasswordHash())) {
+			upd.setPasswordHash(upd.getPasswordHash());
+		} else {
 			return new ResponseEntity<>(u, HttpStatus.BAD_REQUEST);
 		}
-		
-		
-		adminuser.save(upd);
 
+		
 		u.setUser(upd);
-
+		
 		sesion.setAttribute("User", u);
-
+		
 		return new ResponseEntity<>(u, HttpStatus.OK);
 	}
 

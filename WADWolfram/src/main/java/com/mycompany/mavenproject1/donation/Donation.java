@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.mycompany.mavenproject1.project.Project;
 import com.mycompany.mavenproject1.user.UserPersonalData;
@@ -28,6 +29,7 @@ public class Donation {
 @JsonView(Basico.class)
  private double money;
 @JsonView(Basico.class)
+@JsonFormat(pattern="dd-MM-yyyy")
 	private Date date;
 
  protected Donation(){}

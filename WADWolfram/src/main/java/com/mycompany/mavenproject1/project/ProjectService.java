@@ -50,6 +50,7 @@ public class ProjectService {
 			movements.save(d);
 			p.setParcialBudget(p.getParcialBudget() + d.getMoney());
 			p.setRestBudget(p.getRestBudget() - d.getMoney());
+			p.getDonations().add(d);
 			projects.save(p);
 		}
 		return p;

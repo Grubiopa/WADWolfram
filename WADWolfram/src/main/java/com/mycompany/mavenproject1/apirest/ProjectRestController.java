@@ -1,11 +1,16 @@
 package com.mycompany.mavenproject1.apirest;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -65,11 +70,16 @@ public class ProjectRestController {
 
 	// revisar
 	@JsonView(ProyectoDetalle.class)
-	@RequestMapping(value = "/pay/projects", method = RequestMethod.PUT)
-	public ResponseEntity<Project> donate(@RequestParam long projectId, HttpSession sesion, @RequestBody Donation d) {
+	@RequestMapping(value = "/pay/projects/{projectId}", method = RequestMethod.POST)
+	public ResponseEntity<Project> donate(@PathVariable long projectId, HttpSession sesion, @RequestBody Donation d) {
+		Date date = new Date();
+		
 		User s = (User) sesion.getAttribute("User");
-		service.donate(projectId, s, d);
 		Project p = service.viewProject(projectId);
+		
+		Donation d2 = new Donation(s.getUser(), p, d.getMoney(),date);
+		service.donate(projectId, s, d2);
+		p = service.viewProject(projectId);
 		if (p != null)
 			return new ResponseEntity<>(p, HttpStatus.OK);
 		else

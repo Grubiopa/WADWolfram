@@ -262,10 +262,10 @@ A continuación exponemos las operaciones que ofrece la API REST para cada recur
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
-| /api/admin/AddProject/create | POST | ... | ... | 201 (CREATED) / 4'4 (NOT FOUND) |
-| /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":]} | 200 (OK) / 4'4 (NOT FOUND) |
+| /api/admin/AddProject/create | POST | ... | ... | 201 (CREATED) / 404 (NOT FOUND) |
+| /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":]} | 200 (OK) / 404 (NOT FOUND) |
 | /api/projects | GET | ... | ... | 200 (OK) |
-| /api/pay/projects | PUT | ... | ... | 200 (OK)
+| /api/pay/projects | PUT | {"money":4000} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"description","totalBudget":500000.0,"parcialBudget":4150.0,"restBudget":495850.0,"time":36.0,"opened":true,"releaseDate":1491041583000,"startYear":2017,"image":"image","donations":[{"money":50.0,"date":"01-04-2017"},{"money":60.0,"date":"01-04-2017"},{"money":40.0,"date":"01-04-2017"},{"money":4000.0,"date":"01-04-2017"}]} | 201 (CREATED)
 | /api/borrarProyecto/id | DELETE | ... | ... | 200 (OK) |
 
 ##Noticias
@@ -280,19 +280,10 @@ A continuación exponemos las operaciones que ofrece la API REST para cada recur
 | /api/borrarNoticia | DELETE | ... |  | 200 (OK) |
 
 ##Users
+
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
 | /api/users/login | GET | authentication (email y pass) |{"colaborateProjects":[{"projectId":1,"title":"Titulo","shortDescription":"Breve Descripcion","money":150.0},{"projectId":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","money":10.0}],"otherProjects":[],"donations":[{"projectTitle":"Titulo","money":50.0,"date":1491040847000},{"projectTitle":"Titulo","money":60.0,"date":1491040847000},{"projectTitle":"Titulo","money":40.0,"date":1491040847000},{"projectTitle":"Titulo2","money":10.0,"date":1491040847000}],"user":{"id":2,"name":"Elnombre","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$SAmZWSk8TwRBPGzYxRo8/.UrSlUTEialtcK20v/vu5E40smPFgyOG","roles":["ROLE_USER"]}}|200 (OK)
-| /api/users//register/create |POST| {
-    "name": "Gabi",
-    "lastname": "Elapellido",
-    "surname": "Elapellido",
-    "email": "e@e.es",
-    "userName": "e",
-    "photo2": "icon.png",
-    "passwordHash":"aaaa",
-    "roles": [
-      "ROLE_USER"
-    ]
-}|201 (Created)|
+| /api/users//register/create |POST| {"name": "Gabi", "lastname": "Elapellido", "surname": "Elapellido", "email": "e@e.es", "userName": "e", "photo2": "icon.png", "passwordHash":"aaaa", "roles": ["ROLE_USER"]}|201 (Created)|
+
 

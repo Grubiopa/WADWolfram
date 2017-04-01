@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.mycompany.mavenproject1.donation.Donation;
+import com.mycompany.mavenproject1.donation.UserMovement;
 import com.mycompany.mavenproject1.project.Project;
 import com.mycompany.mavenproject1.project.ProjectService;
 import com.mycompany.mavenproject1.project.Project.Basico;

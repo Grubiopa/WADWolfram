@@ -278,3 +278,21 @@ A continuación exponemos las operaciones que ofrece la API REST para cada recur
 | /api/blog | GET | ... | ... | 200 (OK) |
 | /api/comment/upload/{id} | PUT | ... | ... | 200 (OK) |
 | /api/borrarNoticia | DELETE | ... |  | 200 (OK) |
+
+##Users
+| URL | Método | Info. entrada | Info. salida | Cód. estado |
+| ----- | ----- | ----- | ----- | ----- |
+| /api/users/login | GET | authentication (email y pass) |{"colaborateProjects":[{"projectId":1,"title":"Titulo","shortDescription":"Breve Descripcion","money":150.0},{"projectId":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","money":10.0}],"otherProjects":[],"donations":[{"projectTitle":"Titulo","money":50.0,"date":1491040847000},{"projectTitle":"Titulo","money":60.0,"date":1491040847000},{"projectTitle":"Titulo","money":40.0,"date":1491040847000},{"projectTitle":"Titulo2","money":10.0,"date":1491040847000}],"user":{"id":2,"name":"Elnombre","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$SAmZWSk8TwRBPGzYxRo8/.UrSlUTEialtcK20v/vu5E40smPFgyOG","roles":["ROLE_USER"]}}|200 (OK)
+| /api/users//register/create |POST| {
+    "name": "Gabi",
+    "lastname": "Elapellido",
+    "surname": "Elapellido",
+    "email": "e@e.es",
+    "userName": "e",
+    "photo2": "icon.png",
+    "passwordHash":"aaaa",
+    "roles": [
+      "ROLE_USER"
+    ]
+}|201 (Created)|
+

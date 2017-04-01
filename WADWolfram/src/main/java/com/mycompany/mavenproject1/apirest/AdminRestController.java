@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -66,37 +67,18 @@ public class AdminRestController {
 	public ResponseEntity<UserPersonalData> NewAdmin(Model m, HttpSession sesion, @RequestBody UserPersonalData u) {
 
 		if(u!=null){
-			adminuser.save(u);
-			return new ResponseEntity<UserPersonalData>(u,HttpStatus.OK);
+			UserPersonalData upd= userService.createUser(u);
+			return new ResponseEntity<UserPersonalData>(upd,HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 	}
 
-	@RequestMapping(value = "/Profile/update", method = RequestMethod.PUT)
-	public ResponseEntity<User> UpdateAdmin(Model m, HttpSession sesion, @RequestBody User u) {
-
-		UserPersonalData upd = u.getUser();
-		if (!upd.getEmail().isEmpty()) {
-			upd.setEmail(upd.getEmail());
-		}
-
-		if (!upd.matchPassword(upd.getPasswordHash())) {
-			return new ResponseEntity<>(u, HttpStatus.BAD_REQUEST);
-		}
-
-		if (!upd.getPasswordHash().isEmpty() && upd.matchPassword(upd.getPasswordHash())) {
-			upd.setPasswordHash(upd.getPasswordHash());
-		} else {
-			return new ResponseEntity<>(u, HttpStatus.BAD_REQUEST);
-		}
-
-		
-		u.setUser(upd);
-		
-		sesion.setAttribute("User", u);
-		
-		return new ResponseEntity<>(u, HttpStatus.OK);
+	@RequestMapping(value = "/Profile/update/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<UserPersonalData> UpdateAdmin(@PathVariable long id, @RequestBody UserPersonalData u) {
+		UserPersonalData upd = adminuser.findOne(id);
+		userService.updateUser(upd,u);
+		return new ResponseEntity<>(upd, HttpStatus.OK);
 	}
 
 }

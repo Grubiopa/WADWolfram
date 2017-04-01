@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.mycompany.mavenproject1.donation.Donation;
@@ -23,15 +25,16 @@ public class UserService {
 	private DonationsRepository movements;
 	@Autowired
 	private UserComponent userComponent;
-	
-	public User loadUser(HttpSession sesion){
+
+	public User loadUser(HttpSession sesion) {
 		List<UserProject> userProject = new ArrayList<>();
 		List<UserProject> otherProjects = new ArrayList<>();
 		List<UserMovements> userMovements = new ArrayList<>();
-		
-		//UserComponent te da ya al usuario en accion pero me han dicho que si lo usas directamente muchas veces da
-		//problemas, que es mejor hacerlo asi.
-		
+
+		// UserComponent te da ya al usuario en accion pero me han dicho que si
+		// lo usas directamente muchas veces da
+		// problemas, que es mejor hacerlo asi.
+
 		UserPersonalData user = users.findByEmail(userComponent.getLoggedUser().getEmail());
 
 		List<Donation> donations = movements.findByuserId(user.getId());
@@ -67,5 +70,25 @@ public class UserService {
 		sesion.setAttribute("User", user2);
 		return user2;
 	}
+	
+	
 
+	public UserPersonalData createUser(UserPersonalData u) {
+		users.save(u);
+		return u;
+	}
+
+	public UserPersonalData updateUser(UserPersonalData upd,UserPersonalData u) {
+		
+		
+		upd.setName(u.getName());
+		upd.setEmail(u.getEmail());
+		upd.setLastname(u.getLastname());
+		upd.setPasswordHash(u.getPasswordHash());
+		upd.setPhoto2(u.getPhoto2());
+		upd.setRoles(u.getRoles());
+		upd.setUserName(u.getUserName());
+		users.save(upd);
+		return upd;
+	}
 }

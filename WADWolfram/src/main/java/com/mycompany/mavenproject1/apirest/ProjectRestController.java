@@ -71,14 +71,11 @@ public class ProjectRestController {
 	// Rehecho by Gabi
 	@JsonView(ProyectoDetalle.class)
 	@RequestMapping(value = "/pay/projects/{projectId}", method = RequestMethod.POST)
-	public ResponseEntity<Project> donate(@PathVariable long projectId, HttpSession sesion, @RequestBody Donation d) {
-		Date date = new Date();
-		
+	public ResponseEntity<Project> donate(@PathVariable long projectId, HttpSession sesion, @RequestBody UserMovement m) {
 		User s = (User) sesion.getAttribute("User");
 		Project p = service.viewProject(projectId);
-		
-		Donation d2 = new Donation(s.getUser(), p, d.getMoney(),date);
-		service.donate(projectId, s, d2);
+Donation d = new Donation(s.getUser(), p, m.getMoney(), m.getDate());
+		service.donate(projectId, s, d);
 		p = service.viewProject(projectId);
 		if (p != null)
 			return new ResponseEntity<>(p, HttpStatus.OK);

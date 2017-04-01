@@ -67,7 +67,8 @@ public class UserRestController {
 	
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<UserPersonalData> updateUser(@PathVariable long id, @RequestBody UserPersonalData upd, HttpSession sesion) {
-		
+		System.out.println(upd.getName());
+		System.out.println(upd.getPasswordHash());
 		if (upd != null) {
 			User user = (User) sesion.getAttribute("User");
 			UserPersonalData upd2 = users.findOne(id);
@@ -121,7 +122,7 @@ public class UserRestController {
 	@RequestMapping(value = "/register/create", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<UserPersonalData> NewUser(Model model, @RequestBody UserPersonalData user) {		
-		if(user!=null){
+		if(user!=null){			
 			users.save(user);
 			return new ResponseEntity<UserPersonalData>(user,HttpStatus.OK);
 		}else{

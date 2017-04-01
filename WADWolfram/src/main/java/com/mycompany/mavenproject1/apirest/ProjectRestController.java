@@ -68,7 +68,7 @@ public class ProjectRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	// revisar
+	// Rehecho by Gabi
 	@JsonView(ProyectoDetalle.class)
 	@RequestMapping(value = "/pay/projects/{projectId}", method = RequestMethod.POST)
 	public ResponseEntity<Project> donate(@PathVariable long projectId, HttpSession sesion, @RequestBody Donation d) {

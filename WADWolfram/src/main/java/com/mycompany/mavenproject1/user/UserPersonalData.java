@@ -27,7 +27,7 @@ public class UserPersonalData {
 	private String email;
 	private String userName;
 	private String photo2;
-	@JsonIgnore
+	//@JsonIgnore
 	private String passwordHash;
 	
 	@ElementCollection(fetch = FetchType.EAGER)

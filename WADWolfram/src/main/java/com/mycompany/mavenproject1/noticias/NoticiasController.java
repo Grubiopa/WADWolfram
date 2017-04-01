@@ -1,5 +1,4 @@
 package com.mycompany.mavenproject1.noticias;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -21,34 +20,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mycompany.mavenproject1.noticias.CommentClass;
+import com.mycompany.mavenproject1.noticias.NoticiasService;
+import com.mycompany.mavenproject1.noticias.Noticia;
 import com.mycompany.mavenproject1.user.User;
 
 @Controller
 public class NoticiasController {
 
     @Autowired
-    public NoticiasRepository noticias;
+    private NoticiasService service;
 
     private static final String FILES_FOLDER = "fileFolderNews";
 
     @RequestMapping(value = "/mostrarPorCategoria", method = RequestMethod.GET)
     public String mostrarPorCategoria(Model model, @RequestParam String categoria) {
-        ArrayList<Noticia> l = noticias.findByCategoria(categoria);
-        //  model.addAttribute("categoria", categoria);
+        ArrayList<Noticia> l = service.mostrarPorCategoria(categoria);
+  
         model.addAttribute("news", l);
         return "blog_template";
     }
 
     @RequestMapping(value = "/blog", method = RequestMethod.GET)
     public String mostrarTodas(Model model) {
-        ArrayList<Noticia> l = noticias.findAll();
+        ArrayList<Noticia> l = service.mostrarTodas();
         model.addAttribute("news", l);
         return "blog_template";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String mostrarUna(Model model, HttpSession sesion, @RequestParam long id) {
-        Noticia n = noticias.findOne(id);
+        Noticia n = service.mostrarUna(id);
         User s = (User) sesion.getAttribute("User");
         model.addAttribute("new", n);
         model.addAttribute("lcomentarios", n.getComentarios());
@@ -61,26 +63,15 @@ public class NoticiasController {
         return "new_template";
     }
 
-    @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.POST) //put???
-    public String Comentar(Model model, HttpSession sesion, @RequestParam String comentarios, @PathVariable long id,
-    		HttpServletRequest request) {//pillamos id y el comentario
-        Noticia n = noticias.findOne(id);    //pillamos la noticia de la bd
-      
-        ////CAMBIOS GABI
+    @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.POST) 
+    public String Comentar(Model model, HttpSession sesion, @RequestParam String comentarios, @PathVariable long id) {//pillamos id y el comentario
         User s = (User) sesion.getAttribute("User");
-        
-        if (!(request.isUserInRole("USER")||request.isUserInRole("ADMIN"))) {
+        if (s == null) {
             return "login";
-        } else {
-            String nombre = s.getUser().getName();
-            nombre = nombre + " dice: \n" + comentarios + "\n";
-            n.getComentarios().add(new CommentClass(nombre,comentarios));
-
-            n.setNumber_comments(n.getNumComentarios() + 1);
-            noticias.save(n);
-            //n2.Comentar(comentarios, id);
-
-            model.addAttribute("new", n);
+        } 
+        else {
+        	   Noticia n=service.comentar(s, comentarios, id);
+                      model.addAttribute("new", n);
             model.addAttribute("lcomentarios", n.getComentarios());
             model.addAttribute("id", n.getId());
             model.addAttribute("logeado2", true);
@@ -96,9 +87,9 @@ public class NoticiasController {
 
         Date date = new Date();  //Simulamos la hora actual
         ArrayList<CommentClass> x = new ArrayList<>();
-        Noticia n = new Noticia(title, /*imagen,*/ cuerpo, categoria, x, date); //Creamos una noticia con todos los datos.
+        Noticia n = new Noticia(title,/*imagen,*/ cuerpo, categoria, x, date); //Creamos una noticia con todos los datos.
 
-        noticias.save(n);                                                               //Añadimos la noticia a la bbdd
+        n=service.addNewBlog(n);
 
         String fileName = n.getId() + ".jpg";
         if (!imagen.isEmpty()) {
@@ -144,8 +135,7 @@ public class NoticiasController {
 
     @RequestMapping(value = "/borrarNoticia", method = RequestMethod.POST)
     public String deleteProject(@RequestParam long id, Model m, HttpSession sesion) {
-        Noticia n = noticias.findOne(id);
-        noticias.delete(n);
+        service.deleteNew(id);
         User u = (User) sesion.getAttribute("User");
         m.addAttribute("bienvenido",u.getUser().getUserName());
         return "Bootstrap-Admin-Theme/index";

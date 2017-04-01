@@ -256,22 +256,35 @@ A continuación se muestra un diagrama de clases con las relaciones entre los @C
 
 ##Fase 4
 
-A continuación exponemos las operaciones que ofrece la API REST para cada recurso, junto con el formato de la URL, información de entrada y salida y códigos de error asociados a cada una de ellas.
+A continuación exponemos las operaciones que ofrece la API REST para cada recurso, junto con el formato de la URL, información de entrada y salida y códigos de estado asociados a cada petición.
+Se destaca que, en caso de que la petición no se resuelva con éxito, se devolverá el código de error 404 NOT FOUND y, en caso de que sísea llevada a cabo con éxito, el código de estado 201 CREATED para la petición POST y 200 OK para el resto. Además, las peticiones de tipo POST y PUT llevan asociada la cabecera {"Content-type":"application/json"}.
 
 ##Proyectos
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
+| /api/admin/AddProject/create | POST | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}]} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":},{"id":2,"money":60.0,"date":}]} | 201 (CREATED) |
+| /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}]} | 200 (OK) |
+| /api/projects | GET | ... | [{"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"},{"id":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","description":"Description2","totalBudget":600.0,"parcialBudget":10.0,"restBudget":590.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"}] | 200 (OK) |
+| /api/pay/projects | PUT | {"id":3,"money":40.0,"date":} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":},{"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":}]} | 200 (OK) |
+| /api/borrarProyecto/1 | DELETE | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":},{"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":}]} | 200 (OK) |
 | /api/admin/AddProject/create | POST | ... | ... | 201 (CREATED) / 404 (NOT FOUND) |
 | /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":]} | 200 (OK) / 404 (NOT FOUND) |
 | /api/projects | GET | ... | ... | 200 (OK) |
 | /api/pay/projects | PUT | {"money":4000} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"description","totalBudget":500000.0,"parcialBudget":4150.0,"restBudget":495850.0,"time":36.0,"opened":true,"releaseDate":1491041583000,"startYear":2017,"image":"image","donations":[{"money":50.0,"date":"01-04-2017"},{"money":60.0,"date":"01-04-2017"},{"money":40.0,"date":"01-04-2017"},{"money":4000.0,"date":"01-04-2017"}]} | 201 (CREATED)
 | /api/borrarProyecto/id | DELETE | ... | ... | 200 (OK) |
 
+
 ##Noticias
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
+| /api/admin/AddBlog/create | POST | {"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date:} |  {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":,"numComentarios":0} | 201 (CREATED) |
+| /api/new/1 | GET | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":,"numComentarios":0} | 200 (OK) |
+| /api/mostrarPorCategoria/enfermedad | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":,"numComentarios":0}] | 200 (OK) |
+| /api/blog | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":,"numComentarios":0}] | 200 (OK) |
+| /api/comment/upload/1 | PUT | ... | ... | 200 (OK) |
+| /api/borrarNoticia/1 | DELETE | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":,"numComentarios":0} | 200 (OK) |
 | /api/admin/AddBlog/create | POST | ... |  ... | 201 (CREATED) |
 | /api/new | GET | ... | ... | 200 (OK) |
 | /api/mostrarPorCategoria | GET | ... | .... | 200 (OK) |
@@ -285,5 +298,3 @@ A continuación exponemos las operaciones que ofrece la API REST para cada recur
 | ----- | ----- | ----- | ----- | ----- |
 | /api/users/login | GET | authentication (email y pass) |{"colaborateProjects":[{"projectId":1,"title":"Titulo","shortDescription":"Breve Descripcion","money":150.0},{"projectId":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","money":10.0}],"otherProjects":[],"donations":[{"projectTitle":"Titulo","money":50.0,"date":1491040847000},{"projectTitle":"Titulo","money":60.0,"date":1491040847000},{"projectTitle":"Titulo","money":40.0,"date":1491040847000},{"projectTitle":"Titulo2","money":10.0,"date":1491040847000}],"user":{"id":2,"name":"Elnombre","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$SAmZWSk8TwRBPGzYxRo8/.UrSlUTEialtcK20v/vu5E40smPFgyOG","roles":["ROLE_USER"]}}|200 (OK)
 | /api/users/register/create |POST|	"name":"Gabi","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$uetOA9NXy6ZI4cXeCwbw6OQFViEy5Daaiyfm3eq92Kvnh.8pOMX.G"| {"name": "Gabi", "lastname": "Elapellido", "surname": "Elapellido", "email": "e@e.es", "userName": "e", "photo2": "icon.png", "passwordHash":"aaaa", "roles": ["ROLE_USER"]}|201 (Created)|
-
-

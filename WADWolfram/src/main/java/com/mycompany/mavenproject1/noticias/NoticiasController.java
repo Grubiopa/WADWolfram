@@ -54,11 +54,11 @@ public class NoticiasController {
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String mostrarUna(Model model, HttpSession sesion, @RequestParam long id) {
-        NoticiaView n = service.mostrarUna(id);
+        Noticia n = service.mostrarUna(id);
         User s = (User) sesion.getAttribute("User");
-        model.addAttribute("new", n.getNoticia());       
-        model.addAttribute("lcomentarios", n.getComents());
-        model.addAttribute("id", n.getNoticia().getId());
+        model.addAttribute("new", n);       
+        model.addAttribute("lcomentarios", n.getComentarios());
+        model.addAttribute("id", n.getId());
         if(s==null){
             model.addAttribute("logeado", true);
         }else{
@@ -74,10 +74,12 @@ public class NoticiasController {
             return "login";
         } 
         else {
-        	NoticiaView n=service.comentar(s, comentarios, id);
-            model.addAttribute("new", n.getNoticia());           
-            model.addAttribute("lcomentarios", n.getComents());
-            model.addAttribute("id", n.getNoticia().getId());
+        	Noticia n=service.mostrarUna(id);
+        	CommentClass c=new CommentClass(comentarios, s.getUser(), n);
+        Noticia noticia=service.comentar(c, id);
+            model.addAttribute("new", noticia);           
+            model.addAttribute("lcomentarios", noticia.getComentarios());
+            model.addAttribute("id", noticia.getId());
             model.addAttribute("logeado2", true);
             
             return "new_template";

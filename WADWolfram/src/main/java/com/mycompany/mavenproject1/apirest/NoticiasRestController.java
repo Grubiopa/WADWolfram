@@ -1,6 +1,10 @@
 ﻿package com.mycompany.mavenproject1.apirest;
 
 import java.io.File;
+import com.mycompany.mavenproject1.noticias.Noticia.Basico;
+import com.mycompany.mavenproject1.noticias.Noticia.Comentarios;
+import com.mycompany.mavenproject1.noticias.CommentClass.Usuario;
+import com.mycompany.mavenproject1.noticias.Comentario;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,6 +28,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonView;
+import com.mycompany.mavenproject1.noticias.CommentClass;
 import com.mycompany.mavenproject1.noticias.Noticia;
 import com.mycompany.mavenproject1.noticias.NoticiaView;
 import com.mycompany.mavenproject1.noticias.NoticiasService;
@@ -39,6 +46,7 @@ public class NoticiasRestController {
 
   //  private static final String FILES_FOLDER = "fileFolderNews";
 
+    @JsonView(Noticia.Basico.class)
     @RequestMapping(value = "/mostrarPorCategoria/{categoria}", method = RequestMethod.GET)
     public ResponseEntity<ArrayList<Noticia>> mostrarPorCategoria(@PathVariable String categoria) {
         ArrayList<Noticia> l = service.mostrarPorCategoria(categoria);
@@ -48,36 +56,41 @@ public class NoticiasRestController {
            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @JsonView(Noticia.Basico.class)
     @RequestMapping(value = "/blog", method = RequestMethod.GET)
     public ArrayList<Noticia> mostrarTodas(	) {
         return service.mostrarTodas();
     }
+    
+    interface NoticiaDetalle extends Noticia.Basico, Noticia.Comentarios, CommentClass.Usuario {}
 
+    @JsonView(NoticiaDetalle.class)
     @RequestMapping(value = "/new/{id}", method = RequestMethod.GET)
-    public ResponseEntity<NoticiaView> mostrarUna(@PathVariable long id) {
-        NoticiaView n = service.mostrarUna(id);
+    public ResponseEntity<Noticia> mostrarUna(@PathVariable long id) {
+        Noticia n = service.mostrarUna(id);
         if (n!=null)
            	return new ResponseEntity<>(n, HttpStatus.OK);
         else
            	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
+    
+ @JsonView(NoticiaDetalle.class)
     @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<NoticiaView> comentar(HttpSession sesion, @RequestParam String comentarios, @PathVariable long id) {
+    public ResponseEntity<Noticia> comentar(HttpSession sesion, @RequestBody Comentario comentarios, @PathVariable long id) {
         User s = (User) sesion.getAttribute("User");
-        if (s == null) {
-        	//revisar
-           	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } 
-        else {
-        	   NoticiaView n=service.comentar(s, comentarios, id);
-        	   if(n!=null)
-           		   return new ResponseEntity<>(n, HttpStatus.OK);
-        		   else
-           			   return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        Noticia n=service.mostrarUna(id);
+        
+        if(n!=null){
+        	      CommentClass c=new CommentClass(comentarios.getMessage(), s.getUser(), n);
+        	      Noticia noticia=service.comentar(c, id);
+           		   return new ResponseEntity<>(noticia, HttpStatus.OK);
         }
+        else
+           			   return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    
     }
 
+ @JsonView(NoticiaDetalle.class)
     @RequestMapping(value = 		"/admin/AddBlog/create", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Noticia addNewBlog(				@RequestBody Noticia  noticia){

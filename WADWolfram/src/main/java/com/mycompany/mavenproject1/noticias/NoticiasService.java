@@ -27,34 +27,32 @@ public class NoticiasService {
         return noticias.findAll();
     }
 
-    public NoticiaView mostrarUna(long id) {
+    public Noticia mostrarUna(long id) {
         Noticia n = noticias.findOne(id);
-        NoticiaView nv;
+        /*NoticiaView nv;
     	List<String> lcomentsShow = new ArrayList<>();
         List<CommentClass> lcoments = coments.findByNoticia(n);
         for(CommentClass com: lcoments){
         	lcomentsShow.add(com.getUser().getUserName() + " dice: " + com.getComentario());
         }
-        nv = new NoticiaView(n,lcomentsShow);
-        return nv;
+        nv = new NoticiaView(n,lcomentsShow);*/
+        return n;
     }
 
-    public NoticiaView comentar(User u, String comentario, long id){ 
+    public Noticia comentar(CommentClass comentario, long id){ 
         Noticia n = noticias.findOne(id);    //pillamos la noticia de la bd
-        NoticiaView nv = null;
         if (n!=null){
-           CommentClass c = new CommentClass(comentario, u.getUser(),n);
-           coments.save(c);
+           coments.save(comentario);
            n.setNumber_comments(n.getNumComentarios() + 1);
            noticias.save(n);
-           List<String> lcomentsShow = new ArrayList<>();
+           /*List<String> lcomentsShow = new ArrayList<>();
            List<CommentClass> lcoments = coments.findByNoticia(n);
            for(CommentClass com: lcoments){
            	lcomentsShow.add(com.getUser().getUserName() + " dice: " + com.getComentario());
            }
-           nv = new NoticiaView(n,lcomentsShow);
+           nv = new NoticiaView(n,lcomentsShow);*/
            }
-        return nv;
+        return n;
    }
 
     public Noticia addNewBlog(Noticia noticia){

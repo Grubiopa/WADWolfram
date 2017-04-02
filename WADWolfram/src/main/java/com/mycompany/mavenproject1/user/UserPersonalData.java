@@ -14,13 +14,17 @@ import javax.persistence.Id;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class UserPersonalData {
 
+	interface Basico {}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+@JsonView(Basico.class)
 	private String name;
 	private String lastname;
 	//private String surname;

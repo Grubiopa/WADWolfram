@@ -14,18 +14,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Noticia {
+	public interface Basico {}
+public 	interface Comentarios{}
 
-    @Id
+    @JsonView(Basico.class)
+	    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @JsonView(Basico.class)
     private String title;
     //private MultipartFile ruta_imagen;
+    @JsonView(Basico.class)
     private String cuerpo;
+    @JsonView(Basico.class)
     private String categoria;
+    @JsonView(Basico.class)
     private int number_comments;
-    //private ArrayList<Long> comentarios;
+    @JsonView(Comentarios.class)
+    private ArrayList<CommentClass> comentarios;
+    @JsonView(Basico.class)
     private Date date;
    
     public Noticia() {
@@ -78,9 +89,9 @@ public class Noticia {
         return this.number_comments;
     }
 
-    /*public ArrayList<Long> getComentarios() {
+    public ArrayList<CommentClass> getComentarios() {
         return this.comentarios;
-    }*/
+    }
 
     public void settitle(String title) {
         this.title = title;
@@ -100,9 +111,9 @@ public class Noticia {
         number_comments++;
     }*/
 
-    /*public void setComentarios(ArrayList<Long> comentarios) {
+    public void setComentarios(ArrayList<CommentClass> comentarios) {
         this.comentarios = comentarios;
-    }*/
+    }
     
     public void setNumber_comments(int number_comments) {
         this.number_comments = number_comments;

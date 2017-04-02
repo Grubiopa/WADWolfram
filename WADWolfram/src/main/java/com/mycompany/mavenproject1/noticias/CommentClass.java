@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.mycompany.mavenproject1.project.Project;
 import com.mycompany.mavenproject1.user.UserPersonalData;
 
@@ -20,10 +21,15 @@ import com.mycompany.mavenproject1.user.UserPersonalData;
  */
 @Entity
 public class CommentClass {
+	public interface Usuario{}
+
+	@JsonView(	Usuario.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@JsonView(Usuario.class)
 	private String comentario;
+	@JsonView(Usuario.class)
 	@ManyToOne
     private UserPersonalData user;
     @ManyToOne
@@ -50,16 +56,13 @@ public class CommentClass {
 
 
 
-	public UserPersonalData getUser() {
+	public UserPersonalData	 getUser() {
 		return user;
 	}
 
-
-
-	public void setUser(UserPersonalData user) {
+	public void setUser(UserPersonalData			 user) {
 		this.user = user;
 	}
-
 
 
 	public Noticia getNoticia() {

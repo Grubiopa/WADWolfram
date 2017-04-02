@@ -294,12 +294,12 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 | ----- | ----- | ----- | ----- | ----- |
 | /api/users/login | GET | authentication (email y pass) |{"colaborateProjects":[{"projectId":1,"title":"Titulo","shortDescription":"Breve Descripcion","money":150.0},{"projectId":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","money":10.0}],"otherProjects":[],"donations":[{"projectTitle":"Titulo","money":50.0,"date":1491040847000},{"projectTitle":"Titulo","money":60.0,"date":1491040847000},{"projectTitle":"Titulo","money":40.0,"date":1491040847000},{"projectTitle":"Titulo2","money":10.0,"date":1491040847000}],"user":{"id":2,"name":"Elnombre","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$SAmZWSk8TwRBPGzYxRo8/.UrSlUTEialtcK20v/vu5E40smPFgyOG","roles":["ROLE_USER"]}}|200 (OK)
 | /api/users/register/create |POST|	"name":"Gabi","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$uetOA9NXy6ZI4cXeCwbw6OQFViEy5Daaiyfm3eq92Kvnh.8pOMX.G"| {"name": "Gabi", "lastname": "Elapellido", "surname": "Elapellido", "email": "e@e.es", "userName": "e", "photo2": "icon.png", "passwordHash":"aaaa", "roles": ["ROLE_USER"]}|201 (Created)|
-| /api/users/update/{id}| PUT
+| /api/users/update/{id}| PUT|{"email": "t@t.t","userName": "gasdsdsdsw","oldPassword":"e","newPassword":"b"}|{"id":2,"name":"Elnombre","lastname":"Elapellido","email":"t@t.t","userName":"e","passwordHash":"$2a$10$HWbgVEZAWBmmV0Gq.nxlHeCKb26DAkKJWZe6ZxCqh0N65TMCCDvTa","roles":["ROLE_USER"]}|200 (OK)|
 
 ## Admin
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
-| /api/admin/Profile/create | POST | authentication (email y pass) |
-| /api/admin/Profile/update/{id} |PUT|	
+| /api/admin/Profile/create | POST | {"name": "tono","lastname": "P","email": "a@a.a","userName": "tono94","passwordHash": "wwww","roles": ["ROLE_ADMIN"]} | {"id":3,"name":"tono","lastname":"P","email":"a@a.a","userName":"tono94","passwordHash":"$2a$10$5jGyhL0M1U.LOmpz.Sqeou5qyFCWjt1/PTeS7S6z0xSqLlLKEiWgK","roles":["ROLE_ADMIN"]} | 200 (OK)| 
+| /api/admin/Profile/update/{id} |PUT|{"email":"g.tu@gabon.g","oldPassword":"aaaa","newPassword":"bbbb"}|{"id":1,"name":"Gabi","lastname":"R","email":"g.tu@yg.gru","userName":"gabi0794","passwordHash":"$2a$10$bjUne4ReImNBzo7w1D.tD.uaban9XkwrsMxOMDrtZ8TEK2PjkmewC","roles":["ROLE_ADMIN"]} |200 (OK)| 
 

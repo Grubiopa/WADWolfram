@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
@@ -30,7 +31,10 @@ public class NoticiasController {
 
     @Autowired
     private NoticiasService service;
-
+    
+    @Autowired
+    private CommentClassRepository coments;
+    
     private static final String FILES_FOLDER = "fileFolderNews";
 
     @RequestMapping(value = "/mostrarPorCategoria", method = RequestMethod.GET)
@@ -70,9 +74,14 @@ public class NoticiasController {
             return "login";
         } 
         else {
-        	   Noticia n=service.comentar(s, comentarios, id);
-                      model.addAttribute("new", n);
-            model.addAttribute("lcomentarios", n.getComentarios());
+        	Noticia n=service.comentar(s, comentarios, id);
+            model.addAttribute("new", n);
+            List<String> lcomentsShow = new ArrayList<>();
+            List<CommentClass> lcoments = coments.findByNoticia(n);
+            for(CommentClass com: lcoments){
+            	lcomentsShow.add(com.getUser().getUserName() + " dice: " + com.getComentario());
+            }
+            model.addAttribute("lcomentarios", lcomentsShow);
             model.addAttribute("id", n.getId());
             model.addAttribute("logeado2", true);
             
@@ -86,7 +95,7 @@ public class NoticiasController {
             @RequestParam String cuerpo, @RequestParam Boolean confirm) { ///Se le pasa como parámetros todos los input del form
 
         Date date = new Date();  //Simulamos la hora actual
-        ArrayList<CommentClass> x = new ArrayList<>();
+        ArrayList<Long> x = new ArrayList<>();
         Noticia n = new Noticia(title,/*imagen,*/ cuerpo, categoria, x, date); //Creamos una noticia con todos los datos.
 
         n=service.addNewBlog(n);

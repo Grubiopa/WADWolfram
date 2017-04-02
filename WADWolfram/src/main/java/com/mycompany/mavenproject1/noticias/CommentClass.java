@@ -9,25 +9,72 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.mycompany.mavenproject1.project.Project;
+import com.mycompany.mavenproject1.user.UserPersonalData;
 
 /**
  *
  * @author JuanAntonio
  */
-
+@Entity
 public class CommentClass {
-	String comentario;
-    String nombreUsuario;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	private String comentario;
+	@ManyToOne
+    private UserPersonalData user;
+    @ManyToOne
+    private Noticia noticia;
+    
     public CommentClass() {
     }
 
-    public CommentClass(String comentario, String nombreUsuario) {
-        this.comentario = comentario;
-        this.nombreUsuario = nombreUsuario;
-    }
+    public CommentClass(String comentario, UserPersonalData user, Noticia noticia) {
+		this.comentario = comentario;
+		this.user = user;
+		this.noticia = noticia;
+	}
 
-    public String getComentario() {
+	public long getId() {
+		return id;
+	}
+
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+
+	public UserPersonalData getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(UserPersonalData user) {
+		this.user = user;
+	}
+
+
+
+	public Noticia getNoticia() {
+		return noticia;
+	}
+
+
+
+	public void setNoticia(Noticia noticia) {
+		this.noticia = noticia;
+	}
+
+
+
+	public String getComentario() {
         return comentario;
     }
 
@@ -35,13 +82,7 @@ public class CommentClass {
         this.comentario = comentario;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
-    }
-
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
+  
     
     
 }

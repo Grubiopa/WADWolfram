@@ -24,14 +24,14 @@ public class Noticia {
     private String cuerpo;
     private String categoria;
     private int number_comments;
-    private ArrayList<CommentClass> comentarios;
+    private ArrayList<Long> comentarios;
     private Date date;
 
 
     public Noticia() {
     }
 
-    public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, String categoria, ArrayList<CommentClass> comentarios, Date date) {
+    public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, String categoria, ArrayList<Long> comentarios, Date date) {
         this.title = title;
         this.cuerpo = cuerpo;
         this.categoria = categoria;
@@ -41,7 +41,7 @@ public class Noticia {
         //this.ruta_imagen=ruta_imagen;
     }
 
-    public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, int ncom, String categoria, ArrayList<CommentClass> comentarios, Date date) {
+    public Noticia(String title, /*MultipartFile ruta_imagen,*/ String cuerpo, int ncom, String categoria, ArrayList<Long> comentarios, Date date) {
         this.title = title;
         this.cuerpo = cuerpo;
         this.categoria = categoria;
@@ -78,7 +78,7 @@ public class Noticia {
         return this.number_comments;
     }
 
-    public ArrayList<CommentClass> getComentarios() {
+    public ArrayList<Long> getComentarios() {
         return this.comentarios;
     }
 
@@ -100,7 +100,7 @@ public class Noticia {
         number_comments++;
     }*/
 
-    public void setComentarios(ArrayList<CommentClass> comentarios) {
+    public void setComentarios(ArrayList<Long> comentarios) {
         this.comentarios = comentarios;
     }
     

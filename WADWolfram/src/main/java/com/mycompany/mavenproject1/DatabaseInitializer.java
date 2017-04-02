@@ -39,7 +39,7 @@ public class DatabaseInitializer {
 		  projects.save(new Project("Titulo2", "Breve Descripcion2", "description2", 600.0, 0.0, 36, true, releaseDate,
 					2017, "image"));
 		  //Noticias
-	        ArrayList<CommentClass> coments = new ArrayList<>();
+	        ArrayList<Long> coments = new ArrayList<>();
 	        noticias.save(new Noticia("Noticia1", /*a,*/ "cuerpo", 0, "enfermedad", coments, releaseDate));
 	        noticias.save(new Noticia("Noticia2", /*b,*/ "cuerpo2", 0, "eventos", coments, releaseDate));
 	        

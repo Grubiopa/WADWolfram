@@ -50,9 +50,10 @@ public class UserPersonalData {
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
    
-   	public boolean matchPassword(String pass){
+ 	public boolean matchPassword(String pass){
    		return new BCryptPasswordEncoder().matches(pass, passwordHash);
    	}
+ 	
 	public UserPersonalData() {
 	}
 
@@ -141,8 +142,8 @@ public class UserPersonalData {
 		return roles;
 	}
 
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
+	public void setRoles(String... roles) {
+		this.roles =  new ArrayList<>(Arrays.asList(roles));
 	}
 
 

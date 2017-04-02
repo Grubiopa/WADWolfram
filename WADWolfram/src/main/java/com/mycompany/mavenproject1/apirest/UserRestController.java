@@ -107,7 +107,8 @@ public class UserRestController {
 	@RequestMapping(value = "/register/create", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<UserPersonalData> NewUser(Model model, @RequestBody UserPersonalData user) {		
-		if(user!=null){			
+		if(user!=null){
+			user.setRoles("ROLE_USER");
 			users.save(user);
 			UserPersonalData us = users.findOne(user.getId());
 			return new ResponseEntity<UserPersonalData>(us,HttpStatus.OK);

@@ -33,6 +33,7 @@ import com.mycompany.mavenproject1.user.UserPersonalData;
 import com.mycompany.mavenproject1.user.UserPersonalDataRepository;
 import com.mycompany.mavenproject1.user.UserProject;
 import com.mycompany.mavenproject1.user.UserService;
+import com.mycompany.mavenproject1.user.UserUpdate;
 
 
 @RestController
@@ -66,57 +67,41 @@ public class UserRestController {
 	}
 	
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<UserPersonalData> updateUser(@PathVariable long id, @RequestBody UserPersonalData upd, HttpSession sesion) {
-		System.out.println(upd.getName());
-		System.out.println(upd.getPasswordHash());
+	public ResponseEntity<UserPersonalData> updateUser(@PathVariable long id, @RequestBody UserUpdate upd, HttpSession sesion) {
+		
 		if (upd != null) {
 			User user = (User) sesion.getAttribute("User");
 			UserPersonalData upd2 = users.findOne(id);
-			if (!upd.getEmail().isEmpty()) {
-				upd2.setEmail(upd.getEmail());
-			}
-
-			if (!upd.getUserName().isEmpty()) {
-				upd2.setUserName(upd.getUserName());
-			}
-			
-			if (!upd.matchPassword(upd.getPasswordHash())) {
-				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);				 
-			}
-			if (!upd.getPasswordHash().isEmpty()) {
-				upd2.setPasswordHash(upd.getPasswordHash());
-			}
-
-			users.save(upd2);
-
-			user.setUser(upd2);
-
-			/*String fileName = upd2.getId() + ".jpg";
-			if (!imagen.isEmpty()) {
-				try {
-
-					File filesFolder = new File(FILES_FOLDER_USERS);
-					if (!filesFolder.exists()) {
-						filesFolder.mkdirs();
-					}
-
-					File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
-					imagen.transferTo(uploadedFile);
-				} catch (IllegalStateException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+			if (upd2.getId()== user.getUser().getId()){
+				if (!upd.getEmail().isEmpty()) {
+					upd2.setEmail(upd.getEmail());
 				}
-			}*/
 
-			
-			sesion.setAttribute("User", user);
+				if (!upd.getUsername().isEmpty()) {
+					upd2.setUserName(upd.getUsername());
+				}
+				
+				if (!upd2.matchPassword(upd.getOldPassword())) {
+					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);				 
+				}
+				if (!upd.getNewPassword().isEmpty()) {
+					upd2.setPasswordHash(upd.getNewPassword());
+				}
 
-			return new ResponseEntity<>(upd2, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+				users.save(upd2);
+
+				user.setUser(upd2);
+						
+				sesion.setAttribute("User", user);
+
+				return new ResponseEntity<>(upd2, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.CONFLICT);
+			}
+		}else{
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+			
 	}
 	
 	@RequestMapping(value = "/register/create", method = RequestMethod.POST)

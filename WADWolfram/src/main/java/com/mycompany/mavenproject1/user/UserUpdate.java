@@ -35,6 +35,7 @@ public class UserUpdate {
 		this.oldPassword = oldPassword;
 		this.newPassword = newPassword;
 	}
+	public UserUpdate(){}
 	
 	
 }

@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Noticia {
 
@@ -26,6 +28,7 @@ public class Noticia {
     private String categoria;
     private int number_comments;
     //private ArrayList<Long> comentarios;
+    @JsonFormat(pattern="dd-MM-yyyy")
     private Date date;
    
     public Noticia() {

@@ -73,9 +73,10 @@ public class ProjectRestController {
 	@JsonView(ProyectoDetalle.class)
 	@RequestMapping(value = "/pay/projects/{projectId}", method = RequestMethod.POST)
 	public ResponseEntity<Project> donate(@PathVariable long projectId, HttpSession sesion, @RequestBody UserMovement m) {
+		Date date = new Date();
 		User s = (User) sesion.getAttribute("User");
 		Project p = service.viewProject(projectId);
-Donation d = new Donation(s.getUser(), p, m.getMoney(), m.getDate());
+		Donation d = new Donation(s.getUser(), p, m.getMoney(), date);
 		service.donate(projectId, s, d);
 		p = service.viewProject(projectId);
 		if (p != null)

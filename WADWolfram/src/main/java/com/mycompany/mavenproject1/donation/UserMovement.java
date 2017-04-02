@@ -10,6 +10,7 @@ public class UserMovement {
 private double money; 
 private Date date;
 
+public UserMovement(){}
 public UserMovement(		double money){
 	   this.money=money;
 	   this.date=new Date();

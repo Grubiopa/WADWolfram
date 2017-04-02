@@ -260,33 +260,23 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
-| /api/admin/AddProject/create | POST | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}]} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":},{"id":2,"money":60.0,"date":}]} | 201 (CREATED) |
-| /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}]} | 200 (OK) |
+| /api/admin/AddProject/create | POST | {"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","} | 201 (CREATED) |
+| /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"} | 200 (OK) |
 | /api/projects | GET | ... | [{"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"},{"id":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","description":"Description2","totalBudget":600.0,"parcialBudget":10.0,"restBudget":590.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"}] | 200 (OK) |
-| /api/borrarProyecto/1 | DELETE | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":},{"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":}]} | 200 (OK) |
-| /api/admin/AddProject/create | POST | ... | ... | 201 (CREATED) / 404 (NOT FOUND) |
-| /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":]} | 200 (OK) / 404 (NOT FOUND) |
-| /api/projects | GET | ... | ... | 200 (OK) |
-| /api/pay/projects | POST | {"money":4000} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"description","totalBudget":500000.0,"parcialBudget":4150.0,"restBudget":495850.0,"time":36.0,"opened":true,"releaseDate":1491041583000,"startYear":2017,"image":"image","donations":[{"money":50.0,"date":"01-04-2017"},{"money":60.0,"date":"01-04-2017"},{"money":40.0,"date":"01-04-2017"},{"money":4000.0,"date":"01-04-2017"}]} | 201 (CREATED)
-| /api/borrarProyecto/id | DELETE | ... | ... | 200 (OK) |
+| /api/pay/projects | POST | {"money":50.0} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"description","totalBudget":500000.0,"parcialBudget":4150.0,"restBudget":495850.0,"time":36.0,"opened":true,"releaseDate":1491041583000,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":"01-04-2017"}]} | 201 (CREATED)
+| /api/borrarProyecto/1 | DELETE | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":01-04-17}]} | 200 (OK) |
 
 
 ## Noticias
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
-| /api/admin/AddBlog/create | POST | {"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date:} |  {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":,"numComentarios":0} | 201 (CREATED) |
-| /api/new/1 | GET | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":,"numComentarios":0} | 200 (OK) |
-| /api/mostrarPorCategoria/enfermedad | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":,"numComentarios":0}] | 200 (OK) |
-| /api/blog | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":,"numComentarios":0}] | 200 (OK) |
-| /api/comment/upload/1 | PUT | ... | ... | 200 (OK) |
-| /api/borrarNoticia/1 | DELETE | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":,"numComentarios":0} | 200 (OK) |
-| /api/admin/AddBlog/create | POST | ... |  ... | 201 (CREATED) |
-| /api/new | GET | ... | ... | 200 (OK) |
-| /api/mostrarPorCategoria | GET | ... | .... | 200 (OK) |
-| /api/blog | GET | ... | ... | 200 (OK) |
-| /api/comment/upload/{id} | PUT | ... | ... | 200 (OK) |
-| /api/borrarNoticia | DELETE | ... |  | 200 (OK) |
+| /api/admin/AddBlog/create | POST | {"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date:02-04-17} |  {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-0-17,"numComentarios":0} | 201 (CREATED) |
+| /api/new/1 | GET | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-04-17,"numComentarios":0} | 200 (OK) |
+| /api/mostrarPorCategoria/enfermedad | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0}] | 200 (OK) |
+| /api/blog | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0},{"id":2,"title":"Noticia2","cuerpo":"cuerpo2","categoria":"eventos","date":01-04-17,"numComentarios":0}] | 200 (OK) |
+| /api/comment/upload/1 | PUT | {"message":"hola" |  {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 200 (OK) |
+| /api/borrarNoticia/1 | DELETE | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 200 (OK) |
 
 ## Users
 

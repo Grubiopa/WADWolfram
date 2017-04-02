@@ -136,6 +136,25 @@ public class NoticiasController {
                     + ") does not exist");
         }
     }
+    
+    
+    
+    @RequestMapping("/image/little{fileName}.jpg")
+    public void handlerFileDownload(@PathVariable String fileName,
+            HttpServletResponse res) throws FileNotFoundException, IOException {
+
+        File file = new File(FILES_FOLDER, "little" + fileName + ".jpg");
+
+        if (file.exists()) {
+            res.setContentType("image/jpeg");
+            res.setContentLength(new Long(file.length()).intValue());
+            FileCopyUtils
+                    .copy(new FileInputStream(file), res.getOutputStream());
+        } else {
+            res.sendError(404, "File" + fileName + "(" + file.getAbsolutePath()
+                    + ") does not exist");
+        }
+    }
 
     @RequestMapping(value = "/borrarNoticia", method = RequestMethod.POST)
     public String deleteProject(@RequestParam long id, Model m, HttpSession sesion) {

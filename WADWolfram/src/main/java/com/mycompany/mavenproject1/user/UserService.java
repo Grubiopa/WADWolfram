@@ -78,9 +78,7 @@ public class UserService {
 		return u;
 	}
 
-	public UserPersonalData updateUser(UserPersonalData upd,UserPersonalData u) {
-		
-		
+	/*public UserPersonalData updateUser(UserPersonalData upd,UserPersonalData u) {
 		upd.setName(u.getName());
 		upd.setEmail(u.getEmail());
 		upd.setLastname(u.getLastname());
@@ -88,5 +86,5 @@ public class UserService {
 		upd.setUserName(u.getUserName());
 		users.save(upd);
 		return upd;
-	}
+	}*/
 }

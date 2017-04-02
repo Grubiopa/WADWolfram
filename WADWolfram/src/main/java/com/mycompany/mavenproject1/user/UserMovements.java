@@ -2,9 +2,12 @@ package com.mycompany.mavenproject1.user;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class UserMovements {
 	private String projectTitle;
 	private double money;
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date date;
 
  protected UserMovements(){}	

@@ -65,12 +65,12 @@
                             <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li> 
-                                    	<form action="/user/close" method="post">
-                                    	<input type="submit" id="boton_nuevo_cs" class="btn" value="Cerrar sesión" />  
-                                    	<input type="hidden" name="_csrf" value="{{token}}"/>                                  
-                                    	</form>
-                                    </li>                                    
+                                    <li>
+                                        <form action="/user/close" method="post">
+                                            <input type="submit" id="boton_nuevo_cs" class="btn" value="Cerrar sesión" />
+                                            <input type="hidden" name="_csrf" value="{{token}}" />
+                                        </form>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -104,20 +104,18 @@
                                         <li id="iteMyMovements"><a href="#" onclick="javascript:changeShow(this)" id="myMovements">Mis movimientos</a></li>
                                         <li id="iteMyDatas"><a href="#" onclick="javascript:changeShow(this)" id="myDatas">Mis datos</a></li>
                                     </ul>
-									  <form action="/user/close" method="post">
-                                    	<input type="submit" class="btn btn-info col-lg-2" id="btn_sesion" value="Cerrar sesión" />  
-                                    	<input type="hidden" name="_csrf" value="{{token}}"/>                                  
+                                    <form action="/user/close" method="post">
+                                        <input type="submit" class="btn btn-info col-lg-2" id="btn_sesion" value="Cerrar sesión" />
+                                        <input type="hidden" name="_csrf" value="{{token}}" />
                                     </form>
-                                    
+
 
                                 </div>
                             </nav>
 
                             <div class="inside">
-                            {{#matchpass}}
-                            <h5 style="color: red"><strong> ¡Atención! Ningún cambio ha sido guardado porque la contraseña era incorrecta </strong></h5>
-                            
-                            {{/matchpass}}
+                                {{#matchpass}}
+                                <h5 style="color: red"><strong> ¡Atención! Ningún cambio ha sido guardado porque la contraseña era incorrecta </strong></h5> {{/matchpass}}
                                 <h1>¡Bienvenid@ {{username}}!</h1>
                                 <div class="row show" id="userProjects">
                                     <div class="col-md-6">
@@ -165,7 +163,7 @@
                                 <div class="row hide" id="dataPage">
                                     {{#User}}
                                     <form role="form" class="register-form" action="/users/update/{{id}}" method="post" enctype="multipart/form-data">
-                                         
+
                                         <div class="col-md-6">
                                             <div id="profilePhoto">
 
@@ -179,15 +177,15 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div id="data">
-                                                <div >
+                                                <div>
                                                     <label for="exampleInputEmail1">Nombre</label>
                                                     <input readonly class="form-control" id="exampleInputEmail1" placeholder="{{name}}" name="name">
-                                                   
+
                                                 </div>
-                                                <div >
+                                                <div>
                                                     <label for="exampleInputEmail1">Apellidos</label>
-                                                    <input readonly class="form-control" id="exampleInputEmail1"  name="surname" placeholder="{{surname}}">
-                                                  
+                                                    <input readonly class="form-control" id="exampleInputEmail1" name="lastname" placeholder="{{lastname}}">
+
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Dirección Email</label>
@@ -204,14 +202,14 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Contraseña Nueva</label>
-                                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña nueva" name="newPassword" >
+                                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña nueva" name="newPassword">
                                                 </div>
- 							
+
                                                 <button type="submit" class="btn btn-primary btn-lg">Guardar Cambios</button>
-                                             
+
                                             </div>
                                         </div>
-                                         <input type="hidden" name="_csrf" value="{{token}}"/>
+                                        <input type="hidden" name="_csrf" value="{{token}}" />
                                     </form>
                                     {{/User}}
                                 </div>
@@ -254,7 +252,7 @@
                         <div class="widget">
                             <h4>Páginas relacionadas</h4>
                             <ul class="link-list">
-                               <li><a href="http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=ES&Expert=3463.0" target="_blank">ORPHANET – Síndrome de Wolfram</a></li>
+                                <li><a href="http://www.orpha.net/consor/cgi-bin/OC_Exp.php?lng=ES&Expert=3463.0" target="_blank">ORPHANET – Síndrome de Wolfram</a></li>
                                 <li><a href="http://www.association-du-syndrome-de-wolfram.org/faire-un-don.html" target="_blank">Asociación Francesa del síndrome de Wolfram</a></li>
                                 <li><a href="http://wolframsyndrome.dom.wustl.edu/" target="_blank">Universidad de Washington en St. Louis – Síndrome de Wolfram</a></li>
                                 <li><a href="http://aswolfram.org/" target="_blank">Asociación Española para la Investigación y Ayuda al síndrome de Wolfram</a></li>

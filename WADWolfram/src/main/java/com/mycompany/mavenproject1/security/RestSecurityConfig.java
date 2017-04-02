@@ -31,7 +31,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/admin/Profile/create").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/admin/Profile/update").hasRole("ADMIN");
 		
-		
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/register/create").permitAll();
 		
 		// Other URLs can be accessed without authentication
 		http.authorizeRequests().anyRequest().permitAll();

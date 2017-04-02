@@ -85,7 +85,7 @@ public class UserService {
 		upd.setEmail(u.getEmail());
 		upd.setLastname(u.getLastname());
 		upd.setPasswordHash(u.getPasswordHash());
-		upd.setPhoto2(u.getPhoto2());
+		//upd.setPhoto2(u.getPhoto2());
 		upd.setRoles(u.getRoles());
 		upd.setUserName(u.getUserName());
 		users.save(upd);

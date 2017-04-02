@@ -109,7 +109,8 @@ public class UserRestController {
 	public ResponseEntity<UserPersonalData> NewUser(Model model, @RequestBody UserPersonalData user) {		
 		if(user!=null){			
 			users.save(user);
-			return new ResponseEntity<UserPersonalData>(user,HttpStatus.OK);
+			UserPersonalData us = users.findOne(user.getId());
+			return new ResponseEntity<UserPersonalData>(us,HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}

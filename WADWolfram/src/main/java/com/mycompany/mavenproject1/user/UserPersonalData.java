@@ -23,10 +23,10 @@ public class UserPersonalData {
 	private long id;
 	private String name;
 	private String lastname;
-	private String surname;
+	//private String surname;
 	private String email;
 	private String userName;
-	private String photo2;
+	//private String photo;
 	//@JsonIgnore
 	private String passwordHash;
 	
@@ -38,13 +38,13 @@ public class UserPersonalData {
    public UserPersonalData(String name, String surname, String email, String userName, String oldPassword,
 			String newPassword, String photo2, String...roles) {
 		this.name = name;
-		this.surname = surname;
+		//this.surname = surname;
 		this.lastname = surname;
 		this.email = email;
 		this.userName = userName;
 		//this.oldPassword = oldPassword;
 	//	this.newPassword = newPassword;
-		this.photo2 = photo2;
+		//this.photo = id + ".png";
 		//this.roles = roles;
 		this.passwordHash = new BCryptPasswordEncoder().encode(newPassword);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
@@ -64,13 +64,13 @@ public class UserPersonalData {
 		this.name = name;
 	}
 
-	public String getSurname() {
+	/*public String getSurname() {
 		return surname;
 	}
 
 	public void setSurname(String surname) {
 		this.surname = surname;
-	}
+	}*/
 
 	public String getEmail() {
 		return email;
@@ -105,13 +105,13 @@ public class UserPersonalData {
 	}*/
 	
 	
-	public String getPhoto2() {
-		return photo2;
+	/*public String getPhoto2() {
+		return photo;
 	}
 
 	public void setPhoto2(String photo2) {
-		this.photo2 = photo2;
-	}
+		this.photo = photo2;
+	}*/
 
 	public long getId() {
 		return id;

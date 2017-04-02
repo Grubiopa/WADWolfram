@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jmx.export.notification.NotificationPublisherAware;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 import com.mycompany.mavenproject1.noticias.Noticia;
+import com.mycompany.mavenproject1.noticias.NoticiaView;
 import com.mycompany.mavenproject1.noticias.NoticiasService;
 import com.mycompany.mavenproject1.user.User;
 
@@ -52,8 +54,8 @@ public class NoticiasRestController {
     }
 
     @RequestMapping(value = "/new/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Noticia> mostrarUna(@PathVariable long id) {
-        Noticia n = service.mostrarUna(id);
+    public ResponseEntity<NoticiaView> mostrarUna(@PathVariable long id) {
+        NoticiaView n = service.mostrarUna(id);
         if (n!=null)
            	return new ResponseEntity<>(n, HttpStatus.OK);
         else
@@ -61,14 +63,14 @@ public class NoticiasRestController {
     }
 
     @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Noticia> comentar(HttpSession sesion, @RequestParam String comentarios, @PathVariable long id) {
+    public ResponseEntity<NoticiaView> comentar(HttpSession sesion, @RequestParam String comentarios, @PathVariable long id) {
         User s = (User) sesion.getAttribute("User");
         if (s == null) {
         	//revisar
            	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } 
         else {
-        	   Noticia n=service.comentar(s, comentarios, id);
+        	   NoticiaView n=service.comentar(s, comentarios, id);
         	   if(n!=null)
            		   return new ResponseEntity<>(n, HttpStatus.OK);
         		   else

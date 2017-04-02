@@ -1,6 +1,7 @@
 ﻿package com.mycompany.mavenproject1.noticias;
 
 import java.util.Date;
+import java.util.List;
 import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,20 +27,34 @@ public class NoticiasService {
         return noticias.findAll();
     }
 
-    public Noticia mostrarUna(long id) {
-        return noticias.findOne(id);
+    public NoticiaView mostrarUna(long id) {
+        Noticia n = noticias.findOne(id);
+        NoticiaView nv;
+    	List<String> lcomentsShow = new ArrayList<>();
+        List<CommentClass> lcoments = coments.findByNoticia(n);
+        for(CommentClass com: lcoments){
+        	lcomentsShow.add(com.getUser().getUserName() + " dice: " + com.getComentario());
+        }
+        nv = new NoticiaView(n,lcomentsShow);
+        return nv;
     }
 
-    public Noticia comentar(User u, String comentario, long id){ 
+    public NoticiaView comentar(User u, String comentario, long id){ 
         Noticia n = noticias.findOne(id);    //pillamos la noticia de la bd
+        NoticiaView nv = null;
         if (n!=null){
            CommentClass c = new CommentClass(comentario, u.getUser(),n);
            coments.save(c);
-           n.getComentarios().add(c.getId());
            n.setNumber_comments(n.getNumComentarios() + 1);
            noticias.save(n);
+           List<String> lcomentsShow = new ArrayList<>();
+           List<CommentClass> lcoments = coments.findByNoticia(n);
+           for(CommentClass com: lcoments){
+           	lcomentsShow.add(com.getUser().getUserName() + " dice: " + com.getComentario());
            }
-        return n;
+           nv = new NoticiaView(n,lcomentsShow);
+           }
+        return nv;
    }
 
     public Noticia addNewBlog(Noticia noticia){

@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Noticia {
@@ -24,10 +25,9 @@ public class Noticia {
     private String cuerpo;
     private String categoria;
     private int number_comments;
-    private ArrayList<Long> comentarios;
+    //private ArrayList<Long> comentarios;
     private Date date;
-
-
+   
     public Noticia() {
     }
 
@@ -37,7 +37,7 @@ public class Noticia {
         this.categoria = categoria;
         this.date = date;
         number_comments = 0;
-        this.comentarios = comentarios;
+        //this.comentarios = comentarios;
         //this.ruta_imagen=ruta_imagen;
     }
 
@@ -47,7 +47,7 @@ public class Noticia {
         this.categoria = categoria;
         this.date = date;
         this.number_comments = ncom;
-        this.comentarios = comentarios;
+        //this.comentarios = comentarios;
         //this.ruta_imagen=ruta_imagen;
     }
 
@@ -78,9 +78,9 @@ public class Noticia {
         return this.number_comments;
     }
 
-    public ArrayList<Long> getComentarios() {
+    /*public ArrayList<Long> getComentarios() {
         return this.comentarios;
-    }
+    }*/
 
     public void settitle(String title) {
         this.title = title;
@@ -100,9 +100,9 @@ public class Noticia {
         number_comments++;
     }*/
 
-    public void setComentarios(ArrayList<Long> comentarios) {
+    /*public void setComentarios(ArrayList<Long> comentarios) {
         this.comentarios = comentarios;
-    }
+    }*/
     
     public void setNumber_comments(int number_comments) {
         this.number_comments = number_comments;

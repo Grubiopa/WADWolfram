@@ -54,11 +54,11 @@ public class NoticiasController {
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String mostrarUna(Model model, HttpSession sesion, @RequestParam long id) {
-        Noticia n = service.mostrarUna(id);
+        NoticiaView n = service.mostrarUna(id);
         User s = (User) sesion.getAttribute("User");
-        model.addAttribute("new", n);
-        model.addAttribute("lcomentarios", n.getComentarios());
-        model.addAttribute("id", n.getId());
+        model.addAttribute("new", n.getNoticia());       
+        model.addAttribute("lcomentarios", n.getComents());
+        model.addAttribute("id", n.getNoticia().getId());
         if(s==null){
             model.addAttribute("logeado", true);
         }else{
@@ -74,15 +74,10 @@ public class NoticiasController {
             return "login";
         } 
         else {
-        	Noticia n=service.comentar(s, comentarios, id);
-            model.addAttribute("new", n);
-            List<String> lcomentsShow = new ArrayList<>();
-            List<CommentClass> lcoments = coments.findByNoticia(n);
-            for(CommentClass com: lcoments){
-            	lcomentsShow.add(com.getUser().getUserName() + " dice: " + com.getComentario());
-            }
-            model.addAttribute("lcomentarios", lcomentsShow);
-            model.addAttribute("id", n.getId());
+        	NoticiaView n=service.comentar(s, comentarios, id);
+            model.addAttribute("new", n.getNoticia());           
+            model.addAttribute("lcomentarios", n.getComents());
+            model.addAttribute("id", n.getNoticia().getId());
             model.addAttribute("logeado2", true);
             
             return "new_template";

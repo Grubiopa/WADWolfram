@@ -73,18 +73,18 @@ public class UserRestController {
 			User user = (User) sesion.getAttribute("User");
 			UserPersonalData upd2 = users.findOne(id);
 			if (upd2.getId()== user.getUser().getId()){
-				if (!upd.getEmail().isEmpty()) {
+				if (upd.getEmail()!=null) {
 					upd2.setEmail(upd.getEmail());
 				}
 
-				if (!upd.getUsername().isEmpty()) {
+				if (upd.getUsername()!=null) {
 					upd2.setUserName(upd.getUsername());
 				}
 				
-				if (!upd2.matchPassword(upd.getOldPassword())) {
+				if (upd.getOldPassword()!= null || !upd2.matchPassword(upd.getOldPassword())) {
 					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);				 
 				}
-				if (!upd.getNewPassword().isEmpty()) {
+				if (upd.getNewPassword()!=null) {
 					upd2.setPasswordHash(upd.getNewPassword());
 				}
 

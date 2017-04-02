@@ -227,55 +227,51 @@ Permite cambiar los datos de la cuenta del administrador, así como crear otro a
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Capturas/Perfil-admin.png)
 
 
-##Fase 3
+## Fase 3
 
 Los cambios más relevantes a destacar con respecto a la fase anterior (fase 2), han sido los dos siguientes.
 Por un lado, hemos creado la entidad "donación", la cual no había sido tenida en cuenta en un primer momento. Al valorar si incluir este dato en la entidad usuario o en la entidad proyecto, nos dimos cuenta de que, en verdad, un usuario determinado realiza una donación para un proyecto en concreto y que una donación tiene dos características propias: la cuantía y la fecha. Así que decidimos que el dato donación sería una entidad en sí misma con una relación 1-1 (o, más concretamente, n-1, ya que tanto un usuario como un proyecto pueden tener varias donaciones asociadas) con las entidades usuario y proyecto.
 Por otra parte, inicialmente, habíamos incluido el cuerpo de las noticias en la página correspondiente al blog sin la posibilidad de visualizar el contenido de cada noticia por separado. En esta fase, hemos creado una plantilla para generar una página específica para cada noticia con sus correspondientes comentarios realizados por los usuarios de la aplicación. Por tanto, como consecuencia del cambio anterior, ya no aparece en la página del blog el formulario para dejar un comentario, teniendo que seleccionar la noticia a comentar, sino que éste se encuentra dentro de la página propia de cada noticia facilitando así su contextualización.
 
-##Navegación
+## Navegación
 
 La navegación por las pantallas no ha cambiado mucho respecto a la fase 2, por eso se muestran las pantallas donde ha habido cambios significativos.
 
-![alt tag]()
-
-
-##Entidades de la Base de Datos
+## Entidades de la Base de Datos
 
 En este diagrama se muestran las entidades de la base de datos y sus relaciones entre sí.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Relacion de entidades.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/Relacion_de_entidades.png)
 
 
-##Diagrama de clases y templates
+## Diagrama de clases y templates
 
 A continuación se muestra un diagrama de clases con las relaciones entre los @Controller y los Repository, así como los templates que los usan.
 
-![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/diagrama clases.png)
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/diagrama_clases.png)
 
 
-##Fase 4
+## Fase 4
 
 A continuación exponemos las operaciones que ofrece la API REST para cada recurso, junto con el formato de la URL, información de entrada y salida y códigos de estado asociados a cada petición.
 Se destaca que, en caso de que la petición no se resuelva con éxito, se devolverá el código de error 404 NOT FOUND y, en caso de que sísea llevada a cabo con éxito, el código de estado 201 CREATED para la petición POST y 200 OK para el resto. Además, las peticiones de tipo POST y PUT llevan asociada la cabecera {"Content-type":"application/json"}.
 
-##Proyectos
+## Proyectos
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
 | /api/admin/AddProject/create | POST | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}]} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":},{"id":2,"money":60.0,"date":}]} | 201 (CREATED) |
 | /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}]} | 200 (OK) |
 | /api/projects | GET | ... | [{"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"},{"id":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","description":"Description2","totalBudget":600.0,"parcialBudget":10.0,"restBudget":590.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"}] | 200 (OK) |
-| /api/pay/projects | PUT | {"id":3,"money":40.0,"date":} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":},{"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":}]} | 200 (OK) |
 | /api/borrarProyecto/1 | DELETE | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":},{"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":}]} | 200 (OK) |
 | /api/admin/AddProject/create | POST | ... | ... | 201 (CREATED) / 404 (NOT FOUND) |
 | /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":}, {"id":2,"money":60.0,"date":}, {"id":3,"money":40.0,"date":]} | 200 (OK) / 404 (NOT FOUND) |
 | /api/projects | GET | ... | ... | 200 (OK) |
-| /api/pay/projects | PUT | {"money":4000} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"description","totalBudget":500000.0,"parcialBudget":4150.0,"restBudget":495850.0,"time":36.0,"opened":true,"releaseDate":1491041583000,"startYear":2017,"image":"image","donations":[{"money":50.0,"date":"01-04-2017"},{"money":60.0,"date":"01-04-2017"},{"money":40.0,"date":"01-04-2017"},{"money":4000.0,"date":"01-04-2017"}]} | 201 (CREATED)
+| /api/pay/projects | POST | {"money":4000} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"description","totalBudget":500000.0,"parcialBudget":4150.0,"restBudget":495850.0,"time":36.0,"opened":true,"releaseDate":1491041583000,"startYear":2017,"image":"image","donations":[{"money":50.0,"date":"01-04-2017"},{"money":60.0,"date":"01-04-2017"},{"money":40.0,"date":"01-04-2017"},{"money":4000.0,"date":"01-04-2017"}]} | 201 (CREATED)
 | /api/borrarProyecto/id | DELETE | ... | ... | 200 (OK) |
 
 
-##Noticias
+## Noticias
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
@@ -292,9 +288,18 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 | /api/comment/upload/{id} | PUT | ... | ... | 200 (OK) |
 | /api/borrarNoticia | DELETE | ... |  | 200 (OK) |
 
-##Users
+## Users
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
 | /api/users/login | GET | authentication (email y pass) |{"colaborateProjects":[{"projectId":1,"title":"Titulo","shortDescription":"Breve Descripcion","money":150.0},{"projectId":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","money":10.0}],"otherProjects":[],"donations":[{"projectTitle":"Titulo","money":50.0,"date":1491040847000},{"projectTitle":"Titulo","money":60.0,"date":1491040847000},{"projectTitle":"Titulo","money":40.0,"date":1491040847000},{"projectTitle":"Titulo2","money":10.0,"date":1491040847000}],"user":{"id":2,"name":"Elnombre","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$SAmZWSk8TwRBPGzYxRo8/.UrSlUTEialtcK20v/vu5E40smPFgyOG","roles":["ROLE_USER"]}}|200 (OK)
 | /api/users/register/create |POST|	"name":"Gabi","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$uetOA9NXy6ZI4cXeCwbw6OQFViEy5Daaiyfm3eq92Kvnh.8pOMX.G"| {"name": "Gabi", "lastname": "Elapellido", "surname": "Elapellido", "email": "e@e.es", "userName": "e", "photo2": "icon.png", "passwordHash":"aaaa", "roles": ["ROLE_USER"]}|201 (Created)|
+| /api/users/update/{id}| PUT
+
+## Admin
+
+| URL | Método | Info. entrada | Info. salida | Cód. estado |
+| ----- | ----- | ----- | ----- | ----- |
+| /api/admin/Profile/create | POST | authentication (email y pass) |
+| /api/admin/Profile/update/{id} |PUT|	
+

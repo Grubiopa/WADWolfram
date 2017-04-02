@@ -81,7 +81,7 @@ public class UserRestController {
 					upd2.setUserName(upd.getUsername());
 				}
 				
-				if (upd.getOldPassword()!= null || !upd2.matchPassword(upd.getOldPassword())) {
+				if (upd.getOldPassword()== null || !upd2.matchPassword(upd.getOldPassword())) {
 					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);				 
 				}
 				if (upd.getNewPassword()!=null) {

@@ -13,8 +13,11 @@ import javax.persistence.Id;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
+
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class UserPersonalData {
@@ -27,29 +30,21 @@ public class UserPersonalData {
 @JsonView(Basico.class)
 	private String name;
 	private String lastname;
-	//private String surname;
 	private String email;
 	private String userName;
-	//private String photo;
 	//@JsonIgnore
 	private String passwordHash;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 
-	// protected UserMovements(){}
 	
    public UserPersonalData(String name, String surname, String email, String userName, String oldPassword,
 			String newPassword, String photo2, String...roles) {
 		this.name = name;
-		//this.surname = surname;
 		this.lastname = surname;
 		this.email = email;
 		this.userName = userName;
-		//this.oldPassword = oldPassword;
-	//	this.newPassword = newPassword;
-		//this.photo = id + ".png";
-		//this.roles = roles;
 		this.passwordHash = new BCryptPasswordEncoder().encode(newPassword);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
@@ -69,14 +64,6 @@ public class UserPersonalData {
 		this.name = name;
 	}
 
-	/*public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}*/
-
 	public String getEmail() {
 		return email;
 	}
@@ -92,31 +79,6 @@ public class UserPersonalData {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
-	/*public String getOldPassword() {
-		return oldPassword;
-	}
-
-	public void setOldPassword(String oldPassword) {
-		this.oldPassword = oldPassword;
-	}
-
-	public String getNewPassword() {
-		return newPassword;
-	}
-
-	public void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
-	}*/
-	
-	
-	/*public String getPhoto2() {
-		return photo;
-	}
-
-	public void setPhoto2(String photo2) {
-		this.photo = photo2;
-	}*/
 
 	public long getId() {
 		return id;

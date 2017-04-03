@@ -256,6 +256,12 @@ A continuación se muestra un diagrama de clases con las relaciones entre los @C
 A continuación exponemos las operaciones que ofrece la API REST para cada recurso, junto con el formato de la URL, información de entrada y salida y códigos de estado asociados a cada petición.
 Se destaca que, en caso de que la petición no se resuelva con éxito, se devolverá el código de error 404 NOT FOUND y, en caso de que sísea llevada a cabo con éxito, el código de estado 201 CREATED para la petición POST y 200 OK para el resto. Además, las peticiones de tipo POST y PUT llevan asociada la cabecera {"Content-type":"application/json"}.
 
+
+## Diagrama de clases WEB/REST
+
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/diagrama_clases_rest_web.png)
+
+
 ## Proyectos
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |

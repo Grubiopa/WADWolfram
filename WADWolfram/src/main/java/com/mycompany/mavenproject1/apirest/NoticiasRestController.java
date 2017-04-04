@@ -69,7 +69,7 @@ public class NoticiasRestController {
         User s = (User) sesion.getAttribute("User");
         if (s == null) {
         	//revisar
-           	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+           	return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         } 
         else {
         	   NoticiaView n=service.comentar(s, comentarios.getTexto(), id);

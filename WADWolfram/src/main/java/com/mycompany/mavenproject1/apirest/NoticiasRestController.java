@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.mycompany.mavenproject1.noticias.Comentario;
 import com.mycompany.mavenproject1.noticias.Noticia;
 import com.mycompany.mavenproject1.noticias.NoticiaView;
 import com.mycompany.mavenproject1.noticias.NoticiasService;
@@ -63,14 +65,14 @@ public class NoticiasRestController {
     }
 
     @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<NoticiaView> comentar(HttpSession sesion, @RequestParam String comentarios, @PathVariable long id) {
+    public ResponseEntity<NoticiaView> comentar(HttpSession sesion, @RequestBody Comentario comentarios, @PathVariable long id) {
         User s = (User) sesion.getAttribute("User");
         if (s == null) {
         	//revisar
            	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } 
         else {
-        	   NoticiaView n=service.comentar(s, comentarios, id);
+        	   NoticiaView n=service.comentar(s, comentarios.getTexto(), id);
         	   if(n!=null)
            		   return new ResponseEntity<>(n, HttpStatus.OK);
         		   else

@@ -43,7 +43,7 @@ public class NoticiasRestController {
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public ResponseEntity<ArrayList<Noticia>> mostrarPorCategoria(@RequestParam String category) {
-        ArrayList<Noticia> l = service.mostrarPorCategoria(categoria);
+        ArrayList<Noticia> l = service.mostrarPorCategoria(category);
         if (!l.isEmpty())  
            return new ResponseEntity<>(l, HttpStatus.OK);
         else

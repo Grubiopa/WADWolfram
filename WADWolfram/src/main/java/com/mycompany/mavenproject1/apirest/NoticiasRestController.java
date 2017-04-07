@@ -41,8 +41,8 @@ public class NoticiasRestController {
 
   //  private static final String FILES_FOLDER = "fileFolderNews";
 
-    @RequestMapping(value = "/mostrarPorCategoria/{categoria}", method = RequestMethod.GET)
-    public ResponseEntity<ArrayList<Noticia>> mostrarPorCategoria(@PathVariable String categoria) {
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public ResponseEntity<ArrayList<Noticia>> mostrarPorCategoria(@RequestParam String category) {
         ArrayList<Noticia> l = service.mostrarPorCategoria(categoria);
         if (!l.isEmpty())  
            return new ResponseEntity<>(l, HttpStatus.OK);
@@ -50,7 +50,7 @@ public class NoticiasRestController {
            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(value = "/blog", method = RequestMethod.GET)
+    @RequestMapping(value = "/news", method = RequestMethod.GET)
     public ArrayList<Noticia> mostrarTodas(	) {
         return service.mostrarTodas();
     }
@@ -64,7 +64,7 @@ public class NoticiasRestController {
            	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(value = "/comment/upload/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/new/{id}", method = RequestMethod.PUT)
     public ResponseEntity<NoticiaView> comentar(HttpSession sesion, @RequestBody Comentario comentarios, @PathVariable long id) {
         User s = (User) sesion.getAttribute("User");
         if (s == null) {
@@ -80,7 +80,7 @@ public class NoticiasRestController {
         }
     }
 
-    @RequestMapping(value = 		"/admin/AddBlog/create", method = RequestMethod.POST)
+    @RequestMapping(value = 		"/new", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public Noticia addNewBlog(				@RequestBody Noticia  noticia){
         Noticia n=service.addNewBlog(noticia);

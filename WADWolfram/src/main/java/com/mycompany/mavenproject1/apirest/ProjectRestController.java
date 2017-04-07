@@ -60,7 +60,7 @@ public class ProjectRestController {
 	}
 
 	@JsonView(ProyectoDetalle.class)
-	@RequestMapping(value = "/borrarProyecto/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/project/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Project> deleteProject(@PathVariable long id) {
 		Project p = service.deleteProject(id);
 		if (p != null)
@@ -71,7 +71,7 @@ public class ProjectRestController {
 
 	// Rehecho by Gabi
 	@JsonView(ProyectoDetalle.class)
-	@RequestMapping(value = "/pay/projects/{projectId}", method = RequestMethod.POST)
+	@RequestMapping(value = "/pproject/{projectId}", method = RequestMethod.PUT)
 	public ResponseEntity<Project> donate(@PathVariable long projectId, HttpSession sesion, @RequestBody UserMovement m) {
 		Date date = new Date();
 		User s = (User) sesion.getAttribute("User");
@@ -86,7 +86,7 @@ public class ProjectRestController {
 	}
 
 	@JsonView(ProyectoDetalle.class)
-	@RequestMapping(value = "/admin/AddProject/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/project", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Project addNewProject(@RequestBody Project project) {
 		Project p = service.addNewProject(project);

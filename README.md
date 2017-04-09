@@ -279,6 +279,7 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 | ----- | ----- | ----- |
 | /api/new | POST | 201 (CREATED) |
 | Info. entrada | 
+| ----- |
 | {"title":"Noticia1",
 "cuerpo":"cuerpo",
 "categoria":"enfermedad",

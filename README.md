@@ -372,9 +372,7 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 
 |Info. salida |
 | ----- |
-|"id":2,"name":"Gabi","lastname":"Elapellido","email":"e@e.es","userName":"e","passwordHash":"$2a$10$uetOA9NXy6ZI4cXeCwbw6OQFViEy5Daaiyfm3eq92Kvnh.8pOMX.G","roles": [
-    "ROLE_USER"
-  ]| 
+|"id":2,"name":"Gabi","lastname":"Elapellido","email":"e@e.es","userName":"e","passwordHash":"$2a$10$uetOA9NXy6ZI4cXeCwbw6OQFViEy5Daaiyfm3eq92Kvnh.8pOMX.G","roles": ["ROLE_USER"]| 
 
 | URL | Método | Cód. estado |
 | ----- | ----- | ----- |

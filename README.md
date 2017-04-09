@@ -280,13 +280,7 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 | /api/new | POST | 201 (CREATED) |
 | Info. entrada | 
 | ----- |
-| {"title":"Noticia1",
-"cuerpo":"cuerpo",
-"categoria":"enfermedad",
-"comentarios":[],
-"date":"02-04-17"
-} |
-
+| {"title":"Noticia1", "cuerpo":"cuerpo", "categoria":"enfermedad", "comentarios":[], "date":"02-04-17"} |
 |Info. salida |
 | ----- |
 | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-0-17,"numComentarios":0} |

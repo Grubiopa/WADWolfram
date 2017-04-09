@@ -281,28 +281,137 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 
 | Info. entrada | 
 | ----- |
-| {"title":"Noticia1", "cuerpo":"cuerpo", "categoria":"enfermedad", "comentarios":[], "date":"02-04-17"} |
+| {"title":"Noticia1", "cuerpo":"cuerpo", "categoria":"enfermedad", "date":"02-04-17"} |
+
 |Info. salida |
 | ----- |
 | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-0-17,"numComentarios":0} |
-| /api/new/1 | GET | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-04-17,"numComentarios":0} | 200 (OK) |
-| /api/new?category=enfermedad | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0}] | 200 (OK) |
-| /api/news | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0},{"id":2,"title":"Noticia2","cuerpo":"cuerpo2","categoria":"eventos","date":01-04-17,"numComentarios":0}] | 200 (OK) |
-| /api/new/1 | PUT | {"message":"hola" |  {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 200 (OK) |
-| /api/new/1 | DELETE | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 200 (OK) |
+
+| URL | Método | Cód. estado |
+| ----- | ----- | ----- |
+| /api/new/1 | GET |  200 (OK) |
+
+| Info. entrada | 
+| ----- |
+| ... |
+
+|Info. salida |
+| ----- |
+| {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-04-17,"numComentarios":0} |
+
+| URL | Método | Cód. estado |
+| ----- | ----- | ----- |
+| /api/new?category=enfermedad | GET | 200 (OK) |
+
+| Info. entrada | 
+| ----- |
+| ... | 
+
+|Info. salida |
+| ----- |
+|[{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0}] |
+
+| URL | Método | Cód. estado |
+| ----- | ----- | ----- |
+| /api/news | GET | 200 (OK) |
+
+| Info. entrada | 
+| ----- |
+| ... | 
+
+|Info. salida |
+| ----- |
+| [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0},{"id":2,"title":"Noticia2","cuerpo":"cuerpo2","categoria":"eventos","date":01-04-17,"numComentarios":0}] | 
+
+| URL | Método | Cód. estado |
+| ----- | ----- | ----- |
+| /api/new/1 | PUT | 200 (OK) | 
+
+| Info. entrada | 
+| ----- |
+|{"message":"hola" | 
+
+|Info. salida |
+| ----- |
+|{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} |
+
+| URL | Método | Cód. estado |
+| ----- | ----- | ----- |
+| /api/new/1 | DELETE | 200 (OK) |
+
+| Info. entrada | 
+| ----- |
+| ... | 
+
+|Info. salida |
+| ----- |
+| {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 
+
 
 ## Users
 
-| URL | Método | Info. entrada | Info. salida | Cód. estado |
-| ----- | ----- | ----- | ----- | ----- |
-| /api/users/login | GET | authentication (email y pass) |{"colaborateProjects":[{"projectId":1,"title":"Titulo","shortDescription":"Breve Descripcion","money":150.0},{"projectId":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","money":10.0}],"otherProjects":[],"donations":[{"projectTitle":"Titulo","money":50.0,"date":1491040847000},{"projectTitle":"Titulo","money":60.0,"date":1491040847000},{"projectTitle":"Titulo","money":40.0,"date":1491040847000},{"projectTitle":"Titulo2","money":10.0,"date":1491040847000}],"user":{"id":2,"name":"Elnombre","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$SAmZWSk8TwRBPGzYxRo8/.UrSlUTEialtcK20v/vu5E40smPFgyOG","roles":["ROLE_USER"]}}|200 (OK)
-| /api/users/register/create |POST|	"name":"Gabi","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$uetOA9NXy6ZI4cXeCwbw6OQFViEy5Daaiyfm3eq92Kvnh.8pOMX.G"| {"name": "Gabi", "lastname": "Elapellido", "surname": "Elapellido", "email": "e@e.es", "userName": "e", "photo2": "icon.png", "passwordHash":"aaaa", "roles": ["ROLE_USER"]}|201 (Created)|
-| /api/users/update/{id}| PUT|{"email": "t@t.t","userName": "gasdsdsdsw","oldPassword":"e","newPassword":"b"}|{"id":2,"name":"Elnombre","lastname":"Elapellido","email":"t@t.t","userName":"e","passwordHash":"$2a$10$HWbgVEZAWBmmV0Gq.nxlHeCKb26DAkKJWZe6ZxCqh0N65TMCCDvTa","roles":["ROLE_USER"]}|200 (OK)|
+| URL | Método | Cód. estado |
+| ----- | ----- | ----- |
+| /api/users/login | GET | 200 (OK)|
+
+| Info. entrada | 
+| ----- |
+| authentication (email y pass) |
+
+|Info. salida |
+| ----- |
+|{"colaborateProjects":[{"projectId":1,"title":"Titulo","shortDescription":"Breve Descripcion","money":150.0},{"projectId":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","money":10.0}],"otherProjects":[],"donations":[{"projectTitle":"Titulo","money":50.0,"date":1491040847000},{"projectTitle":"Titulo","money":60.0,"date":1491040847000},{"projectTitle":"Titulo","money":40.0,"date":1491040847000},{"projectTitle":"Titulo2","money":10.0,"date":1491040847000}],"user":{"id":2,"name":"Elnombre","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$SAmZWSk8TwRBPGzYxRo8/.UrSlUTEialtcK20v/vu5E40smPFgyOG","roles":["ROLE_USER"]}}|
+
+| URL | Método | Cód. estado |
+| ----- | ----- | ----- |
+| /api/users/register/create |POST|	201(Created)|
+
+| Info. entrada | 
+| ----- |
+|{"name": "Gabi", "lastname": "Elapellido", "surname": "Elapellido", "email": "e@e.es", "userName": "e", "passwordHash":"aaaa", "roles": ["ROLE_USER"]}|
+
+|Info. salida |
+| ----- |
+|"id":2,"name":"Gabi","lastname":"Elapellido","email":"e@e.es","userName":"e","passwordHash":"$2a$10$uetOA9NXy6ZI4cXeCwbw6OQFViEy5Daaiyfm3eq92Kvnh.8pOMX.G","roles": [
+    "ROLE_USER"
+  ]| 
+
+| URL | Método | Cód. estado |
+| ----- | ----- | ----- |
+| /api/users/update/{id}| PUT| 200 (OK)|
+
+| Info. entrada | 
+| ----- |
+|{"email": "t@t.t","userName": "e","oldPassword":"aaaa","newPassword":"b"}|
+
+|Info. salida |
+| ----- |
+| {"id":2,"name":"Elnombre","lastname":"Elapellido","email":"t@t.t","userName":"e","passwordHash":"$2a$10$HWbgVEZAWBmmV0Gq.nxlHeCKb26DAkKJWZe6ZxCqh0N65TMCCDvTa","roles":["ROLE_USER"]}|
+
 
 ## Admin
 
-| URL | Método | Info. entrada | Info. salida | Cód. estado |
-| ----- | ----- | ----- | ----- | ----- |
-| /api/admin/Profile/create | POST | {"name": "tono","lastname": "P","email": "a@a.a","userName": "tono94","passwordHash": "wwww","roles": ["ROLE_ADMIN"]} | {"id":3,"name":"tono","lastname":"P","email":"a@a.a","userName":"tono94","passwordHash":"$2a$10$5jGyhL0M1U.LOmpz.Sqeou5qyFCWjt1/PTeS7S6z0xSqLlLKEiWgK","roles":["ROLE_ADMIN"]} | 200 (OK)| 
-| /api/admin/Profile/update/{id} |PUT|{"email":"g.tu@gabon.g","oldPassword":"aaaa","newPassword":"bbbb"}|{"id":1,"name":"Gabi","lastname":"R","email":"g.tu@yg.gru","userName":"gabi0794","passwordHash":"$2a$10$bjUne4ReImNBzo7w1D.tD.uaban9XkwrsMxOMDrtZ8TEK2PjkmewC","roles":["ROLE_ADMIN"]} |200 (OK)| 
+| URL | Método | Cód. estado |
+| ----- | ----- | ----- |
+| /api/admin/Profile/create | POST | 200 (OK)| 
+
+| Info. entrada | 
+| ----- |
+|{"name": "tono","lastname": "P","email": "a@a.a","userName": "tono94","passwordHash": "wwww","roles": ["ROLE_ADMIN"]} | 
+
+|Info. salida |
+| ----- |
+|{"id":3,"name":"tono","lastname":"P","email":"a@a.a","userName":"tono94","passwordHash":"$2a$10$5jGyhL0M1U.LOmpz.Sqeou5qyFCWjt1/PTeS7S6z0xSqLlLKEiWgK","roles":["ROLE_ADMIN"]} |
+
+| URL | Método | Cód. estado |
+| ----- | ----- | ----- |
+| /api/admin/Profile/update/{id} |PUT| 200 (OK)| 
+
+| Info. entrada | 
+| ----- |
+|{"email":"g.tu@gabon.g","oldPassword":"aaaa","newPassword":"bbbb"}|
+
+|Info. salida |
+| ----- |
+|{"id":1,"name":"Gabi","lastname":"R","email":"g.tu@yg.gru","userName":"gabi0794","passwordHash":"$2a$10$bjUne4ReImNBzo7w1D.tD.uaban9XkwrsMxOMDrtZ8TEK2PjkmewC","roles":["ROLE_ADMIN"]} |
 

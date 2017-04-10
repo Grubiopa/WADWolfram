@@ -262,165 +262,41 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 ![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/diagrama_clases_rest_web.png)
 
 
+
 ## Proyectos
 
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
-| /api/project | POST | {"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","} | 201 (CREATED) |
-| /api/project/1 | GET | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"} | 200 (OK) |
-| /api/projects | GET | ... | [{"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"},{"id":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","description":"Description2","totalBudget":600.0,"parcialBudget":10.0,"restBudget":590.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image"}] | 200 (OK) |
-| /api/project/1 | PUT | {"money":50.0} | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"description","totalBudget":500000.0,"parcialBudget":4150.0,"restBudget":495850.0,"time":36.0,"opened":true,"releaseDate":1491041583000,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":"01-04-2017"}]} | 201 (CREATED)
-| /api/project/1 | DELETE | ... | {"id":1,"title":"Titulo","shortDescription":"Breve Descripcion","description":"Description","totalBudget":500000.0,"parcialBudget":150.0,"restBudget":499850.0,"time":36.0,"opened":true,"releaseDate":,"startYear":2017,"image":"image","donations":[{"id":1,"money":50.0,"date":01-04-17}]} | 200 (OK) |
+| /api/project | POST | {</br>"title":"Titulo",</br>"shortDescription":"Breve Descripcion",</br>"description":"Description",</br>"totalBudget":500000.0,</br>"parcialBudget":150.0,</br>"restBudget":499850.0,</br>"time":36.0,</br>"opened":true,</br>"releaseDate":,</br>"startYear":2017,</br></br>"image":"image"</br>} | {</br>"id":1,</br>"title":"Titulo",</br>"shortDescription":"Breve Descripcion",</br>"description":"Description",</br>"totalBudget":500000.0,</br>"parcialBudget":150.0,</br>"restBudget":499850.0,</br>"time":36.0,</br>"opened":true,</br>"releaseDate":,</br>"startYear":2017,</br>"image":"image","</br>} | 201 (CREATED) |
+| /api/project/1 | GET | ... | {"id":1,</br>"title":"Titulo",</br>"shortDescription":"Breve Descripcion",</br>"description":"Description",</br>"totalBudget":500000.0,</br>"parcialBudget":150.0,</br>"restBudget":499850.0,</br>"time":36.0,</br>"opened":true,</br>"releaseDate":,</br>"startYear":2017,</br>"image":"image"</br>} | 200 (OK) |
+| /api/projects | GET | ... | [</br>{</br>"id":1,</br>"title":"Titulo",</br>"shortDescription":"Breve Descripcion",</br>"description":"Description",</br>"totalBudget":500000.0,</br>"parcialBudget":150.0,</br>"restBudget":499850.0,</br>"time":36.0,</br>"opened":true,</br>"releaseDate":,</br>"startYear":2017,</br>"image":"image"</br>},</br>{"id":2,"title":"Titulo2","shortDescription":"Breve Descripcion2",</br>"description":"Description2",</br>"totalBudget":600.0,</br>"parcialBudget":10.0,</br>"restBudget":590.0,</br>"time":36.0,</br>"opened":true,</br>"releaseDate":,</br>"startYear":2017,</br>"image":"image"</br>}</br>] | 200 (OK) |
+| /api/project/1 | PUT | {"money":50.0} | {</br>"id":1,</br>"title":"Titulo",</br>"shortDescription":"Breve Descripcion",</br>"description":"description",</br>"totalBudget":500000.0,</br>"parcialBudget":4150.0,</br>"restBudget":495850.0,</br>"time":36.0,</br>"opened":true,</br>"releaseDate":1491041583000,</br>"startYear":2017,</br>"image":"image",</br>"donations":[</br>{</br>"id":1,</br>"money":50.0,</br>"date":"01-04-2017"</br>}</br>]</br>} | 201 (CREATED)
+| /api/project/1 | DELETE | ... | {</br>"id":1,</br>"title":"Titulo",</br>"shortDescription":"Breve Descripcion",</br>"description":"Description",</br>"totalBudget":500000.0,</br>"parcialBudget":150.0,</br>"restBudget":499850.0,</br>"time":36.0,</br>"opened":true,</br>"releaseDate":,</br>"startYear":2017,</br>"image":"image",</br>"donations":[</br>{</br>"id":1,</br>"money":50.0,</br>"date":01-04-17</br>}</br>]</br>} | 200 (OK) |
 
 
 ## Noticias
 
-<<<<<<< HEAD
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/new | POST | 201 (CREATED) |
-
-| Info. entrada | 
-| ----- |
-| {"title":"Noticia1", "cuerpo":"cuerpo", "categoria":"enfermedad", "date":"02-04-17"} |
-
-|Info. salida |
-| ----- |
-| {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-0-17,"numComentarios":0} |
-
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/new/1 | GET |  200 (OK) |
-
-| Info. entrada | 
-| ----- |
-| ... |
-
-|Info. salida |
-| ----- |
-| {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-04-17,"numComentarios":0} |
-
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/new?category=enfermedad | GET | 200 (OK) |
-
-| Info. entrada | 
-| ----- |
-| ... | 
-
-|Info. salida |
-| ----- |
-|[{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0}] |
-
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/news | GET | 200 (OK) |
-
-| Info. entrada | 
-| ----- |
-| ... | 
-
-|Info. salida |
-| ----- |
-| [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0},{"id":2,"title":"Noticia2","cuerpo":"cuerpo2","categoria":"eventos","date":01-04-17,"numComentarios":0}] | 
-
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/new/1 | PUT | 200 (OK) | 
-
-| Info. entrada | 
-| ----- |
-|{"message":"hola" | 
-
-|Info. salida |
-| ----- |
-|{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} |
-
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/new/1 | DELETE | 200 (OK) |
-
-| Info. entrada | 
-| ----- |
-| ... | 
-
-|Info. salida |
-| ----- |
-| {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 
-
-=======
 | URL | Método | Info. entrada | Info. salida | Cód. estado |
 | ----- | ----- | ----- | ----- | ----- |
-| /api/new | POST | {"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date:02-04-17} |  {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-0-17,"numComentarios":0} | 201 (CREATED) |
-| /api/new/1 | GET | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-04-17,"numComentarios":0} | 200 (OK) |
-| /api/new?category=enfermedad | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0}] | 200 (OK) |
-| /api/news | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0},{"id":2,"title":"Noticia2","cuerpo":"cuerpo2","categoria":"eventos","date":01-04-17,"numComentarios":0}] | 200 (OK) |
-| /api/new/1 | PUT | {"message":"hola" |  {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 200 (OK) |
-| /api/new/1 | DELETE | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 200 (OK) |
->>>>>>> parent of ae8fbea... readme changes
+| /api/new | POST | {</br>"title":"Noticia1",</br>"cuerpo":""cuerpo",</br>"categoria":"enfermedad",</br>"comentarios":[],</br>"date:02-04-17</br>} |  {</br>"id":1,</br>"title":"Noticia1",</br>"cuerpo":""cuerpo",</br>"categoria":"enfermedad",</br>"comentarios":[],</br>"date":02-0-17,</br>"numComentarios":0</br>} | 201 (CREATED) |
+| /api/new/1 | GET | ... | {</br>"id":1,</br>"title":"Noticia1",</br>"cuerpo":""cuerpo",</br>"categoria":"enfermedad",</br>"comentarios":[],</br>"date":02-04-17,</br>"numComentarios":0</br>} | 200 (OK) |
+| /api/new?category=enfermedad | GET | ... | [{</br>"id":1,</br>"title":"Noticia1",</br>"cuerpo":""cuerpo",</br>"categoria":"enfermedad",</br>"date":02-04-17,</br>"numComentarios":0</br>}</br>] | 200 (OK) |
+| /api/news | GET | ... | [</br>{</br>"id":1,</br>"title":"Noticia1",</br>"cuerpo":""cuerpo",</br>"categoria":"enfermedad",</br>"date":02-04-17,</br>"numComentarios":0</br>},</br>{</br>"id":2,</br>"title":"Noticia2",</br>"cuerpo":"cuerpo2",</br>"categoria":"eventos",</br>"date":01-04-17,</br>"numComentarios":0</br>}</br>] | 200 (OK) |
+| /api/new/1 | PUT | {</br>"message":"hola" |  {</br>"id":1,</br>"title":"Noticia1",</br>"cuerpo":""cuerpo",</br>"categoria":"enfermedad",</br>"comentarios":[</br>{</br>"id":1,</br>"comentario":"hola",</br>"user":{</br>"name":"e@e.es"}</br>}</br>],</br>"date":02-04-17,</br>"numComentarios":1</br>} | 200 (OK) |
+| /api/new/1 | DELETE | ... | {</br>"id":1,</br>"title":"Noticia1",</br>"cuerpo":""cuerpo",</br>"categoria":"enfermedad",</br>"comentarios":[</br>{</br>"id":1,</br>"comentario":"hola",</br>"user":{</br>"name":"e@e.es"</br>}</br>}</br>],</br>"date":02-04-17,</br>"numComentarios":1</br>} | 200 (OK) |
 
 ## Users
 
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/users/login | GET | 200 (OK)|
-
-| Info. entrada | 
-| ----- |
-| authentication (email y pass) |
-
-|Info. salida |
-| ----- |
-|{"colaborateProjects":[{"projectId":1,"title":"Titulo","shortDescription":"Breve Descripcion","money":150.0},{"projectId":2,"title":"Titulo2","shortDescription":"Breve Descripcion2","money":10.0}],"otherProjects":[],"donations":[{"projectTitle":"Titulo","money":50.0,"date":1491040847000},{"projectTitle":"Titulo","money":60.0,"date":1491040847000},{"projectTitle":"Titulo","money":40.0,"date":1491040847000},{"projectTitle":"Titulo2","money":10.0,"date":1491040847000}],"user":{"id":2,"name":"Elnombre","lastname":"Elapellido","surname":"Elapellido","email":"e@e.es","userName":"e","photo2":"icon.png","passwordHash":"$2a$10$SAmZWSk8TwRBPGzYxRo8/.UrSlUTEialtcK20v/vu5E40smPFgyOG","roles":["ROLE_USER"]}}|
-
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/users/register/create |POST|	201(Created)|
-
-| Info. entrada | 
-| ----- |
-|{"name": "Gabi", "lastname": "Elapellido", "surname": "Elapellido", "email": "e@e.es", "userName": "e", "passwordHash":"aaaa", "roles": ["ROLE_USER"]}|
-
-|Info. salida |
-| ----- |
-|"id":2,"name":"Gabi","lastname":"Elapellido","email":"e@e.es","userName":"e","passwordHash":"$2a$10$uetOA9NXy6ZI4cXeCwbw6OQFViEy5Daaiyfm3eq92Kvnh.8pOMX.G","roles": ["ROLE_USER"]| 
-
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/users/update/{id}| PUT| 200 (OK)|
-
-| Info. entrada | 
-| ----- |
-|{"email": "t@t.t","userName": "e","oldPassword":"aaaa","newPassword":"b"}|
-
-|Info. salida |
-| ----- |
-| {"id":2,"name":"Elnombre","lastname":"Elapellido","email":"t@t.t","userName":"e","passwordHash":"$2a$10$HWbgVEZAWBmmV0Gq.nxlHeCKb26DAkKJWZe6ZxCqh0N65TMCCDvTa","roles":["ROLE_USER"]}|
-
+| URL | Método | Info. entrada | Info. salida | Cód. estado |
+| ----- | ----- | ----- | ----- | ----- |
+| /api/users/login | GET | authentication (email y pass) |{</br>"colaborateProjects":[</br>{</br>"projectId":1,</br>"title":"Titulo",</br>"shortDescription":"Breve Descripcion",</br>"money":150.0</br>},</br>{</br>"projectId":2,</br>"title":"Titulo2",</br>"shortDescription":"Breve Descripcion2",</br>"money":10.0</br>}</br>],</br>"otherProjects":[],</br>"donations":[</br>{</br>"projectTitle":"Titulo",</br>"money":50.0,</br>"date":1491040847000</br>},</br>{</br>"projectTitle":"Titulo",</br>"money":60.0,</br>"date":1491040847000</br>},</br>{</br>"projectTitle":"Titulo",</br>"money":40.0,</br>"date":1491040847000</br>},</br>{</br>"projectTitle":"Titulo2",</br>"money":10.0,</br>"date":1491040847000</br>}</br>],</br>"user":{</br>"id":2,</br>"name":"Elnombre",</br>"lastname":"Elapellido",</br>"surname":"Elapellido",</br>"email":"e@e.es",</br>"userName":"e",</br>"photo2":"icon.png",</br>"passwordHash":"$2a$10$SAmZWSk8TwRB</br>PGzYxRo8/.UrS</br>lUTEialtcK20v/vu5E40smPFgyOG",</br>"roles":["ROLE_USER"]</br>}</br>}|200 (OK)
+| /api/users/register/create |POST|	"name":"Gabi",</br>"lastname":"Elapellido",</br>"surname":"Elapellido",</br>"email":"e@e.es",</br>"userName":"e",</br>"photo2":"icon.png",</br>"passwordHash":"$2a$10$uetOA</br>9NXy6ZI4cXeCwb</br>w6OQFViEy5Daaiyfm</br>3eq92Kvnh.8pOMX.G"| {</br>"name": "Gabi",</br> "lastname": "Elapellido",</br> "surname": "Elapellido",</br> "email": "e@e.es",</br> "userName": "e",</br> "photo2": "icon.png",</br> "passwordHash":"aaaa",</br> "roles": ["ROLE_USER"]</br>}|201 (Created)|
+| /api/users/update/{id}| PUT|{</br>"email": "t@t.t",</br>"userName": "gasdsdsdsw",</br>"oldPassword":"e",</br>"newPassword":"b"</br>}|{</br>"id":2,</br>"name":"Elnombre",</br>"lastname":"Elapellido",</br>"email":"t@t.t",</br>"userName":"e",</br>"passwordHash":"$2a$10$HWb</br>gVEZAWBmmV0Gq.nxlHeCKb26</br>DAkKJWZe6ZxC</br>qh0N65TMCCDvTa",</br>"roles":["ROLE_USER"]</br>}|200 (OK)|
 
 ## Admin
 
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/admin/Profile/create | POST | 200 (OK)| 
-
-| Info. entrada | 
-| ----- |
-|{"name": "tono","lastname": "P","email": "a@a.a","userName": "tono94","passwordHash": "wwww","roles": ["ROLE_ADMIN"]} | 
-
-|Info. salida |
-| ----- |
-|{"id":3,"name":"tono","lastname":"P","email":"a@a.a","userName":"tono94","passwordHash":"$2a$10$5jGyhL0M1U.LOmpz.Sqeou5qyFCWjt1/PTeS7S6z0xSqLlLKEiWgK","roles":["ROLE_ADMIN"]} |
-
-| URL | Método | Cód. estado |
-| ----- | ----- | ----- |
-| /api/admin/Profile/update/{id} |PUT| 200 (OK)| 
-
-| Info. entrada | 
-| ----- |
-|{"email":"g.tu@gabon.g","oldPassword":"aaaa","newPassword":"bbbb"}|
-
-|Info. salida |
-| ----- |
-|{"id":1,"name":"Gabi","lastname":"R","email":"g.tu@yg.gru","userName":"gabi0794","passwordHash":"$2a$10$bjUne4ReImNBzo7w1D.tD.uaban9XkwrsMxOMDrtZ8TEK2PjkmewC","roles":["ROLE_ADMIN"]} |
+| URL | Método | Info. entrada | Info. salida | Cód. estado |
+| ----- | ----- | ----- | ----- | ----- |
+| /api/admin/Profile/create | POST | {</br>"name": "tono",</br>"lastname": "P",</br>"email": "a@a.a",</br>"userName": "tono94",</br>"passwordHash": "wwww",</br>"roles": ["ROLE_ADMIN"]</br>} | {</br>"id":3,</br>"name":"tono",</br>"lastname":"P",</br>"email":"a@a.a",</br>"userName":"tono94",</br>"passwordHash":"$2a$10$5jG</br>yhL0M1U.LOmpz.Sqe</br>ou5qyFCWjt1/PTeS</br>7S6z0xSqLlLKEiWgK",</br>"roles":["ROLE_ADMIN"]</br>} | 200 (OK)| 
+| /api/admin/Profile/update/{id} |PUT|{</br>"email":"g.tu@gabon.g",</br>"oldPassword":"aaaa",</br>"newPassword":"bbbb"</br>}|{</br>"id":1,</br>"name":"Gabi",</br>"lastname":"R",</br>"email":"g.tu@yg.gru",</br>"userName":"gabi0794",</br>"passwordHash":"$2a$10$bjUn</br>e4ReImNBzo7w1D.tD.uab</br>an9XkwrsMxOMDrt</br>Z8TEK2PjkmewC",</br>"roles":["ROLE_ADMIN"]</br>} |200 (OK)| 
 

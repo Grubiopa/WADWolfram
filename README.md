@@ -275,7 +275,6 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 
 ## Noticias
 
-<<<<<<< HEAD
 | URL | Método | Cód. estado |
 | ----- | ----- | ----- |
 | /api/new | POST | 201 (CREATED) |
@@ -348,16 +347,6 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 | ----- |
 | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 
 
-=======
-| URL | Método | Info. entrada | Info. salida | Cód. estado |
-| ----- | ----- | ----- | ----- | ----- |
-| /api/new | POST | {"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date:02-04-17} |  {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-0-17,"numComentarios":0} | 201 (CREATED) |
-| /api/new/1 | GET | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[],"date":02-04-17,"numComentarios":0} | 200 (OK) |
-| /api/new?category=enfermedad | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0}] | 200 (OK) |
-| /api/news | GET | ... | [{"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","date":02-04-17,"numComentarios":0},{"id":2,"title":"Noticia2","cuerpo":"cuerpo2","categoria":"eventos","date":01-04-17,"numComentarios":0}] | 200 (OK) |
-| /api/new/1 | PUT | {"message":"hola" |  {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 200 (OK) |
-| /api/new/1 | DELETE | ... | {"id":1,"title":"Noticia1","cuerpo":""cuerpo","categoria":"enfermedad","comentarios":[{"id":1,"comentario":"hola","user":{"name":"e@e.es"}}],"date":02-04-17,"numComentarios":1} | 200 (OK) |
->>>>>>> parent of ae8fbea... readme changes
 
 ## Users
 

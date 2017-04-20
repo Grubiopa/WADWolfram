@@ -8,10 +8,11 @@ import { routing } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { IndexComponent } from './entities/Index';
 import {AboutComponent} from './entities/About';
+import {RegisterComponet} from './entities/Register';
 
 @NgModule({
   declarations: [
-    AppComponent,IndexComponent, AboutComponent
+    AppComponent,IndexComponent, AboutComponent, RegisterComponet
   ],
   imports: [
     BrowserModule,

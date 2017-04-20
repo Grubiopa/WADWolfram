@@ -119,9 +119,8 @@
                                     Haciendo click en <strong class="label label-primary">Regístrate</strong>, aceptas las <a href="#" data-toggle="modal" data-target="#t_and_c_m">condiciones y términos de uso</a> de esta página web, incluido el uso de cookies.
                                 </div>
                             </div>
-							{{#contraseñaIncorrecta}}
-                            <h5 style="color: red"><strong> ¡Las contraseñas deben coincidir! </strong></h5>
-                            {{/contraseñaIncorrecta}}
+                            {{#contraseñaIncorrecta}}
+                            <h5 style="color: red"><strong> ¡Las contraseñas deben coincidir! </strong></h5> {{/contraseñaIncorrecta}}
                             <hr class="colorgraph">
                             <div class="row">
                                 <div class="col-xs-12 col-md-6">
@@ -129,6 +128,8 @@
                                 </div>
                                 <div class="col-xs-12 col-md-6">¿Tienes ya una cuenta? <a href="/login">¡Entra en tu cuenta!</a></div>
                             </div>
+                            <input type="hidden" name="_csrf" value="{{token}}" />
+                        </form>
                     </div>
                 </div>
                 <!-- Modal -->
@@ -143,13 +144,13 @@
                                 <p>Condiciones de uso... y términos</p>
                             </div>
                             <div class="modal-footer">
-                            	
+
                                 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="cifrar()">Acepto</button>
                             </div>
                         </div>
-                        <input type="hidden" name="_csrf" value="{{token}}"/>
+
                         <!-- /.modal-content -->
-                         </form>
+
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
@@ -200,7 +201,7 @@
                     <div class="col-sm-3 col-lg-3">
                         <div class="widget">
                             <h4>Idioma</h4>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -248,7 +249,7 @@
     <script src="/js/google-code-prettify/prettify.js"></script>
     <script src="/js/animate.js"></script>
     <script src="/js/custom.js"></script>
-    
+
 
 </body>
 

@@ -9,23 +9,24 @@
                             <button type="button" (click)="showDropdown('collapse')"  class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="Logotipo de la asociación" width="199" height="52" /></a>
+                            <a class="navbar-brand" href=""><img src="/img/logo.png" alt="Logotipo de la asociación" width="199" height="52" /></a>
                         </div>
-                        <div class="navbar-collapse collapse "  [ngbCollapse]="menuCollapse" id="navbar-collapse1">
+                        <div class="navbar-collapse collapse" [ngbCollapse]="menuCollapse">
                             <ul class="nav navbar-nav">
+                               
                                 <li><a [routerLink]="['/index']">Inicio</a></li>
-                                <!--<li><a [routerLink]="['/projects']" routerLinkActive="active">Proyectos</a></li>
-                                <li><a [routerLink]="['/news']" routerLinkActive="active">Noticias</a></li>
-                                <li><a [routerLink]="['/contact']" routerLinkActive="active">Contacto</a></li>
+                                <li><!--<a [routerLink]="['/projects']" routerLinkActive="active">Proyectos</a>-->Proyectos</li>
+                                <li><!--<a [routerLink]="['/news']" routerLinkActive="active">Noticias</a>-->Noticias</li>
+                                <li><!--<a [routerLink]="['/contact']" routerLinkActive="active">Contacto</a>-->Contacto</li>
                                 <li><a [routerLink]="['/about']" routerLinkActive="active">Sobre sus desarrolladores</a></li>
                                 <li class="dropdown"  (click)="showDropdown('loginMenu')" >
 
                                     <a [routerLink] class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Cuenta <i class="fa fa-angle-down"></i></a>
                                     <ul [ngbCollapse]="showMenu" class="dropdown-menu">
-                                        <li><a [routerLink]="['/register']" routerLinkActive="active">Únete</a></li>
-                                        <li><a [routerLink]="['/login']" routerLinkActive="active">Inicia sesión/Mi Cuenta</a></li>
+                                        <li><!--<a [routerLink]="['/register']" routerLinkActive="active">Únete</a>-->Unete</li>
+                                        <li><!--<a [routerLink]="['/login']" routerLinkActive="active">Inicia sesión/Mi Cuenta</a>-->Mi Cuenta</li>
                                     </ul>
-                                </li>-->
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -7,10 +7,11 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { RouterModule } from '@angular/router';
 import { IndexComponent } from './entities/Index';
+import {AboutComponent} from './entities/About';
 
 @NgModule({
   declarations: [
-    AppComponent,IndexComponent
+    AppComponent,IndexComponent, AboutComponent
   ],
   imports: [
     BrowserModule,

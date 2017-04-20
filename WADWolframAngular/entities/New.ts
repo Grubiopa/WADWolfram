@@ -1,12 +1,12 @@
-export class 
+export class New {
     private id:number;
     private title:string;
     private body:string;
     private category:string;
     private number_comments:number;
-    private date:date;
+    private date:Date;
    
-    constructor(title:string, body:string, category:string, date:date) {
+    constructor(title:string, body:string, category:string, date:Date) {
         this.title = title;
         this.body = body;
         this.category = category;
@@ -54,7 +54,7 @@ export class
         this.number_comments = number_comments;
     }
 
-    setDate(date:date) {
+    setDate(date:Date) {
         this.date = date;
     }
 

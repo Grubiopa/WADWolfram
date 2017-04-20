@@ -8,12 +8,12 @@ export class Project{
 	private restBudget:number;
 	private time:number;
 	private opened:boolean;
-	private releaseDate:date;
+	private releaseDate:Date;
 	private startYear:number;
 	private image:string;
 	private donations:Array<Donation>;
 	constructor(title:string, shortDescription:string, description:string, totalBudget:number, parcialBudget:number,
-			time:number, opened:boolean, releaseDate:date, startYear:number, image:string) {
+			time:number, opened:boolean, releaseDate:Date, startYear:number, image:string) {
 		this.title = title;
 		this.shortDescription = shortDescription;
 		this.description = description;
@@ -25,11 +25,11 @@ export class Project{
 		this.releaseDate = releaseDate;
 		this.startYear = startYear;
 		this.image = image;
-		this.donations = new ArrayList<>();
+		this.donations = new Array();
 	}
 
 	getId() {
-		return thsi.id;
+		return this.id;
 	}
 
 	setId(id:number) {
@@ -110,10 +110,10 @@ export class Project{
 	}
 
 	getReleaseDate() {
-		return releaseDate;
+		return this.releaseDate;
 	}
 
-	setReleaseDate(releaseDate:date) {
+	setReleaseDate(releaseDate:Date) {
 		this.releaseDate = releaseDate;
 	}
 
@@ -134,11 +134,11 @@ export class Project{
 	}
 
 	addDonation(d:Donation) {
-		donations.push(d);
-		setParcialBudget(parcialBudget + d.getMoney());
+		this.donations.push(d);
+		this.setParcialBudget(this.parcialBudget + d.getMoney());
 	}
 
 	calculateProgressPercentage() {
-		return (parcialBudget * 100 / totalBudget);
+		return (this.parcialBudget * 100 / this.totalBudget);
 	}
 }

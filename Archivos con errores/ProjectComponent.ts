@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import {Project} from '../entities/Project'
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import {ProjectService} from '../services/ProjectService'
+
 @Component({
 selector: 'project',
 templateUrl: './project.html'

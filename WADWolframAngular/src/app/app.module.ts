@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
+import { HttpModule,JsonpModule } from '@angular/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
+import { routing } from './app.routing';
+import { RouterModule } from '@angular/router';
+import { IndexComponent } from './entities/Index';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,IndexComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,JsonpModule,NgbModule.forRoot(), RouterModule.forRoot(routing)
   ],
   providers: [],
   bootstrap: [AppComponent]

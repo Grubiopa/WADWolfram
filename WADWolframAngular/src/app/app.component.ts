@@ -9,5 +9,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+
+  private menuCollapse: boolean = true;
+  private showMenu: boolean = true;
+  
+  showDropdown(typeMenu: string) {// Método encargado de los dropdowns del navbar
+
+    if (typeMenu === "collapse") {
+
+      this.menuCollapse = !this.menuCollapse;
+
+    } else if (typeMenu === "loginMenu") {
+
+      this.showMenu = !this.showMenu;
+
+    }
+
+  }
 }

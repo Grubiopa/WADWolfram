@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { IndexComponent } from './entities/Index';
 import {AboutComponent} from './entities/About';
 import {BlogComponent} from './entities/Blog';
+import {SingleNewComponent} from './entities/SingleNew';
 import {RegisterComponet} from './entities/Register';
 import {LoginComponent} from './entities/Login';
 import {UserDataPageComponent} from './entities/UserDataPage';
@@ -21,7 +22,7 @@ import {UserService} from './services/UserService';
 
 @NgModule({
   declarations: [
-    AppComponent,IndexComponent, AboutComponent, BlogComponent, RegisterComponet, LoginComponent, UserDataPageComponent,
+    AppComponent,IndexComponent, AboutComponent, BlogComponent, SingleNewComponent, RegisterComponet, LoginComponent, UserDataPageComponent,
     UserProjectComponent,UserMovementsComponent,ContactComponent
   ],
   imports: [

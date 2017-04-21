@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 import { IndexComponent } from './entities/Index';
 import {AboutComponent} from './entities/About';
 import {BlogComponent} from './entities/Blog';
+import {SingleNewComponent} from './entities/SingleNew';
 import {RegisterComponet} from './entities/Register';
 import {LoginComponent} from './entities/Login';
 import{UserDataPageComponent} from './entities/UserDataPage';
@@ -18,6 +19,7 @@ export const  routing : Routes = [
     {path:'index',  component:IndexComponent},
     {path:'about', component:AboutComponent},
     {path:'blog', component:BlogComponent},
+    {path:'singleNew', component:SingleNewComponent},
     {path:'register', component:RegisterComponet},
     {path:'login', component:LoginComponent},
     {path:'contact',component:ContactComponent},

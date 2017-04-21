@@ -6,20 +6,29 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { RouterModule } from '@angular/router';
+
 import { IndexComponent } from './entities/Index';
 import {AboutComponent} from './entities/About';
 import {RegisterComponet} from './entities/Register';
+import {LoginComponent} from './entities/Login';
+import {UserDataPageComponent} from './entities/UserDataPage';
+import{UserProjectComponent} from './entities/UserProjects';
+import{UserMovementsComponent}from './entities/UserMovements';
+import{ContactComponent}from './entities/Contact';
+import {UserService} from './services/UserService';
+
 
 @NgModule({
   declarations: [
-    AppComponent,IndexComponent, AboutComponent, RegisterComponet
+    AppComponent,IndexComponent, AboutComponent, RegisterComponet, LoginComponent, UserDataPageComponent,
+    UserProjectComponent,UserMovementsComponent,ContactComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,JsonpModule,NgbModule.forRoot(), RouterModule.forRoot(routing)
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

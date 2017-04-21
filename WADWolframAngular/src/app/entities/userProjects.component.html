@@ -1,0 +1,67 @@
+  <section id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <nav class="navbar navbar-default" role="navigation" id="navBarModified">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                        <span class="sr-only">Desplegar navegación</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+                               otro elemento que se pueda ocultar al minimizar la barra -->
+                                <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                                    <ul class="nav navbar-nav col-lg-10">
+                                        <li class="active" id="iteMyProyects"><a href="#"  id="myProyects">Mis proyectos</a></li>
+                                        <li id="iteMyMovements"><a href="#"  id="myMovements">Mis movimientos</a></li>
+                                        <li id="iteMyDatas"><a href="#"  id="myDatas">Mis datos</a></li>
+                                    </ul>
+                                    <form action="/user/close" method="post">
+                                        <input type="submit" class="btn btn-info col-lg-2" id="btn_sesion" value="Cerrar sesión" />
+                                    </form>
+
+
+                                </div>
+                            </nav>
+
+                            <div class="inside">
+                                <!--{{#matchpass}}-->
+                                <h5 style="color: red"><strong> ¡Atención! Ningún cambio ha sido guardado porque la contraseña era incorrecta </strong></h5> 
+                                <!--{{/matchpass}}-->
+                                <h1>¡Bienvenid@ <!--{{username}}-->!</h1>
+                                <div class="row show" id="userProjects">
+                                    <div class="col-md-6">
+                                        <ul class="list-group">
+                                            <h2>Proyectos Colaborados</h2> <!--{{#colaborateProjects}}-->
+                                            <li class="list-group-item">
+                                                <H3><a href="/project?id={{projectId}}"><!--{{title}}--></a></H3>
+                                                <p><!--{{shortDescription}}--></p>
+                                                <p><!--{{money}}--></p>
+                                            </li>
+                                            <!--{{/colaborateProjects}}-->
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-group">
+                                            <h2>Otros Proyectos Activos</h2> <!--{{#otherProjects}}-->
+                                            <li class="list-group-item">
+                                                <H3><a href=""><!--{{title}}--></a></H3>
+                                                <p><!--{{shortDescription}}--></p>
+                                            </li>
+                                            <!--{{/otherProjects}}-->
+                                        </ul>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

@@ -4,29 +4,29 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <article>
-                            {{#news}}
-                            <header>{{categoria}}</header>
+                            <!--{{#news}}-->
+                            <header><!--{{categoria}}--></header>
                             <ul>
 
                                 <li>
                                     <div class="post-image">
                                         <div class="post-heading">
-                                            <h3><a href=/new?id={{id}}>{{title}}</a></h3>
+                                            <h3><a href="/index"><!--{{title}}--></a></h3>
                                         </div>
-                                  <a href=/new?id={{id}}><img src="/image/{{id}}.jpg" alt="Foto de la noticia" class="img-responsive" /></a>
+                                  <a href="/index"><img src="../assets/img/icono.jpg" alt="Foto de la noticia" class="img-responsive" /></a>
                                       <!--   <div><a>{{cuerpo}}</a></div>  --> 
                                     </div>
                                     <div class="bottom-article">
                                         <ul class="meta-post">
-                                            <li><i class="fa fa-calendar"></i>{{date}}</li>
-                                            <li><i class="fa fa-comments"></i>{{number_comments}} Comentarios</li>
+                                            <li><i class="fa fa-calendar"></i><!--{{date}}--></li>
+                                            <li><i class="fa fa-comments"></i><!--{{number_comments}}--> Comentarios</li>
                                         </ul>
-                                       <a href=/new?id={{id}} class="readmore pull-right">Ir a la noticia <i class="fa fa-angle-right"></i></a>
+                                       <a href="/index" class="readmore pull-right">Ir a la noticia <i class="fa fa-angle-right"></i></a>
                                     </div>
                                 </li>
 
                             </ul>
-                            {{/news}}
+                            <!--{{/news}}-->
                         </article>
 
                         <!--			<div id="pagination">
@@ -43,11 +43,11 @@
                             <div class="widget">
                                 <h5 class="widgetheading">Categorías</h5>
                                 <ul class="cat">
-                                    <li><i class="fa fa-angle-right"></i><a href=/mostrarPorCategoria?categoria=Enfermedad>Enfermedad</a></li>
-                                    <li><i class="fa fa-angle-right"></i><a href=/mostrarPorCategoria?categoria=Asociación>Asociación</a></li>
-                                    <li><i class="fa fa-angle-right"></i><a href=/mostrarPorCategoria?categoria=NuevosDescubrimientos>Nuevos descubrimientos</a></li>
-                                    <li><i class="fa fa-angle-right"></i><a href=/mostrarPorCategoria?categoria=Proyectos>Proyectos</a></li>
-                                    <li><i class="fa fa-angle-right"></i><a href=/mostrarPorCategoria?categoria=PróximosEventos>Próximos eventos</a></li>
+                                    <li><i class="fa fa-angle-right"></i><a href="/index">Enfermedad</a></li>
+                                    <li><i class="fa fa-angle-right"></i><a href="/index">Asociación</a></li>
+                                    <li><i class="fa fa-angle-right"></i><a href="/index">Nuevos descubrimientos</a></li>
+                                    <li><i class="fa fa-angle-right"></i><a href="/index">Proyectos</a></li>
+                                    <li><i class="fa fa-angle-right"></i><a href="/index">Próximos eventos</a></li>
                                 </ul>
                             </div>
                             <div class="widget">

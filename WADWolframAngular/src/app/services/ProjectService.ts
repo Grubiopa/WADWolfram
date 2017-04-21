@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 @Injectable()
 export class ProjectService {
+
+    constructor(private http: Http) { }
+
+
    getProject(id: number){
       let url="https://localhost:8443/api/project/"+(string(id));
       return this.http.get(url).map(response => response.json()).catch(error => Observable.throw('Server error'));

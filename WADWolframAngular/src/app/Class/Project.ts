@@ -11,7 +11,7 @@ export class Project{
 	private releaseDate:Date;
 	private startYear:number;
 	private image:string;
-	private donations:Array<Donation>;
+//	private donations:Array<Donation>;
 	constructor(title:string, shortDescription:string, description:string, totalBudget:number, parcialBudget:number,
 			time:number, opened:boolean, releaseDate:Date, startYear:number, image:string) {
 		this.title = title;
@@ -25,7 +25,7 @@ export class Project{
 		this.releaseDate = releaseDate;
 		this.startYear = startYear;
 		this.image = image;
-		this.donations = new Array();
+	//	this.donations = new Array();
 	}
 
 	getId() {
@@ -125,7 +125,7 @@ export class Project{
 		this.startYear = startYear;
 	}
 
-	getDonations() {
+/*	getDonations() {
 		return this.donations;
 	}
 
@@ -140,5 +140,5 @@ export class Project{
 
 	calculateProgressPercentage() {
 		return (this.parcialBudget * 100 / this.totalBudget);
-	}
+	}*/
 }

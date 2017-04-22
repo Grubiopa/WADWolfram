@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Http } from "@angular/http";
 import { Router, ActivatedRoute } from '@angular/router';
-
-import { Http } from '@angular/http';
+import{New} from '../Class/New';
+import{NewService} from '../services/NewService';
 
 @Component({
 
@@ -14,9 +14,14 @@ import { Http } from '@angular/http';
 
 })
 
-
-export class BlogComponent{
-
-    constructor(private http:Http){}
-      
+export class BlogComponent /*implements OnInit*/{
+   news: New[] = [];
+   constructor(private _router: Router, private service: NewService){
+   /* ngOnInit() {
+      service.getNew().subscribe(
+         news => this.news = news,
+         error => console.log(error)
+      ); 
+    }*/
+   }
 }

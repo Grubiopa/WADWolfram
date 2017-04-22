@@ -7,6 +7,8 @@ import {ProjectService} from '../services/ProjectService';
 @Component({
 selector: 'app-root',
 templateUrl: './project.component.html',
+  styleUrls: ['../app.component.css']
+
 })
 export class ProjectComponent {
    project: Project;

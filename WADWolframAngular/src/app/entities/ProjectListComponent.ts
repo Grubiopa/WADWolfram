@@ -5,7 +5,7 @@ import{ProjectService} from '../services/ProjectService'
 selector: 'app-root',
 templateUrl: './projectsList.html'
 })
-export class ProjectsListComponent {
+export class ProjectListComponent {
    projects: Project[] = [];
    constructor(service: ProjectService){
     /*  service.getProject(id).subscribe(

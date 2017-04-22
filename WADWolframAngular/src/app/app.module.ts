@@ -11,6 +11,7 @@ import { IndexComponent } from './entities/Index';
 import {AboutComponent} from './entities/About';
 import {BlogComponent} from './entities/Blog';
 import {SingleNewComponent} from './entities/SingleNew';
+import {ProjectListComponent} from './entities/ProjectListComponent';
 import {ProjectComponent} from './entities/ProjectComponent';
 import {RegisterComponet} from './entities/Register';
 import {LoginComponent} from './entities/Login';
@@ -23,7 +24,7 @@ import {UserService} from './services/UserService';
 
 @NgModule({
   declarations: [
-    AppComponent,IndexComponent, AboutComponent, BlogComponent, SingleNewComponent, ProjectComponent, RegisterComponet, LoginComponent, UserDataPageComponent,
+    AppComponent,IndexComponent, AboutComponent, BlogComponent, SingleNewComponent, ProjectListComponent, ProjectComponent, RegisterComponet, LoginComponent, UserDataPageComponent,
     UserProjectComponent,UserMovementsComponent,ContactComponent
   ],
   imports: [

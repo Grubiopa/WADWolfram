@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {Project} from '../entities/Project'
+import {Project} from '../Class/Project'
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import {ProjectService} from '../services/ProjectService'
+import {ProjectService} from '../services/ProjectService';
 
 @Component({
-selector: 'project',
-templateUrl: './project.html'
+selector: 'app-root',
+templateUrl: './project.component.html',
 })
 export class ProjectComponent {
    project: Project;

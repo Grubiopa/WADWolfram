@@ -1,6 +1,7 @@
 import {UserProjectComponent} from "../entities/UserProjects";
 import {UserMovementsComponent} from "../entities/UserMovements";
 import {UserPersonalData} from "../entities/UserPersonalData";
+import{User} from "../entities/User";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Observable";
 import{Router} from "@angular/router";
@@ -9,17 +10,40 @@ import "rxjs/Rx";
 
 @Injectable()
 export class UserService{
-   private colaborateProjects;
-   private otherProjects;
-   private donations;
-   private user;
+   
+   private user:User;
+ 
+    constructor(private http: Http){}
+     getUser() {
+        return this.http.get("https://localhost:8443/api/user/login")
+            .map(response => response.json())
+            .catch(error => this.handleError(error));
+     }
 
-  /* constructor(colaborateProjets:Array<UserProjectComponent>,otherProjects:Array<UserProjectComponent>,
-    donations:Array<UserMovementsComponent>, user:UserPersonalData){
-        this.colaborateProjects=colaborateProjets;
-        this.otherProjects=otherProjects;
-        this.donations=donations;
-        this.user=user;
-    }*/
-    constructor(){}
+     updateUser(id:number, userPersonalData:UserPersonalData){
+         let headers = new Headers();
+         return this.http.put("https://localhost:8443/api/user//update/"+id,userPersonalData,{headers:headers})
+             .map(response => response.json())
+            .catch(error => this.handleError(error));
+     }
+
+     addUser(user:UserPersonalData){
+         return this.http.post("https://localhost:8443/api/user/register/create", user)
+            .map(response => response.json())
+            .catch(error => this.handleError(error));
+     }
+     private handleError(error: any) {
+        console.error(error);
+        switch (error.status) {
+            case 409:
+                return Observable.throw("Server error (" + error.status + "): El nombre de usuario ya esta en uso");
+            case 404:
+                return Observable.throw("Server error (" + error.status + "): Ha ocurrido algun error vuelva a intentarlo");
+            case 401:
+                return Observable.throw("Server error (" + error.status + "): No esta autorizado para realizar esa acción.");
+            case 406:
+                return Observable.throw("Server error (" + error.status + "): Rellene los campos correctamente 'Provincia' o 'Categoría' correctamente");
+        }
+
+    }
 }

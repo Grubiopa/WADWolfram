@@ -69,9 +69,9 @@ public class ProjectRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	// Rehecho by Gabi
+	//DONAR
 	@JsonView(ProyectoDetalle.class)
-	@RequestMapping(value = "/pproject/{projectId}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/project/{projectId}", method = RequestMethod.PUT)
 	public ResponseEntity<Project> donate(@PathVariable long projectId, HttpSession sesion, @RequestBody UserMovement m) {
 		Date date = new Date();
 		User s = (User) sesion.getAttribute("User");

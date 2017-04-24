@@ -37,7 +37,7 @@ import com.mycompany.mavenproject1.user.UserUpdate;
 
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UserRestController {
 	@Autowired
 	private UserPersonalDataRepository users;
@@ -66,7 +66,7 @@ public class UserRestController {
 		}
 	}
 	
-	@RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<UserPersonalData> updateUser(@PathVariable long id, @RequestBody UserUpdate upd, HttpSession sesion) {
 		
 		if (upd != null) {
@@ -104,7 +104,7 @@ public class UserRestController {
 			
 	}
 	
-	@RequestMapping(value = "/register/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<UserPersonalData> NewUser(Model model, @RequestBody UserPersonalData user) {		
 		if(user!=null){

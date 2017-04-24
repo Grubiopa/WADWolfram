@@ -51,7 +51,7 @@ public class AdminRestController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/Profile/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<UserPersonalData> NewAdmin(Model m, HttpSession sesion, @RequestBody UserPersonalData u) {
 
@@ -63,7 +63,7 @@ public class AdminRestController {
 		}
 	}
 
-	@RequestMapping(value = "/Profile/update/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<UserPersonalData> UpdateAdmin(@PathVariable long id, @RequestBody UserUpdate upd, HttpSession sesion) {
 		if (upd != null) {
 			User user = (User) sesion.getAttribute("User");

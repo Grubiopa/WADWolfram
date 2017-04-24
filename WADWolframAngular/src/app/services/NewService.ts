@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
+import { New } from '../Class/New';
 import { Observable } from 'rxjs/Observable';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/Rx';
 @Injectable()
 export class NewService {
 
+    private news: New[]=[];
     constructor(private http: Http) { }
 
    getNew(id: number){

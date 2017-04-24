@@ -17,7 +17,7 @@ import {RegisterComponet} from './entities/Register';
 import {LoginComponent} from './entities/Login';
 import {UserDataPageComponent} from './entities/UserDataPage';
 import{UserProjectComponent} from './entities/UserProjects';
-import{UserMovementsComponent}from './entities/UserMovements';
+import{UserMovementsComponent}from './entities/UserMovementsComponent';
 import{ContactComponent}from './entities/Contact';
 import {UserService} from './services/UserService';
 

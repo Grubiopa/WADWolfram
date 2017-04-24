@@ -1,5 +1,5 @@
 import {UserProjectComponent} from "../entities/UserProjects";
-import {UserMovementsComponent} from "../entities/UserMovements";
+import {UserMovementsComponent} from "../entities/UserMovementsComponent";
 import {UserPersonalData} from "../entities/UserPersonalData";
 
 export class User{

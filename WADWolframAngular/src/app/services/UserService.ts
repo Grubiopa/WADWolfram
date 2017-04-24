@@ -1,5 +1,5 @@
 import {UserProjectComponent} from "../entities/UserProjects";
-import {UserMovementsComponent} from "../entities/UserMovements";
+import {UserMovementsComponent} from "../entities/UserMovementsComponent";
 import {UserPersonalData} from "../entities/UserPersonalData";
 import{User} from "../entities/User";
 import {Injectable} from "@angular/core";
@@ -52,6 +52,7 @@ export class UserService{
             .map(response => response.json())
             .catch(error => this.handleError(error));
      }
+
      private handleError(error: any) {
         console.error(error);
         switch (error.status) {
@@ -66,4 +67,5 @@ export class UserService{
         }
 
     }
+    
 }

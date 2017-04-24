@@ -10,7 +10,8 @@ import "rxjs/Rx";
 
 @Injectable()
 export class UserService{
-   
+
+   private credentials: string;
    private user:User;
  
     constructor(private http: Http){}
@@ -18,6 +19,25 @@ export class UserService{
         return this.http.get("https://localhost:8443/api/user/login")
             .map(response => response.json())
             .catch(error => this.handleError(error));
+     }
+
+     login(username: string, password: string){
+         if (username !== "") {
+
+            let headers = new Headers();//Creación de la cabecera que le tenemos que pasar al método para que nos loguee correctamente.
+            this.credentials = btoa(username + ':' + password);//Encriptación de las credenciales del usuario.
+            headers.append('Authorization', 'Basic ' + this.credentials);//Añadimos  a la cabecera las credenciales.
+            return this.http.get("https://localhost:8443/api/user/login", { headers: headers })
+                .map(response => {
+                    localStorage.setItem("user", response.json());
+                    return response.json();
+                })
+                .catch(error => this.handleError(error))
+        } else {
+
+            return Observable.throw("Server error (401): Introduzca correctamente sus datos de usuario.");
+
+        }
      }
 
      updateUser(id:number, userPersonalData:UserPersonalData){

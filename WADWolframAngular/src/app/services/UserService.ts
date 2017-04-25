@@ -42,7 +42,7 @@ export class UserService{
 
      updateUser(id:number, userPersonalData:UserPersonalData){
          let headers = new Headers();
-         return this.http.put("https://localhost:8443/api/user//update/"+id,userPersonalData,{headers:headers})
+         return this.http.put("https://localhost:8443/api/user/update/"+id,userPersonalData,{headers:headers})
              .map(response => response.json())
             .catch(error => this.handleError(error));
      }
@@ -52,7 +52,26 @@ export class UserService{
             .map(response => response.json())
             .catch(error => this.handleError(error));
      }
-
+     getMovements(){
+         return this.http.get("https://localhost:8443/api/user/allMovements")
+         .map(response=>response.json())
+         .catch(error=>this.handleError(error));
+     }
+     getPersonalData(){
+         return this.http.get("http:((localhost:8443/api/user/personalData")
+         .map(response=>response.json())
+         .catch(error=>this.handleError(error));
+     }
+     getUserProjects(){
+         return this.http.get("http:((localhost:8443/api/user/userProjects")
+         .map(response=>response.json())
+         .catch(error=>this.handleError(error));
+     }
+     getOtherProjects(){
+         return this.http.get("http:((localhost:8443/api/user/otherProjects")
+         .map(response=>response.json())
+         .catch(error=>this.handleError(error));
+     }
      private handleError(error: any) {
         console.error(error);
         switch (error.status) {

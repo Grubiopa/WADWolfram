@@ -72,7 +72,66 @@ public class UserService {
 	}
 	
 	
+	public List<UserProject> getUserProjects(long id){
+		List<UserProject> userProject = new ArrayList<>();		
+		List<Donation> donations =  movements.findByuserId(id);
+		
+		for (Donation d : donations) {
+			Project p = d.getProject();
+			String title = p.getTitle();
+			boolean find = false;
+			for (UserProject us : userProject) {
+				if (us.getTitle() == title) {
+					us.setMoney(us.getMoney() + d.getMoney());
+					find = true;
+					break;
+				}
+			}
+			if (!find) {
+				userProject.add(new UserProject(d.getProject().getId(), title, p.getShortDescription(), d.getMoney()));
+			}			
+		}
+		return userProject;
+	}
+	
+	public List<UserProject> getOtherProjects(long id){
+		List<UserProject> userProject = new ArrayList<>();
+		List<UserProject> otherProjects = new ArrayList<>();
+		List<UserMovements> userMovements = new ArrayList<>();
+		
+		List<Donation> donations = movements.findByuserId(id);
+		List<Long> idDonateProjects = new ArrayList<>();
 
+		for (Donation d : donations) {
+			Project p = d.getProject();
+			String title = p.getTitle();
+			boolean find = false;
+			for (UserProject us : userProject) {
+				if (us.getTitle() == title) {
+					us.setMoney(us.getMoney() + d.getMoney());
+					find = true;
+					break;
+				}
+			}
+			if (!find) {
+				userProject.add(new UserProject(d.getProject().getId(), title, p.getShortDescription(), d.getMoney()));
+				idDonateProjects.add(d.getProject().getId());
+			}
+			userMovements.add(new UserMovements(title, d.getMoney(), d.getDate()));
+		}
+
+		long maximoID = projects.maxID();
+		for (long i = 1; i <= maximoID; i++) {
+			if (!idDonateProjects.contains(i)) {
+				Project p = projects.findOne(i);
+				otherProjects.add(new UserProject(p.getId(), p.getTitle(), p.getShortDescription(), p.getRestBudget()));
+			}
+		}
+		
+		return otherProjects;
+		
+	}
+	
 	public UserPersonalData createUser(UserPersonalData u) {
 		users.save(u);
 		return u;

@@ -10,7 +10,7 @@ import {ProjectComponent} from './entities/ProjectComponent';
 import {RegisterComponet} from './entities/Register';
 import {LoginComponent} from './entities/Login';
 import{UserDataPageComponent} from './entities/UserDataPage';
-import{UserProjectComponent} from './entities/UserProjects';
+import{UserProjectComponent} from './entities/UserProjectsComponent';
 import{UserMovementsComponent}from './entities/UserMovementsComponent';
 import{ContactComponent}from './entities/Contact';
 export const  routing : Routes = [

@@ -64,7 +64,7 @@ public class UserRestController {
 			User user2 = userService.loadUser(sesion);
 			return new ResponseEntity<>(user2, HttpStatus.OK);
 		}
-	}
+	}	
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<UserPersonalData> updateUser(@PathVariable long id, @RequestBody UserUpdate upd, HttpSession sesion) {
@@ -129,4 +129,38 @@ public class UserRestController {
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
 	}
+	
+	//NUEVOS
+	@RequestMapping("/allMovements")
+	public ResponseEntity<List<UserMovements>> movements(HttpSession session){
+		User user = (User) session.getAttribute("User");
+		List<Donation> donations =  movements.findByuserId(user.getUser().getId());
+		List<UserMovements> userMovements = new ArrayList<>();
+		for (Donation d : donations) {
+			Project p = d.getProject();
+			String title = p.getTitle();			
+			userMovements.add(new UserMovements(title, d.getMoney(), d.getDate()));
+		}
+		return new ResponseEntity<List<UserMovements>>(userMovements, HttpStatus.OK);
+		
+	}
+	@RequestMapping("/personalData")
+	public ResponseEntity<UserPersonalData> personalData(HttpSession session){
+		User user = (User) session.getAttribute("User");		
+		return new ResponseEntity<UserPersonalData>(user.getUser(), HttpStatus.OK);
+		
+	}
+	@RequestMapping("/userProjects")
+	public ResponseEntity<List<UserProject>> userProjects(HttpSession session){
+		User user = (User) session.getAttribute("User");
+		List<UserProject> userProject = userService.getUserProjects(user.getUser().getId());
+		return new ResponseEntity<List<UserProject>>(userProject, HttpStatus.OK);
+	}
+	@RequestMapping("/otherProjects")
+	public ResponseEntity<List<UserProject>> otherProjects(HttpSession session){
+		User user = (User) session.getAttribute("User");
+		List<UserProject> userProject = userService.getOtherProjects(user.getUser().getId());
+		return new ResponseEntity<List<UserProject>>(userProject, HttpStatus.OK);
+	}
+	
 }

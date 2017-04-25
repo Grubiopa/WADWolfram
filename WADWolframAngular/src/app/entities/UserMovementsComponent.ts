@@ -19,19 +19,7 @@ import {UserMovements} from '../entities/UserMovements';
 
 export class UserMovementsComponent{
    file:File;
-
-    newUserMovement(title:string,money:number,date:Date){
-        let movement = new UserMovements(title,money,date);
-       /* this.projectService.addDonation(movement).subcribe(
-             movement => {
-
-                console.log (movement);
-
-                console.log(this.file);
-             }
-        );*/
-    }
-   
+     
     constructor(){}
    
 }

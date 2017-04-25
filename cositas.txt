@@ -1,0 +1,3 @@
+http://bootsnipp.com/snippets/3qDQn
+En el docker compose jammel:->
+app:environment:SPRING_DATASOURE_URL= mysql://nombreContenedorDeMySqlEnElDockerCompose:3306/dbname para la url

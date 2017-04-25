@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import {ProjectService} from '../services/ProjectService';
 
 @Component({
-selector: 'app-root',
+selector: 'project',
 templateUrl: './project.component.html',
   styleUrls: ['../app.component.css']
 

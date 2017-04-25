@@ -4,7 +4,7 @@ import { NewService } from '../services/NewService';
 import { New } from '../Class/New';
 import { Http } from '@angular/http';
 @Component({
-  selector: 'app-root',
+  selector: 'new',
   templateUrl: './singleNew.component.html',
   styleUrls: ['../app.component.css']
 })

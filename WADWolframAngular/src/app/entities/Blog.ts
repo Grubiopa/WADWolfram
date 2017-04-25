@@ -6,7 +6,7 @@ import{NewService} from '../services/NewService';
 
 @Component({
 
-  selector: 'app-root',
+  selector: 'blog',
 
   templateUrl: './blog.component.html',
 

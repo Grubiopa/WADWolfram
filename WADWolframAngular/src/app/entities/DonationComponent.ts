@@ -10,7 +10,7 @@ import{ProjectService} from '../services/ProjectService';
 
 @Component({
 
-  selector: 'app-root',
+  selector: 'donation',
 
   templateUrl: './UserMovements.component.html',
 
@@ -34,6 +34,5 @@ export class DonationComponent{
         );
     }
    
-    constructor(private http: Http,private ProjectService:ProjectService){}
    
 }

@@ -1,3 +1,3 @@
 export class Donation{
-    constructor(public money:number, public projectId:number){}
+    constructor(private money:number, private projectId:number){}
 }

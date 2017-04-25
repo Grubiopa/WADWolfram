@@ -8,7 +8,7 @@ import {UserMovements} from '../entities/UserMovements';
 
 @Component({
 
-  selector: 'app-root',
+  selector: 'userMovement',
 
   templateUrl: './UserMovements.component.html',
 

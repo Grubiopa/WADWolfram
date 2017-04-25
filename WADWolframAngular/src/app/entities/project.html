@@ -1,0 +1,67 @@
+﻿<!--
+<header>
+<section id="inner-headline">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12">
+            <ul class="breadcrumb">
+               <li><a href="/"><i class="fa fa-home"></i> Volver al Inicio</a><i class="icon-angle-right"></i></li>
+               <li><a href="/projects">Proyectos</a></li>
+               <li class="active">Proyecto</li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</section>
+</header> -->
+
+<div class="col-lg-12">
+   <div class="text-center">
+      <div class="inside">
+         <h1>{{project.title}}</h1>
+         <div class="row" id="proyectPage">
+           <div class="row">
+               <div class="col-md-6">
+                  <div id="profilePhoto">
+                     <img src="https://localhost:8443/image/{{project.id}}.jpg" id="proyectImage" class="img-responsive"/>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div id="information">
+                     <p class="text-justify">{{project.description}} </p>
+                  </div>
+                  <form method="post" action="/pay?projectId={{id}}">
+                     <button type="submit" class="btn btn-primary btn-lg "> ¡Participa!</button>
+                     <input type="hidden" name="_csrf" value="{{token}}"/>
+                  </form>
+               </div>
+            </div>
+            <div class="row">
+               <table class="table table-bordered table-striped" *ngIf="opened">
+                  <tbody>
+                     <tr>
+                        <th>Presupuesto total</th>
+                        <td>{{project.totalBudget}} euros</td>
+                     </tr>
+                     <tr>
+                        <th>Presupuesto concedido</th>
+                        <td>{{project.parcialBudget}} euros</td>
+                     </tr>
+                     <tr>
+                        <th>Financiación pendiente</th>
+                        <td>{{project.restBudget}} euros</td>
+                     </tr>
+                     <tr>
+                        <th>Duración</th>
+                        <td>{{project.time}} meses</td>
+                     </tr>
+                     <tr>
+                        <th>Año de inicio</th>
+                        <td>{{project.startYear}}</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+</div>

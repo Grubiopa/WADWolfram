@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
-import{Donation} from '../entities/Donation';
+import { Donation } from '../class/Donation';
 import 'rxjs/Rx';
 @Injectable()
 export class ProjectService {
-
     constructor(private http: Http) { }
-
 
    getProject(id: number){
       let url="https://localhost:8443/api/project/"+(id);
@@ -22,7 +20,7 @@ export class ProjectService {
       return this.http.post(url, project).map(response => response.json()).catch(error => Observable.throw('Server error'));
    }*/
    donateProject(donation: Donation){
-      let url="https://localhost:8443/api/project/"+(donation.projectId);
+      let url="https://localhost:8443/api/project/"+(donation.getProjectId());
       return this.http.put(url, donation).map(response => response.json()).catch(error => Observable.throw('Server error'));
    }
    deleteProject(id: number){

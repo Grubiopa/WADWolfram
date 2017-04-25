@@ -1,4 +1,4 @@
-import {UserProjectComponent} from "../entities/UserProjects";
+import {UserProjectComponent} from "./UserProjectsComponent";
 import {UserMovementsComponent} from "../entities/UserMovementsComponent";
 import {UserPersonalData} from "../entities/UserPersonalData";
 

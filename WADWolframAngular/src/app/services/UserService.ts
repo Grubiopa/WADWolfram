@@ -1,4 +1,4 @@
-import {UserProjectComponent} from "../entities/UserProjects";
+import {UserProjectComponent} from "../entities/UserProjectsComponent";
 import {UserMovementsComponent} from "../entities/UserMovementsComponent";
 import {UserPersonalData} from "../entities/UserPersonalData";
 import{User} from "../entities/User";
@@ -12,7 +12,7 @@ import "rxjs/Rx";
 export class UserService{
 
    private credentials: string;
-   private user:User;
+   //private user:User;
  
     constructor(private http: Http){}
      getUser() {

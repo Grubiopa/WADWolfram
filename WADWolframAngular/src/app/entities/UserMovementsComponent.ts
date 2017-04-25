@@ -18,8 +18,7 @@ import {UserMovements} from '../entities/UserMovements';
 
 
 export class UserMovementsComponent{
-   file:File;
-     
+   file:File;   
     constructor(){}
    
 }

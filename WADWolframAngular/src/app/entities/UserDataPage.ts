@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import  {  Router,  ActivatedRoute  }  from  '@angular/router';
 
-import { UserService } from '../Services/UserService';
+import { UserService } from '../services/UserService';
 
 @Component({
 
@@ -17,7 +17,7 @@ import { UserService } from '../Services/UserService';
 
 export class UserDataPageComponent {
 
-  user: UserService;
+  //user: UserService;
 
   constructor(private router:Router, private users: UserService, private activatedRoute: ActivatedRoute) {
 

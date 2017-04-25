@@ -20,7 +20,7 @@ import{UserProjectComponent} from './entities/UserProjects';
 import{UserMovementsComponent}from './entities/UserMovementsComponent';
 import{ContactComponent}from './entities/Contact';
 import {UserService} from './services/UserService';
-
+import {NewService} from './services/NewService';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import {UserService} from './services/UserService';
     FormsModule,
     HttpModule,JsonpModule,NgbModule.forRoot(), RouterModule.forRoot(routing)
   ],
-  providers: [UserService],
+  providers: [UserService,NewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

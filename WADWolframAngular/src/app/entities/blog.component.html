@@ -3,18 +3,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        <article>
-                           <!-- {{#news}}-->
-                            <header>vengaaaaaaaaaaaaaaa<!--{{categoria}}--></header>
+                        <article *ngFor="let nnew of news">
+                            <header>{{nnew.category}}</header>
                             <ul>
-
                                 <li>
                                     <div class="post-image">
                                         <div class="post-heading">
-                                            <h3><a href="/singleNew"><!--{{title}}--></a></h3>
+                                            <h3><a href="/singleNew">{{nnew.title}}</a></h3>
                                         </div>
-                                  <a href="/singleNew"><img src="../assets/img/icono.jpg" alt="Foto de la noticia" class="img-responsive" /></a>
-                                      <!--   <div><a>{{cuerpo}}</a></div>  --> 
+                                  <a href="/singleNew"><img src="https://localhost:8443/image/{{nnew.id}}.jpg" alt="Foto de la noticia" class="img-responsive" /></a>
                                     </div>
                                     <div class="bottom-article">
                                         <ul class="meta-post">
@@ -26,7 +23,6 @@
                                 </li>
 
                             </ul>
-                        <!--    {{/news}}-->
                         </article>
 
                         <!--			<div id="pagination">

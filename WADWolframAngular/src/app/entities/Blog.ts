@@ -16,12 +16,12 @@ import{NewService} from '../services/NewService';
 
 export class BlogComponent /*implements OnInit*/{
    news: New[] = [];
-   constructor(private _router: Router, private service: NewService){
-   /* ngOnInit() {
-      service.getNew().subscribe(
+   constructor(private _router: Router, private service: NewService){}
+    ngOnInit() {
+      this.service.getNews().subscribe(
          news => this.news = news,
          error => console.log(error)
       ); 
-    }*/
+    
    }
 }

@@ -2,25 +2,23 @@
 		<section id="content">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-8">
-	<!--					{{#new}}-->
+					<div *ngIf="plan !== undefined " class="col-lg-8">
 						<article id="sindromeWolfram">
-
 							<div class="post-image">
 								<div class="post-heading">
-							<!--		<h3>{{title}}</h3>-->
+									<h3><a>{{new.title}}</a></h3>
 								</div>
-								<img src="/image/{{id}}.jpg" alt="Foto de la noticia"
+								<img src="/image/{{new.id}}.jpg" alt="Foto de la noticia"
 									class="img-responsive" />
 							</div>
-					<!--		{{{cuerpo}}}-->
+							{{new.body}}
 							<div class="bottom-article">
 
-					<!--			<ul class="meta-post">
+								<ul class="meta-post">
 									<li><i class="fa fa-calendar"></i>{{date}}</li>
 									<li><i class="fa fa-comments"></i>{{number_comments}}
 										Comentarios</li>
-								</ul>-->
+								</ul>
 
 
 						<!--		<br> <br> {{#lcomentarios}}-->

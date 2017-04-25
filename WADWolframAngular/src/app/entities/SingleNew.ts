@@ -15,7 +15,7 @@ export class SingleNewComponent{
     constructor(private _router: Router, private activatedRoute: ActivatedRoute, private service: NewService) {
           let id = activatedRoute.snapshot.params['id'];
 
-        service.getNew(id).subscribe(
+        this.service.getNew(id).subscribe(
          nnew => this.nnew = nnew,
           error => console.error(error)
         );

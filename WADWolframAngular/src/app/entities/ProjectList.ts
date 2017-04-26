@@ -12,6 +12,7 @@ export class ProjectListComponent {
    projects: Project[] = [];
 
    constructor(private service: ProjectService ){
+      this.projects=[];
 //   ngOnInit(){
       service.getProjects().subscribe(
          projects => this.projects = projects,

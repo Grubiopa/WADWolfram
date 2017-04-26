@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Donation } from '../class/Donation';
+import { User } from '../entities/User';
 import { ProjectService } from '../services/ProjectService';
 
 @Component({
@@ -10,6 +11,7 @@ import { ProjectService } from '../services/ProjectService';
 
 export class DonationComponent{
    file:File;
+   user:User;
    constructor(private service: ProjectService){}
     newUserMovement(projectId:number,money:number){
         let donation = new Donation(projectId,money);

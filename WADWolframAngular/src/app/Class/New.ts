@@ -6,4 +6,3 @@ export interface New {
     number_comments:number;
     date:Date;
 }
-}

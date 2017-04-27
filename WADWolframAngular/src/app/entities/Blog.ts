@@ -10,12 +10,11 @@ import { NewService } from '../services/NewService';
 
 export class BlogComponent /*implements OnInit*/{
    news: New[] = [];
-   constructor(private service: NewService){
-//    ngOnInit() {
+   constructor(private service: NewService){}
+    ngOnInit() {
       this.service.getNews().subscribe(
          news => this.news = news,
          error => console.log(error)
       ); 
-//   } 
    }
 }

@@ -23,8 +23,8 @@ export const  routing : Routes = [
     {path: 'register', component: RegisterComponet},
     {path: 'login', component: LoginComponent},
     {path: 'blog', component: BlogComponent},
-    {path: 'singleNew', component: SingleNewComponent},
+    {path: 'singleNew/:id', component: SingleNewComponent},
     {path: 'projects', component: ProjectListComponent},
-    {path: 'project', component: ProjectComponent},
+    {path: 'project/:id', component: ProjectComponent},
     {path: '', redirectTo: 'index', pathMatch: 'full' }    
 ];

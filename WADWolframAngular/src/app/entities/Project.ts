@@ -13,11 +13,13 @@ import { ProjectService } from '../services/ProjectService';
 export class ProjectComponent {
    project: Project;
 
-   constructor(private router: Router, private activatedRoute: ActivatedRoute, private service: ProjectService){
+   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: ProjectService){
       let id = activatedRoute.snapshot.params['id'];
+      if(id){
       service.getProject(id).subscribe(
          project => this.project = project,
          error => console.error(error)
       );
+      }
    }
 }

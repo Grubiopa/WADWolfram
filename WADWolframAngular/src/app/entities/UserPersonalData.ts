@@ -1,4 +1,4 @@
-export class UserPersonalData{
+export interface UserPersonalData{
     id?:number;
     name:string;
     lastname:string;

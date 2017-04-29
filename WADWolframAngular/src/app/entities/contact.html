@@ -1,55 +1,49 @@
-﻿          <div class="fondo">
-           <div class="row">
-                <div class="col-lg-4  col-xs-offset-0 ">
-                    
-                    <div class="row">
-                        
-                        <div class="col-md-8 col-md-offset-2">
-                            <h2 style="color:white;">Contáctanos <small style="color:white;">rellena los campos</small></h2>
-                            <hr class="colorgraph">
-                            <div id="sendmessage">Se ha enviado tu mensaje. ¡Gracias!</div>
-                            <div id="errormessage"></div>
-                            <form action="/error" method="post" role="form" class="contactForm">
-                                <div class="form-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Tu correo" data-rule="email" data-msg="Please enter a valid email" required>
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Por favor, escribe al menos 8 caracteres de asunto" required>
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor, escríbenos algo" placeholder="Por favor, escríbenos algo" required></textarea>
-                                    <div class="validation"></div>
-                                </div>
+﻿            <div class="col-lg-4  col-xs-offset-0 ">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2 style="color:white;">Contáctanos <small style="color:white;">rellena los campos</small></h2>
+                        <hr class="colorgraph">
+                        <div id="sendmessage">Se ha enviado tu mensaje. ¡Gracias!</div>
+                        <div id="errormessage"></div>
+                        <form action="/error" method="post" role="form" class="contactForm">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Tu correo" data-rule="email" data-msg="Please enter a valid email" required>
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Por favor, escribe al menos 8 caracteres de asunto" required>
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor, escríbenos algo" placeholder="Por favor, escríbenos algo" required></textarea>
+                                <div class="validation"></div>
+                            </div>
 
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-theme btn-block btn-md">Enviar mensaje</button>
-                                </div>
-                                <input type="hidden" name="_csrf" value="{{token}}"/>
-                            </form>
-                            <hr class="colorgraph">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-theme btn-block btn-md">Enviar mensaje</button>
+                            </div>
+                            <input type="hidden" name="_csrf" value="{{token}}"/>
+                        </form>
+                        <hr class="colorgraph">
 
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-lg-offset-0">
-                    <h3><font color="white">¿Dónde estamos?</font><br><h4><font color="white">Datos</font></h4></h3>
-                    <hr class="colorgraph">
-                    <h5><font color="white"><span class="glyphicon glyphicon-home"></span> Dirección:</font></h5><font color="white"><li>C/ Picadilly, nº 7, Almería, Andalucía</li></font>
-                    <h5><font color="white"> <span class="glyphicon glyphicon-phone"></span> Teléfono:</font></h5><font color="white"><li>653 115 307</li></font>
-                    <h5><font color="white"> <span class="glyphicon glyphicon-print"></span> Fax:</font></h5><font color="white"><li></li></font>
-                    <h5><font color="white"> <span class="glyphicon glyphicon-send"></span> E-mail:</font></h5><font color="white"><li></li></font>
-                    <hr class="colorgraph">
-                </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-0">
+                <h3><font color="white">¿Dónde estamos?</font><br><h4><font color="white">Datos</font></h4></h3>
+                <hr class="colorgraph">
+                <h5><font color="white"><span class="glyphicon glyphicon-home"></span> Dirección:</font></h5><font color="white"><li>C/ Picadilly, nº 7, Almería, Andalucía</li></font>
+                <h5><font color="white"> <span class="glyphicon glyphicon-phone"></span> Teléfono:</font></h5><font color="white"><li>653 115 307</li></font>
+                <h5><font color="white"> <span class="glyphicon glyphicon-print"></span> Fax:</font></h5><font color="white"><li></li></font>
+                <h5><font color="white"> <span class="glyphicon glyphicon-send"></span> E-mail:</font></h5><font color="white"><li></li></font>
+                <hr class="colorgraph">
+            </div>
 
 
-                <div class="google-maps col-lg-4 hidden-xs">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.118916160952!2d-2.3801382851769963!3d36.83962797994058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7a9bfec8b10fe5%3A0x7bb2dfecaa157bdf!2sCalle+Picadilly%2C+7%2C+04120+Almer%C3%ADa!5e0!3m2!1ses!2ses!4v1486315692844" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-           </div>
-          </div>
+            <div class="google-maps col-lg-4 hidden-xs">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.118916160952!2d-2.3801382851769963!3d36.83962797994058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7a9bfec8b10fe5%3A0x7bb2dfecaa157bdf!2sCalle+Picadilly%2C+7%2C+04120+Almer%C3%ADa!5e0!3m2!1ses!2ses!4v1486315692844" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>

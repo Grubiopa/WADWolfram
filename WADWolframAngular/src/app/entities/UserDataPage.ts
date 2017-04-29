@@ -2,9 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import  {  Router,  ActivatedRoute  }  from  '@angular/router';
-import {Http} from '@angular/http';
+
 import { UserService } from '../services/UserService';
-import {UserPersonalData} from './UserPersonalData';
 
 @Component({
 
@@ -18,29 +17,12 @@ import {UserPersonalData} from './UserPersonalData';
 
 export class UserDataPageComponent {
 
-user: UserPersonalData = {
-  userName:"Cargando",
-  email:"a@a.es",
-  lastname:"rubio",
-  name:"gabi",
-  passwordHash:"jjj"
-};
+  //user: UserService;
 
-  constructor(private router:Router, private users: UserService, private activatedRoute: ActivatedRoute, private http: Http) {
-    this.getUser2();
+  constructor(private router:Router, private users: UserService, private activatedRoute: ActivatedRoute) {
+
+    //let id = this.activatedRoute.snapshot.params['id'];
   }
   
-  getUser(id:number){
-    this.http.get('http://localhost:8443/api/user/personalData').subscribe(
-      response=>this.user = response.json(),
-      error => console.log(error)
-    )
-  }
 
-  getUser2(){
-    this.users.getUser().subscribe(
-      response=>this.user = response,
-      error => console.log(error)
-    )
-  }
 }

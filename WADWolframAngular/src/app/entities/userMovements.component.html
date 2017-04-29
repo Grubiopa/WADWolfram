@@ -18,9 +18,9 @@
                                 <div class="collapse navbar-collapse navbar-ex1-collapse">
 
                                     <ul class="nav navbar-nav col-lg-10">
-                                        <li  id="iteMyProyects"><a href="/userProjects"  id="myProyects">Mis proyectos</a></li>
-                                        <li id="iteMyMovements" class="active"><a href="/userMovements"  id="myMovements">Mis movimientos</a></li>
-                                        <li id="iteMyDatas"><a href="/userData"  id="myDatas">Mis datos</a></li>
+                                        <li class="active" id="iteMyProyects"><a href="#"  id="myProyects">Mis proyectos</a></li>
+                                        <li id="iteMyMovements"><a href="#"  id="myMovements">Mis movimientos</a></li>
+                                        <li id="iteMyDatas"><a href="#"  id="myDatas">Mis datos</a></li>
                                     </ul>
                                     <form action="/user/close" method="post">
                                         <input type="submit" class="btn btn-info col-lg-2" id="btn_sesion" value="Cerrar sesión" />
@@ -37,7 +37,7 @@
                                 <!-- {{/matchpass}}-->
                                 <h1>¡Bienvenid@ <!--{{username}}-->!</h1>
                                 
-                                <div class="row" id="donateProyects">
+                                <div class="row hide" id="donateProyects">
                                     <div class="col-md-12">
                                         <table class="table table-bordered table-striped">
                                             <thead>
@@ -45,12 +45,14 @@
                                                 <th class="col-md-2">Cantidad</th>
                                                 <th class="col-md-2">Fecha</th>
                                             </thead>
-                                            <tbody>
-                                                <tr *ngFor="let movimiento of movimientos">
-                                                    <td><a href="#">{{movimiento.projectTitle}}</a></td>
-                                                    <td>{{movimiento.money}}</td>
-                                                    <td><{{movimiento.date}}</td>
+                                            <tbody><!--{{#movements}}-->
+                                                <tr>
+                                                    <td><a href="#"><!--{{projectTitle}}--></a></td>
+                                                    <td><!--{{money}}--></td>
+                                                    <td><!--{{date}}--></td>
                                                 </tr>
+                                                <!--{{/movements}}-->
+
                                             </tbody>
                                         </table>
                                     </div>

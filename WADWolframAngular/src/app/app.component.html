@@ -1,6 +1,7 @@
 ﻿<html>
 <head>
     <title>WADWolframAngular</title>
+    <link type="stylesheet" href="app.component.css">
 </head>
 <body>
     <div id="wrapper">
@@ -13,7 +14,7 @@
                             <button type="button" (click)="showDropdown('collapse')"  class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href=""><img src="../assets/img/logo.PNG" alt="Logotipo de la asociación" width="199" height="52" /></a>
+                            <a class="navbar-brand"  [routerLink]="['/index']" ><img src="../assets/img/logo.PNG" alt="Logotipo de la asociación" width="199" height="52" /></a>
                         </div>
                         <div class="navbar-collapse collapse" [ngbCollapse]="menuCollapse">
                             <ul class="nav navbar-nav">
@@ -37,14 +38,13 @@
                 </div>
             </nav>
         </header>
-       	<!-- <section id="content">-->    
- 
+       	<section id="content">
          <div class="container">
-            <!--<div class="row">-->
+            <div class="row">
                <router-outlet></router-outlet>
-          <!-- </div>-->
           </div>
-        <!--</section>-->
+          </div>
+       </section>
         <footer>
             <div class="container">
                 <div class="row">

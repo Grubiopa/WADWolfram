@@ -1,7 +1,7 @@
 ﻿<html>
 <head>
     <title>WADWolframAngular</title>
-    <link type="stylesheet" href="app.component.cs">
+    <link type="stylesheet" href="app.component.css">
 </head>
 <body>
     <div id="wrapper">
@@ -39,7 +39,13 @@
                 </div>
             </nav>
         </header>
- 
+        <section id="content">
+         <div class="container">
+            <div class="row">
+               <router-outlet></router-outlet>
+          </div>
+          </div>
+       </section>
         <footer>
             <div class="container">
                 <div class="row">

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css', '../assets/css/bootstrap.min.css', '../assets/css/animate.css', '../assets/css/cubeportfolio.min.css'
+  styleUrls: [/*'./app.component.css', */'../assets/css/bootstrap.min.css', '../assets/css/animate.css', '../assets/css/cubeportfolio.min.css'
   , '../assets/css/custom-fonts.css', '../assets/css/flexslider.css', '../assets/css/font-awesome.css', '../assets/css/overwrite.css'
   , '../assets/css/style.css', '../assets/css/theme.css', '../assets/css/user.css']
 })

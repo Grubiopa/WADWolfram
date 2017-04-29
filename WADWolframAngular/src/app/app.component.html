@@ -1,19 +1,21 @@
 ﻿<html>
 <head>
     <title>WADWolframAngular</title>
+    <link type="stylesheet" href="app.component.cs">
 </head>
 <body>
     <div id="wrapper">
         <!-- start header -->
         <header>
             <nav>
-                <div class="navbar navbar-default navbar-static-top">
-                    <div class="container">
+                <div class="navbar navbar-default navbar-static-top" >
+                    <div class="container" >
                         <div class="navbar-header">
-                            <button type="button" (click)="showDropdown('collapse')"  class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <a name="sube"></a>
+                        <!--  <button type="button" (click)="showDropdown('collapse')"  class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href=""><img src="../assets/img/logo.PNG" alt="Logotipo de la asociación" width="199" height="52" /></a>
+                            </button>-->
+                            <a class="navbar-brand" [routerLink]="['/index']"><img src="../assets/img/logo.PNG" alt="Logotipo de la asociación" width="199" height="52" /></a>
                         </div>
                         <div class="navbar-collapse collapse" [ngbCollapse]="menuCollapse">
                             <ul class="nav navbar-nav">
@@ -37,14 +39,7 @@
                 </div>
             </nav>
         </header>
-       	<section id="content">     
  
-          <div class="container">
-            <div class="row">
-               <router-outlet></router-outlet>
-           </div>
-          </div>
-        </section>
         <footer>
             <div class="container">
                 <div class="row">
@@ -89,6 +84,11 @@
                     <div class="col-sm-3 col-lg-3">
                         <div class="widget">
                             <h4>Idioma</h4>
+                            <ul class="link-list">
+                                <li><a href="#video" class="container.small">Español <img src="../assets/img/es.gif"/></a></li>
+                                <li><a href="indexi.html" class="container.small">Inglés   <img src="../assets/img/en.gif"/></a></li>
+                                <li><a href="indexa.html" class="container.small">Alemán <img src="../assets/img/dn.png"/></a></li>
+                            </ul>
                         
                         </div>
                     </div>
@@ -112,6 +112,10 @@
             </div>
         </footer>
     </div>
-    <!--<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>-->
+ <!--   <a href="#sube" class="scrollup"><i class="fa fa-angle-up active"></i></a>-->
+<script> src="../bower_components/angular-translate/angular-translate.js"></script>
+<script> src="../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+
+
 </body>
 </html>

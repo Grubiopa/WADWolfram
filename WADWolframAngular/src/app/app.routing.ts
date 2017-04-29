@@ -12,6 +12,7 @@ import { ProjectComponent } from './entities/Project';
 import { UserDataPageComponent } from './entities/UserDataPage';
 import { UserProjectComponent } from './entities/UserProjectsComponent';
 import { UserMovementsComponent } from './entities/UserMovementsComponent';
+import {IndexAdminComponent} from './entities/admin/IndexAdminComponent';
 
 export const  routing : Routes = [
     {path: 'userData', component: UserDataPageComponent },
@@ -26,5 +27,10 @@ export const  routing : Routes = [
     {path: 'singleNew/:id', component: SingleNewComponent},
     {path: 'projects', component: ProjectListComponent},
     {path: 'project/:id', component: ProjectComponent},
-    {path: '', redirectTo: 'index', pathMatch: 'full' }    
+    {path: 'admin', 
+    children: [
+        {path: 'index', component: IndexAdminComponent }
+        //añadir más
+    ]},
+    {path: '', redirectTo: 'index', pathMatch: 'full'}
 ];

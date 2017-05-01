@@ -1,0 +1,153 @@
+	<div class="row">
+					<div class="col-md-6">
+						<h4>Modifica tu cuenta</h4>
+						<form class="form-horizontal" id="form-horizontal2" role="form"
+							action="/admin/Profile/update" method="post">
+
+<!--							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+								<div class="col-sm-10">
+									<p class="form-control" id="inputEmail3">{{name}}</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label">Correo
+									electrónico</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="inputEmail3"
+										placeholder="{{email}}" name="memail">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label">Contraseña
+									antigua</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputEmail3"
+										placeholder="Contraseña antigua" name="mpassword" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-2 control-label">Contraseña
+									nueva</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputPassword3"
+										placeholder="Contraseña nueva" name="mnew_password">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-2 control-label">Repetir
+									contraseña</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputPassword3"
+										placeholder="Repetir contraseña nueva" name="mrepeat_password">
+								</div>
+							</div>
+
+							{{#malpass1}} <br>
+							<h5 style="color: red">
+								<strong> ¡La contraseña es inválida! </strong>
+							</h5>
+							<br>
+							 {{/malpass1}}
+							 {{#malpass2}}
+							 <br>
+							<h5 style="color: red">
+								<strong> ¡La contraseña antigua es inválida! </strong>
+							</h5>
+							<br> 
+							{{/malpass2}} {{#malpass3}}
+							<br>
+							<h5 style="color: red">
+								<strong> ¡Las contraseñas nuevas no coinciden! </strong>
+							</h5>
+							<br> 
+							{{/malpass3}}
+
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<div class="checkbox">
+										<label> <input type="checkbox" name="mconfirm"
+											required> Confirmar todos los cambios
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="submit" class="btn btn-primary">Cambiar
+										datos</button>
+								</div>
+							</div>
+							{{/User}} <input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+					</div>
+					<div class="col-md-6">
+						<h4>Crear nuevo administrador</h4>
+						<form class="form-horizontal" role="form"
+							action="/admin/Profile/create" method="post">
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="inputEmail3"
+										placeholder="Nombre" name="name" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label">Correo
+									electrónico</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="inputEmail3"
+										placeholder="ejemplo@dominio.com" name="email" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail3" class="col-sm-2 control-label">Contraseña</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputEmail3"
+										placeholder="contraseña" name="password" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword3" class="col-sm-2 control-label">Repetir
+									contraseña</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputPassword3"
+										placeholder="repetir contraseña" name="repeat_password"
+										required>
+								</div>
+							</div>
+
+{{#UsuarioCreado}}
+							<br>
+							<h5 style="color: green">
+								<strong> ¡Usuario creado correctamente! </strong>
+							</h5>
+							<br> 
+							{{/UsuarioCreado}}
+							{{#contraseñaIncorrecta}}
+							<br>
+							<h5 style="color: red">
+								<strong>  ¡Las contraseñas deben coincidir! </strong>
+							</h5>
+							<br> 
+							{{/contraseñaIncorrecta}}
+
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<div class="checkbox">
+										<label> <input type="checkbox" name="confirm" required>
+											Confirmar todos los cambios
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="submit" class="btn btn-primary">Crear
+										administrador</button>
+								</div>
+							</div>
+							<input type="hidden" name="_csrf" value="{{token}}" /> -->
+						</form>
+					</div>
+				</div>

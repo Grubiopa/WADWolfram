@@ -23,11 +23,10 @@ import {UserMovementsComponent} from './entities/UserMovementsComponent';
 import {UserService} from './services/UserService';
 import {NewService} from './services/NewService';
 import {ProjectService} from './services/ProjectService';
-import {IndexAdminComponent} from './entities/admin/IndexAdminComponent';
 @NgModule({
   declarations: [
     AppComponent, IndexComponent, AboutComponent, BlogComponent, SingleNewComponent, ProjectListComponent, ProjectComponent, RegisterComponet, LoginComponent, DonationComponent, UserDataPageComponent,
-    UserProjectComponent, UserMovementsComponent, ContactComponent, IndexAdminComponent
+    UserProjectComponent, UserMovementsComponent, ContactComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, JsonpModule, NgbModule.forRoot(), RouterModule.forRoot(routing)

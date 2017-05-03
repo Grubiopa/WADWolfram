@@ -9,25 +9,28 @@
                             <hr class="colorgraph">
                             <div id="sendmessage">Se ha enviado tu mensaje. ¡Gracias!</div>
                             <div id="errormessage"></div>
-                            <form action="/error" method="post" role="form" class="contactForm">
+                            <form role="form" class="contactForm" id="contact-form" method="POST" action="email.php" (ngSubmit)="onSubmit()" #tkdForm="ngForm">
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                                    <div class="validation"></div>
+                                    <input type="text" name="name" id="name" placeholder="Tu nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" [(ngModel)]="message.name" ngControl="name" #tkdForm.name="ngModel"
+                        class="form-control input-lg" required aria-required="true">
+                                   <!-- <div class="validation"></div>-->
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Tu correo" data-rule="email" data-msg="Please enter a valid email" required>
-                                    <div class="validation"></div>
+                                    <input type="email" name="email" id="email" placeholder="Tu correo" data-rule="email" data-msg="Please enter a valid email" [(ngModel)]="message.email" ngControl="email" #tkdForm.email="ngModel"
+                        class="form-control input-lg" required aria-required="true">
+                               <!--     <div class="validation"></div>-->
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Por favor, escribe al menos 8 caracteres de asunto" required>
                                     <div class="validation"></div>
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor, escríbenos algo" placeholder="Por favor, escríbenos algo" required></textarea>
-                                    <div class="validation"></div>
+                                    <textarea id="message" name="message" rows="5" data-rule="required" data-msg="Por favor, escríbenos algo" placeholder="Por favor, escríbenos algo" class="form-control input-lg" required
+                        [(ngModel)]="message.message" ngControl="message" #tkdForm.message="ngModel" aria-required="true"></textarea>
+                                <!--    <div class="validation"></div>-->
                                 </div>
 
-                                <div class="text-center">
+                                <div class="text-center" [hidden]="!tkdForm.form.valid">
                                     <button type="submit" class="btn btn-theme btn-block btn-md">Enviar mensaje</button>
                                 </div>
                                 <input type="hidden" name="_csrf" value="{{token}}"/>

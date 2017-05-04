@@ -35,7 +35,7 @@ export class UserDataPageComponent {
   }
 
   getUser2(){
-    this.users.getUser().subscribe(
+     this.users.getPersonalData().subscribe(
       response=>this.user = response,
       error => console.log(error)
     )

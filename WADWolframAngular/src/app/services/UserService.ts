@@ -21,6 +21,7 @@ export class UserService{
             .catch(error => this.handleError(error));
      }
 
+     
      login(username: string, password: string){
          if (username !== "") {
 
@@ -58,17 +59,18 @@ export class UserService{
          .catch(error=>this.handleError(error));
      }
      getPersonalData(){
-         return this.http.get("http:((localhost:8443/api/user/personalData")
+         let headers = new Headers();
+         return this.http.get("https://localhost:8443/api/user/personalData")
          .map(response=>response.json())
          .catch(error=>this.handleError(error));
      }
      getUserProjects(){
-         return this.http.get("http:((localhost:8443/api/user/userProjects")
+         return this.http.get("https://localhost:8443/api/user/userProjects")
          .map(response=>response.json())
          .catch(error=>this.handleError(error));
      }
      getOtherProjects(){
-         return this.http.get("http:((localhost:8443/api/user/otherProjects")
+         return this.http.get("https://localhost:8443/api/user/otherProjects")
          .map(response=>response.json())
          .catch(error=>this.handleError(error));
      }

@@ -145,8 +145,8 @@ public class UserRestController {
 		
 	}
 	@RequestMapping("/personalData")
-	public ResponseEntity<UserPersonalData> personalData(HttpSession session){
-		User user = (User) session.getAttribute("User");		
+	public ResponseEntity<UserPersonalData> personalData(HttpSession sesion){
+		User user = (User) sesion.getAttribute("User");		
 		return new ResponseEntity<UserPersonalData>(user.getUser(), HttpStatus.OK);
 		
 	}

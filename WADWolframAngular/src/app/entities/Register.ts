@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {UserPersonalData} from './UserPersonalData'
 import {UserService} from '../services/UserService';
+import {Http} from '@angular/http';
 @Component({
   selector: 'register',
   templateUrl: './register.html',
@@ -12,7 +13,7 @@ export class RegisterComponet{
  
   error:Boolean = false;
 
-  constructor(private router:Router, private service:UserService){}
+  constructor(private router:Router,private http: Http, private service:UserService){}
 
   newUser(name:string,lastname:string,username:string,email:string,password1:string,password2:string){
     if(password1==password2){
@@ -26,7 +27,7 @@ export class RegisterComponet{
       this.service.addUser(user).subscribe(
         user=>{
           console.log(user);
-          this.router.navigate['/login'];
+          this.router.navigate(['login']);
         }        
       );
     }else{

@@ -10,7 +10,7 @@ import {UserMovements} from '../entities/UserMovements';
 
   selector: 'userMovement',
 
-  templateUrl: './UserMovements.component.html',
+  templateUrl: './userMovements.component.html',
 
   styleUrls: ['../app.component.css']
 
@@ -18,7 +18,24 @@ import {UserMovements} from '../entities/UserMovements';
 
 
 export class UserMovementsComponent{
-   file:File;   
-    constructor(){}
+    movimientos:UserMovements[];  
+    constructor(){
+      this.movimientos = new Array();
+      this.prueba();
+    }
    
+   prueba(){
+     let movimiento:UserMovements={
+      date : new Date(),
+      money:5000,
+      projectTitle:"Proyecto 1"
+    };
+    let movimiento2:UserMovements={
+      date : new Date(),
+      money:5000,
+      projectTitle:"Proyecto 2"
+    };
+     this.movimientos.push(movimiento);
+     this.movimientos.push(movimiento2);
+   }
 }

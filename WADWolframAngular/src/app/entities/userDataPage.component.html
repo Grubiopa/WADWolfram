@@ -33,7 +33,7 @@
 
                             <div class="inside">
                                 <!--{{#matchpass}}-->
-                                <h5 style="color: red"><strong> ¡Atención! Ningún cambio ha sido guardado porque la contraseña era incorrecta </strong></h5> 
+                                <h5 style="color: red" *ngIf=changes><strong> ¡Atención! Ningún cambio ha sido guardado porque la contraseña era incorrecta </strong></h5> 
                                 <!--{{/matchpass}}-->
                                 <h1>¡Bienvenid@ {{user.userName}}!</h1>
                                

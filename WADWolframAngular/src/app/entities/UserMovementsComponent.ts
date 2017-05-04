@@ -6,6 +6,7 @@ import { Http } from '@angular/http';
 
 import {UserMovements} from '../entities/UserMovements';
 
+
 @Component({
 
   selector: 'userMovement',
@@ -18,13 +19,20 @@ import {UserMovements} from '../entities/UserMovements';
 
 
 export class UserMovementsComponent{
+    username:string = "cargando";
     movimientos:UserMovements[];  
     constructor(){
       this.movimientos = new Array();
       this.prueba();
+      //this.username = this.cargarUserName();
     }
-   
-   prueba(){
+    
+    cargarUserName(){
+      return "aqui ira la peticion"; 
+    }
+ 
+    
+    prueba(){
      let movimiento:UserMovements={
       date : new Date(),
       money:5000,

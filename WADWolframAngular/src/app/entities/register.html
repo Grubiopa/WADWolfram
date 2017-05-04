@@ -19,30 +19,30 @@
       <div class="row">
          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
-               <input type="text" id="first_name" class="form-control input-lg" placeholder="Nombre" name="aname" required>
+               <input #name type="text" id="name" class="form-control input-lg" placeholder="Nombre" name="name" required>
             </div>
          </div>
          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
-               <input type="text" id="last_name" class="form-control input-lg" placeholder="Apellidos" name="lastName" required>
+               <input #lastName type="text" id="lastName" class="form-control input-lg" placeholder="Apellidos" name="lastName" required>
             </div>
          </div>
       </div>
       <div class="form-group">
-         <input type="text" id="display_name" class="form-control input-lg" placeholder="Nombre de Usuario" name="username" required>
+         <input #userName type="text" id="userName" class="form-control input-lg" placeholder="Nombre de Usuario" name="userName" required>
       </div>
       <div class="form-group">
-         <input type="email" id="email" class="form-control input-lg" placeholder="Dirección de correo electrónico" name="aemail" required>
+         <input #email type="email" id="email" class="form-control input-lg" placeholder="Dirección de correo electrónico" name="email" required>
       </div>
       <div class="row">
          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
-               <input type="password" id="password" class="form-control input-lg" placeholder="Contraseña" name="apass" required>
+               <input #pass1 type="password" id="pass1" class="form-control input-lg" placeholder="Contraseña" name="pass1" required>
             </div>
          </div>
          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
-               <input type="password" id="password_confirmation" class="form-control input-lg" placeholder="Confirma la contraseña" name="apass2" required>
+               <input #pass2 type="password" id="pass2" class="form-control input-lg" placeholder="Confirma la contraseña" name="pass2" required>
             </div>
          </div>
       </div>
@@ -51,17 +51,16 @@
              Haciendo click en <strong class="label label-primary">Regístrate</strong>, aceptas las <a href="#" data-toggle="modal" data-target="#t_and_c_m">condiciones y términos de uso</a> de esta página web, incluido el uso de cookies.
          </div>
       </div>
-      <!--{{#contraseñaIncorrecta}}-->
-      <h5 style="color: red"><strong> ¡Las contraseñas deben coincidir! </strong></h5>
-      <!-- {{/contraseñaIncorrecta}}-->
+      
+      <h5 style="color: red" *ngIf="error"><strong> ¡Las contraseñas deben coincidir! </strong></h5>
+      
       <hr class="colorgraph">
       <div class="row">
          <div class="col-xs-12 col-md-6">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Regístrate</button>
+            <button (click)="newUser(name.value, lastName.value, userName.value,email.value, pass1.value, pass2.value)" type="submit" class="btn btn-primary btn-block btn-lg">Regístrate</button>
          </div>
          <div class="col-xs-12 col-md-6">¿Tienes ya una cuenta? <a href="/login">¡Entra en tu cuenta!</a></div>
-      </div>
-      <input type="hidden" name="_csrf" value="{{token}}" />
+      </div>   
    </form>
 </div>
 

@@ -48,7 +48,7 @@ export class UserService{
      }
 
      addUser(user:UserPersonalData){
-         return this.http.post("https://localhost:8443/api/user/register/create", user)
+         return this.http.post("https://localhost:8443/api/user/", user)
             .map(response => response.json())
             .catch(error => this.handleError(error));
      }

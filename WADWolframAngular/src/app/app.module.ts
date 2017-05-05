@@ -28,13 +28,15 @@ import { AdminComponent } from './component/admin/admin.component';
 import { IndexAdminComponent } from './component/admin/index/index';
 import { AddProjectComponent } from './component/admin/addproject/addproject.component';
 import { AddBlogComponent } from './component/admin/addblog/addblog.component';
+import { DonationsAdminComponent } from './component/admin/donationsAdmin/donationsAdmin.component';
+import { ProfileComponent } from './component/admin/profile/profile.component';
 
 import { PublicComponent } from './public.component';
 
 @NgModule({
   declarations: [
     AppComponent, IndexComponent, AboutComponent, BlogComponent, SingleNewComponent, ProjectListComponent, ProjectComponent, RegisterComponet, LoginComponent, DonationComponent, UserDataPageComponent,
-    UserProjectComponent, UserMovementsComponent, ContactComponent, PublicComponent, AdminComponent, IndexAdminComponent, AddBlogComponent, AddProjectComponent
+    UserProjectComponent, UserMovementsComponent, ContactComponent, PublicComponent, AdminComponent, IndexAdminComponent, AddBlogComponent, AddProjectComponent, DonationsAdminComponent, ProfileComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, JsonpModule, NgbModule.forRoot(), routing

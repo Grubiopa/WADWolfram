@@ -6,16 +6,14 @@
 <title>Admin WAD Wolfram - Inicio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link
-	href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css"
-	rel="stylesheet" media="screen">
+
 <!-- Bootstrap -->
-<link href="/Bootstrap-Admin-Theme/bootstrap/css/bootstrap.min.css"
+<link href="../assets/Bootstrap-Admin-Theme/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <!-- styles -->
-<link href="/Bootstrap-Admin-Theme/css/styles.css" rel="stylesheet">
-<link href="/Bootstrap-Admin-Theme/css/stats.css" rel="stylesheet">
-<link href="/css/admin.css" rel="stylesheet" />
+<link href="../assets/Bootstrap-Admin-Theme/css/styles.css" rel="stylesheet">
+<link href="../assets/Bootstrap-Admin-Theme/css/stats.css" rel="stylesheet">
+<link href="../assets/css/admin.css" rel="stylesheet" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,7 +31,7 @@
 					<!-- Logo -->
 					<div class="logo">
 						<h1>
-							<a href="/admin/">Admin WAD Wolfram</a>
+							<a [routerLink]="['/admin']">Admin WAD Wolfram</a>
 						</h1>
 					</div>
 				</div>
@@ -44,7 +42,7 @@
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">Mi cuenta <b class="caret"></b></a>
 								<ul class="dropdown-menu animated fadeInUp">
-									<li><a href="/admin/Profile" id="boton_nuevo_cs" class="btn">Perfil</a></li>
+									<li><a [routerLink]="['/admin/profile']" id="boton_nuevo_cs" class="btn">Perfil</a></li>
 									<li>
 											<form action="/user/close" method="post">
 												<input type="submit" id="boton_nuevo_cs" class="btn"
@@ -67,13 +65,13 @@
 				<div class="sidebar content-box " style="display: block;">
 					<ul class="nav ">
 						<!-- Main menu -->
-						<li class="current"><a href="/admin/"><i
+						<li class="current"><a [routerLink]="['/admin']"><i
 								class="glyphicon glyphicon-home "></i> Inicio</a></li>
-						<li><a href="/admin/AddProject"><i
+						<li><a [routerLink]="['/admin/projects']"><i
 								class="glyphicon glyphicon-pencil "></i> Añadir Proyecto</a></li>
-						<li><a href="/admin/Donations"><i
+						<li><a [routerLink]="['/admin/donations']"><i
 								class="glyphicon glyphicon-euro"></i> Donaciones</a></li>
-						<li><a href="/admin/AddBlog"><i
+						<li><a [routerLink]="['/admin/blog']"><i
 								class="glyphicon glyphicon-tasks "></i> Añadir Noticia</a></li>
 						<li class="submenu "><a href="# "> <i
 								class="glyphicon glyphicon-record "></i> Mi cuenta <span
@@ -108,42 +106,40 @@
 		<div class="container ">
 
 			<div class="copy text-center ">
-				WAD Wolfram <a href='/user/close'>Cerrar sesión</a>
+				WAD Wolfram <a [routerLink]="['/index']">Cerrar sesión</a>
 			</div>
 
 		</div>
 	</footer>
 
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="/Bootstrap-Admin-Theme/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../assets/Bootstrap-Admin-Theme/bootstrap/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet"
-		href="/Bootstrap-Admin-Theme/filtros/vendors/morris/morris.css">
+		href="../assets/Bootstrap-Admin-Theme/filtros/vendors/morris/morris.css">
 
 
-	<script src="/Bootstrap-Admin-Theme/filtros/vendors/jquery.knob.js"></script>
-	<script src="/Bootstrap-Admin-Theme/filtros/vendors/raphael-min.js"></script>
+	<script src="../assets/Bootstrap-Admin-Theme/filtros/vendors/jquery.knob.js"></script>
+	<script src="../assets/Bootstrap-Admin-Theme/filtros/vendors/raphael-min.js"></script>
 	<script
-		src="/Bootstrap-Admin-Theme/filtros/vendors/morris/morris.min.js"></script>
+		src="../assets/Bootstrap-Admin-Theme/filtros/vendors/morris/morris.min.js"></script>
 
 	<script
-		src="/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.js"></script>
+		src="../assets/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.js"></script>
 	<script
-		src="/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.categories.js"></script>
+		src="../assets/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.categories.js"></script>
 	<script
-		src="/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.pie.js"></script>
+		src="../assets/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.pie.js"></script>
 	<script
-		src="/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.time.js"></script>
+		src="../assets/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.time.js"></script>
 	<script
-		src="/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.stack.js"></script>
+		src="../assets/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.stack.js"></script>
 	<script
-		src="/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.resize.js"></script>
-	<script src="/Bootstrap-Admin-Theme/js/custom.js"></script>
-	<script src="/Bootstrap-Admin-Theme/js/stats.js"></script>
+		src="../assets/Bootstrap-Admin-Theme/filtros/vendors/flot/jquery.flot.resize.js"></script>
+	<script src="../assets/Bootstrap-Admin-Theme/js/custom.js"></script>
+	<script src="../assets/Bootstrap-Admin-Theme/js/stats.js"></script>
 </body>
 
 </html>

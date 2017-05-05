@@ -6,6 +6,8 @@ import { AdminComponent } from './component/admin/admin.component';
 import { IndexAdminComponent } from './component/admin/index/index';
 import { AddProjectComponent } from './component/admin/addproject/addproject.component';
 import { AddBlogComponent } from './component/admin/addblog/addblog.component';
+import { DonationsAdminComponent } from './component/admin/donationsAdmin/donationsAdmin.component';
+import { ProfileComponent } from './component/admin/profile/profile.component';
 
 import { PublicComponent } from './public.component';
 
@@ -62,10 +64,12 @@ const appRoutes: Routes = [
         path: 'admin', component: AdminComponent,
 
         children: [
-            { path: '', redirectTo: 'index', pathMatch: 'full' },
+            { path: '', redirectTo: '/admin/index', pathMatch: 'full' },
             { path: 'index', component: IndexAdminComponent },
             { path: 'projects', component: AddProjectComponent },
-            { path: 'blog', component: AddBlogComponent }
+            { path: 'blog', component: AddBlogComponent },
+            { path: 'donations', component: DonationsAdminComponent },
+            { path: 'profile', component: ProfileComponent },
         ]
     }
 ]

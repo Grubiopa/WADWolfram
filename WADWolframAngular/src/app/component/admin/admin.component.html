@@ -39,19 +39,14 @@
 				<div class="col-md-2 col-sm-2 col-xs-2" style="margin-left: 180px">
 					<div class="navbar navbar-inverse " role="banner ">
 						<ul class="nav navbar-nav ">
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">Mi cuenta <b class="caret"></b></a>
-								<ul class="dropdown-menu animated fadeInUp">
-									<li><a [routerLink]="['/admin/profile']" id="boton_nuevo_cs" class="btn">Perfil</a></li>
-									<li>
-											<form action="/user/close" method="post">
-												<input type="submit" id="boton_nuevo_cs" class="btn"
-													value="Cerrar sesión" /> <input type="hidden" name="_csrf"
-													value="{{token}}" />
-											</form>
-									</li>
-								</ul>
-							</li>
+							<li class="dropdown"  (click)="showDropdown('latMenu')" >
+
+                                    <a [routerLink] class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Mi cuenta <i class="fa fa-angle-down"></i></a>
+                                    <ul [ngbCollapse]="showMenu2" class="dropdown-menu">
+                                        <li><a [routerLink]="['/admin/profile']" routerLinkActive="active">Perfil</a></li>
+                                        <li><a [routerLink]="['/index']" routerLinkActive="active">Cerrar sesión</a></li>
+                                    </ul>
+                                </li>
 						</ul>
 					</div>
 				</div>
@@ -73,23 +68,14 @@
 								class="glyphicon glyphicon-euro"></i> Donaciones</a></li>
 						<li><a [routerLink]="['/admin/blog']"><i
 								class="glyphicon glyphicon-tasks "></i> Añadir Noticia</a></li>
-						<li class="submenu "><a href="# "> <i
-								class="glyphicon glyphicon-record "></i> Mi cuenta <span
-								class="caret pull-right "></span>
-						</a> <!-- Sub menu -->
-							<ul>
-<li>
-									<form action="/admin/Profile" method="post" class="href-btn">
-                                    	<input type="submit" style="background-color: white" class="btn" value="Perfil" />  
-                                    	<input type="hidden" name="_csrf" value="{{token}}"/>                                  
-                                    	</form>
-                                    	</li>								<li>
-									<form action="/user/close" method="post" class="href-btn">
-                                    	<input type="submit" style="background-color: white" class="btn" value="Cerrar sesión" />  
-                                    	<input type="hidden" name="_csrf" value="{{token}}"/>                                  
-                                    	</form>
-                                    	</li>
-							</ul></li>
+						<li class="dropdown"  (click)="showDrop('loginMenu')" >
+
+                                    <a [routerLink] class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Mi cuenta <i class="fa fa-angle-down"></i></a>
+                                    <ul [ngbCollapse]="showMenu" class="dropdown-menu">
+                                        <li><a [routerLink]="['/admin/profile']" routerLinkActive="active">Perfil</a></li>
+                                        <li><a [routerLink]="['/index']" routerLinkActive="active">Cerrar sesión</a></li>
+                                    </ul>
+                                </li>
 					</ul>
 				</div>
 			</div>

@@ -1,5 +1,4 @@
-<section id="featured" class="bg">
-
+﻿<section id="featured" class="bg">
             <!-- start slider -->
             <div class="container">
                 <div class="row">
@@ -7,18 +6,14 @@
                         <!-- Slider -->
                         <div id="main-slider" class="main-slider flexslider">
                             <ul class="slides">
-                               <!-- {{#projects}}-->
-                                <li>
-                                    <img src="/files/{{id}}.jpg" alt="Foto del proyecto" />
+                                <li *ngFor="let project of projects">
+                                    <img src="http://localhost:8443/image/{{project.id}}.jpg" alt="Foto del proyecto" />
                                     <div class="flex-caption">
-                                        <h3>{{title}}</h3>
-                                        <p>{{shortDescription}}</p>
-                                        <!--cambiar lo de arriba-->
-                                        <!--<a href="/project?id={{id}}" class="btn btn-theme">Leer más</a>-->
+                                        <h3>{{project.title}}</h3>
+                                        <p>{{project.shortDescription}}</p>
+                                        <a [routerLink]="['/project', project.id]" class="btn btn-theme">Leer más</a>
                                     </div>
                                 </li>
-
-                                <!--{{/projects}}-->
                             </ul>
                         </div>
                         <!-- end slider -->
@@ -34,37 +29,33 @@
                         <div class="row">
                             <div class="col-sm-6 col-lg-6">
                                 <h4>Sobre nuestra asociación</h4>
-                                <p>
+                                <p translate>
                                     Bienvenido a la página web donde podrás hacer tu aportación económica a proyectos médicos dirigidos a personas que padecen el Síndrome de Wolfram. Además, podrás hacer un seguimiento general de todos los proyectos y, por supuesto, de aquellos en los que has aportado. Regístrate de manera gratuíta para poder contribuir con la asociación. Para más información haz <a [routerLink]="['/about']" routerLinkActive="active">click aquí</a>.
                                 </p>
                                 <br/>
 
-                                <h4>Colabora con nuestros proyectos</h4> <!--{{#percentages}}-->
+                                <h4>Colabora con nuestros proyectos</h4> 
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"  aria-valuemin="0" aria-valuemax="100">
-                                        {{title}}: {{percentage}}
+<!-- aq: -->
+                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"  aria-valuemin="0" aria-valuemax="100" *ngFor="let projectProgress of projectsProgress">
+                                        {{projectProgress.title}}: {{projectProgress.percentage}}
                                     </div>
                                 </div>
-                                <!--{{/percentages}}-->
                                 <div class="flex-caption">
-                                    <a href="/projects" class="btn btn-theme">¡Anímate y participa!</a>
+                                    <a [routerLink]="['/projects']" class="btn btn-theme">¡Anímate y participa!</a>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-lg-6">
                                 <div class="widget" style="margin-left: 120px;">
                                     <h4 class="widgetheading">Noticias de interés</h4>
                                     <ul class="recent">
-                                        <!--{{#news}}-->
-                                        <li>
-                                            <a href="/new?id={{id}}"> <img src="/image/little{{id}}.jpg" class="pull-left" alt="Foto de la noticia" /></a>
-                                            <h6><a href="/new?id={{id}}">{{title}}</a></h6>
+                                        <li *ngFor="let new of news">
+                                            <a [routerLink]="https://localhost:8443/{{new.id}}"> <img src="/image/little{{id}}.jpg" class="pull-left" alt="Foto de la noticia" /></a>
+                                            <h6><a [routerLink]="https://localhost:8443/{{new.id}}">{{new.title}}</a></h6>
                                         </li>
-                                        <!--{{/news}}-->
-
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

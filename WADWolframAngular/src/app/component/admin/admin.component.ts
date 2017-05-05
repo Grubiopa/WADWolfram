@@ -17,20 +17,8 @@ import {Component, OnInit} from '@angular/core';
     '../../../assets/Bootstrap-Admin-Theme/css/calendar.css',
     '../../../assets/Bootstrap-Admin-Theme/css/forms.css',
     '../../../assets/Bootstrap-Admin-Theme/css/stats.css',
-    '../../../assets/Bootstrap-Admin-Theme/css/styles.css'
-  /*'../../../assets/Bootstrap-Admin-Theme/bootstrap/js/bootstrap.js',
-    '../../../assets/Bootstrap-Admin-Theme/bootstrap/js/bootstrap.min.js',
-    '../../../assets/Bootstrap-Admin-Theme/css/buttons.css',
-    '../../../assets/Bootstrap-Admin-Theme/css/calendar.css',
-    '../../../assets/Bootstrap-Admin-Theme/css/forms.css',
-    '../../../assets/Bootstrap-Admin-Theme/css/stats.css',
     '../../../assets/Bootstrap-Admin-Theme/css/styles.css',
-    '../../../assets/Bootstrap-Admin-Theme/js/calendar.js',
-    '../../../assets/Bootstrap-Admin-Theme/js/custom.js',
-    '../../../assets/Bootstrap-Admin-Theme/js/editors.js',
-    '../../../assets/Bootstrap-Admin-Theme/js/forms.js',
-    '../../../assets/Bootstrap-Admin-Theme/js/stats.js',
-    '../../../assets/Bootstrap-Admin-Theme/js/tables.js'*/]    
+    '../../js/google-code-prettify/prettify.css']    
 })
 export class AdminComponent {
 

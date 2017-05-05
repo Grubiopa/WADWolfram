@@ -34,9 +34,9 @@ public class Application {
 
             public void addCorsMappings(CorsRegistry registry) {
 
-                registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "OPTIONS", "PUT", "DELETE")
+                registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "OPTIONS", "PUT", "DELETE","HEAD")
 
-                .allowedHeaders("Content-Type", "X-Requested-With", "accept", "Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers")
+                .allowedHeaders("Content-Type", "X-Requested-With", "accept", "Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers","Authorization")
 
                 .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
 

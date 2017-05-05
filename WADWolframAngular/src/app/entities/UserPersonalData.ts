@@ -5,4 +5,5 @@ export class UserPersonalData{
     email:string;
     userName:string;
     passwordHash:string;
+    roles: string[];
 }

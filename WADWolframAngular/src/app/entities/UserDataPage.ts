@@ -18,7 +18,8 @@ export class UserDataPageComponent {
    email:"a@a.es",
    lastname:"rubio",
    name:"gabi",
-   passwordHash:"jjj"
+   passwordHash:"jjj",
+   roles:['ROLE_ADMIN']
   };
 
   changes:boolean = false;

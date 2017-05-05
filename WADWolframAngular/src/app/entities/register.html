@@ -59,7 +59,7 @@
          <div class="col-xs-12 col-md-6">
             <button (click)="newUser(name.value, lastName.value, userName.value,email.value, pass1.value, pass2.value)" type="submit" class="btn btn-primary btn-block btn-lg">Regístrate</button>
          </div>
-         <div class="col-xs-12 col-md-6">¿Tienes ya una cuenta? <a href="/login">¡Entra en tu cuenta!</a></div>
+         <div class="col-xs-12 col-md-6">¿Tienes ya una cuenta? <a [routerLink]="['/login']">¡Entra en tu cuenta!</a></div>
       </div>   
    </form>
 </div>

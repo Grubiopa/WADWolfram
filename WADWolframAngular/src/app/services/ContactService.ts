@@ -8,7 +8,7 @@ import {Email}                    from '../Class/Email';
 export class ContactService {
   constructor (private _http: Http) {}
  
-  private _contactUrl = './email.php';
+  private _contactUrl = 'http://localhost:4200/entities/email.php';
  
   postEmail(newMail: Email): Observable<string>{
     let body = 'name=${newMail.name}&email=${newMail.email}&message=${newMail.message}';

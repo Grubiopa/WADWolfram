@@ -7,18 +7,15 @@
                         <!-- Slider -->
                         <div id="main-slider" class="main-slider flexslider">
                             <ul class="slides">
-                               <!-- {{#projects}}-->
-                                <li>
-                                    <img src="/files/{{id}}.jpg" alt="Foto del proyecto" />
+                               
+                                <li *ngFor="let project of projects">
+                                    <img src="/files/{{project.id}}.jpg" alt="Foto del proyecto" />
                                     <div class="flex-caption">
-                                        <h3>{{title}}</h3>
-                                        <p>{{shortDescription}}</p>
-                                        <!--cambiar lo de arriba-->
-                                        <!--<a href="/project?id={{id}}" class="btn btn-theme">Leer más</a>-->
+                                        <h3>{{project.title}}</h3>
+                                        <p>{{project.shortDescription}}</p>
+                                        <a [routerLink]="['/project/1']" class="btn btn-theme">Leer más</a> 
                                     </div>
                                 </li>
-
-                                <!--{{/projects}}-->
                             </ul>
                         </div>
                         <!-- end slider -->
@@ -47,20 +44,17 @@
                                 </div>
                                 <!--{{/percentages}}-->
                                 <div class="flex-caption">
-                                    <a href="/projects" class="btn btn-theme">¡Anímate y participa!</a>
+                                    <a [routerLink]="['/projects']" class="btn btn-theme">¡Anímate y participa!</a>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-lg-6">
                                 <div class="widget" style="margin-left: 120px;">
                                     <h4 class="widgetheading">Noticias de interés</h4>
                                     <ul class="recent">
-                                        <!--{{#news}}-->
-                                        <li>
-                                            <a href="/new?id={{id}}"> <img src="/image/little{{id}}.jpg" class="pull-left" alt="Foto de la noticia" /></a>
-                                            <h6><a href="/new?id={{id}}">{{title}}</a></h6>
-                                        </li>
-                                        <!--{{/news}}-->
 
+                                        <li *ngFor="let blog of blogs">
+                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>

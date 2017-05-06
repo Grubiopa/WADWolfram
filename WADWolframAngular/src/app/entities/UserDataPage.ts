@@ -43,7 +43,8 @@ export class UserDataPageComponent {
       newPassword:pass2     
     };
     this.users.updateUser(this.user.id,user2).subscribe(
-      response=>this.login.setUser(response),      
+      response=>{this.login.setUser(response),
+       this.router.navigate(['userProjects'])},      
       error => {
         console.log(error);
         this.changes=true

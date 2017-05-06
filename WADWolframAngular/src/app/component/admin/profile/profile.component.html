@@ -7,62 +7,67 @@
 							<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
 								<div class="col-sm-10">
-									<p class="form-control" id="inputEmail3">{{name}}</p>
+									<input #name readonly class="form-control" id="name"
+										placeholder="{{user.name}}" name="name" type="text" >
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label">Correo
 									electrónico</label>
 								<div class="col-sm-10">
-									<input type="email" class="form-control" id="inputEmail3"
-										placeholder="email" name="memail">
+									<input #email type="email" class="form-control" id="inputEmail3"
+										placeholder="{{user.email}}" name="memail">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label">Contraseña
 									antigua</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputEmail3"
-										placeholder="Contraseña antigua" name="mpassword" required>
+									<input #pass type="password" class="form-control" id="inputEmail3"
+										placeholder="Contraseña antigua" name="pass" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-2 control-label">Contraseña
 									nueva</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputPassword3"
-										placeholder="Contraseña nueva" name="mnew_password">
+									<input #newpass type="password" class="form-control" id="inputPassword3"
+										placeholder="Contraseña nueva" name="newpass">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-2 control-label">Repetir
 									contraseña</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputPassword3"
-										placeholder="Repetir contraseña nueva" name="mrepeat_password">
+									<input #rnewpass type="password" class="form-control" id="inputPassword3"
+										placeholder="Repetir contraseña nueva" name="rnewpass">
 								</div>
 							</div>
 
-							<!--{{#malpass1}}--> <br>
-							<h5 style="color: red">
+							 <br>
+
+							<h5  *ngIf=changes style="color: red">
+								<strong> No se ha realizado ningún cambio, revise las contraseñas </strong>
+							</h5>
+							<br>
+
+				<!--			<h5 style="color: red">
 								<strong> ¡La contraseña es inválida! </strong>
 							</h5>
 							<br>
-							<!--
-							 {{/malpass1}}
-							 {{#malpass2}}-->
+							
 							 <br>
 							<h5 style="color: red">
 								<strong> ¡La contraseña antigua es inválida! </strong>
 							</h5>
 							<br> 
-							<!--{{/malpass2}} {{#malpass3}}-->
+							{{/malpass2}} {{#malpass3}}
 							<br>
 							<h5 style="color: red">
 								<strong> ¡Las contraseñas nuevas no coinciden! </strong>
 							</h5>
 							<br> 
-							<!--{{/malpass3}}-->
+							{{/malpass3}}-->
 
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
@@ -75,7 +80,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button type="submit" class="btn btn-primary">Cambiar
+									<button  (click)="updateUser(name.value,email.value, pass.value, newpass.value,rnewpass.value)" type="submit" class="btn btn-primary">Cambiar
 										datos</button>
 								</div>
 							</div>
@@ -89,7 +94,7 @@
 							<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="inputEmail3"
+									<input #name type="text" class="form-control" id="inputEmail3"
 										placeholder="Nombre" name="name" required>
 								</div>
 							</div>
@@ -97,37 +102,37 @@
 								<label for="inputEmail3" class="col-sm-2 control-label">Correo
 									electrónico</label>
 								<div class="col-sm-10">
-									<input type="email" class="form-control" id="inputEmail3"
+									<input #email type="email" class="form-control" id="inputEmail3"
 										placeholder="ejemplo@dominio.com" name="email" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputEmail3" class="col-sm-2 control-label">Contraseña</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputEmail3"
-										placeholder="contraseña" name="password" required>
+									<input #pass1 type="password" class="form-control" id="inputEmail3"
+										placeholder="contraseña" name="pass1" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPassword3" class="col-sm-2 control-label">Repetir
 									contraseña</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputPassword3"
-										placeholder="repetir contraseña" name="repeat_password"
+									<input #pass2 type="password" class="form-control" id="inputPassword3"
+										placeholder="repetir contraseña" name="pass2"
 										required>
 								</div>
 							</div>
 
 <!--{{#UsuarioCreado}}-->
 							<br>
-							<h5 style="color: green">
+							<h5  *ngIf="correcto" style="color: green">
 								<strong> ¡Usuario creado correctamente! </strong>
 							</h5>
 							<br> 
 							<!--{{/UsuarioCreado}}
 							{{#contraseñaIncorrecta}}-->
 							<br>
-							<h5 style="color: red">
+							<h5  *ngIf="error" style="color: red">
 								<strong>  ¡Las contraseñas deben coincidir! </strong>
 							</h5>
 							<br> 
@@ -145,7 +150,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
-									<button type="submit" class="btn btn-primary">Crear
+									<button (click)="newUser(name.value ,email.value, pass1.value, pass2.value,['ROLE_ADMIN'])"  type="submit" class="btn btn-primary">Crear
 										administrador</button>
 								</div>
 							</div>

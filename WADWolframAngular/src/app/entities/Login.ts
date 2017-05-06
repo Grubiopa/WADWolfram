@@ -20,7 +20,10 @@ import {Http} from '@angular/http';
 
     this.loginService.logIn(user, pass).subscribe(
       u =>{ console.log(u);
-        this.router.navigate(['/userData']);
+        if (this.loginService.getIsAdmin())
+        {this.router.navigate(['/admin']);}
+        else
+        this.router.navigate(['/userProjects']);
       },
       error => alert('Invalid user or password')
     );
@@ -28,10 +31,16 @@ import {Http} from '@angular/http';
 
   logOut() {
     this.loginService.logOut().subscribe(
-      response => { },
+      response => { 
+
+       },
       error => console.log('Error when trying to log out: ' + error)
     );
   }
+
+  /*logOut() {
+    this.loginService.logOut();
+  }*/
 
 }
  

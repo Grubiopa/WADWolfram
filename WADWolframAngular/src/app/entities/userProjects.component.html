@@ -18,13 +18,12 @@
                                 <div class="collapse navbar-collapse navbar-ex1-collapse">
 
                                     <ul class="nav navbar-nav col-lg-10">
-                                       <li  id="iteMyProyects"class="active"><a href="/userProjects"  id="myProyects">Mis proyectos</a></li>
-                                        <li id="iteMyMovements" ><a href="/userMovements"  id="myMovements">Mis movimientos</a></li>
-                                        <li id="iteMyDatas"><a href="/userData"  id="myDatas">Mis datos</a></li>
+                                       <li  id="iteMyProyects"class="active"><a [routerLink]="['/userProjects']"  id="myProyects">Mis proyectos</a></li>
+                                        <li id="iteMyMovements" ><a [routerLink]="['/userMovements']" id="myMovements">Mis movimientos</a></li>
+                                        <li id="iteMyDatas"><a [routerLink]="['/userData']"  id="myDatas">Mis datos</a></li>
                                     </ul>
-                                    <form action="/user/close" method="post">
-                                        <input type="submit" class="btn btn-info col-lg-2" id="btn_sesion" value="Cerrar sesión" />
-                                    </form>
+                                    
+                                        <button (onClick)="logOut()" type="button" class="btn btn-info col-lg-2" id="btn_sesion">Cerrar sesión</button>
 
 
                                 </div>

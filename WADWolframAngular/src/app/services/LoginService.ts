@@ -70,6 +70,13 @@ export class LoginService {
             }
         );
     }
+
+    getIsAdmin(){
+
+        return this.isAdmin && this.isLogged;
+    }
+
+
 }
     
 function utf8_to_b64(str) {

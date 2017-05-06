@@ -76,7 +76,9 @@ export class LoginService {
         return this.isAdmin && this.isLogged;
     }
 
-
+    getUser(){
+        return this.user;
+    }
 }
     
 function utf8_to_b64(str) {

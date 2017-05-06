@@ -132,9 +132,9 @@ public class UserRestController {
 	
 	//NUEVOS
 	@RequestMapping("/allMovements")
-	public ResponseEntity<List<UserMovements>> movements(HttpSession session){
-		User user = (User) session.getAttribute("User");
-		List<Donation> donations =  movements.findByuserId(user.getUser().getId());
+	public ResponseEntity<List<UserMovements>> movements(){
+		UserPersonalData loggedUser = userComponent.getLoggedUser();
+		List<Donation> donations =  movements.findByuserId(loggedUser.getId());
 		List<UserMovements> userMovements = new ArrayList<>();
 		for (Donation d : donations) {
 			Project p = d.getProject();
@@ -144,22 +144,17 @@ public class UserRestController {
 		return new ResponseEntity<List<UserMovements>>(userMovements, HttpStatus.OK);
 		
 	}
-	@RequestMapping("/personalData")
-	public ResponseEntity<UserPersonalData> personalData(HttpSession sesion){
-		User user = (User) sesion.getAttribute("User");		
-		return new ResponseEntity<UserPersonalData>(user.getUser(), HttpStatus.OK);
-		
-	}
+	
 	@RequestMapping("/userProjects")
-	public ResponseEntity<List<UserProject>> userProjects(HttpSession session){
-		User user = (User) session.getAttribute("User");
-		List<UserProject> userProject = userService.getUserProjects(user.getUser().getId());
+	public ResponseEntity<List<UserProject>> userProjects(){
+		UserPersonalData loggedUser = userComponent.getLoggedUser();
+		List<UserProject> userProject = userService.getUserProjects(loggedUser.getId());
 		return new ResponseEntity<List<UserProject>>(userProject, HttpStatus.OK);
 	}
 	@RequestMapping("/otherProjects")
-	public ResponseEntity<List<UserProject>> otherProjects(HttpSession session){
-		User user = (User) session.getAttribute("User");
-		List<UserProject> userProject = userService.getOtherProjects(user.getUser().getId());
+	public ResponseEntity<List<UserProject>> otherProjects(){
+		UserPersonalData loggedUser = userComponent.getLoggedUser();
+		List<UserProject> userProject = userService.getOtherProjects(loggedUser.getId());
 		return new ResponseEntity<List<UserProject>>(userProject, HttpStatus.OK);
 	}
 	

@@ -5,7 +5,8 @@ import{User} from "../entities/User";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Observable";
 import{Router} from "@angular/router";
-import {Http, Headers} from "@angular/http";
+import {Http,RequestOptions, Headers} from "@angular/http";
+import {LoginService} from "./LoginService";
 import "rxjs/Rx";
 
 @Injectable()
@@ -14,7 +15,7 @@ export class UserService{
    private credentials: string;
    //private user:User;
  
-    constructor(private http: Http){}
+    constructor(private http: Http, private loginService: LoginService){}
      getUser() {
         return this.http.get("https://localhost:8443/api/user/login")
             .map(response => response.json())
@@ -54,23 +55,35 @@ export class UserService{
             .catch(error => this.handleError(error));
      }
      getMovements(){
-         return this.http.get("https://localhost:8443/api/user/allMovements")
+         const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+
+        const options = new RequestOptions({ withCredentials: true, headers });
+         return this.http.get("https://localhost:8443/api/user/allMovements", options)
          .map(response=>response.json())
          .catch(error=>this.handleError(error));
      }
      getPersonalData(){
-         let headers = new Headers();
-         return this.http.get("https://localhost:8443/api/user/personalData")
-         .map(response=>response.json())
-         .catch(error=>this.handleError(error));
+         return this.loginService.getUser();
      }
      getUserProjects(){
-         return this.http.get("https://localhost:8443/api/user/userProjects")
+          const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+
+        const options = new RequestOptions({ withCredentials: true, headers });
+         return this.http.get("https://localhost:8443/api/user/userProjects", options)
          .map(response=>response.json())
          .catch(error=>this.handleError(error));
      }
      getOtherProjects(){
-         return this.http.get("https://localhost:8443/api/user/otherProjects")
+          const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+
+        const options = new RequestOptions({ withCredentials: true, headers });
+         return this.http.get("https://localhost:8443/api/user/otherProjects",options)
          .map(response=>response.json())
          .catch(error=>this.handleError(error));
      }

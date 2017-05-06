@@ -25,20 +25,17 @@ export class UserDataPageComponent {
   changes:boolean = false;
   
   constructor(private router:Router, private users: UserService, private activatedRoute: ActivatedRoute, private http: Http) {
-    this.getUser2();
+    this.getUser();
   }
   
-  getUser(id:number){
-    this.http.get('http://localhost:8443/api/user/personalData').subscribe(
-      response=>this.user = response.json(),
-      error => console.log(error)
-    )
+  getUser(){
+    this.user = this.users.getPersonalData()
   }
 
   getUser2(){
-     this.users.getPersonalData().subscribe(
+    /* this.users.getPersonalData().subscribe(
       response=>this.user = response,
       error => console.log(error)
-    )
+    )*/
   }
 }

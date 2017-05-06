@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 
 import {UserProjects} from '../entities/UserProjects';
+import {UserService} from '../services/UserService';
+import {LoginService} from '../services/LoginService';
 
 @Component({
 
@@ -28,13 +30,17 @@ export class UserProjectComponent{
         this.shortDescription=shortDescription;
         this.money=money;
     }*/
-    constructor(){
+    constructor(private router:Router, private login:LoginService,private users: UserService, private activatedRoute: ActivatedRoute, private http: Http){
         this.userProjects = new Array();
         this.otherProjects = new Array();
-        this.loadProjects();
+        this.loadProjectsUser();
     }
-    loadProjects(){
-        let project1:UserProjects={
+    loadProjectsUser(){
+      return this.users.getUserProjects().subscribe(
+      response=>this.userProjects = response,
+      error => console.log(error)
+      )
+        /*let project1:UserProjects={
            money:5000,
            projectTitle: "P1",
            shortDescription: "projecto1"
@@ -57,7 +63,12 @@ export class UserProjectComponent{
         this.userProjects.push(project1);
         this.userProjects.push(project2);
         this.otherProjects.push(project3);
-        this.otherProjects.push(project4);
+        this.otherProjects.push(project4);*/
+    }
+    loadOtherProjects(){
+      return this.users.getOtherProjects().subscribe(
+      response=>this.otherProjects = response,
+      error => console.log(error))
     }
       
 }

@@ -5,7 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 
 import {UserMovements} from '../entities/UserMovements';
-
+import {UserService} from '../services/UserService';
+import {LoginService} from '../services/LoginService';
 
 @Component({
 
@@ -20,17 +21,24 @@ import {UserMovements} from '../entities/UserMovements';
 
 export class UserMovementsComponent{
     username:string = "cargando";
-    movimientos:UserMovements[];  
-    constructor(){
+    movimientos:UserMovements[];
+
+    constructor(private router:Router, private login:LoginService,private users: UserService, private activatedRoute: ActivatedRoute, private http: Http){
       this.movimientos = new Array();
-      this.prueba();
-      //this.username = this.cargarUserName();
+      //this.prueba();
+      this.username = this.cargarUserName();
+      this.cargarUserMovimientos();
     }
     
+    cargarUserMovimientos(){
+      return this.users.getMovements().subscribe(
+      response=>this.movimientos = response,
+      error => console.log(error)
+      )
+    } 
     cargarUserName(){
-      return "aqui ira la peticion"; 
+      return this.login.getUser().userName;
     }
- 
     
     prueba(){
      let movimiento:UserMovements={

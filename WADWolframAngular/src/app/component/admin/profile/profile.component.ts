@@ -73,16 +73,21 @@ user: UserPersonalData = {
 
     updateUser(name:string,email:string,pass:string,newpass:string,rnewpass:string){
     
-   // if(rnewpass=newpass){
+    let realEmail:string = this.user.email;
+    let password:string= this.user.passwordHash;
+    if(newpass!=""){
+      password=newpass
+    }
+    if(email!=""){
+        realEmail=email
+       }
     let user2: UserUpdate ={    
-      email:email,
+      email:realEmail,
       username:name,
       oldPassword:pass,
-      newPassword:newpass     
+      newPassword:password     
     };
- // }
- // else{
-   // let user2: UserUpdate={email:this.getUser.email,username:this.getUser.name,oldPassword:this.getUser}
+ 
     this.service.updateUser(this.user.id,user2).subscribe(
       response=>{this.login.setUser(response),
        this.router.navigate(['admin/index'])},       
@@ -90,9 +95,7 @@ user: UserPersonalData = {
         console.log(error);
         this.changes=true
       });
-
-  //};
-    
+   
   }
 
  }

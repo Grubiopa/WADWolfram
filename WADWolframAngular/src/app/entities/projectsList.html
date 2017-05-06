@@ -31,15 +31,15 @@
          </div>
          <div id="grid-container" class="cbp-l-grid-projects">
             <ul>
-               <li class="cbp-item graphic"  *ngFor="let project of projects">
+               <li *ngFor="let project of projects">
                   <div class="cbp-caption">
                      <div class="cbp-caption-defaultWrap">
-<!--                        <img src="https://localhost:8443/image/{{project.id}}.jpg" alt="foto del proyecto" />   -->
+                       <img src="https://localhost:8443/imagep/{{project.id}}.jpg" alt="foto del proyecto" />   
                      </div>
                      <div class="cbp-caption-activeWrap">
                         <div class="cbp-l-caption-alignCenter">
                            <div class="cbp-l-caption-body">
-                              <a [routerLink]="['/project', project.id]" class="cbp-l-caption-buttonRight" data-title="Proyecto<br>Fecha lanzamiento">Leer más</a>
+                              <a href="/project/{{project.id}}" class="cbp-l-caption-buttonRight" data-title="ProyectoFecha lanzamiento">Leer más</a>
                            </div>
                         </div>
                      </div>
@@ -49,7 +49,6 @@
               </li>
             </ul>
          </div>
-aq:
          <div class="cbp-l-loadMore-button">
          <!--  <a href="ajax/loadMore.html" class="cbp-l-loadMore-button-link">Cargar más</a> -->
             <a href="#" class="cbp-l-loadMore-button-link">Cargar más</a>

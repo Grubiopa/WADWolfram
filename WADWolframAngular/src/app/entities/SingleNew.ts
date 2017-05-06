@@ -10,9 +10,10 @@ import { New } from '../Class/New';
 })
 
 export class SingleNewComponent{
-  nnew: New;
+  nnew: New= null;
 
     constructor(private _router: Router, private activatedRoute: ActivatedRoute, private service: NewService) {
+      this.nnew;
           let id = activatedRoute.snapshot.params['id'];
         this.service.getNew(id).subscribe(
          nnew => this.nnew = nnew,

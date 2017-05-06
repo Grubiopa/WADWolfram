@@ -11,8 +11,13 @@ export class NewService {
     constructor(private http: Http) { }
 
    getNew(id: number){
+       const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+
+        const options = new RequestOptions({ withCredentials: true, headers });
       let url="https://localhost:8443/api/new/"+(id);
-      return this.http.get(url).map(response => response.json()).catch(error => Observable.throw('Server error'));
+      return this.http.get(url).map(response => response.json(), options).catch(error => Observable.throw('Server error'));
    }
    getNews(){
        const headers = new Headers({

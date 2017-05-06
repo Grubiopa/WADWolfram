@@ -8,8 +8,13 @@ export class ProjectService {
     constructor(private http: Http) { }
 
    getProject(id: number){
+     const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+
+        const options = new RequestOptions({ withCredentials: true, headers });
       let url="https://localhost:8443/api/project/"+(id);
-      return this.http.get(url).map(response => response.json().items).catch(error => Observable.throw('Server error'));
+      return this.http.get(url).map(response => response.json(), options).catch(error => Observable.throw('Server error'));
    }
    getProjects(){
      const headers = new Headers({

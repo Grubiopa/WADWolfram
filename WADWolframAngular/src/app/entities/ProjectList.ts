@@ -9,16 +9,20 @@ import { ProjectService } from '../services/ProjectService';
    styleUrls: ['../app.component.css']
 })
 
-export class ProjectListComponent implements OnInit {
+export class ProjectListComponent {
 
     
-   projects: Project[] = [];
+   projects: Project[];
 
-   constructor(private router: Router, private service: ProjectService){}
-   ngOnInit(){
-      this.service.getProjects().subscribe(
-         projects => this.projects = projects,
-         error => console.log(error)
+  constructor(private ps: ProjectService){
+    this.projects = new Array();
+    this.cogerProyectos();
+  }
+
+  cogerProyectos(){
+    return this.ps.getProjects().subscribe(
+      response=>this.projects = response,
+      error => console.log(error)
       );
-   }
+  }
 }

@@ -36,9 +36,17 @@ export class UserDataPageComponent {
 
   updateUser(name:string,lastname:string,username:string,email:string,pass1:string,pass2:string){
        
+       let realEmail:string = this.user.email;
+       let realUserName:string = this.user.userName;
+       if(email!=""){
+        realEmail=email
+       }
+       if(username!=""){
+         realUserName=username
+       }
     let user2: UserUpdate ={    
-      email:email,
-      username:username,
+      email:realEmail,
+      username:realUserName,
       oldPassword:pass1,
       newPassword:pass2     
     };

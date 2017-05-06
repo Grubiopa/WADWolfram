@@ -79,6 +79,9 @@ export class LoginService {
     getUser(){
         return this.user;
     }
+    setUser(user:UserPersonalData){
+        this.user = user;
+    }
 }
     
 function utf8_to_b64(str) {

@@ -29,7 +29,7 @@
 
                             <div class="inside">
                                 <!--{{#matchpass}}-->
-                                <h5 style="color: red" *ngIf=changes><strong> ¡Atención! Ningún cambio ha sido guardado porque la contraseña era incorrecta </strong></h5> 
+                                <h5 style="color: red" *ngIf=changes><strong> ¡Atención! Ningún cambio ha sido guardado porque ha ocurrido un error </strong></h5> 
                                 <!--{{/matchpass}}-->
                                 <h1>¡Bienvenid@ {{user.userName}}!</h1>
                                
@@ -52,33 +52,33 @@
                                             <div id="data">
                                                 <div>
                                                     <label for="exampleInputEmail1">Nombre</label>
-                                                    <input readonly class="form-control" id="exampleInputEmail1" placeholder="{{user.name}}" name="name">
+                                                    <input #name readonly class="form-control" id="exampleInputEmail1" placeholder="{{user.name}}" name="name">
 
                                                 </div>
                                                 <div>
                                                     <label for="exampleInputEmail1">Apellidos</label>
-                                                    <input readonly class="form-control" id="exampleInputEmail1" name="lastname" placeholder="{{user.lastname}}">
+                                                    <input #lastName readonly class="form-control" id="exampleInputEmail1" name="lastname" placeholder="{{user.lastname}}">
 
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Dirección Email</label>
-                                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="{{user.email}}" name="email">
+                                                    <input #email type="email" class="form-control" id="exampleInputEmail1" placeholder="{{user.email}}" name="email">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Nombre Usuario</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="{{user.userName}}" name="username">
+                                                    <input #userName type="text" class="form-control" id="exampleInputEmail1" placeholder="{{user.userName}}" name="username">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Contraseña Actual</label>
-                                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="oldPassword" required>
+                                                    <input #pass1 type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="oldPassword" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Contraseña Nueva</label>
-                                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña nueva" name="newPassword">
+                                                    <input #pass2 type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña nueva" name="newPassword">
                                                 </div>
 
-                                                <button type="submit" class="btn btn-primary btn-lg">Guardar Cambios</button>
+                                                <button (click)="updateUser(name.value, lastName.value, userName.value,email.value, pass1.value, pass2.value)"type="submit" class="btn btn-primary btn-lg">Guardar Cambios</button>
 
                                             </div>
                                         </div>

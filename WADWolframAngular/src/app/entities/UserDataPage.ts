@@ -3,6 +3,8 @@ import  {  Router,  ActivatedRoute  }  from  '@angular/router';
 import {Http} from '@angular/http';
 import { UserService } from '../services/UserService';
 import {UserPersonalData} from './UserPersonalData';
+import {UserUpdate} from './UserUpdate';
+import {LoginService} from '../services/LoginService';
 
 @Component({
 
@@ -24,7 +26,7 @@ export class UserDataPageComponent {
 
   changes:boolean = false;
   
-  constructor(private router:Router, private users: UserService, private activatedRoute: ActivatedRoute, private http: Http) {
+  constructor(private router:Router,private login:LoginService, private users: UserService, private activatedRoute: ActivatedRoute, private http: Http) {
     this.getUser();
   }
   
@@ -32,10 +34,20 @@ export class UserDataPageComponent {
     this.user = this.users.getPersonalData()
   }
 
-  getUser2(){
-    /* this.users.getPersonalData().subscribe(
-      response=>this.user = response,
-      error => console.log(error)
-    )*/
+  updateUser(name:string,lastname:string,username:string,email:string,pass1:string,pass2:string){
+       
+    let user2: UserUpdate ={    
+      email:email,
+      username:username,
+      oldPassword:pass1,
+      newPassword:pass2     
+    };
+    this.users.updateUser(this.user.id,user2).subscribe(
+      response=>this.login.setUser(response),      
+      error => {
+        console.log(error);
+        this.changes=true
+      });
+    
   }
 }

@@ -71,8 +71,9 @@ public class UserRestController {
 		
 		if (upd != null) {
 			User user = (User) sesion.getAttribute("User");
+			UserPersonalData loggedUser = userComponent.getLoggedUser();
 			UserPersonalData upd2 = users.findOne(id);
-			if (upd2.getId()== user.getUser().getId()){
+			if (upd2.getId()== loggedUser.getId()){
 				if (upd.getEmail()!=null) {
 					upd2.setEmail(upd.getEmail());
 				}
@@ -89,9 +90,9 @@ public class UserRestController {
 				}
 
 				users.save(upd2);
-
+				if(user!=null)
 				user.setUser(upd2);
-						
+				if(user!=null)	
 				sesion.setAttribute("User", user);
 
 				return new ResponseEntity<>(upd2, HttpStatus.OK);

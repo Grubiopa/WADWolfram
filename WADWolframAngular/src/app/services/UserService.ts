@@ -1,6 +1,7 @@
 import {UserProjectComponent} from "../entities/UserProjectsComponent";
 import {UserMovementsComponent} from "../entities/UserMovementsComponent";
 import {UserPersonalData} from "../entities/UserPersonalData";
+import {UserUpdate} from "../entities/UserUpdate"
 import{User} from "../entities/User";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Observable";
@@ -42,9 +43,13 @@ export class UserService{
         }
      }
 
-     updateUser(id:number, userPersonalData:UserPersonalData){
-         let headers = new Headers();
-         return this.http.put("https://localhost:8443/api/user/update/"+id,userPersonalData,{headers:headers})
+     updateUser(id:number, userPersonalData:UserUpdate){
+         const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+
+        const options = new RequestOptions({ withCredentials: true, headers });
+         return this.http.put("https://localhost:8443/api/user/"+id,userPersonalData,options)
              .map(response => response.json())
             .catch(error => this.handleError(error));
      }

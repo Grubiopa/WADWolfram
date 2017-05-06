@@ -29,6 +29,15 @@ export class UserDataPageComponent {
   constructor(private router:Router,private login:LoginService, private users: UserService, private activatedRoute: ActivatedRoute, private http: Http) {
     this.getUser();
   }
+
+  logOut() {
+    this.login.logOut().subscribe(
+      response => {
+          this.router.navigate(['/index']);
+       },
+      error => console.log('Error when trying to log out: ' + error)
+    );
+  }
   
   getUser(){
     this.user = this.users.getPersonalData()

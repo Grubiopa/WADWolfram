@@ -32,15 +32,11 @@ import {Http} from '@angular/http';
   logOut() {
     this.loginService.logOut().subscribe(
       response => { 
-
+          this.router.navigate(['/index']);
        },
       error => console.log('Error when trying to log out: ' + error)
     );
   }
-
-  /*logOut() {
-    this.loginService.logOut();
-  }*/
 
 }
  

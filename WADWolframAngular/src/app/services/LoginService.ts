@@ -76,6 +76,10 @@ export class LoginService {
         return this.isAdmin && this.isLogged;
     }
 
+    getIsLogged(){
+        return this.isLogged;
+    }
+
     getUser(){
         return this.user;
     }

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {LoginService} from './services/LoginService';
 
 @Component({
   	selector: 'public',
@@ -11,7 +13,15 @@ export class PublicComponent {
   
   private menuCollapse: boolean = true;
   private showMenu: boolean = true;
+  private noLogeado: boolean = false;
+  private Logeado: boolean = false;
   
+  
+constructor(private loginService: LoginService, private router: Router) { 
+
+this.isLogeado();
+}
+
   showDropdown(typeMenu: string) {// Método encargado de los dropdowns del navbar
 
     if (typeMenu === "collapse") {
@@ -23,7 +33,14 @@ export class PublicComponent {
       this.showMenu = !this.showMenu;
 
     }
-
+    this.isLogeado();
   }
+
+  isLogeado(){
+    this.Logeado = this.loginService.getIsLogged();
+    this.noLogeado = ! this.loginService.getIsLogged();
+    
+  }
+  
 
 }

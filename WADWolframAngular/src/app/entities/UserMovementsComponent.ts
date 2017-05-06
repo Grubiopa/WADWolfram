@@ -30,6 +30,15 @@ export class UserMovementsComponent{
       this.cargarUserMovimientos();
     }
     
+    logOut() {
+    this.login.logOut().subscribe(
+      response => { 
+          this.router.navigate(['/index']);
+       },
+      error => console.log('Error when trying to log out: ' + error)
+    );
+  }
+
     cargarUserMovimientos(){
       return this.users.getMovements().subscribe(
       response=>this.movimientos = response,

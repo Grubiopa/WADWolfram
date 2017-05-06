@@ -35,6 +35,16 @@ export class UserProjectComponent{
         this.otherProjects = new Array();
         this.loadProjectsUser();
     }
+
+    logOut() {
+    this.login.logOut().subscribe(
+      response => { 
+          this.router.navigate(['/index']);
+       },
+      error => console.log('Error when trying to log out: ' + error)
+    );
+  }
+
     loadProjectsUser(){
       return this.users.getUserProjects().subscribe(
       response=>this.userProjects = response,

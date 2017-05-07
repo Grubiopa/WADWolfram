@@ -60,7 +60,7 @@ export class AddProjectComponent{
         parcialBudget:parcialBudget,
         restBudget:0,
         time:time,
-        opened:opened,
+        opened:true,
         releaseDate:releaseDate,
         startYear:startYear,
         imagen:imagen

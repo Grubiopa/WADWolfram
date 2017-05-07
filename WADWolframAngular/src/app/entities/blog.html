@@ -20,16 +20,16 @@
                                 <li>
                                     <div class="post-image">
                                         <div class="post-heading">
-                                            <h3><a href="/singleNew/{{nnew.id}}">{{nnew.title}}</a></h3>
+                                            <h3><a [routerLink]="['/singleNew', nnew.id]">{{nnew.title}}</a></h3>
                                         </div>
-                                  <a href="/singleNew/{{nnew.id}}"><img src="https://localhost:8443/image/{{nnew.id}}.jpg" alt="Foto de la noticia" class="img-responsive" /></a>
+                                  <a [routerLink]="['/singleNew', nnew.id]"><img src="https://localhost:8443/image/{{nnew.id}}.jpg" alt="Foto de la noticia" class="img-responsive" /></a>
                                     </div>
                                     <div class="bottom-article">
                                         <ul class="meta-post">
                                             <li><i class="fa fa-calendar"></i><!--{{date}}--></li>
                                             <li><i class="fa fa-comments"></i><!--{{number_comments}}--> Comentarios</li>
                                         </ul>
-                                       <a href="/singleNew" class="readmore pull-right">Ir a la noticia <i class="fa fa-angle-right"></i></a>
+                                       <a [routerLink]="['/singleNew', nnew.id]" class="readmore pull-right">Ir a la noticia <i class="fa fa-angle-right"></i></a>
                                     </div>
                                 </li>
 

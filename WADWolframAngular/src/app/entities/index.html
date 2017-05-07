@@ -13,7 +13,7 @@
                                     <div class="flex-caption">
                                         <h3>{{project.title}}</h3>
                                         <p>{{project.shortDescription}}</p>
-                                        <a [routerLink]="['/project/1']" class="btn btn-theme">Leer más</a> 
+                                        <a [routerLink]="['/project', project.id]" class="btn btn-theme">Leer más</a> 
                                     </div>
                                 </li>
                             </ul>
@@ -53,8 +53,8 @@
                                     <ul class="recent">
 
                                         <li *ngFor="let blog of blogs">
-                                            <a href="/singleNew/{{blog.id}}"> <img src="https://localhost:8443/image/little{{blog.id}}.jpg" class="pull-left" alt="Foto de la noticia" /></a>
-                                            <h6><a href="/singleNew/{{blog.id}}">{{blog.title}}</a></h6>
+                                            <a [routerLink]="['/singleNew', blog.id]"> <img src="https://localhost:8443/image/little{{blog.id}}.jpg" class="pull-left" alt="Foto de la noticia" /></a>
+                                            <h6><a [routerLink]="['/singleNew', blog.id]">{{blog.title}}</a></h6>
                                         </li>
                                         
                                     </ul>

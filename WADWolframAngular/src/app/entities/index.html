@@ -37,15 +37,15 @@
                                 <br/>
 
                                 <h4>Colabora con nuestros proyectos</h4> <!--{{#percentages}}-->
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"  aria-valuemin="0" aria-valuemax="100">
-                                        {{title}}: {{percentage}}
+                                <div class="progress" *ngFor="let project of projects" >
+                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"  aria-valuemin="0" aria-valuemax="100" >
+                                        {{project.title}}
                                     </div>
                                 </div>
                                 <!--{{/percentages}}-->
-                                <div class="flex-caption">
-                                    <a [routerLink]="['/projects']" class="btn btn-theme">¡Anímate y participa!</a>
-                                </div>
+                                
+                                    <a [routerLink]="['/projects']" class="btn btn-theme" style=" background: blue; ">¡Anímate y participa!</a>
+                                
                             </div>
                             <div class="col-sm-6 col-lg-6">
                                 <div class="widget" style="margin-left: 120px;">

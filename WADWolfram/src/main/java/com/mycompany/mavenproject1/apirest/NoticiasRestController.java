@@ -126,7 +126,7 @@ public class NoticiasRestController {
     }
 */
     
-    @RequestMapping(value = "/borrarNoticia/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/new/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Noticia> deleteProject(@PathVariable long id, HttpSession sesion) {
         Noticia n=service.deleteNew(id);
         if(n!=null)

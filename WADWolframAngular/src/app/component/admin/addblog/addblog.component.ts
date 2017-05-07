@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import {NewService} from '../../../services/NewService';
+import {New} from '../../../Class/New';
 
 @Component({
   selector: 'app-root',
@@ -20,5 +22,46 @@ import {Router} from '@angular/router';
 })
 
 export class AddBlogComponent{ 
-  constructor(private router: Router){}
+   news: New[];
+
+    constructor(private router: Router, private ns: NewService){
+     this.news = new Array();
+    this.cogerNews();
+  }
+
+  cogerNews(){
+    return this.ns.getNews().subscribe(
+      response=>{
+        console.log(response),
+        this.news = response,
+        console.log(this.news)
+      },
+      error => console.log(error)
+      );
+  }
+  borrarNew(id:number){
+    return this.ns.deleteNew(id).subscribe(
+      response=>{
+          this.router.navigate(['/admin']);
+      },
+      error => console.log(error)
+      );
+  }
+
+
+  newNew(title:string, categoria:string, fecha:Date, imagen:string,  cuerpo:string, confirm:boolean){
+      let nnew: New ={
+        title:title,
+        body:cuerpo,
+        category:categoria,
+        number_comments:0,
+        date:fecha
+      }
+      this.ns.createNew(nnew).subscribe(
+        nnew=>{
+          this.router.navigate(['/admin']);
+        }        
+      );
+    
+  }
 }

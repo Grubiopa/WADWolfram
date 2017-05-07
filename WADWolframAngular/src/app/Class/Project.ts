@@ -1,5 +1,4 @@
 export interface Project{
-	id:number;
 	title:string;
 	shortDescription:string;
 	description:string;
@@ -10,5 +9,5 @@ export interface Project{
 	opened:boolean;
 	releaseDate:Date;
 	startYear:number;
-	image:string;
+	imagen:string;
 }

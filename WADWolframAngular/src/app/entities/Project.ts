@@ -13,8 +13,7 @@ import { ProjectService } from '../services/ProjectService';
 export class ProjectComponent {
    project: Project ={
     description:"cargando",
-    id:1,
-    image:"image",
+    imagen:"image",
     opened:true,
     parcialBudget:0,
     releaseDate : new Date(),

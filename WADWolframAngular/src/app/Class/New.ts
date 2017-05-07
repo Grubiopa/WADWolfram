@@ -1,5 +1,4 @@
 export interface New {
-    id:number;
     title:string;
     body:string;
     category:string;

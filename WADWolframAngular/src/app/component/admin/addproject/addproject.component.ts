@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import {ProjectService} from '../../../services/ProjectService';
+import {Project} from '../../../Class/Project';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,54 @@ import {ProjectService} from '../../../services/ProjectService';
 })
 
 export class AddProjectComponent{ 
-    constructor(private router: Router, private service: ProjectService){}
+    projects: Project[];
+
+    constructor(private router: Router, private ps: ProjectService){
+     this.projects = new Array();
+    this.cogerProyectos();
+  }
+
+  cogerProyectos(){
+    return this.ps.getProjects().subscribe(
+      response=>{
+        console.log(response),
+        this.projects = response,
+        console.log(this.projects)
+      },
+      error => console.log(error)
+      );
+  }
+  borrarProyecto(id:number){
+    return this.ps.deleteProject(id).subscribe(
+      response=>{
+          this.router.navigate(['/admin']);
+      },
+      error => console.log(error)
+      );
+  }
+
+
+  newProject(title:string, releaseDate:Date, totalBudget:number, parcialBudget:number,
+	time:number, startYear:number,imagen:string, shortDescription:string,  description:string, opened:boolean){
+      let project: Project ={
+        title:title,
+        shortDescription:shortDescription,
+        description:description,
+        totalBudget:totalBudget,
+        parcialBudget:parcialBudget,
+        restBudget:0,
+        time:time,
+        opened:opened,
+        releaseDate:releaseDate,
+        startYear:startYear,
+        imagen:imagen
+      }
+      this.ps.createProject(project).subscribe(
+        project=>{
+          this.router.navigate(['/admin']);
+        }        
+      );
+    
+  }
 
 }

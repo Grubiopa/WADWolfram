@@ -28,16 +28,16 @@ export class NewService {
       let url="https://localhost:8443/api/news";
       return this.http.get(url).map(response => response.json(), options).catch(error => Observable.throw('Server error'));
    }
-  /* createNew(new: New){
+  createNew(nnew: New){
       let url="https://localhost:8443/api/new";
-      return this.http.post(url, new).map(response => response.json()).catch(error => Observable.throw('Server error'));
+      return this.http.post(url, nnew).map(response => response.json()).catch(error => Observable.throw('Server error'));
    }
    commentNew(id: number, comment: Comment){
-      let url="https://localhost:8443/api/new/"+(string(id));
+      let url="https://localhost:8443/api/new/"+(id);
       return this.http.put(url, comment).map(response => response.json()).catch(error => Observable.throw('Server error'));
    }
    deleteNew(id: number){
-      let url="https://localhost:8443/api/new/"+(string(id));
+      let url="https://localhost:8443/api/new/"+(id);
       return this.http.delete(url).map(response => response.json()).catch(error => Observable.throw('Server error'));
-   }  */
+   }
 }

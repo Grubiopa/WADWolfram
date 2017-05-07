@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Donation } from '../class/Donation';
+import {Project} from '../Class/Project';
 import 'rxjs/Rx';
 @Injectable()
 export class ProjectService {
@@ -38,5 +39,16 @@ export class ProjectService {
    deleteProject(id: number){
       let url="https://localhost:8443/api/project/"+ (id);
       return this.http.delete(url).map(response => response.json()).catch(error => Observable.throw('Server error'));
+   }
+
+   createProject(project:Project){
+     const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+
+        const options = new RequestOptions({ withCredentials: true, headers });
+     return this.http.post("https://localhost:8443/api/project", project)
+            .map(response => response.json(),options)
+            .catch(error => Observable.throw(error));
    }
 }

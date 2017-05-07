@@ -10,13 +10,12 @@
 							<div class="panel-body">
 								<!-- Ponemos method post al form-->
 								<form class="form-horizontal" role="form"
-									action="/admin/AddBlog/create" method="post"
 									enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="inputEmail3" class="col-sm-2 control-label">Título
 											de la noticia</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="inputEmail3"
+											<input #title type="text" class="form-control" id="inputEmail3"
 												placeholder="Título" name="title">
 											<!--Ponemos en name title (@RP)-->
 										</div>
@@ -27,11 +26,11 @@
 											<select name="categoria" class="form-control "
 												id="expiry-month" required>
 												<option>Categoría</option>
-												<option value="01">Enfermedad</option>
-												<option value="02">Asociación</option>
-												<option value="03">Nuevos descubrimientos</option>
-												<option value="04">Proyectos</option>
-												<option value="05">Próximos eventos</option>
+												<option #categoria value="01">Enfermedad</option>
+												<option #categoria value="02">Asociación</option>
+												<option #categoria value="03">Nuevos descubrimientos</option>
+												<option #categoria value="04">Proyectos</option>
+												<option #categoria value="05">Próximos eventos</option>
 											</select>
 										</div>
 									</div>
@@ -39,7 +38,7 @@
 										<label for="inputEmail3" class="col-sm-2 control-label">Fecha
 											de publicación</label>
 										<div class="col-sm-10">
-											<input type="date" class="form-control" id="inputEmail3"
+											<input #fecha type="date" class="form-control" id="inputEmail3"
 												name="fecha">
 										</div>
 									</div>
@@ -48,7 +47,7 @@
 										<label class="col-md-2 control-label">Imagen de
 											cabecera</label>
 										<div class="col-md-10">
-											<input type="file" class="btn btn-default"
+											<input #imagen type="file" class="btn btn-default"
 												id="exampleInputFile1" name="imagen">
 											<p class="help-block"></p>
 										</div>
@@ -61,7 +60,7 @@
 
 										<div class="col-sm-10">
 
-											<textarea class="form-control" id="ckeditor_standard"
+											<textarea #cuerpo class="form-control" id="ckeditor_standard"
 												placeholder="Cuerpo" rows="9" name="cuerpo"></textarea>
 										</div>
 
@@ -71,7 +70,7 @@
 									<div class="form-group">
 										<div class="col-sm-offset-2 col-sm-10">
 											<div class="checkbox">
-												<label> <input type="checkbox" name="confirm"
+												<label> <input #confirm type="checkbox" name="confirm"
 													required> Confirmar todos los cambios
 												</label>
 											</div>
@@ -79,7 +78,8 @@
 									</div>
 									<div class="form-group">
 										<div class="col-sm-offset-2 col-sm-10">
-											<button type="submit" class="btn btn-primary">Añadir
+											<button (click)="newNew(title.value, categoria.value, fecha.value, imagen.value,
+											 cuerpo.value, confirm.value)" type="submit" class="btn btn-primary">Añadir
 												noticia</button>
 										</div>
 									</div>
@@ -117,17 +117,18 @@
 								</tr>
 							</thead>
 							<tbody data-brackets-id='193'>
-								<tr data-brackets-id='194' class="odd gradeX">
-									<td data-brackets-id='195'>title</td>
-									<td data-brackets-id='196'>date</td>
-									<td data-brackets-id='197'>categoria</td>
-									<td data-brackets-id='198'><form method="post"
-											action="/borrarNoticia?id={{id}}">
-											<button class="btn btn-danger">
+								<tr data-brackets-id='194' class="odd gradeX" *ngFor="let nnew of news">
+									<td data-brackets-id='195'>{{nnew.title}}</td>
+									<td data-brackets-id='196'>{{nnew.date}}</td>
+									<td data-brackets-id='197'>{{nnew.categoria}}</td>
+									<td data-brackets-id='198'>
+										<form>
+											<button class="btn btn-danger" (click)="borrarNew(nnew.id)">
 												<i class="glyphicon glyphicon-remove"></i> Borrar
 											</button>
 											<input type="hidden" name="_csrf" value="{{token}}" />
-										</form></td>
+										</form>
+										</td>
 								</tr>
 
 							</tbody>

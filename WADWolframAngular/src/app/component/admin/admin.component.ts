@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {LoginService} from '../../services/LoginService';
+import  {  Router,  ActivatedRoute  }  from  '@angular/router';
 
 //import {SessionService} from '../../service/session.service';
 //import {UserService} from '../../service/user.service';
@@ -26,6 +28,8 @@ export class AdminComponent {
   private showMenu: boolean = true;
   private showMenu2: boolean = true;
   
+  constructor(private login: LoginService, private router:Router){}
+
   showDropdown(typeMenu: string) {// Método encargado de los dropdowns del navbar
 
     if (typeMenu === "collapse") {
@@ -52,6 +56,15 @@ export class AdminComponent {
 
     }
 
+  }
+
+  logOut() {
+    this.login.logOut().subscribe(
+      response => {
+          this.router.navigate(['/index']);
+       },
+      error => console.log('Error when trying to log out: ' + error)
+    );
   }
 
 }

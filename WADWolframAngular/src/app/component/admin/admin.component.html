@@ -44,7 +44,7 @@
                                     <a [routerLink] class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Mi cuenta <i class="fa fa-angle-down"></i></a>
                                     <ul [ngbCollapse]="showMenu2" class="dropdown-menu">
                                         <li><a [routerLink]="['/admin/profile']" routerLinkActive="active">Perfil</a></li>
-                                        <li><a  (onClick)="logOut()"  routerLinkActive="active">Cerrar sesión</a></li>
+                                        <li><a  (click)="logOut()"  routerLinkActive="active">Cerrar sesión</a></li>
                                     </ul>
                                 </li>
 						</ul>

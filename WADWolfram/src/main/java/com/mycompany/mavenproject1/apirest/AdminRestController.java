@@ -5,6 +5,8 @@
  */
 package com.mycompany.mavenproject1.apirest;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mycompany.mavenproject1.donation.Donation;
 import com.mycompany.mavenproject1.donation.DonationsRepository;
+import com.mycompany.mavenproject1.noticias.NoticiaView;
 import com.mycompany.mavenproject1.noticias.NoticiasRepository;
 import com.mycompany.mavenproject1.project.ProjectRepository;
 import com.mycompany.mavenproject1.user.User;
@@ -94,5 +98,14 @@ public class AdminRestController {
 		}
 			
 	}
+	
+	@RequestMapping(value = "/donation", method = RequestMethod.GET)
+	public ResponseEntity<List<Donation>> Donaciones() {
+        List<Donation> n = movements.findAll();
+        return new ResponseEntity<>(n, HttpStatus.OK);
+       
+    }
+
+
 
 }

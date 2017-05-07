@@ -106,5 +106,9 @@ export class UserService{
         }
 
     }
+
+    getDonMovements(){
+        return this.http.get("https://localhost:8443/api/admin/donation").map(response=>response.json()).catch(error=>this.handleError(error))
+    }
     
 }

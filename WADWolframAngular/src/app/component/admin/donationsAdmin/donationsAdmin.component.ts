@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import {DonMovement} from '../../../Class/DonMovement';
+import {UserService} from '../../../services/UserService';
 @Component({
   selector: 'app-root',
   templateUrl: './donationsAdmin.component.html',
@@ -18,7 +19,21 @@ import { Component } from '@angular/core';
     '../../../../assets/Bootstrap-Admin-Theme/css/styles.css'] 
 })
 
-export class DonationsAdminComponent{ 
-    constructor(){}
+export class DonationsAdminComponent{
+    donations: DonMovement[];
+    constructor(private us: UserService){
+        this.donations = new Array();
+        this.cargarDonaciones();
+    }
+    cargarDonaciones(){
+        this.us.getDonMovements().subscribe(
+            response => {
+                this.donations = response;
+            }, error => {
+                error = console.log(error);
+            }
+             
+        );
+    }
 
 }

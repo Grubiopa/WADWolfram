@@ -3,6 +3,7 @@ package com.mycompany.mavenproject1.apirest;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +30,9 @@ import com.mycompany.mavenproject1.project.ProjectService;
 import com.mycompany.mavenproject1.project.Project.Basico;
 import com.mycompany.mavenproject1.project.Project.Donaciones;
 import com.mycompany.mavenproject1.user.User;
+import com.mycompany.mavenproject1.user.UserComponent;
+import com.mycompany.mavenproject1.user.UserPersonalData;
+import com.mycompany.mavenproject1.user.UserPersonalDataRepository;
 
 @RestController
 @RequestMapping(value = "/api")
@@ -36,9 +40,12 @@ public class ProjectRestController {
 
 	@Autowired
 	private ProjectService service;
-
+	@Autowired
+	private UserComponent userComponent;
 	// private static final String FILES_FOLDER_PROJECTS = "files";
-
+	@Autowired
+	private UserPersonalDataRepository users;
+	
 	interface ProyectoDetalle extends Project.Basico, Project.Donaciones, Donation.Basico {
 	}
 
@@ -54,9 +61,9 @@ public class ProjectRestController {
 
 	@JsonView(Project.Basico.class)
 	@RequestMapping(value = "/projects", method = RequestMethod.GET)
-	public List<Project> viewAllProjects() {
-		List<Project> l = service.viewAllProjects();
-		return l;
+	public ResponseEntity<ArrayList<Project>> viewAllProjects() {
+		ArrayList<Project> l = (ArrayList<Project>) service.viewAllProjects();
+		return new ResponseEntity<>(l, HttpStatus.OK);
 	}
 
 	@JsonView(ProyectoDetalle.class)
@@ -74,10 +81,12 @@ public class ProjectRestController {
 	@RequestMapping(value = "/project/{projectId}", method = RequestMethod.PUT)
 	public ResponseEntity<Project> donate(@PathVariable long projectId, HttpSession sesion, @RequestBody UserMovement m) {
 		Date date = new Date();
-		User s = (User) sesion.getAttribute("User");
+		
+		UserPersonalData loggedUser = userComponent.getLoggedUser();
 		Project p = service.viewProject(projectId);
-		Donation d = new Donation(s.getUser(), p, m.getMoney(), date);
-		service.donate(projectId, s, d);
+		Donation d = new Donation(loggedUser, p, m.getMoney(), date);
+		
+		service.donate(projectId, d);
 		p = service.viewProject(projectId);
 		if (p != null)
 			return new ResponseEntity<>(p, HttpStatus.OK);

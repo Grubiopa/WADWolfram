@@ -23,7 +23,9 @@ export class ProjectService {
 
         const options = new RequestOptions({ withCredentials: true, headers });
       let url="https://localhost:8443/api/projects";
-      return this.http.get(url).map(response => response.json(), options).catch(error => Observable.throw('Server error'));
+      return this.http.get(url)
+      .map(response => response.json())
+      .catch(error => Observable.throw('Server error'));
    }
  /*  createProject(project: Project){
       let url="https://localhost:8443/api/project";

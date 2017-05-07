@@ -17,7 +17,6 @@ import {BlogComponent} from './entities/Blog';
 import {SingleNewComponent} from './entities/SingleNew';
 import {ProjectListComponent} from './entities/ProjectList';
 import {ProjectComponent} from './entities/Project';
-import {DonationComponent} from './entities/Donation';
 import {UserDataPageComponent} from './entities/UserDataPage';
 import {UserProjectComponent} from './entities/UserProjectsComponent';
 import {UserMovementsComponent} from './entities/UserMovementsComponent';
@@ -31,13 +30,14 @@ import { AddProjectComponent } from './component/admin/addproject/addproject.com
 import { AddBlogComponent } from './component/admin/addblog/addblog.component';
 import { DonationsAdminComponent } from './component/admin/donationsAdmin/donationsAdmin.component';
 import { ProfileComponent } from './component/admin/profile/profile.component';
-
+import {PayComponent} from './entities/pay';
 import { PublicComponent } from './public.component';
 
 @NgModule({
   declarations: [
-    AppComponent, IndexComponent, AboutComponent, BlogComponent, SingleNewComponent, ProjectListComponent, ProjectComponent, RegisterComponet, LoginComponent, DonationComponent, UserDataPageComponent,
-    UserProjectComponent, UserMovementsComponent, ContactComponent, PublicComponent, AdminComponent, IndexAdminComponent, AddBlogComponent, AddProjectComponent, DonationsAdminComponent, ProfileComponent
+    AppComponent, IndexComponent, AboutComponent, BlogComponent, SingleNewComponent, ProjectListComponent, ProjectComponent, RegisterComponet, LoginComponent,  UserDataPageComponent,
+    UserProjectComponent, UserMovementsComponent, ContactComponent, PublicComponent, AdminComponent, IndexAdminComponent, AddBlogComponent, AddProjectComponent, DonationsAdminComponent, ProfileComponent,
+    PayComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpModule, JsonpModule, NgbModule.forRoot(), routing

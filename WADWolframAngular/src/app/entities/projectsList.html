@@ -12,6 +12,7 @@
         </section>
       <div class="col-lg-12">
          <h4 class="heading">Nuestros proyectos</h4>
+        
          <div id="filters-container" class="cbp-l-filters-button">
             <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">Todos
                <div class="cbp-filter-counter"></div>
@@ -29,28 +30,39 @@
                <div class="cbp-filter-counter"></div>
             </div>
          </div>
+          <ul >
+               <li  *ngFor="let project of projects">
+                   <div>                         
+                       <img src="https://localhost:8443/imagep/{{project.id}}.jpg" alt="foto del proyecto" />   
+                  </div>
+                  <div><a [routerLink]="['/project/',project.id]">Leer más</a></div>
+                  <div> {{project.title}}</div>
+                  <div> Fecha lanzamiento: {{project.releaseDate}}</div>  
+               </li>
+        </ul><!--
          <div id="grid-container" class="cbp-l-grid-projects">
-            <ul>
-               <li *ngFor="let project of projects">
-                  <div class="cbp-caption">
-                     <div class="cbp-caption-defaultWrap">
+            <ul >
+               <li  *ngFor="let project of projects">  
+                 <div class="cbp-caption">                      
+                     <div>                         
                        <img src="https://localhost:8443/imagep/{{project.id}}.jpg" alt="foto del proyecto" />   
                      </div>
-                     <div class="cbp-caption-activeWrap">
+                     <div >
                         <div class="cbp-l-caption-alignCenter">
                            <div class="cbp-l-caption-body">
-                              <a href="/project/{{project.id}}" class="cbp-l-caption-buttonRight" data-title="ProyectoFecha lanzamiento">Leer más</a>
-                           </div>
+                              <a [routerLink]="['/project/'{{project.id}}]" class="cbp-l-caption-buttonRight" data-title="ProyectoFecha lanzamiento">Leer más</a>!-->
+                           <!--</div>
                         </div>
                      </div>
                   </div>
-                  <div class="cbp-l-grid-projects-title">{{project.title}}</div>
-                  <div class="cbp-l-grid-projects-desc">Fecha lanzamiento: {{project.releaseDate}}</div>
+                  <div>{{project.title}}aaaaaa</div>
+                  <div>Fecha lanzamiento: {{project.releaseDate}}aaa</div>
               </li>
             </ul>
-         </div>
+         </div>-->
          <div class="cbp-l-loadMore-button">
-         <!--  <a href="ajax/loadMore.html" class="cbp-l-loadMore-button-link">Cargar más</a> -->
-            <a href="#" class="cbp-l-loadMore-button-link">Cargar más</a>
+         <!--  <a [routerLink]="ajax/loadMore.html" class="cbp-l-loadMore-button-link">Cargar más</a> -->
+           
+            <!--<a [routerLink]=['/projects'] class="cbp-l-loadMore-button-link">Cargar más</a>-->
          </div>
       </div>

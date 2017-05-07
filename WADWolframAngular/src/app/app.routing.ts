@@ -23,6 +23,7 @@ import { ProjectComponent } from './entities/Project';
 import { UserDataPageComponent } from './entities/UserDataPage';
 import { UserProjectComponent } from './entities/UserProjectsComponent';
 import { UserMovementsComponent } from './entities/UserMovementsComponent';
+import {PayComponent} from './entities/pay'
 /*
 export const  routing : Routes = [
     {path: 'userData', component: UserDataPageComponent },
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
             {path: 'singleNew/:id', component: SingleNewComponent},
             {path: 'projects', component: ProjectListComponent},
             {path: 'project/:id', component: ProjectComponent},
+            {path: 'pay/:id', component: PayComponent}
         ]
     },
 

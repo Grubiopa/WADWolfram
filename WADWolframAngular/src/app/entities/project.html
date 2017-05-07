@@ -28,14 +28,13 @@
                   <div id="information">
                      <p class="text-justify">{{project.description}} </p>
                   </div>
-                  <form method="post" action="/pay?projectId={{id}}">
-                     <button type="submit" class="btn btn-primary btn-lg "> ¡Participa!</button>
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                  </form>
+                  
+                     <button (click)="redirigir()" type="submit" class="btn btn-primary btn-lg "> ¡Participa!</button>                  
+                
                </div>
             </div>
             <div class="row">
-               <table class="table table-bordered table-striped" *ngIf="opened">
+               <table class="table table-bordered table-striped" *ngIf="project.opened">
                   <tbody>
                      <tr>
                         <th>Presupuesto total</th>

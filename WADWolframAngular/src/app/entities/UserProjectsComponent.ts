@@ -34,6 +34,7 @@ export class UserProjectComponent{
         this.userProjects = new Array();
         this.otherProjects = new Array();
         this.loadProjectsUser();
+        this.loadOtherProjects();
     }
 
     logOut() {

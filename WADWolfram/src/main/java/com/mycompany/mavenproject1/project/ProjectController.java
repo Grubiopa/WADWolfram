@@ -85,7 +85,7 @@ public class ProjectController {
 		Project p = service.viewProject(projectId);
 		Date date = new Date();
 		Donation d = new Donation(s.getUser(), p, money, date);
-		service.donate(projectId, s, d);
+		service.donate(projectId, d);
 		List<Project> l = service.viewAllProjects();
 
 		model.addAttribute("projects", l);

@@ -44,7 +44,7 @@ public class ProjectService {
 		return p;
 	}
 
-	public Project donate(long projectId, User u, Donation d) {
+	public Project donate(long projectId, Donation d) {
 		Project p = projects.findOne(projectId);
 		if (p != null) {
 			movements.save(d);

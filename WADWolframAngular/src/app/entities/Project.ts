@@ -11,15 +11,34 @@ import { ProjectService } from '../services/ProjectService';
 })
 
 export class ProjectComponent {
-   project: Project;
+   project: Project ={
+    description:"cargando",
+    id:1,
+    image:"image",
+    opened:true,
+    parcialBudget:0,
+    releaseDate : new Date(),
+    restBudget:0,
+    shortDescription:"cargando",
+    startYear:2017,
+    time:0,
+    title:"cargando",
+    totalBudget:0
+    };
 
+    id:number
    constructor(private router: Router, activatedRoute: ActivatedRoute, private service: ProjectService){
-      let id = activatedRoute.snapshot.params['id'];
-      if(id){
-      service.getProject(id).subscribe(
+     this.id = activatedRoute.snapshot.params['id'];
+      this.loadProject(this.id);
+   }
+ loadProject(id:number){
+     console.log(id);
+     return this.service.getProject(id).subscribe(
          project => this.project = project,
          error => console.error(error)
       );
-      }
-   }
+ }
+ redirigir(){
+     this.router.navigate(['/pay',this.id]);
+ }
 }

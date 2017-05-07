@@ -45,7 +45,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	private static final String FILES_FOLDER_USERS = "filesUsers";
+	private static final String FILES_FOLDER_USERS = "src/main/resources/static/img/filesUsers";
 
 	@RequestMapping(value = "/users/update/{id}", method = RequestMethod.POST)
 	public String updateDB(Model m, HttpSession sesion, @RequestParam MultipartFile imagen, @RequestParam String email,

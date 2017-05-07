@@ -1,4 +1,4 @@
-﻿package com.mycompany.mavenproject1.apirest;
+package com.mycompany.mavenproject1.apirest;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -136,3 +136,4 @@ public class NoticiasRestController {
         
     }
 }
+

@@ -1,4 +1,4 @@
-﻿package com.mycompany.mavenproject1.noticias;
+package com.mycompany.mavenproject1.noticias;
 
 import java.util.Date;
 import java.util.List;

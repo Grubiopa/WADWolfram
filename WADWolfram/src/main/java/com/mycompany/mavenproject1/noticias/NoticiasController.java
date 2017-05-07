@@ -35,7 +35,7 @@ public class NoticiasController {
     @Autowired
     private CommentClassRepository coments;
     
-    private static final String FILES_FOLDER = "src/main/resources/static/img/fileFolderNews";
+    private static final String FILES_FOLDER = "fileFolderNews";
 
     @RequestMapping(value = "/mostrarPorCategoria", method = RequestMethod.GET)
     public String mostrarPorCategoria(Model model, @RequestParam String categoria) {

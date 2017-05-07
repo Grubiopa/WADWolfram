@@ -30,7 +30,7 @@ public class ProjectController {
 	private ProjectService service;
 	
 
-	private static final String FILES_FOLDER_PROJECTS = "src/main/resources/static/img/files";
+	private static final String FILES_FOLDER_PROJECTS = "files";
 
 	@RequestMapping("/project")
 	public String viewProject(Model model, @RequestParam long id) {

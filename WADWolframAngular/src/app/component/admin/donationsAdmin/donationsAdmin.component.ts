@@ -23,7 +23,7 @@ export class DonationsAdminComponent{
     donations: DonMovement[];
     constructor(private us: UserService){
         this.donations = new Array();
-        this.cargarDonaciones();
+        //this.cargarDonaciones();
     }
     cargarDonaciones(){
         this.us.getDonMovements().subscribe(

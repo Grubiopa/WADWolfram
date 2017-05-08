@@ -301,3 +301,13 @@ Se destaca que, en caso de que la petición no se resuelva con éxito, se devolv
 | /api/admin | POST | {</br>"name": "tono",</br>"lastname": "P",</br>"email": "a@a.a",</br>"userName": "tono94",</br>"passwordHash": "wwww",</br>"roles": ["ROLE_ADMIN"]</br>} | {</br>"id":3,</br>"name":"tono",</br>"lastname":"P",</br>"email":"a@a.a",</br>"userName":"tono94",</br>"passwordHash":"$2a$10$5jG</br>yhL0M1U.LOmpz.Sqe</br>ou5qyFCWjt1/PTeS</br>7S6z0xSqLlLKEiWgK",</br>"roles":["ROLE_ADMIN"]</br>} | 200 (OK)| 
 | /api/admin/{id} |PUT|{</br>"email":"g.tu@gabon.g",</br>"oldPassword":"aaaa",</br>"newPassword":"bbbb"</br>}|{</br>"id":1,</br>"name":"Gabi",</br>"lastname":"R",</br>"email":"g.tu@yg.gru",</br>"userName":"gabi0794",</br>"passwordHash":"$2a$10$bjUn</br>e4ReImNBzo7w1D.tD.uab</br>an9XkwrsMxOMDrt</br>Z8TEK2PjkmewC",</br>"roles":["ROLE_ADMIN"]</br>} |200 (OK)| 
 
+
+
+## Fase 5
+
+### Diagrama de clases SPA
+![alt tag](https://github.com/Grubiopa/WADWolfram/blob/master/imagenes/Diagramas/diagrama_clases_spa.png)
+
+### URL a video en youtube
+
+

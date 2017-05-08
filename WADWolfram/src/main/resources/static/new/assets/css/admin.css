@@ -1,0 +1,19 @@
+#boton_nuevo_cs {
+	width:100%;
+	background-color:white;
+	font: italic;
+	font-size:small;
+	font-size-adjust:inherit;
+	color: gray;
+}
+.href-btn{
+	text-align: center;
+	color: gray;
+	font: bold;
+}
+.btn{
+	background-color: white;
+    color: gray;
+    font-weight: 400;
+}
+	

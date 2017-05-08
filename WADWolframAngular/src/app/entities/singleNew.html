@@ -15,13 +15,13 @@
 		<section id="content">
 			<div class="container">
 				<div class="row">
-					<div *ngIf="plan !== undefined " class="col-lg-8">
+					<div  class="col-lg-8">
 						<article id="sindromeWolfram">
 							<div class="post-image">
 								<div class="post-heading">
 									<h3><a>{{nnew.title}}</a></h3>
 								</div>
-								<img src="https://localhost:8443/image/{{nnew.id}}.jpg" alt="Foto de la noticia"
+								<img src="https://localhost:8443/image/{{id}}.jpg" alt="Foto de la noticia"
 									class="img-responsive" />
 							</div>
 							{{nnew.body}}
@@ -34,12 +34,12 @@
 								</ul>
 
 
-						<!--		<br> <br> {{#lcomentarios}}-->
-								<div class="well">
-									<!--<p>{{.}}</p>-->
+<br> <br> 
+								<div *ngFor="let comentarios of commentarioos" class="well">
+									<p>{{comentarios}}</p>
 
 								</div>
-								<!--<br> {{/lcomentarios}}-->
+								<br> 
 
 
 
@@ -52,17 +52,17 @@
 						<div class="marginbot30"></div>
 						<h4>Deja tu comentario</h4>
 					<!--	{{#logeado}}-->
-						<h5 style="color: red">
+						<h5 *ngIf="Logeado" style="color: red">
 							<strong> ¡Debes iniciar sesión para poder comentar! </strong>
 						</h5>
-						<br> <br> <a href="/login">Inicia sesión</a>
+						<br> <br> <a *ngIf="Logueado" [routerLink]= "['/login']">Inicia sesión</a>
 					<!--	{{/logeado}} {{#logeado2}}-->
-						<form role="form" action="/comment/upload/{{id}}" method="post">
+						<form *ngIf="noLogeado" role="form" action="/comment/upload/{{id}}" method="post">
 							<div class="form-group">
-								<textarea class="form-control" rows="8"
+								<textarea #comentarios class="form-control" rows="8"
 									placeholder="Comenta aquí" name="comentarios"></textarea>
 							</div>
-							<button type="submit" class="btn btn-theme btn-md">Comentar</button>
+							<button (click)="comentar(comentarios.value)" type="submit" class="btn btn-theme btn-md">Comentar</button>
 							<input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
 					<!--	{{/logeado2}}-->

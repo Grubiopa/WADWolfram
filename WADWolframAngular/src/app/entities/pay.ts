@@ -39,6 +39,7 @@ export class PayComponent {
   donate(money:number){
       let donat= new Donation(money,this.id)
       return this.projectService.donateProject(donat).subscribe(
+        response=>{this.router.navigate(['/project',this.id]);},
            error => console.log(error)
       ) 
   }

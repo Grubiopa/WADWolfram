@@ -33,7 +33,10 @@
           <ul >
                <li  *ngFor="let project of projects">
                    <div>                         
-                       <img src="https://localhost:8443/imagep/{{project.id}}.jpg" alt="foto del proyecto" />   
+                       <img style="
+    width: 800px;
+    height: 500px
+" src="https://localhost:8443/imagep/{{project.id}}.jpg" alt="foto del proyecto" />   
                   </div>
                   <div><a [routerLink]="['/project/',project.id]">Leer más</a></div>
                   <div> {{project.title}}</div>

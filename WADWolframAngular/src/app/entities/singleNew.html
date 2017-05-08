@@ -62,7 +62,8 @@
 								<textarea #comentarios class="form-control" rows="8"
 									placeholder="Comenta aquí" name="comentarios"></textarea>
 							</div>
-							<button (click)="comentar(comentarios.value)" type="submit" class="btn btn-theme btn-md">Comentar</button>
+							<button (click)="comentar(comentarios.value)" type="submit" class="btn btn-theme btn-md" style="color: #d3e2d1;
+    background-color: #d9232d">Comentar</button>
 							<input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
 					<!--	{{/logeado2}}-->
